@@ -1,0 +1,15 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP 74LVTH162541
+D 3.3v 16-bit buffer/driver with 3-state outputs
+$ENDCMP
+#
+$CMP 74LVTH16374
+D 3.3v 16-bit edge triggered D-type flip-flops with 3-state outputs
+$ENDCMP
+#
+$CMP dual-pcie-cardedge
+D Dual 98-pin PCI Express card edge
+$ENDCMP
+#
+#End Doc Library
