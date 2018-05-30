@@ -1,12 +1,12 @@
 G04 #@! TF.GenerationSoftware,KiCad,Pcbnew,(5.0.0-rc2-35-gda6600525)*
-G04 #@! TF.CreationDate,2018-05-30T11:12:42-07:00*
+G04 #@! TF.CreationDate,2018-05-30T11:44:02-07:00*
 G04 #@! TF.ProjectId,ram-based-register-card,72616D2D62617365642D726567697374,rev?*
 G04 #@! TF.SameCoordinates,Original*
 G04 #@! TF.FileFunction,Soldermask,Top*
 G04 #@! TF.FilePolarity,Negative*
 %FSLAX46Y46*%
 G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
-G04 Created by KiCad (PCBNEW (5.0.0-rc2-35-gda6600525)) date 05/30/18 11:12:42*
+G04 Created by KiCad (PCBNEW (5.0.0-rc2-35-gda6600525)) date 05/30/18 11:44:02*
 %MOMM*%
 %LPD*%
 G01*
