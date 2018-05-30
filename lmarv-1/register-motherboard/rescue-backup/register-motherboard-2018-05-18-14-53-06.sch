@@ -1,6 +1,36 @@
-EESchema Schematic File Version 4
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:lmarv
 LIBS:register-motherboard-cache
-EELAYER 26 0
+EELAYER 25 0
 EELAYER END
 $Descr A0 46811 33110
 encoding utf-8
@@ -15,7 +45,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L lmarv:dual-pcie-cardedge PR1
+L dual-pcie-cardedge PR1
 U 1 1 5A5CE592
 P 1950 5375
 F 0 "PR1" H 1600 9325 60  0000 C CNN
@@ -267,7 +297,7 @@ NoConn ~ 2550 8975
 NoConn ~ 2550 9075
 NoConn ~ 2550 9175
 $Comp
-L power:VCC #PWR01
+L VCC #PWR01
 U 1 1 5A5CF070
 P 1950 1200
 F 0 "#PWR01" H 1950 1050 50  0001 C CNN
@@ -278,7 +308,7 @@ F 3 "" H 1950 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR02
+L GNDREF #PWR02
 U 1 1 5A5CF138
 P 1950 9475
 F 0 "#PWR02" H 1950 9225 50  0001 C CNN
@@ -481,7 +511,7 @@ Entry Wire Line
 Entry Wire Line
 	900  4675 800  4575
 $Comp
-L lmarv:dual-pcie-cardedge PR2
+L dual-pcie-cardedge PR2
 U 1 1 5A5CF70F
 P 4700 5375
 F 0 "PR2" H 4350 9325 60  0000 C CNN
@@ -669,7 +699,7 @@ NoConn ~ 5300 8975
 NoConn ~ 5300 9075
 NoConn ~ 5300 9175
 $Comp
-L power:VCC #PWR03
+L VCC #PWR03
 U 1 1 5A5CF806
 P 4700 1200
 F 0 "#PWR03" H 4700 1050 50  0001 C CNN
@@ -680,7 +710,7 @@ F 3 "" H 4700 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR04
+L GNDREF #PWR04
 U 1 1 5A5CF80D
 P 4700 9475
 F 0 "#PWR04" H 4700 9225 50  0001 C CNN
@@ -882,6 +912,28 @@ Entry Wire Line
 	3650 4575 3550 4475
 Entry Wire Line
 	3650 4675 3550 4575
+$Comp
+L 74LS139 U8
+U 2 1 5A5D082C
+P 4875 16650
+F 0 "U8" H 4875 16750 50  0000 C CNN
+F 1 "74LVC139" H 4875 16550 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" H 4875 16650 50  0001 C CNN
+F 3 "" H 4875 16650 50  0000 C CNN
+	2    4875 16650
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 74LS139 U9
+U 1 1 5A5D08C4
+P 6275 16650
+F 0 "U9" H 6275 16750 50  0000 C CNN
+F 1 "74LVC139" H 6275 16550 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" H 6275 16650 50  0001 C CNN
+F 3 "" H 6275 16650 50  0000 C CNN
+	1    6275 16650
+	0    -1   -1   0   
+$EndComp
 Text Label 5200 14325 1    60   ~ 0
 rs1sel[0]
 Text Label 5300 14325 1    60   ~ 0
@@ -894,12 +946,12 @@ Text Label 4200 14325 1    60   ~ 0
 rs2sel[1]
 Text Label 4300 14325 1    60   ~ 0
 rs2sel[2]
-Text Notes 5825 13350 2    60   ~ 0
-~RS1OE[0-7]
-Text Notes 4725 13350 2    60   ~ 0
-~RS2OE[0-7]
+Text Notes 5675 13350 2    60   ~ 0
+~RS1OE
+Text Notes 4600 13350 2    60   ~ 0
+~RS2OE
 $Comp
-L register-motherboard-rescue:74LS138-RESCUE-register-motherboard U7
+L 74LS138 U7
 U 1 1 5A5CFD8B
 P 5550 13300
 F 0 "U7" H 5650 13800 50  0000 C CNN
@@ -910,7 +962,7 @@ F 3 "" H 5550 13300 50  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L register-motherboard-rescue:74LS138-RESCUE-register-motherboard U6
+L 74LS138 U6
 U 1 1 5A5CFCEB
 P 4450 13300
 F 0 "U6" H 4550 13800 50  0000 C CNN
@@ -932,8 +984,24 @@ Entry Wire Line
 	5200 14625 5300 14525
 Entry Wire Line
 	5100 14625 5200 14525
+Text Label 4625 17925 1    60   ~ 0
+rs2sel[4]
+Text Label 4775 17925 1    60   ~ 0
+rs2sel[3]
+Entry Wire Line
+	4675 18050 4775 17950
+Entry Wire Line
+	4525 18050 4625 17950
+Text Label 6025 17925 1    60   ~ 0
+rs1sel[4]
+Text Label 6175 17925 1    60   ~ 0
+rs1sel[3]
+Entry Wire Line
+	6075 18050 6175 17950
+Entry Wire Line
+	5925 18050 6025 17950
 $Comp
-L register-motherboard-rescue:74LS138-RESCUE-register-motherboard U5
+L 74LS138 U5
 U 1 1 5A5D3BA9
 P 2775 13300
 F 0 "U5" H 2875 13800 50  0000 C CNN
@@ -943,8 +1011,30 @@ F 3 "" H 2775 13300 50  0000 C CNN
 	1    2775 13300
 	0    -1   -1   0   
 $EndComp
-Text Notes 3050 13350 2    60   ~ 0
-~RDCLK[0-7]
+Text Notes 2900 13350 2    60   ~ 0
+~RDCLK
+$Comp
+L 74LS02 U3
+U 1 1 5A5D4598
+P 1050 9025
+F 0 "U3" H 1050 9075 50  0000 C CNN
+F 1 "74LVC02" H 1100 8975 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 1050 9025 50  0001 C CNN
+F 3 "" H 1050 9025 50  0000 C CNN
+	1    1050 9025
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 74LS02 U3
+U 2 1 5A5D46F7
+P 3800 9025
+F 0 "U3" H 3800 9075 50  0000 C CNN
+F 1 "74LVC02" H 3850 8975 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 3800 9025 50  0001 C CNN
+F 3 "" H 3800 9025 50  0000 C CNN
+	2    3800 9025
+	0    -1   -1   0   
+$EndComp
 Text Label 575  12225 0    60   ~ 0
 ~RDCLK
 Text Label 2525 11875 1    50   ~ 0
@@ -952,11 +1042,37 @@ Text Label 2525 11875 1    50   ~ 0
 Text Label 2625 11875 1    50   ~ 0
 ~RDCLKEN[2]
 Text Label 1050 8300 1    60   ~ 0
-RDCLK[0]
-Text Label 3800 8300 1    60   ~ 0
 RDCLK[1]
+Text Label 3800 8300 1    60   ~ 0
+RDCLK[2]
+Text Label 4575 15250 1    60   ~ 0
+~rs2en0-7
+Text Label 5975 15250 1    60   ~ 0
+~rs1en0-7
 $Comp
-L power:VCC #PWR07
+L GNDREF #PWR05
+U 1 1 5A5D627E
+P 4700 14150
+F 0 "#PWR05" H 4700 13900 50  0001 C CNN
+F 1 "GNDREF" H 4700 14000 50  0001 C CNN
+F 2 "" H 4700 14150 50  0000 C CNN
+F 3 "" H 4700 14150 50  0000 C CNN
+	1    4700 14150
+	1    0    0    -1  
+$EndComp
+$Comp
+L GNDREF #PWR06
+U 1 1 5A5D64CF
+P 5800 14150
+F 0 "#PWR06" H 5800 13900 50  0001 C CNN
+F 1 "GNDREF" H 5800 14000 50  0001 C CNN
+F 2 "" H 5800 14150 50  0000 C CNN
+F 3 "" H 5800 14150 50  0000 C CNN
+	1    5800 14150
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR07
 U 1 1 5A5D65EF
 P 4425 13875
 F 0 "#PWR07" H 4425 13725 50  0001 C CNN
@@ -967,7 +1083,7 @@ F 3 "" H 4425 13875 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:VCC #PWR08
+L VCC #PWR08
 U 1 1 5A5D6984
 P 5525 13875
 F 0 "#PWR08" H 5525 13725 50  0001 C CNN
@@ -1172,6 +1288,14 @@ Wire Wire Line
 Wire Wire Line
 	1950 1200 1950 1275
 Wire Wire Line
+	1950 9475 1950 9475
+Wire Bus Line
+	3100 925  3100 4675
+Wire Bus Line
+	800  750  800  4675
+Wire Bus Line
+	3100 5475 3100 9750
+Wire Wire Line
 	5300 1675 5750 1675
 Wire Wire Line
 	5300 1775 5750 1775
@@ -1301,6 +1425,14 @@ Wire Wire Line
 	5300 1575 5750 1575
 Wire Wire Line
 	4700 1200 4700 1275
+Wire Wire Line
+	4700 9475 4700 9475
+Wire Bus Line
+	5850 925  5850 4675
+Wire Bus Line
+	3550 750  3550 4675
+Wire Bus Line
+	5850 5475 5850 9750
 Wire Bus Line
 	3100 925  11425 925 
 Wire Bus Line
@@ -1333,6 +1465,38 @@ Wire Wire Line
 	4200 13900 4200 14350
 Wire Wire Line
 	4300 13900 4300 14350
+Wire Bus Line
+	3475 14450 20975 14450
+Wire Bus Line
+	3250 14625 22375 14625
+Wire Wire Line
+	4625 17500 4625 17950
+Wire Wire Line
+	4775 17500 4775 17950
+Wire Wire Line
+	6025 17500 6025 17950
+Wire Wire Line
+	6175 17500 6175 17950
+Wire Bus Line
+	4325 18050 4775 18050
+Wire Bus Line
+	4325 14450 4325 18050
+Wire Bus Line
+	5725 18050 6175 18050
+Wire Bus Line
+	5725 14625 5725 18050
+Wire Wire Line
+	4575 15800 4575 14375
+Wire Wire Line
+	4575 14375 4800 14375
+Wire Wire Line
+	4800 14375 4800 13900
+Wire Wire Line
+	5975 15800 5975 14375
+Wire Wire Line
+	5975 14375 5900 14375
+Wire Wire Line
+	5900 14375 5900 13900
 Wire Wire Line
 	2625 12700 2625 10675
 Wire Wire Line
@@ -1344,16 +1508,22 @@ Wire Wire Line
 Wire Wire Line
 	3700 12225 3700 9625
 Wire Wire Line
-	550  12225 950  12225
+	550  12225 43375 12225
 Wire Wire Line
 	950  9625 950  12225
 Connection ~ 950  12225
+Wire Wire Line
+	1050 8425 1050 4775
 Wire Wire Line
 	1050 4775 1350 4775
 Wire Wire Line
 	3800 8425 3800 4775
 Wire Wire Line
 	3800 4775 4100 4775
+Wire Wire Line
+	4700 13900 4700 14150
+Wire Wire Line
+	5800 13900 5800 14150
 Wire Wire Line
 	4425 13875 4425 13950
 Wire Wire Line
@@ -1366,12 +1536,24 @@ Wire Wire Line
 	5525 13950 5700 13950
 Wire Wire Line
 	5700 13950 5700 13900
+Wire Wire Line
+	5125 17500 5125 18225
+Wire Wire Line
+	5125 18225 3825 18225
+Text Label 3900 18225 0    60   ~ 0
+~rs2selen
+Wire Wire Line
+	6525 17500 6525 18375
+Wire Wire Line
+	6525 18375 3825 18375
+Text Label 3900 18375 0    60   ~ 0
+~rs1selen
 Text Label 2425 14200 1    60   ~ 0
 rdsel[0]
 Text Label 2525 14200 1    60   ~ 0
-rdsel[1]
+resel[1]
 Text Label 2625 14200 1    60   ~ 0
-rdsel[2]
+resel[2]
 Entry Wire Line
 	2525 14750 2625 14650
 Entry Wire Line
@@ -1384,8 +1566,43 @@ Wire Wire Line
 	2525 13900 2525 14650
 Wire Wire Line
 	2625 13900 2625 14650
+Wire Bus Line
+	-825 14750 19300 14750
 $Comp
-L power:VCC #PWR09
+L 74LS139 U8
+U 1 1 5A5D7D9D
+P 3325 16650
+F 0 "U8" H 3325 16750 50  0000 C CNN
+F 1 "74LVC139" H 3325 16550 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" H 3325 16650 50  0001 C CNN
+F 3 "" H 3325 16650 50  0000 C CNN
+	1    3325 16650
+	0    -1   -1   0   
+$EndComp
+Text Label 3075 17925 1    60   ~ 0
+rdsel[4]
+Text Label 3225 17925 1    60   ~ 0
+rdsel[3]
+Entry Wire Line
+	3125 18050 3225 17950
+Entry Wire Line
+	2975 18050 3075 17950
+Wire Wire Line
+	3075 17500 3075 17950
+Wire Wire Line
+	3225 17500 3225 17950
+Wire Bus Line
+	2650 18050 3225 18050
+Wire Bus Line
+	2650 14750 2650 18050
+Wire Wire Line
+	3575 17500 3575 18550
+Wire Wire Line
+	3575 18550 2600 18550
+Text Label 2650 18550 0    60   ~ 0
+~rdselen
+$Comp
+L VCC #PWR09
 U 1 1 5A5D8505
 P 2750 13875
 F 0 "#PWR09" H 2750 13725 50  0001 C CNN
@@ -1401,6 +1618,38 @@ Wire Wire Line
 	2750 13950 2925 13950
 Wire Wire Line
 	2925 13950 2925 13900
+$Comp
+L GNDREF #PWR010
+U 1 1 5A5D8654
+P 3025 14150
+F 0 "#PWR010" H 3025 13900 50  0001 C CNN
+F 1 "GNDREF" H 3025 14000 50  0001 C CNN
+F 2 "" H 3025 14150 50  0000 C CNN
+F 3 "" H 3025 14150 50  0000 C CNN
+	1    3025 14150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3025 13900 3025 14150
+Wire Wire Line
+	3125 13900 3125 14375
+Wire Wire Line
+	3125 14375 3025 14375
+Wire Wire Line
+	3025 14375 3025 15800
+Text Label 3025 15225 1    60   ~ 0
+~rden0-7
+$Comp
+L 74LS139 U9
+U 2 1 5A5E4B59
+P 7300 16650
+F 0 "U9" H 7300 16750 50  0000 C CNN
+F 1 "74LVC139" H 7300 16550 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" H 7300 16650 50  0001 C CNN
+F 3 "" H 7300 16650 50  0000 C CNN
+	2    7300 16650
+	0    -1   -1   0   
+$EndComp
 Text Label 3775 1575 0    60   ~ 0
 rd[31]
 Text Label 3775 1675 0    60   ~ 0
@@ -1531,30 +1780,36 @@ Wire Wire Line
 	3650 4675 4100 4675
 Wire Bus Line
 	800  750  9125 750 
+Wire Bus Line
+	650  10575 46100 10575
 Text Label 1150 10225 1    60   ~ 0
-~RDCLKEN[0]
+~RDCLKEN[1]
 Entry Wire Line
 	1150 10475 1250 10575
 Text Label 3900 10375 1    60   ~ 0
-~RDCLKEN[1]
+~RDCLKEN[2]
 Entry Wire Line
 	3900 10475 4000 10575
 Text Label 3300 10375 1    60   ~ 0
-~RS2OE[0]
+~RS2OE[1]
+Wire Bus Line
+	650  11000 46100 11000
 Entry Wire Line
 	3300 10900 3400 11000
 Text Label 3425 10375 1    60   ~ 0
-~RS1OE[0]
+~RS1OE[1]
 Entry Wire Line
 	3425 10700 3525 10800
 Text Label 6175 10375 1    60   ~ 0
-~RS1OE[1]
+~RS1OE[2]
 Text Label 6050 10375 1    60   ~ 0
-~RS2OE[1]
+~RS2OE[2]
 Entry Wire Line
 	6175 10700 6275 10800
 Entry Wire Line
 	6050 10900 6150 11000
+Wire Bus Line
+	650  10800 46100 10800
 Entry Wire Line
 	2525 10575 2625 10675
 Entry Wire Line
@@ -1675,7 +1930,7 @@ Entry Wire Line
 	5700 10800 5800 10900
 NoConn ~ 2425 12700
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A7DE59E
 P 7525 5375
 F 0 "PR?" H 7175 9325 60  0000 C CNN
@@ -1927,7 +2182,7 @@ NoConn ~ 8125 8975
 NoConn ~ 8125 9075
 NoConn ~ 8125 9175
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A7DE635
 P 7525 1200
 F 0 "#PWR?" H 7525 1050 50  0001 C CNN
@@ -1938,7 +2193,7 @@ F 3 "" H 7525 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A7DE63B
 P 7525 9475
 F 0 "#PWR?" H 7525 9225 50  0001 C CNN
@@ -2141,7 +2396,7 @@ Entry Wire Line
 Entry Wire Line
 	6475 4675 6375 4575
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A7DE6A1
 P 10275 5375
 F 0 "PR?" H 9925 9325 60  0000 C CNN
@@ -2329,7 +2584,7 @@ NoConn ~ 10875 8975
 NoConn ~ 10875 9075
 NoConn ~ 10875 9175
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A7DE718
 P 10275 1200
 F 0 "#PWR?" H 10275 1050 50  0001 C CNN
@@ -2340,7 +2595,7 @@ F 3 "" H 10275 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A7DE71E
 P 10275 9475
 F 0 "#PWR?" H 10275 9225 50  0001 C CNN
@@ -2542,10 +2797,32 @@ Entry Wire Line
 	9225 4575 9125 4475
 Entry Wire Line
 	9225 4675 9125 4575
+$Comp
+L 74LS02 U?
+U 1 1 5A7DE784
+P 6625 9025
+F 0 "U?" H 6625 9075 50  0000 C CNN
+F 1 "74LVC02" H 6675 8975 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 6625 9025 50  0001 C CNN
+F 3 "" H 6625 9025 50  0000 C CNN
+	1    6625 9025
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 74LS02 U?
+U 1 1 5A7DE78A
+P 9375 9025
+F 0 "U?" H 9375 9075 50  0000 C CNN
+F 1 "74LVC02" H 9425 8975 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 9375 9025 50  0001 C CNN
+F 3 "" H 9375 9025 50  0000 C CNN
+	1    9375 9025
+	0    -1   -1   0   
+$EndComp
 Text Label 6625 8300 1    60   ~ 0
-RDCLK[2]
-Text Label 9375 8300 1    60   ~ 0
 RDCLK[3]
+Text Label 9375 8300 1    60   ~ 0
+RDCLK[4]
 Wire Wire Line
 	6475 1575 6925 1575
 Wire Wire Line
@@ -2741,6 +3018,14 @@ Wire Wire Line
 Wire Wire Line
 	7525 1200 7525 1275
 Wire Wire Line
+	7525 9475 7525 9475
+Wire Bus Line
+	8675 925  8675 4675
+Wire Bus Line
+	6375 750  6375 4675
+Wire Bus Line
+	8675 5475 8675 9750
+Wire Wire Line
 	10875 1675 11325 1675
 Wire Wire Line
 	10875 1775 11325 1775
@@ -2870,6 +3155,14 @@ Wire Wire Line
 	10875 1575 11325 1575
 Wire Wire Line
 	10275 1200 10275 1275
+Wire Wire Line
+	10275 9475 10275 9475
+Wire Bus Line
+	11425 925  11425 4675
+Wire Bus Line
+	9125 750  9125 4675
+Wire Bus Line
+	11425 5475 11425 9750
 Wire Wire Line
 	8125 4775 8875 4775
 Wire Wire Line
@@ -3030,18 +3323,18 @@ Wire Wire Line
 	9225 4575 9675 4575
 Wire Wire Line
 	9225 4675 9675 4675
-Text Label 6725 10425 1    60   ~ 0
-~RDCLKEN[2]
-Text Label 9475 10375 1    60   ~ 0
+Text Label 6725 10225 1    60   ~ 0
 ~RDCLKEN[3]
+Text Label 9475 10375 1    60   ~ 0
+~RDCLKEN[4]
 Text Label 8875 10375 1    60   ~ 0
-~RS2OE[2]
-Text Label 9000 10375 1    60   ~ 0
-~RS1OE[2]
-Text Label 11750 10375 1    60   ~ 0
-~RS1OE[3]
-Text Label 11625 10375 1    60   ~ 0
 ~RS2OE[3]
+Text Label 9000 10375 1    60   ~ 0
+~RS1OE[3]
+Text Label 11750 10375 1    60   ~ 0
+~RS1OE[4]
+Text Label 11625 10375 1    60   ~ 0
+~RS2OE[4]
 Entry Wire Line
 	6725 10475 6825 10575
 Entry Wire Line
@@ -3057,7 +3350,7 @@ Entry Wire Line
 Connection ~ 3700 12225
 Connection ~ 6525 12225
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A7E3937
 P 13100 5375
 F 0 "PR?" H 12750 9325 60  0000 C CNN
@@ -3309,7 +3602,7 @@ NoConn ~ 13700 8975
 NoConn ~ 13700 9075
 NoConn ~ 13700 9175
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A7E39CE
 P 13100 1200
 F 0 "#PWR?" H 13100 1050 50  0001 C CNN
@@ -3320,7 +3613,7 @@ F 3 "" H 13100 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A7E39D4
 P 13100 9475
 F 0 "#PWR?" H 13100 9225 50  0001 C CNN
@@ -3523,7 +3816,7 @@ Entry Wire Line
 Entry Wire Line
 	12050 4675 11950 4575
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A7E3A3A
 P 15850 5375
 F 0 "PR?" H 15500 9325 60  0000 C CNN
@@ -3711,7 +4004,7 @@ NoConn ~ 16450 8975
 NoConn ~ 16450 9075
 NoConn ~ 16450 9175
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A7E3AB1
 P 15850 1200
 F 0 "#PWR?" H 15850 1050 50  0001 C CNN
@@ -3722,7 +4015,7 @@ F 3 "" H 15850 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A7E3AB7
 P 15850 9475
 F 0 "#PWR?" H 15850 9225 50  0001 C CNN
@@ -3924,10 +4217,32 @@ Entry Wire Line
 	14800 4575 14700 4475
 Entry Wire Line
 	14800 4675 14700 4575
+$Comp
+L 74LS02 U?
+U 1 1 5A7E3B1D
+P 12200 9025
+F 0 "U?" H 12200 9075 50  0000 C CNN
+F 1 "74LVC02" H 12250 8975 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 12200 9025 50  0001 C CNN
+F 3 "" H 12200 9025 50  0000 C CNN
+	1    12200 9025
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 74LS02 U?
+U 1 1 5A7E3B23
+P 14950 9025
+F 0 "U?" H 14950 9075 50  0000 C CNN
+F 1 "74LVC02" H 15000 8975 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 14950 9025 50  0001 C CNN
+F 3 "" H 14950 9025 50  0000 C CNN
+	1    14950 9025
+	0    -1   -1   0   
+$EndComp
 Text Label 12200 8300 1    60   ~ 0
-RDCLK[4]
-Text Label 14950 8300 1    60   ~ 0
 RDCLK[5]
+Text Label 14950 8300 1    60   ~ 0
+RDCLK[6]
 Wire Wire Line
 	12050 1575 12500 1575
 Wire Wire Line
@@ -4123,6 +4438,14 @@ Wire Wire Line
 Wire Wire Line
 	13100 1200 13100 1275
 Wire Wire Line
+	13100 9475 13100 9475
+Wire Bus Line
+	14250 925  14250 4675
+Wire Bus Line
+	11950 750  11950 4675
+Wire Bus Line
+	14250 5475 14250 9750
+Wire Wire Line
 	16450 1675 16900 1675
 Wire Wire Line
 	16450 1775 16900 1775
@@ -4252,6 +4575,14 @@ Wire Wire Line
 	16450 1575 16900 1575
 Wire Wire Line
 	15850 1200 15850 1275
+Wire Wire Line
+	15850 9475 15850 9475
+Wire Bus Line
+	17000 925  17000 4675
+Wire Bus Line
+	14700 750  14700 4675
+Wire Bus Line
+	17000 5475 17000 9750
 Wire Bus Line
 	14250 925  34375 925 
 Wire Wire Line
@@ -4417,23 +4748,23 @@ Wire Wire Line
 Wire Bus Line
 	11950 750  32075 750 
 Text Label 12300 10375 1    60   ~ 0
-~RDCLKEN[4]
+~RDCLKEN[5]
 Entry Wire Line
 	12300 10475 12400 10575
 Text Label 15050 10375 1    60   ~ 0
-~RDCLKEN[5]
+~RDCLKEN[6]
 Entry Wire Line
 	15050 10475 15150 10575
 Text Label 14450 10375 1    60   ~ 0
-~RS2OE[4]
-Text Label 14575 10375 1    60   ~ 0
-~RS1OE[4]
-Text Label 17325 10375 1    60   ~ 0
-~RS1OE[5]
-Text Label 17200 10375 1    60   ~ 0
 ~RS2OE[5]
+Text Label 14575 10375 1    60   ~ 0
+~RS1OE[5]
+Text Label 17325 10375 1    60   ~ 0
+~RS1OE[6]
+Text Label 17200 10375 1    60   ~ 0
+~RS2OE[6]
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A7E3CEE
 P 18675 5375
 F 0 "PR?" H 18325 9325 60  0000 C CNN
@@ -4685,7 +5016,7 @@ NoConn ~ 19275 8975
 NoConn ~ 19275 9075
 NoConn ~ 19275 9175
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A7E3D85
 P 18675 1200
 F 0 "#PWR?" H 18675 1050 50  0001 C CNN
@@ -4696,7 +5027,7 @@ F 3 "" H 18675 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A7E3D8B
 P 18675 9475
 F 0 "#PWR?" H 18675 9225 50  0001 C CNN
@@ -4899,7 +5230,7 @@ Entry Wire Line
 Entry Wire Line
 	17625 4675 17525 4575
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A7E3DF1
 P 21425 5375
 F 0 "PR?" H 21075 9325 60  0000 C CNN
@@ -5087,7 +5418,7 @@ NoConn ~ 22025 8975
 NoConn ~ 22025 9075
 NoConn ~ 22025 9175
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A7E3E68
 P 21425 1200
 F 0 "#PWR?" H 21425 1050 50  0001 C CNN
@@ -5098,7 +5429,7 @@ F 3 "" H 21425 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A7E3E6E
 P 21425 9475
 F 0 "#PWR?" H 21425 9225 50  0001 C CNN
@@ -5300,10 +5631,32 @@ Entry Wire Line
 	20375 4575 20275 4475
 Entry Wire Line
 	20375 4675 20275 4575
+$Comp
+L 74LS02 U?
+U 1 1 5A7E3ED4
+P 17775 9025
+F 0 "U?" H 17775 9075 50  0000 C CNN
+F 1 "74LVC02" H 17825 8975 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 17775 9025 50  0001 C CNN
+F 3 "" H 17775 9025 50  0000 C CNN
+	1    17775 9025
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 74LS02 U?
+U 1 1 5A7E3EDA
+P 20525 9025
+F 0 "U?" H 20525 9075 50  0000 C CNN
+F 1 "74LVC02" H 20575 8975 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 20525 9025 50  0001 C CNN
+F 3 "" H 20525 9025 50  0000 C CNN
+	1    20525 9025
+	0    -1   -1   0   
+$EndComp
 Text Label 17775 8300 1    60   ~ 0
-RDCLK[6]
-Text Label 20525 8300 1    60   ~ 0
 RDCLK[7]
+Text Label 20525 8300 1    60   ~ 0
+RDCLK[8]
 Wire Wire Line
 	17625 1575 18075 1575
 Wire Wire Line
@@ -5499,6 +5852,14 @@ Wire Wire Line
 Wire Wire Line
 	18675 1200 18675 1275
 Wire Wire Line
+	18675 9475 18675 9475
+Wire Bus Line
+	19825 925  19825 4675
+Wire Bus Line
+	17525 750  17525 4675
+Wire Bus Line
+	19825 5475 19825 9750
+Wire Wire Line
 	22025 1675 22475 1675
 Wire Wire Line
 	22025 1775 22475 1775
@@ -5628,6 +5989,14 @@ Wire Wire Line
 	22025 1575 22475 1575
 Wire Wire Line
 	21425 1200 21425 1275
+Wire Wire Line
+	21425 9475 21425 9475
+Wire Bus Line
+	22575 925  22575 4675
+Wire Bus Line
+	20275 750  20275 4675
+Wire Bus Line
+	22575 5475 22575 9750
 Wire Wire Line
 	19275 4775 20025 4775
 Wire Wire Line
@@ -5789,17 +6158,17 @@ Wire Wire Line
 Wire Wire Line
 	20375 4675 20825 4675
 Text Label 17875 10400 1    60   ~ 0
-~RDCLKEN[6]
-Text Label 20625 10375 1    60   ~ 0
 ~RDCLKEN[7]
+Text Label 20625 10375 1    60   ~ 0
+~RDCLKEN[8]
 Text Label 20025 10375 1    60   ~ 0
-~RS2OE[6]
-Text Label 20150 10375 1    60   ~ 0
-~RS1OE[6]
-Text Label 22900 10375 1    60   ~ 0
-~RS1OE[7]
-Text Label 22775 10375 1    60   ~ 0
 ~RS2OE[7]
+Text Label 20150 10375 1    60   ~ 0
+~RS1OE[7]
+Text Label 22900 10375 1    60   ~ 0
+~RS1OE[8]
+Text Label 22775 10375 1    60   ~ 0
+~RS2OE[8]
 Entry Wire Line
 	17875 10475 17975 10575
 Entry Wire Line
@@ -5825,7 +6194,7 @@ Connection ~ 12100 12225
 Connection ~ 14850 12225
 Connection ~ 17675 12225
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A7EB989
 P 24900 5375
 F 0 "PR?" H 24550 9325 60  0000 C CNN
@@ -6077,7 +6446,7 @@ NoConn ~ 25500 8975
 NoConn ~ 25500 9075
 NoConn ~ 25500 9175
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A7EBA20
 P 24900 1200
 F 0 "#PWR?" H 24900 1050 50  0001 C CNN
@@ -6088,7 +6457,7 @@ F 3 "" H 24900 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A7EBA26
 P 24900 9475
 F 0 "#PWR?" H 24900 9225 50  0001 C CNN
@@ -6291,7 +6660,7 @@ Entry Wire Line
 Entry Wire Line
 	23850 4675 23750 4575
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A7EBA8C
 P 27650 5375
 F 0 "PR?" H 27300 9325 60  0000 C CNN
@@ -6479,7 +6848,7 @@ NoConn ~ 28250 8975
 NoConn ~ 28250 9075
 NoConn ~ 28250 9175
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A7EBB03
 P 27650 1200
 F 0 "#PWR?" H 27650 1050 50  0001 C CNN
@@ -6490,7 +6859,7 @@ F 3 "" H 27650 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A7EBB09
 P 27650 9475
 F 0 "#PWR?" H 27650 9225 50  0001 C CNN
@@ -6692,10 +7061,32 @@ Entry Wire Line
 	26600 4575 26500 4475
 Entry Wire Line
 	26600 4675 26500 4575
+$Comp
+L 74LS02 U?
+U 1 1 5A7EBB6F
+P 24000 9025
+F 0 "U?" H 24000 9075 50  0000 C CNN
+F 1 "74LVC02" H 24050 8975 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 24000 9025 50  0001 C CNN
+F 3 "" H 24000 9025 50  0000 C CNN
+	1    24000 9025
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 74LS02 U?
+U 1 1 5A7EBB75
+P 26750 9025
+F 0 "U?" H 26750 9075 50  0000 C CNN
+F 1 "74LVC02" H 26800 8975 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 26750 9025 50  0001 C CNN
+F 3 "" H 26750 9025 50  0000 C CNN
+	1    26750 9025
+	0    -1   -1   0   
+$EndComp
 Text Label 24000 8300 1    60   ~ 0
-RDCLK[8]
-Text Label 26750 8300 1    60   ~ 0
 RDCLK[9]
+Text Label 26750 8300 1    60   ~ 0
+RDCLK[10]
 Wire Wire Line
 	23850 1575 24300 1575
 Wire Wire Line
@@ -6891,6 +7282,14 @@ Wire Wire Line
 Wire Wire Line
 	24900 1200 24900 1275
 Wire Wire Line
+	24900 9475 24900 9475
+Wire Bus Line
+	26050 925  26050 4675
+Wire Bus Line
+	23750 750  23750 4675
+Wire Bus Line
+	26050 5475 26050 9750
+Wire Wire Line
 	28250 1675 28700 1675
 Wire Wire Line
 	28250 1775 28700 1775
@@ -7020,6 +7419,14 @@ Wire Wire Line
 	28250 1575 28700 1575
 Wire Wire Line
 	27650 1200 27650 1275
+Wire Wire Line
+	27650 9475 27650 9475
+Wire Bus Line
+	28800 925  28800 4675
+Wire Bus Line
+	26500 750  26500 4675
+Wire Bus Line
+	28800 5475 28800 9750
 Wire Wire Line
 	25500 4775 26250 4775
 Wire Wire Line
@@ -7181,23 +7588,23 @@ Wire Wire Line
 Wire Wire Line
 	26600 4675 27050 4675
 Text Label 24100 10375 1    60   ~ 0
-~RDCLKEN[8]
+~RDCLKEN[9]
 Entry Wire Line
 	24100 10475 24200 10575
 Text Label 26850 10375 1    60   ~ 0
-~RDCLKEN[9]
+~RDCLKEN[10]
 Entry Wire Line
 	26850 10475 26950 10575
 Text Label 26250 10375 1    60   ~ 0
-~RS2OE[8]
-Text Label 26375 10375 1    60   ~ 0
-~RS1OE[8]
-Text Label 29125 10375 1    60   ~ 0
-~RS1OE[9]
-Text Label 29000 10375 1    60   ~ 0
 ~RS2OE[9]
+Text Label 26375 10375 1    60   ~ 0
+~RS1OE[9]
+Text Label 29125 10375 1    60   ~ 0
+~RS1OE[10]
+Text Label 29000 10375 1    60   ~ 0
+~RS2OE[10]
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A7EBD40
 P 30475 5375
 F 0 "PR?" H 30125 9325 60  0000 C CNN
@@ -7449,7 +7856,7 @@ NoConn ~ 31075 8975
 NoConn ~ 31075 9075
 NoConn ~ 31075 9175
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A7EBDD7
 P 30475 1200
 F 0 "#PWR?" H 30475 1050 50  0001 C CNN
@@ -7460,7 +7867,7 @@ F 3 "" H 30475 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A7EBDDD
 P 30475 9475
 F 0 "#PWR?" H 30475 9225 50  0001 C CNN
@@ -7663,7 +8070,7 @@ Entry Wire Line
 Entry Wire Line
 	29425 4675 29325 4575
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A7EBE43
 P 33225 5375
 F 0 "PR?" H 32875 9325 60  0000 C CNN
@@ -7851,7 +8258,7 @@ NoConn ~ 33825 8975
 NoConn ~ 33825 9075
 NoConn ~ 33825 9175
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A7EBEBA
 P 33225 1200
 F 0 "#PWR?" H 33225 1050 50  0001 C CNN
@@ -7862,7 +8269,7 @@ F 3 "" H 33225 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A7EBEC0
 P 33225 9475
 F 0 "#PWR?" H 33225 9225 50  0001 C CNN
@@ -8064,10 +8471,32 @@ Entry Wire Line
 	32175 4575 32075 4475
 Entry Wire Line
 	32175 4675 32075 4575
+$Comp
+L 74LS02 U?
+U 1 1 5A7EBF26
+P 29575 9025
+F 0 "U?" H 29575 9075 50  0000 C CNN
+F 1 "74LVC02" H 29625 8975 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 29575 9025 50  0001 C CNN
+F 3 "" H 29575 9025 50  0000 C CNN
+	1    29575 9025
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 74LS02 U?
+U 1 1 5A7EBF2C
+P 32325 9025
+F 0 "U?" H 32325 9075 50  0000 C CNN
+F 1 "74LVC02" H 32375 8975 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 32325 9025 50  0001 C CNN
+F 3 "" H 32325 9025 50  0000 C CNN
+	1    32325 9025
+	0    -1   -1   0   
+$EndComp
 Text Label 29575 8300 1    60   ~ 0
-RDCLK[10]
-Text Label 32325 8300 1    60   ~ 0
 RDCLK[11]
+Text Label 32325 8300 1    60   ~ 0
+RDCLK[12]
 Wire Wire Line
 	29425 1575 29875 1575
 Wire Wire Line
@@ -8263,6 +8692,14 @@ Wire Wire Line
 Wire Wire Line
 	30475 1200 30475 1275
 Wire Wire Line
+	30475 9475 30475 9475
+Wire Bus Line
+	31625 925  31625 4675
+Wire Bus Line
+	29325 750  29325 4675
+Wire Bus Line
+	31625 5475 31625 9750
+Wire Wire Line
 	33825 1675 34275 1675
 Wire Wire Line
 	33825 1775 34275 1775
@@ -8392,6 +8829,14 @@ Wire Wire Line
 	33825 1575 34275 1575
 Wire Wire Line
 	33225 1200 33225 1275
+Wire Wire Line
+	33225 9475 33225 9475
+Wire Bus Line
+	34375 925  34375 4675
+Wire Bus Line
+	32075 750  32075 4675
+Wire Bus Line
+	34375 5475 34375 9750
 Wire Wire Line
 	31075 4775 31825 4775
 Wire Wire Line
@@ -8553,23 +8998,23 @@ Wire Wire Line
 Wire Wire Line
 	32175 4675 32625 4675
 Text Label 29675 10375 1    60   ~ 0
-~RDCLKEN[10]
-Text Label 32425 10375 1    60   ~ 0
 ~RDCLKEN[11]
+Text Label 32425 10375 1    60   ~ 0
+~RDCLKEN[12]
 Text Label 31825 10375 1    60   ~ 0
-~RS2OE[10]
-Text Label 31950 10375 1    60   ~ 0
-~RS1OE[10]
-Text Label 34700 10375 1    60   ~ 0
-~RS1OE[11]
-Text Label 34575 10375 1    60   ~ 0
 ~RS2OE[11]
+Text Label 31950 10375 1    60   ~ 0
+~RS1OE[11]
+Text Label 34700 10375 1    60   ~ 0
+~RS1OE[12]
+Text Label 34575 10375 1    60   ~ 0
+~RS2OE[12]
 Entry Wire Line
 	29675 10475 29775 10575
 Entry Wire Line
 	32425 10475 32525 10575
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A7EC0F4
 P 36050 5375
 F 0 "PR?" H 35700 9325 60  0000 C CNN
@@ -8821,7 +9266,7 @@ NoConn ~ 36650 8975
 NoConn ~ 36650 9075
 NoConn ~ 36650 9175
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A7EC18B
 P 36050 1200
 F 0 "#PWR?" H 36050 1050 50  0001 C CNN
@@ -8832,7 +9277,7 @@ F 3 "" H 36050 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A7EC191
 P 36050 9475
 F 0 "#PWR?" H 36050 9225 50  0001 C CNN
@@ -9035,7 +9480,7 @@ Entry Wire Line
 Entry Wire Line
 	35000 4675 34900 4575
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A7EC1F7
 P 38800 5375
 F 0 "PR?" H 38450 9325 60  0000 C CNN
@@ -9223,7 +9668,7 @@ NoConn ~ 39400 8975
 NoConn ~ 39400 9075
 NoConn ~ 39400 9175
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A7EC26E
 P 38800 1200
 F 0 "#PWR?" H 38800 1050 50  0001 C CNN
@@ -9234,7 +9679,7 @@ F 3 "" H 38800 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A7EC274
 P 38800 9475
 F 0 "#PWR?" H 38800 9225 50  0001 C CNN
@@ -9436,10 +9881,32 @@ Entry Wire Line
 	37750 4575 37650 4475
 Entry Wire Line
 	37750 4675 37650 4575
+$Comp
+L 74LS02 U?
+U 1 1 5A7EC2DA
+P 35150 9025
+F 0 "U?" H 35150 9075 50  0000 C CNN
+F 1 "74LVC02" H 35200 8975 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 35150 9025 50  0001 C CNN
+F 3 "" H 35150 9025 50  0000 C CNN
+	1    35150 9025
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 74LS02 U?
+U 1 1 5A7EC2E0
+P 37900 9025
+F 0 "U?" H 37900 9075 50  0000 C CNN
+F 1 "74LVC02" H 37950 8975 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 37900 9025 50  0001 C CNN
+F 3 "" H 37900 9025 50  0000 C CNN
+	1    37900 9025
+	0    -1   -1   0   
+$EndComp
 Text Label 35150 8300 1    60   ~ 0
-RDCLK[12]
-Text Label 37900 8300 1    60   ~ 0
 RDCLK[13]
+Text Label 37900 8300 1    60   ~ 0
+RDCLK[14]
 Wire Wire Line
 	35000 1575 35450 1575
 Wire Wire Line
@@ -9635,6 +10102,14 @@ Wire Wire Line
 Wire Wire Line
 	36050 1200 36050 1275
 Wire Wire Line
+	36050 9475 36050 9475
+Wire Bus Line
+	37200 925  37200 4675
+Wire Bus Line
+	34900 750  34900 4675
+Wire Bus Line
+	37200 5475 37200 9750
+Wire Wire Line
 	39400 1675 39850 1675
 Wire Wire Line
 	39400 1775 39850 1775
@@ -9764,6 +10239,14 @@ Wire Wire Line
 	39400 1575 39850 1575
 Wire Wire Line
 	38800 1200 38800 1275
+Wire Wire Line
+	38800 9475 38800 9475
+Wire Bus Line
+	39950 925  39950 4675
+Wire Bus Line
+	37650 750  37650 4675
+Wire Bus Line
+	39950 5475 39950 9750
 Wire Bus Line
 	37200 925  45525 925 
 Wire Wire Line
@@ -9929,23 +10412,23 @@ Wire Wire Line
 Wire Bus Line
 	34900 750  43225 750 
 Text Label 35250 10375 1    60   ~ 0
-~RDCLKEN[12]
+~RDCLKEN[13]
 Entry Wire Line
 	35250 10475 35350 10575
 Text Label 38000 10375 1    60   ~ 0
-~RDCLKEN[13]
+~RDCLKEN[14]
 Entry Wire Line
 	38000 10475 38100 10575
 Text Label 37400 10375 1    60   ~ 0
-~RS2OE[12]
-Text Label 37525 10375 1    60   ~ 0
-~RS1OE[12]
-Text Label 40275 10375 1    60   ~ 0
-~RS1OE[13]
-Text Label 40150 10375 1    60   ~ 0
 ~RS2OE[13]
+Text Label 37525 10375 1    60   ~ 0
+~RS1OE[13]
+Text Label 40275 10375 1    60   ~ 0
+~RS1OE[14]
+Text Label 40150 10375 1    60   ~ 0
+~RS2OE[14]
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A7EC4AB
 P 41625 5375
 F 0 "PR?" H 41275 9325 60  0000 C CNN
@@ -10197,7 +10680,7 @@ NoConn ~ 42225 8975
 NoConn ~ 42225 9075
 NoConn ~ 42225 9175
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A7EC542
 P 41625 1200
 F 0 "#PWR?" H 41625 1050 50  0001 C CNN
@@ -10208,7 +10691,7 @@ F 3 "" H 41625 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A7EC548
 P 41625 9475
 F 0 "#PWR?" H 41625 9225 50  0001 C CNN
@@ -10411,7 +10894,7 @@ Entry Wire Line
 Entry Wire Line
 	40575 4675 40475 4575
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A7EC5AE
 P 44375 5375
 F 0 "PR?" H 44025 9325 60  0000 C CNN
@@ -10599,7 +11082,7 @@ NoConn ~ 44975 8975
 NoConn ~ 44975 9075
 NoConn ~ 44975 9175
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A7EC625
 P 44375 1200
 F 0 "#PWR?" H 44375 1050 50  0001 C CNN
@@ -10610,7 +11093,7 @@ F 3 "" H 44375 1200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A7EC62B
 P 44375 9475
 F 0 "#PWR?" H 44375 9225 50  0001 C CNN
@@ -10812,10 +11295,32 @@ Entry Wire Line
 	43325 4575 43225 4475
 Entry Wire Line
 	43325 4675 43225 4575
+$Comp
+L 74LS02 U?
+U 1 1 5A7EC691
+P 40725 9025
+F 0 "U?" H 40725 9075 50  0000 C CNN
+F 1 "74LVC02" H 40775 8975 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 40725 9025 50  0001 C CNN
+F 3 "" H 40725 9025 50  0000 C CNN
+	1    40725 9025
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 74LS02 U?
+U 1 1 5A7EC697
+P 43475 9025
+F 0 "U?" H 43475 9075 50  0000 C CNN
+F 1 "74LVC02" H 43525 8975 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 43475 9025 50  0001 C CNN
+F 3 "" H 43475 9025 50  0000 C CNN
+	1    43475 9025
+	0    -1   -1   0   
+$EndComp
 Text Label 40725 8300 1    60   ~ 0
-RDCLK[14]
-Text Label 43475 8300 1    60   ~ 0
 RDCLK[15]
+Text Label 43475 8300 1    60   ~ 0
+RDCLK[16]
 Wire Wire Line
 	40575 1575 41025 1575
 Wire Wire Line
@@ -11011,6 +11516,14 @@ Wire Wire Line
 Wire Wire Line
 	41625 1200 41625 1275
 Wire Wire Line
+	41625 9475 41625 9475
+Wire Bus Line
+	42775 925  42775 4675
+Wire Bus Line
+	40475 750  40475 4675
+Wire Bus Line
+	42775 5475 42775 9750
+Wire Wire Line
 	44975 1675 45425 1675
 Wire Wire Line
 	44975 1775 45425 1775
@@ -11140,6 +11653,14 @@ Wire Wire Line
 	44975 1575 45425 1575
 Wire Wire Line
 	44375 1200 44375 1275
+Wire Wire Line
+	44375 9475 44375 9475
+Wire Bus Line
+	45525 925  45525 4675
+Wire Bus Line
+	43225 750  43225 4675
+Wire Bus Line
+	45525 5475 45525 9750
 Wire Wire Line
 	42225 4775 42975 4775
 Wire Wire Line
@@ -11301,17 +11822,17 @@ Wire Wire Line
 Wire Wire Line
 	43325 4675 43775 4675
 Text Label 40825 10400 1    60   ~ 0
-~RDCLKEN[14]
-Text Label 43575 10375 1    60   ~ 0
 ~RDCLKEN[15]
+Text Label 43575 10375 1    60   ~ 0
+~RDCLKEN[16]
 Text Label 42975 10375 1    60   ~ 0
-~RS2OE[14]
-Text Label 43100 10375 1    60   ~ 0
-~RS1OE[14]
-Text Label 45850 10375 1    60   ~ 0
-~RS1OE[15]
-Text Label 45725 10375 1    60   ~ 0
 ~RS2OE[15]
+Text Label 43100 10375 1    60   ~ 0
+~RS1OE[15]
+Text Label 45850 10375 1    60   ~ 0
+~RS1OE[16]
+Text Label 45725 10375 1    60   ~ 0
+~RS2OE[16]
 Entry Wire Line
 	40825 10475 40925 10575
 Entry Wire Line
@@ -11328,12 +11849,12 @@ Text Label 9700 14325 1    60   ~ 0
 rs2sel[1]
 Text Label 9800 14325 1    60   ~ 0
 rs2sel[2]
-Text Notes 11375 13350 2    60   ~ 0
-~RS1OE[8-15]
-Text Notes 10275 13350 2    60   ~ 0
-~RS2OE[8-15]
+Text Notes 11175 13350 2    60   ~ 0
+~RS1OE
+Text Notes 10100 13350 2    60   ~ 0
+~RS2OE
 $Comp
-L register-motherboard-rescue:74LS138-RESCUE-register-motherboard U?
+L 74LS138 U?
 U 1 1 5A7F79EB
 P 11050 13300
 F 0 "U?" H 11150 13800 50  0000 C CNN
@@ -11344,7 +11865,7 @@ F 3 "" H 11050 13300 50  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L register-motherboard-rescue:74LS138-RESCUE-register-motherboard U?
+L 74LS138 U?
 U 1 1 5A7F79F1
 P 9950 13300
 F 0 "U?" H 10050 13800 50  0000 C CNN
@@ -11366,10 +11887,21 @@ Entry Wire Line
 	10700 14625 10800 14525
 Entry Wire Line
 	10600 14625 10700 14525
-Text Notes 8575 13350 2    60   ~ 0
-~RDCLK[8-15]
 $Comp
-L power:GNDREF #PWR?
+L 74LS138 U?
+U 1 1 5A7F79FD
+P 8275 13300
+F 0 "U?" H 8375 13800 50  0000 C CNN
+F 1 "74LVC138" H 8300 12800 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" H 8275 13300 50  0001 C CNN
+F 3 "" H 8275 13300 50  0000 C CNN
+	1    8275 13300
+	0    -1   -1   0   
+$EndComp
+Text Notes 8400 13350 2    60   ~ 0
+~RDCLK
+$Comp
+L GNDREF #PWR?
 U 1 1 5A7F7A04
 P 10200 14150
 F 0 "#PWR?" H 10200 13900 50  0001 C CNN
@@ -11380,7 +11912,7 @@ F 3 "" H 10200 14150 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A7F7A0A
 P 11300 14150
 F 0 "#PWR?" H 11300 13900 50  0001 C CNN
@@ -11388,6 +11920,28 @@ F 1 "GNDREF" H 11300 14000 50  0001 C CNN
 F 2 "" H 11300 14150 50  0000 C CNN
 F 3 "" H 11300 14150 50  0000 C CNN
 	1    11300 14150
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR?
+U 1 1 5A7F7A10
+P 9925 13875
+F 0 "#PWR?" H 9925 13725 50  0001 C CNN
+F 1 "VCC" H 9925 14025 50  0000 C CNN
+F 2 "" H 9925 13875 50  0000 C CNN
+F 3 "" H 9925 13875 50  0000 C CNN
+	1    9925 13875
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR?
+U 1 1 5A7F7A16
+P 11025 13875
+F 0 "#PWR?" H 11025 13725 50  0001 C CNN
+F 1 "VCC" H 11025 14025 50  0000 C CNN
+F 2 "" H 11025 13875 50  0000 C CNN
+F 3 "" H 11025 13875 50  0000 C CNN
+	1    11025 13875
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -11403,15 +11957,31 @@ Wire Wire Line
 Wire Wire Line
 	9800 13900 9800 14350
 Wire Wire Line
+	10300 13900 10300 15400
+Wire Wire Line
+	11400 13900 11400 15475
+Wire Wire Line
 	10200 13900 10200 14150
 Wire Wire Line
 	11300 13900 11300 14150
+Wire Wire Line
+	9925 13875 9925 13950
+Wire Wire Line
+	9925 13950 10100 13950
+Wire Wire Line
+	10100 13950 10100 13900
+Wire Wire Line
+	11025 13875 11025 13950
+Wire Wire Line
+	11025 13950 11200 13950
+Wire Wire Line
+	11200 13950 11200 13900
 Text Label 7925 14200 1    60   ~ 0
 rdsel[0]
 Text Label 8025 14200 1    60   ~ 0
-rdsel[1]
+resel[1]
 Text Label 8125 14200 1    60   ~ 0
-rdsel[2]
+resel[2]
 Wire Wire Line
 	7925 13900 7925 14650
 Wire Wire Line
@@ -11419,7 +11989,24 @@ Wire Wire Line
 Wire Wire Line
 	8125 13900 8125 14650
 $Comp
-L power:GNDREF #PWR?
+L VCC #PWR?
+U 1 1 5A7F7A40
+P 8250 13875
+F 0 "#PWR?" H 8250 13725 50  0001 C CNN
+F 1 "VCC" H 8250 14025 50  0000 C CNN
+F 2 "" H 8250 13875 50  0000 C CNN
+F 3 "" H 8250 13875 50  0000 C CNN
+	1    8250 13875
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8250 13875 8250 13950
+Wire Wire Line
+	8250 13950 8425 13950
+Wire Wire Line
+	8425 13950 8425 13900
+$Comp
+L GNDREF #PWR?
 U 1 1 5A7F7A49
 P 8525 14150
 F 0 "#PWR?" H 8525 13900 50  0001 C CNN
@@ -11431,6 +12018,8 @@ F 3 "" H 8525 14150 50  0000 C CNN
 $EndComp
 Wire Wire Line
 	8525 13900 8525 14150
+Wire Wire Line
+	8625 13900 8625 15325
 Text Label 8025 11875 1    50   ~ 0
 ~RDCLKEN[9]
 Text Label 8125 11875 1    50   ~ 0
@@ -11581,6 +12170,24 @@ Entry Wire Line
 	7925 14750 8025 14650
 Entry Wire Line
 	7825 14750 7925 14650
+Wire Wire Line
+	3225 15800 3225 15325
+Wire Wire Line
+	3225 15325 8625 15325
+Text Label 8625 15250 1    60   ~ 0
+~rden8-15
+Wire Wire Line
+	4775 15800 4775 15400
+Wire Wire Line
+	4775 15400 10300 15400
+Wire Wire Line
+	6175 15800 6175 15475
+Wire Wire Line
+	6175 15475 11400 15475
+Text Label 10300 15250 1    60   ~ 0
+~rs2en8-15
+Text Label 11400 15250 1    60   ~ 0
+~rs1en8-15
 Connection ~ 20425 12225
 Connection ~ 23900 12225
 Connection ~ 26650 12225
@@ -11622,7 +12229,7 @@ Entry Wire Line
 Entry Wire Line
 	45725 10900 45825 11000
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A822688
 P 1875 24250
 F 0 "PR?" H 1525 28200 60  0000 C CNN
@@ -11874,7 +12481,7 @@ NoConn ~ 2475 27850
 NoConn ~ 2475 27950
 NoConn ~ 2475 28050
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A82271F
 P 1875 20075
 F 0 "#PWR?" H 1875 19925 50  0001 C CNN
@@ -11885,7 +12492,7 @@ F 3 "" H 1875 20075 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A822725
 P 1875 28350
 F 0 "#PWR?" H 1875 28100 50  0001 C CNN
@@ -12088,7 +12695,7 @@ Entry Wire Line
 Entry Wire Line
 	825  23550 725  23450
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A82278B
 P 4625 24250
 F 0 "PR?" H 4275 28200 60  0000 C CNN
@@ -12276,7 +12883,7 @@ NoConn ~ 5225 27850
 NoConn ~ 5225 27950
 NoConn ~ 5225 28050
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A822802
 P 4625 20075
 F 0 "#PWR?" H 4625 19925 50  0001 C CNN
@@ -12287,7 +12894,7 @@ F 3 "" H 4625 20075 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A822808
 P 4625 28350
 F 0 "#PWR?" H 4625 28100 50  0001 C CNN
@@ -12489,10 +13096,32 @@ Entry Wire Line
 	3575 23450 3475 23350
 Entry Wire Line
 	3575 23550 3475 23450
+$Comp
+L 74LS02 U?
+U 1 1 5A82286E
+P 975 27900
+F 0 "U?" H 975 27950 50  0000 C CNN
+F 1 "74LVC02" H 1025 27850 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 975 27900 50  0001 C CNN
+F 3 "" H 975 27900 50  0000 C CNN
+	1    975  27900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 74LS02 U?
+U 1 1 5A822874
+P 3725 27900
+F 0 "U?" H 3725 27950 50  0000 C CNN
+F 1 "74LVC02" H 3775 27850 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 3725 27900 50  0001 C CNN
+F 3 "" H 3725 27900 50  0000 C CNN
+	1    3725 27900
+	0    -1   -1   0   
+$EndComp
 Text Label 975  27175 1    60   ~ 0
-RDCLK[16]
+RDCLK[1]
 Text Label 3725 27175 1    60   ~ 0
-RDCLK[17]
+RDCLK[2]
 Wire Wire Line
 	825  20450 1275 20450
 Wire Wire Line
@@ -12688,6 +13317,14 @@ Wire Wire Line
 Wire Wire Line
 	1875 20075 1875 20150
 Wire Wire Line
+	1875 28350 1875 28350
+Wire Bus Line
+	3025 19800 3025 23550
+Wire Bus Line
+	725  19625 725  23550
+Wire Bus Line
+	3025 24350 3025 28625
+Wire Wire Line
 	5225 20550 5675 20550
 Wire Wire Line
 	5225 20650 5675 20650
@@ -12817,6 +13454,14 @@ Wire Wire Line
 	5225 20450 5675 20450
 Wire Wire Line
 	4625 20075 4625 20150
+Wire Wire Line
+	4625 28350 4625 28350
+Wire Bus Line
+	5775 19800 5775 23550
+Wire Bus Line
+	3475 19625 3475 23550
+Wire Bus Line
+	5775 24350 5775 28625
 Wire Bus Line
 	3025 19800 11350 19800
 Wire Bus Line
@@ -12983,20 +13628,20 @@ Wire Wire Line
 	3575 23550 4025 23550
 Wire Bus Line
 	725  19625 9050 19625
-Text Label 1075 29250 1    60   ~ 0
-~RDCLKEN[16]
+Text Label 1075 29100 1    60   ~ 0
+~RDCLKEN[1]
 Text Label 3825 29250 1    60   ~ 0
-~RDCLKEN[17]
+~RDCLKEN[2]
 Text Label 3225 29250 1    60   ~ 0
-~RS2OE[16]
+~RS2OE[1]
 Text Label 3350 29250 1    60   ~ 0
-~RS1OE[16]
+~RS1OE[1]
 Text Label 6100 29250 1    60   ~ 0
-~RS1OE[17]
+~RS1OE[2]
 Text Label 5975 29250 1    60   ~ 0
-~RS2OE[17]
+~RS2OE[2]
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A82297F
 P 7450 24250
 F 0 "PR?" H 7100 28200 60  0000 C CNN
@@ -13248,7 +13893,7 @@ NoConn ~ 8050 27850
 NoConn ~ 8050 27950
 NoConn ~ 8050 28050
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A822A16
 P 7450 20075
 F 0 "#PWR?" H 7450 19925 50  0001 C CNN
@@ -13259,7 +13904,7 @@ F 3 "" H 7450 20075 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A822A1C
 P 7450 28350
 F 0 "#PWR?" H 7450 28100 50  0001 C CNN
@@ -13462,7 +14107,7 @@ Entry Wire Line
 Entry Wire Line
 	6400 23550 6300 23450
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A822A82
 P 10200 24250
 F 0 "PR?" H 9850 28200 60  0000 C CNN
@@ -13650,7 +14295,7 @@ NoConn ~ 10800 27850
 NoConn ~ 10800 27950
 NoConn ~ 10800 28050
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A822AF9
 P 10200 20075
 F 0 "#PWR?" H 10200 19925 50  0001 C CNN
@@ -13661,7 +14306,7 @@ F 3 "" H 10200 20075 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A822AFF
 P 10200 28350
 F 0 "#PWR?" H 10200 28100 50  0001 C CNN
@@ -13863,10 +14508,32 @@ Entry Wire Line
 	9150 23450 9050 23350
 Entry Wire Line
 	9150 23550 9050 23450
+$Comp
+L 74LS02 U?
+U 1 1 5A822B65
+P 6550 27900
+F 0 "U?" H 6550 27950 50  0000 C CNN
+F 1 "74LVC02" H 6600 27850 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 6550 27900 50  0001 C CNN
+F 3 "" H 6550 27900 50  0000 C CNN
+	1    6550 27900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 74LS02 U?
+U 1 1 5A822B6B
+P 9300 27900
+F 0 "U?" H 9300 27950 50  0000 C CNN
+F 1 "74LVC02" H 9350 27850 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 9300 27900 50  0001 C CNN
+F 3 "" H 9300 27900 50  0000 C CNN
+	1    9300 27900
+	0    -1   -1   0   
+$EndComp
 Text Label 6550 27175 1    60   ~ 0
-RDCLK[18]
+RDCLK[3]
 Text Label 9300 27175 1    60   ~ 0
-RDCLK[19]
+RDCLK[4]
 Wire Wire Line
 	6400 20450 6850 20450
 Wire Wire Line
@@ -14062,6 +14729,14 @@ Wire Wire Line
 Wire Wire Line
 	7450 20075 7450 20150
 Wire Wire Line
+	7450 28350 7450 28350
+Wire Bus Line
+	8600 19800 8600 23550
+Wire Bus Line
+	6300 19625 6300 23550
+Wire Bus Line
+	8600 24350 8600 28625
+Wire Wire Line
 	10800 20550 11250 20550
 Wire Wire Line
 	10800 20650 11250 20650
@@ -14191,6 +14866,14 @@ Wire Wire Line
 	10800 20450 11250 20450
 Wire Wire Line
 	10200 20075 10200 20150
+Wire Wire Line
+	10200 28350 10200 28350
+Wire Bus Line
+	11350 19800 11350 23550
+Wire Bus Line
+	9050 19625 9050 23550
+Wire Bus Line
+	11350 24350 11350 28625
 Wire Wire Line
 	8050 23650 8800 23650
 Wire Wire Line
@@ -14351,20 +15034,20 @@ Wire Wire Line
 	9150 23450 9600 23450
 Wire Wire Line
 	9150 23550 9600 23550
-Text Label 6650 29275 1    60   ~ 0
-~RDCLKEN[18]
+Text Label 6650 29100 1    60   ~ 0
+~RDCLKEN[3]
 Text Label 9400 29250 1    60   ~ 0
-~RDCLKEN[19]
+~RDCLKEN[4]
 Text Label 8800 29250 1    60   ~ 0
-~RS2OE[18]
+~RS2OE[3]
 Text Label 8925 29250 1    60   ~ 0
-~RS1OE[18]
+~RS1OE[3]
 Text Label 11675 29250 1    60   ~ 0
-~RS1OE[19]
+~RS1OE[4]
 Text Label 11550 29250 1    60   ~ 0
-~RS2OE[19]
+~RS2OE[4]
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A822C73
 P 13025 24250
 F 0 "PR?" H 12675 28200 60  0000 C CNN
@@ -14616,7 +15299,7 @@ NoConn ~ 13625 27850
 NoConn ~ 13625 27950
 NoConn ~ 13625 28050
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A822D0A
 P 13025 20075
 F 0 "#PWR?" H 13025 19925 50  0001 C CNN
@@ -14627,7 +15310,7 @@ F 3 "" H 13025 20075 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A822D10
 P 13025 28350
 F 0 "#PWR?" H 13025 28100 50  0001 C CNN
@@ -14830,7 +15513,7 @@ Entry Wire Line
 Entry Wire Line
 	11975 23550 11875 23450
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A822D76
 P 15775 24250
 F 0 "PR?" H 15425 28200 60  0000 C CNN
@@ -15018,7 +15701,7 @@ NoConn ~ 16375 27850
 NoConn ~ 16375 27950
 NoConn ~ 16375 28050
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A822DED
 P 15775 20075
 F 0 "#PWR?" H 15775 19925 50  0001 C CNN
@@ -15029,7 +15712,7 @@ F 3 "" H 15775 20075 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A822DF3
 P 15775 28350
 F 0 "#PWR?" H 15775 28100 50  0001 C CNN
@@ -15231,10 +15914,32 @@ Entry Wire Line
 	14725 23450 14625 23350
 Entry Wire Line
 	14725 23550 14625 23450
+$Comp
+L 74LS02 U?
+U 1 1 5A822E59
+P 12125 27900
+F 0 "U?" H 12125 27950 50  0000 C CNN
+F 1 "74LVC02" H 12175 27850 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 12125 27900 50  0001 C CNN
+F 3 "" H 12125 27900 50  0000 C CNN
+	1    12125 27900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 74LS02 U?
+U 1 1 5A822E5F
+P 14875 27900
+F 0 "U?" H 14875 27950 50  0000 C CNN
+F 1 "74LVC02" H 14925 27850 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 14875 27900 50  0001 C CNN
+F 3 "" H 14875 27900 50  0000 C CNN
+	1    14875 27900
+	0    -1   -1   0   
+$EndComp
 Text Label 12125 27175 1    60   ~ 0
-RDCLK[20]
+RDCLK[5]
 Text Label 14875 27175 1    60   ~ 0
-RDCLK[22]
+RDCLK[6]
 Wire Wire Line
 	11975 20450 12425 20450
 Wire Wire Line
@@ -15430,6 +16135,14 @@ Wire Wire Line
 Wire Wire Line
 	13025 20075 13025 20150
 Wire Wire Line
+	13025 28350 13025 28350
+Wire Bus Line
+	14175 19800 14175 23550
+Wire Bus Line
+	11875 19625 11875 23550
+Wire Bus Line
+	14175 24350 14175 28625
+Wire Wire Line
 	16375 20550 16825 20550
 Wire Wire Line
 	16375 20650 16825 20650
@@ -15559,6 +16272,14 @@ Wire Wire Line
 	16375 20450 16825 20450
 Wire Wire Line
 	15775 20075 15775 20150
+Wire Wire Line
+	15775 28350 15775 28350
+Wire Bus Line
+	16925 19800 16925 23550
+Wire Bus Line
+	14625 19625 14625 23550
+Wire Bus Line
+	16925 24350 16925 28625
 Wire Bus Line
 	14175 19800 34300 19800
 Wire Wire Line
@@ -15724,19 +16445,19 @@ Wire Wire Line
 Wire Bus Line
 	11875 19625 32000 19625
 Text Label 12225 29250 1    60   ~ 0
-~RDCLKEN[20]
+~RDCLKEN[5]
 Text Label 14975 29250 1    60   ~ 0
-~RDCLKEN[22]
+~RDCLKEN[6]
 Text Label 14375 29250 1    60   ~ 0
-~RS2OE[21]
+~RS2OE[5]
 Text Label 14500 29250 1    60   ~ 0
-~RS1OE[21]
+~RS1OE[5]
 Text Label 17250 29250 1    60   ~ 0
-~RS1OE[22]
+~RS1OE[6]
 Text Label 17125 29250 1    60   ~ 0
-~RS2OE[22]
+~RS2OE[6]
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A822F69
 P 18600 24250
 F 0 "PR?" H 18250 28200 60  0000 C CNN
@@ -15988,7 +16709,7 @@ NoConn ~ 19200 27850
 NoConn ~ 19200 27950
 NoConn ~ 19200 28050
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A823000
 P 18600 20075
 F 0 "#PWR?" H 18600 19925 50  0001 C CNN
@@ -15999,7 +16720,7 @@ F 3 "" H 18600 20075 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A823006
 P 18600 28350
 F 0 "#PWR?" H 18600 28100 50  0001 C CNN
@@ -16202,7 +16923,7 @@ Entry Wire Line
 Entry Wire Line
 	17550 23550 17450 23450
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A82306C
 P 21350 24250
 F 0 "PR?" H 21000 28200 60  0000 C CNN
@@ -16390,7 +17111,7 @@ NoConn ~ 21950 27850
 NoConn ~ 21950 27950
 NoConn ~ 21950 28050
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A8230E3
 P 21350 20075
 F 0 "#PWR?" H 21350 19925 50  0001 C CNN
@@ -16401,7 +17122,7 @@ F 3 "" H 21350 20075 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A8230E9
 P 21350 28350
 F 0 "#PWR?" H 21350 28100 50  0001 C CNN
@@ -16603,10 +17324,32 @@ Entry Wire Line
 	20300 23450 20200 23350
 Entry Wire Line
 	20300 23550 20200 23450
+$Comp
+L 74LS02 U?
+U 1 1 5A82314F
+P 17700 27900
+F 0 "U?" H 17700 27950 50  0000 C CNN
+F 1 "74LVC02" H 17750 27850 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 17700 27900 50  0001 C CNN
+F 3 "" H 17700 27900 50  0000 C CNN
+	1    17700 27900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 74LS02 U?
+U 1 1 5A823155
+P 20450 27900
+F 0 "U?" H 20450 27950 50  0000 C CNN
+F 1 "74LVC02" H 20500 27850 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 20450 27900 50  0001 C CNN
+F 3 "" H 20450 27900 50  0000 C CNN
+	1    20450 27900
+	0    -1   -1   0   
+$EndComp
 Text Label 17700 27175 1    60   ~ 0
-RDCLK[23]
+RDCLK[7]
 Text Label 20450 27175 1    60   ~ 0
-RDCLK[24]
+RDCLK[8]
 Wire Wire Line
 	17550 20450 18000 20450
 Wire Wire Line
@@ -16802,6 +17545,14 @@ Wire Wire Line
 Wire Wire Line
 	18600 20075 18600 20150
 Wire Wire Line
+	18600 28350 18600 28350
+Wire Bus Line
+	19750 19800 19750 23550
+Wire Bus Line
+	17450 19625 17450 23550
+Wire Bus Line
+	19750 24350 19750 28625
+Wire Wire Line
 	21950 20550 22400 20550
 Wire Wire Line
 	21950 20650 22400 20650
@@ -16931,6 +17682,14 @@ Wire Wire Line
 	21950 20450 22400 20450
 Wire Wire Line
 	21350 20075 21350 20150
+Wire Wire Line
+	21350 28350 21350 28350
+Wire Bus Line
+	22500 19800 22500 23550
+Wire Bus Line
+	20200 19625 20200 23550
+Wire Bus Line
+	22500 24350 22500 28625
 Wire Wire Line
 	19200 23650 19950 23650
 Wire Wire Line
@@ -17092,19 +17851,19 @@ Wire Wire Line
 Wire Wire Line
 	20300 23550 20750 23550
 Text Label 17800 29275 1    60   ~ 0
-~RDCLKEN[23]
+~RDCLKEN[7]
 Text Label 20550 29250 1    60   ~ 0
-~RDCLKEN[24]
+~RDCLKEN[8]
 Text Label 19950 29250 1    60   ~ 0
-~RS2OE[23]
+~RS2OE[7]
 Text Label 20075 29250 1    60   ~ 0
-~RS1OE[23]
+~RS1OE[7]
 Text Label 22825 29250 1    60   ~ 0
-~RS1OE[24]
+~RS1OE[8]
 Text Label 22700 29250 1    60   ~ 0
-~RS2OE[24]
+~RS2OE[8]
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A82325D
 P 24825 24250
 F 0 "PR?" H 24475 28200 60  0000 C CNN
@@ -17356,7 +18115,7 @@ NoConn ~ 25425 27850
 NoConn ~ 25425 27950
 NoConn ~ 25425 28050
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A8232F4
 P 24825 20075
 F 0 "#PWR?" H 24825 19925 50  0001 C CNN
@@ -17367,7 +18126,7 @@ F 3 "" H 24825 20075 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A8232FA
 P 24825 28350
 F 0 "#PWR?" H 24825 28100 50  0001 C CNN
@@ -17570,7 +18329,7 @@ Entry Wire Line
 Entry Wire Line
 	23775 23550 23675 23450
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A823360
 P 27575 24250
 F 0 "PR?" H 27225 28200 60  0000 C CNN
@@ -17758,7 +18517,7 @@ NoConn ~ 28175 27850
 NoConn ~ 28175 27950
 NoConn ~ 28175 28050
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A8233D7
 P 27575 20075
 F 0 "#PWR?" H 27575 19925 50  0001 C CNN
@@ -17769,7 +18528,7 @@ F 3 "" H 27575 20075 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A8233DD
 P 27575 28350
 F 0 "#PWR?" H 27575 28100 50  0001 C CNN
@@ -17971,10 +18730,32 @@ Entry Wire Line
 	26525 23450 26425 23350
 Entry Wire Line
 	26525 23550 26425 23450
+$Comp
+L 74LS02 U?
+U 1 1 5A823443
+P 23925 27900
+F 0 "U?" H 23925 27950 50  0000 C CNN
+F 1 "74LVC02" H 23975 27850 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 23925 27900 50  0001 C CNN
+F 3 "" H 23925 27900 50  0000 C CNN
+	1    23925 27900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 74LS02 U?
+U 1 1 5A823449
+P 26675 27900
+F 0 "U?" H 26675 27950 50  0000 C CNN
+F 1 "74LVC02" H 26725 27850 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 26675 27900 50  0001 C CNN
+F 3 "" H 26675 27900 50  0000 C CNN
+	1    26675 27900
+	0    -1   -1   0   
+$EndComp
 Text Label 23925 27175 1    60   ~ 0
-RDCLK[25]
+RDCLK[9]
 Text Label 26675 27175 1    60   ~ 0
-RDCLK[26]
+RDCLK[10]
 Wire Wire Line
 	23775 20450 24225 20450
 Wire Wire Line
@@ -18170,6 +18951,14 @@ Wire Wire Line
 Wire Wire Line
 	24825 20075 24825 20150
 Wire Wire Line
+	24825 28350 24825 28350
+Wire Bus Line
+	25975 19800 25975 23550
+Wire Bus Line
+	23675 19625 23675 23550
+Wire Bus Line
+	25975 24350 25975 28625
+Wire Wire Line
 	28175 20550 28625 20550
 Wire Wire Line
 	28175 20650 28625 20650
@@ -18299,6 +19088,14 @@ Wire Wire Line
 	28175 20450 28625 20450
 Wire Wire Line
 	27575 20075 27575 20150
+Wire Wire Line
+	27575 28350 27575 28350
+Wire Bus Line
+	28725 19800 28725 23550
+Wire Bus Line
+	26425 19625 26425 23550
+Wire Bus Line
+	28725 24350 28725 28625
 Wire Wire Line
 	25425 23650 26175 23650
 Wire Wire Line
@@ -18460,19 +19257,19 @@ Wire Wire Line
 Wire Wire Line
 	26525 23550 26975 23550
 Text Label 24025 29250 1    60   ~ 0
-~RDCLKEN[25]
+~RDCLKEN[9]
 Text Label 26775 29250 1    60   ~ 0
-~RDCLKEN[25]
+~RDCLKEN[10]
 Text Label 26175 29250 1    60   ~ 0
-~RS2OE[25]
+~RS2OE[9]
 Text Label 26300 29250 1    60   ~ 0
-~RS1OE[25]
+~RS1OE[9]
 Text Label 29050 29250 1    60   ~ 0
-~RS1OE[25]
+~RS1OE[10]
 Text Label 28925 29250 1    60   ~ 0
-~RS2OE[25]
+~RS2OE[10]
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A823551
 P 30400 24250
 F 0 "PR?" H 30050 28200 60  0000 C CNN
@@ -18724,7 +19521,7 @@ NoConn ~ 31000 27850
 NoConn ~ 31000 27950
 NoConn ~ 31000 28050
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A8235E8
 P 30400 20075
 F 0 "#PWR?" H 30400 19925 50  0001 C CNN
@@ -18735,7 +19532,7 @@ F 3 "" H 30400 20075 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A8235EE
 P 30400 28350
 F 0 "#PWR?" H 30400 28100 50  0001 C CNN
@@ -18938,7 +19735,7 @@ Entry Wire Line
 Entry Wire Line
 	29350 23550 29250 23450
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A823654
 P 33150 24250
 F 0 "PR?" H 32800 28200 60  0000 C CNN
@@ -19126,7 +19923,7 @@ NoConn ~ 33750 27850
 NoConn ~ 33750 27950
 NoConn ~ 33750 28050
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A8236CB
 P 33150 20075
 F 0 "#PWR?" H 33150 19925 50  0001 C CNN
@@ -19137,7 +19934,7 @@ F 3 "" H 33150 20075 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A8236D1
 P 33150 28350
 F 0 "#PWR?" H 33150 28100 50  0001 C CNN
@@ -19339,10 +20136,32 @@ Entry Wire Line
 	32100 23450 32000 23350
 Entry Wire Line
 	32100 23550 32000 23450
+$Comp
+L 74LS02 U?
+U 1 1 5A823737
+P 29500 27900
+F 0 "U?" H 29500 27950 50  0000 C CNN
+F 1 "74LVC02" H 29550 27850 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 29500 27900 50  0001 C CNN
+F 3 "" H 29500 27900 50  0000 C CNN
+	1    29500 27900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 74LS02 U?
+U 1 1 5A82373D
+P 32250 27900
+F 0 "U?" H 32250 27950 50  0000 C CNN
+F 1 "74LVC02" H 32300 27850 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 32250 27900 50  0001 C CNN
+F 3 "" H 32250 27900 50  0000 C CNN
+	1    32250 27900
+	0    -1   -1   0   
+$EndComp
 Text Label 29500 27175 1    60   ~ 0
-RDCLK[26]
+RDCLK[11]
 Text Label 32250 27175 1    60   ~ 0
-RDCLK[27]
+RDCLK[12]
 Wire Wire Line
 	29350 20450 29800 20450
 Wire Wire Line
@@ -19538,6 +20357,14 @@ Wire Wire Line
 Wire Wire Line
 	30400 20075 30400 20150
 Wire Wire Line
+	30400 28350 30400 28350
+Wire Bus Line
+	31550 19800 31550 23550
+Wire Bus Line
+	29250 19625 29250 23550
+Wire Bus Line
+	31550 24350 31550 28625
+Wire Wire Line
 	33750 20550 34200 20550
 Wire Wire Line
 	33750 20650 34200 20650
@@ -19667,6 +20494,14 @@ Wire Wire Line
 	33750 20450 34200 20450
 Wire Wire Line
 	33150 20075 33150 20150
+Wire Wire Line
+	33150 28350 33150 28350
+Wire Bus Line
+	34300 19800 34300 23550
+Wire Bus Line
+	32000 19625 32000 23550
+Wire Bus Line
+	34300 24350 34300 28625
 Wire Wire Line
 	31000 23650 31750 23650
 Wire Wire Line
@@ -19828,19 +20663,19 @@ Wire Wire Line
 Wire Wire Line
 	32100 23550 32550 23550
 Text Label 29600 29250 1    60   ~ 0
-~RDCLKEN[26]
+~RDCLKEN[11]
 Text Label 32350 29250 1    60   ~ 0
-~RDCLKEN[27]
+~RDCLKEN[12]
 Text Label 31750 29250 1    60   ~ 0
-~RS2OE[26]
+~RS2OE[11]
 Text Label 31875 29250 1    60   ~ 0
-~RS1OE[26]
+~RS1OE[11]
 Text Label 34625 29250 1    60   ~ 0
-~RS1OE[27]
+~RS1OE[12]
 Text Label 34500 29250 1    60   ~ 0
-~RS2OE[27]
+~RS2OE[12]
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A823845
 P 35975 24250
 F 0 "PR?" H 35625 28200 60  0000 C CNN
@@ -20092,7 +20927,7 @@ NoConn ~ 36575 27850
 NoConn ~ 36575 27950
 NoConn ~ 36575 28050
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A8238DC
 P 35975 20075
 F 0 "#PWR?" H 35975 19925 50  0001 C CNN
@@ -20103,7 +20938,7 @@ F 3 "" H 35975 20075 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A8238E2
 P 35975 28350
 F 0 "#PWR?" H 35975 28100 50  0001 C CNN
@@ -20306,7 +21141,7 @@ Entry Wire Line
 Entry Wire Line
 	34925 23550 34825 23450
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A823948
 P 38725 24250
 F 0 "PR?" H 38375 28200 60  0000 C CNN
@@ -20494,7 +21329,7 @@ NoConn ~ 39325 27850
 NoConn ~ 39325 27950
 NoConn ~ 39325 28050
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A8239BF
 P 38725 20075
 F 0 "#PWR?" H 38725 19925 50  0001 C CNN
@@ -20505,7 +21340,7 @@ F 3 "" H 38725 20075 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A8239C5
 P 38725 28350
 F 0 "#PWR?" H 38725 28100 50  0001 C CNN
@@ -20707,10 +21542,32 @@ Entry Wire Line
 	37675 23450 37575 23350
 Entry Wire Line
 	37675 23550 37575 23450
+$Comp
+L 74LS02 U?
+U 1 1 5A823A2B
+P 35075 27900
+F 0 "U?" H 35075 27950 50  0000 C CNN
+F 1 "74LVC02" H 35125 27850 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 35075 27900 50  0001 C CNN
+F 3 "" H 35075 27900 50  0000 C CNN
+	1    35075 27900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 74LS02 U?
+U 1 1 5A823A31
+P 37825 27900
+F 0 "U?" H 37825 27950 50  0000 C CNN
+F 1 "74LVC02" H 37875 27850 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 37825 27900 50  0001 C CNN
+F 3 "" H 37825 27900 50  0000 C CNN
+	1    37825 27900
+	0    -1   -1   0   
+$EndComp
 Text Label 35075 27175 1    60   ~ 0
-RDCLK[28]
+RDCLK[13]
 Text Label 37825 27175 1    60   ~ 0
-RDCLK[29]
+RDCLK[14]
 Wire Wire Line
 	34925 20450 35375 20450
 Wire Wire Line
@@ -20906,6 +21763,14 @@ Wire Wire Line
 Wire Wire Line
 	35975 20075 35975 20150
 Wire Wire Line
+	35975 28350 35975 28350
+Wire Bus Line
+	37125 19800 37125 23550
+Wire Bus Line
+	34825 19625 34825 23550
+Wire Bus Line
+	37125 24350 37125 28625
+Wire Wire Line
 	39325 20550 39775 20550
 Wire Wire Line
 	39325 20650 39775 20650
@@ -21035,6 +21900,14 @@ Wire Wire Line
 	39325 20450 39775 20450
 Wire Wire Line
 	38725 20075 38725 20150
+Wire Wire Line
+	38725 28350 38725 28350
+Wire Bus Line
+	39875 19800 39875 23550
+Wire Bus Line
+	37575 19625 37575 23550
+Wire Bus Line
+	39875 24350 39875 28625
 Wire Bus Line
 	37125 19800 45450 19800
 Wire Wire Line
@@ -21200,19 +22073,19 @@ Wire Wire Line
 Wire Bus Line
 	34825 19625 43150 19625
 Text Label 35175 29250 1    60   ~ 0
-~RDCLKEN[28]
+~RDCLKEN[13]
 Text Label 37925 29250 1    60   ~ 0
-~RDCLKEN[29]
+~RDCLKEN[14]
 Text Label 37325 29250 1    60   ~ 0
-~RS2OE[28]
+~RS2OE[13]
 Text Label 37450 29250 1    60   ~ 0
-~RS1OE[28]
+~RS1OE[13]
 Text Label 40200 29250 1    60   ~ 0
-~RS1OE[29]
+~RS1OE[14]
 Text Label 40075 29250 1    60   ~ 0
-~RS2OE[29]
+~RS2OE[14]
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A823B3B
 P 41550 24250
 F 0 "PR?" H 41200 28200 60  0000 C CNN
@@ -21464,7 +22337,7 @@ NoConn ~ 42150 27850
 NoConn ~ 42150 27950
 NoConn ~ 42150 28050
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A823BD2
 P 41550 20075
 F 0 "#PWR?" H 41550 19925 50  0001 C CNN
@@ -21475,7 +22348,7 @@ F 3 "" H 41550 20075 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A823BD8
 P 41550 28350
 F 0 "#PWR?" H 41550 28100 50  0001 C CNN
@@ -21678,7 +22551,7 @@ Entry Wire Line
 Entry Wire Line
 	40500 23550 40400 23450
 $Comp
-L lmarv:dual-pcie-cardedge PR?
+L dual-pcie-cardedge PR?
 U 1 1 5A823C3E
 P 44300 24250
 F 0 "PR?" H 43950 28200 60  0000 C CNN
@@ -21866,7 +22739,7 @@ NoConn ~ 44900 27850
 NoConn ~ 44900 27950
 NoConn ~ 44900 28050
 $Comp
-L power:VCC #PWR?
+L VCC #PWR?
 U 1 1 5A823CB5
 P 44300 20075
 F 0 "#PWR?" H 44300 19925 50  0001 C CNN
@@ -21877,7 +22750,7 @@ F 3 "" H 44300 20075 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDREF #PWR?
+L GNDREF #PWR?
 U 1 1 5A823CBB
 P 44300 28350
 F 0 "#PWR?" H 44300 28100 50  0001 C CNN
@@ -22079,10 +22952,32 @@ Entry Wire Line
 	43250 23450 43150 23350
 Entry Wire Line
 	43250 23550 43150 23450
+$Comp
+L 74LS02 U?
+U 1 1 5A823D21
+P 40650 27900
+F 0 "U?" H 40650 27950 50  0000 C CNN
+F 1 "74LVC02" H 40700 27850 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 40650 27900 50  0001 C CNN
+F 3 "" H 40650 27900 50  0000 C CNN
+	1    40650 27900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 74LS02 U?
+U 1 1 5A823D27
+P 43400 27900
+F 0 "U?" H 43400 27950 50  0000 C CNN
+F 1 "74LVC02" H 43450 27850 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 43400 27900 50  0001 C CNN
+F 3 "" H 43400 27900 50  0000 C CNN
+	1    43400 27900
+	0    -1   -1   0   
+$EndComp
 Text Label 40650 27175 1    60   ~ 0
-RDCLK[30]
+RDCLK[15]
 Text Label 43400 27175 1    60   ~ 0
-RDCLK[31]
+RDCLK[16]
 Wire Wire Line
 	40500 20450 40950 20450
 Wire Wire Line
@@ -22278,6 +23173,14 @@ Wire Wire Line
 Wire Wire Line
 	41550 20075 41550 20150
 Wire Wire Line
+	41550 28350 41550 28350
+Wire Bus Line
+	42700 19800 42700 23550
+Wire Bus Line
+	40400 19625 40400 23550
+Wire Bus Line
+	42700 24350 42700 28625
+Wire Wire Line
 	44900 20550 45350 20550
 Wire Wire Line
 	44900 20650 45350 20650
@@ -22408,6 +23311,14 @@ Wire Wire Line
 Wire Wire Line
 	44300 20075 44300 20150
 Wire Wire Line
+	44300 28350 44300 28350
+Wire Bus Line
+	45450 19800 45450 23550
+Wire Bus Line
+	43150 19625 43150 23550
+Wire Bus Line
+	45450 24350 45450 28625
+Wire Wire Line
 	42150 23650 42900 23650
 Wire Wire Line
 	42900 23650 42900 29775
@@ -22428,7 +23339,7 @@ Wire Wire Line
 Wire Wire Line
 	40750 29350 40750 28500
 Wire Wire Line
-	43300 31100 43300 30650
+	43300 31100 43300 28500
 Wire Wire Line
 	40550 31100 40550 28500
 Wire Wire Line
@@ -22568,29 +23479,244 @@ Wire Wire Line
 Wire Wire Line
 	43250 23550 43700 23550
 Text Label 40750 29275 1    60   ~ 0
-~RDCLKEN[30]
+~RDCLKEN[15]
 Text Label 43500 29250 1    60   ~ 0
-~RDCLKEN[31]
+~RDCLKEN[16]
 Text Label 42900 29250 1    60   ~ 0
-~RS2OE[30]
+~RS2OE[15]
 Text Label 43025 29250 1    60   ~ 0
-~RS1OE[30]
+~RS1OE[15]
 Text Label 45775 29250 1    60   ~ 0
-~RS1OE[31]
+~RS1OE[16]
 Text Label 45650 29250 1    60   ~ 0
-~RS2OE[31]
+~RS2OE[16]
+Text Label 16350 14325 1    60   ~ 0
+rs1sel[0]
+Text Label 16450 14325 1    60   ~ 0
+rs1sel[1]
+Text Label 16550 14325 1    60   ~ 0
+rs1sel[2]
+Text Label 15250 14325 1    60   ~ 0
+rs2sel[0]
+Text Label 15350 14325 1    60   ~ 0
+rs2sel[1]
+Text Label 15450 14325 1    60   ~ 0
+rs2sel[2]
+Text Notes 16825 13350 2    60   ~ 0
+~RS1OE
+Text Notes 15750 13350 2    60   ~ 0
+~RS2OE
+$Comp
+L 74LS138 U?
+U 1 1 5A82A8FD
+P 16700 13300
+F 0 "U?" H 16800 13800 50  0000 C CNN
+F 1 "74LVC138" H 16700 12800 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" H 16700 13300 50  0001 C CNN
+F 3 "" H 16700 13300 50  0000 C CNN
+	1    16700 13300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 74LS138 U?
+U 1 1 5A82A903
+P 15600 13300
+F 0 "U?" H 15700 13800 50  0000 C CNN
+F 1 "74LVC138" H 15625 12800 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" H 15600 13300 50  0001 C CNN
+F 3 "" H 15600 13300 50  0000 C CNN
+	1    15600 13300
+	0    -1   -1   0   
+$EndComp
+Entry Wire Line
+	15350 14450 15450 14350
+Entry Wire Line
+	15250 14450 15350 14350
+Entry Wire Line
+	15150 14450 15250 14350
 Entry Wire Line
 	16450 14625 16550 14525
 Entry Wire Line
 	16350 14625 16450 14525
 Entry Wire Line
 	16250 14625 16350 14525
+$Comp
+L 74LS138 U?
+U 1 1 5A82A90F
+P 13925 13300
+F 0 "U?" H 14025 13800 50  0000 C CNN
+F 1 "74LVC138" H 13950 12800 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" H 13925 13300 50  0001 C CNN
+F 3 "" H 13925 13300 50  0000 C CNN
+	1    13925 13300
+	0    -1   -1   0   
+$EndComp
+Text Notes 14050 13350 2    60   ~ 0
+~RDCLK
+$Comp
+L GNDREF #PWR?
+U 1 1 5A82A916
+P 15850 14150
+F 0 "#PWR?" H 15850 13900 50  0001 C CNN
+F 1 "GNDREF" H 15850 14000 50  0001 C CNN
+F 2 "" H 15850 14150 50  0000 C CNN
+F 3 "" H 15850 14150 50  0000 C CNN
+	1    15850 14150
+	1    0    0    -1  
+$EndComp
+$Comp
+L GNDREF #PWR?
+U 1 1 5A82A91C
+P 16950 14150
+F 0 "#PWR?" H 16950 13900 50  0001 C CNN
+F 1 "GNDREF" H 16950 14000 50  0001 C CNN
+F 2 "" H 16950 14150 50  0000 C CNN
+F 3 "" H 16950 14150 50  0000 C CNN
+	1    16950 14150
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR?
+U 1 1 5A82A922
+P 15575 13875
+F 0 "#PWR?" H 15575 13725 50  0001 C CNN
+F 1 "VCC" H 15575 14025 50  0000 C CNN
+F 2 "" H 15575 13875 50  0000 C CNN
+F 3 "" H 15575 13875 50  0000 C CNN
+	1    15575 13875
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR?
+U 1 1 5A82A928
+P 16675 13875
+F 0 "#PWR?" H 16675 13725 50  0001 C CNN
+F 1 "VCC" H 16675 14025 50  0000 C CNN
+F 2 "" H 16675 13875 50  0000 C CNN
+F 3 "" H 16675 13875 50  0000 C CNN
+	1    16675 13875
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	16350 13900 16350 14525
+Wire Wire Line
+	16450 13900 16450 14525
+Wire Wire Line
+	16550 13900 16550 14525
+Wire Wire Line
+	15250 13900 15250 14350
+Wire Wire Line
+	15350 13900 15350 14350
+Wire Wire Line
+	15450 13900 15450 14350
+Wire Wire Line
+	15950 13900 15950 15575
+Wire Wire Line
+	17050 13900 17050 15600
+Wire Wire Line
+	15850 13900 15850 14150
+Wire Wire Line
+	16950 13900 16950 14150
+Wire Wire Line
+	15575 13875 15575 13950
+Wire Wire Line
+	15575 13950 15750 13950
+Wire Wire Line
+	15750 13950 15750 13900
+Wire Wire Line
+	16675 13875 16675 13950
+Wire Wire Line
+	16675 13950 16850 13950
+Wire Wire Line
+	16850 13950 16850 13900
+Text Label 13575 14200 1    60   ~ 0
+rdsel[0]
+Text Label 13675 14200 1    60   ~ 0
+resel[1]
+Text Label 13775 14200 1    60   ~ 0
+resel[2]
 Entry Wire Line
 	13675 14750 13775 14650
 Entry Wire Line
 	13575 14750 13675 14650
 Entry Wire Line
 	13475 14750 13575 14650
+Wire Wire Line
+	13575 13900 13575 14650
+Wire Wire Line
+	13675 13900 13675 14650
+Wire Wire Line
+	13775 13900 13775 14650
+$Comp
+L VCC #PWR?
+U 1 1 5A82A951
+P 13900 13875
+F 0 "#PWR?" H 13900 13725 50  0001 C CNN
+F 1 "VCC" H 13900 14025 50  0000 C CNN
+F 2 "" H 13900 13875 50  0000 C CNN
+F 3 "" H 13900 13875 50  0000 C CNN
+	1    13900 13875
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13900 13875 13900 13950
+Wire Wire Line
+	13900 13950 14075 13950
+Wire Wire Line
+	14075 13950 14075 13900
+$Comp
+L GNDREF #PWR?
+U 1 1 5A82A95A
+P 14175 14150
+F 0 "#PWR?" H 14175 13900 50  0001 C CNN
+F 1 "GNDREF" H 14175 14000 50  0001 C CNN
+F 2 "" H 14175 14150 50  0000 C CNN
+F 3 "" H 14175 14150 50  0000 C CNN
+	1    14175 14150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	14175 13900 14175 14150
+Wire Wire Line
+	14275 13900 14275 15550
+Text Label 21850 14325 1    60   ~ 0
+rs1sel[0]
+Text Label 21950 14325 1    60   ~ 0
+rs1sel[1]
+Text Label 22050 14325 1    60   ~ 0
+rs1sel[2]
+Text Label 20750 14325 1    60   ~ 0
+rs2sel[0]
+Text Label 20850 14325 1    60   ~ 0
+rs2sel[1]
+Text Label 20950 14325 1    60   ~ 0
+rs2sel[2]
+Text Notes 22325 13350 2    60   ~ 0
+~RS1OE
+Text Notes 21250 13350 2    60   ~ 0
+~RS2OE
+$Comp
+L 74LS138 U?
+U 1 1 5A82A96C
+P 22200 13300
+F 0 "U?" H 22300 13800 50  0000 C CNN
+F 1 "74LVC138" H 22200 12800 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" H 22200 13300 50  0001 C CNN
+F 3 "" H 22200 13300 50  0000 C CNN
+	1    22200 13300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L 74LS138 U?
+U 1 1 5A82A972
+P 21100 13300
+F 0 "U?" H 21200 13800 50  0000 C CNN
+F 1 "74LVC138" H 21125 12800 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" H 21100 13300 50  0001 C CNN
+F 3 "" H 21100 13300 50  0000 C CNN
+	1    21100 13300
+	0    -1   -1   0   
+$EndComp
 Entry Wire Line
 	20850 14450 20950 14350
 Entry Wire Line
@@ -22603,12 +23729,181 @@ Entry Wire Line
 	21850 14625 21950 14525
 Entry Wire Line
 	21750 14625 21850 14525
+$Comp
+L 74LS138 U?
+U 1 1 5A82A97E
+P 19425 13300
+F 0 "U?" H 19525 13800 50  0000 C CNN
+F 1 "74LVC138" H 19450 12800 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" H 19425 13300 50  0001 C CNN
+F 3 "" H 19425 13300 50  0000 C CNN
+	1    19425 13300
+	0    -1   -1   0   
+$EndComp
+Text Notes 19550 13350 2    60   ~ 0
+~RDCLK
+$Comp
+L GNDREF #PWR?
+U 1 1 5A82A985
+P 21350 14150
+F 0 "#PWR?" H 21350 13900 50  0001 C CNN
+F 1 "GNDREF" H 21350 14000 50  0001 C CNN
+F 2 "" H 21350 14150 50  0000 C CNN
+F 3 "" H 21350 14150 50  0000 C CNN
+	1    21350 14150
+	1    0    0    -1  
+$EndComp
+$Comp
+L GNDREF #PWR?
+U 1 1 5A82A98B
+P 22450 14150
+F 0 "#PWR?" H 22450 13900 50  0001 C CNN
+F 1 "GNDREF" H 22450 14000 50  0001 C CNN
+F 2 "" H 22450 14150 50  0000 C CNN
+F 3 "" H 22450 14150 50  0000 C CNN
+	1    22450 14150
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR?
+U 1 1 5A82A991
+P 21075 13875
+F 0 "#PWR?" H 21075 13725 50  0001 C CNN
+F 1 "VCC" H 21075 14025 50  0000 C CNN
+F 2 "" H 21075 13875 50  0000 C CNN
+F 3 "" H 21075 13875 50  0000 C CNN
+	1    21075 13875
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR?
+U 1 1 5A82A997
+P 22175 13875
+F 0 "#PWR?" H 22175 13725 50  0001 C CNN
+F 1 "VCC" H 22175 14025 50  0000 C CNN
+F 2 "" H 22175 13875 50  0000 C CNN
+F 3 "" H 22175 13875 50  0000 C CNN
+	1    22175 13875
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	21850 13900 21850 14525
+Wire Wire Line
+	21950 13900 21950 14525
+Wire Wire Line
+	22050 13900 22050 14525
+Wire Wire Line
+	20750 13900 20750 14350
+Wire Wire Line
+	20850 13900 20850 14350
+Wire Wire Line
+	20950 13900 20950 14350
+Wire Wire Line
+	21450 13900 21450 15700
+Wire Wire Line
+	22550 13900 22550 15750
+Wire Wire Line
+	21350 13900 21350 14150
+Wire Wire Line
+	22450 13900 22450 14150
+Wire Wire Line
+	21075 13875 21075 13950
+Wire Wire Line
+	21075 13950 21250 13950
+Wire Wire Line
+	21250 13950 21250 13900
+Wire Wire Line
+	22175 13875 22175 13950
+Wire Wire Line
+	22175 13950 22350 13950
+Wire Wire Line
+	22350 13950 22350 13900
+Text Label 19075 14200 1    60   ~ 0
+rdsel[0]
+Text Label 19175 14200 1    60   ~ 0
+resel[1]
+Text Label 19275 14200 1    60   ~ 0
+resel[2]
+Wire Wire Line
+	19075 13900 19075 14650
+Wire Wire Line
+	19175 13900 19175 14650
+Wire Wire Line
+	19275 13900 19275 14650
+$Comp
+L VCC #PWR?
+U 1 1 5A82A9B3
+P 19400 13875
+F 0 "#PWR?" H 19400 13725 50  0001 C CNN
+F 1 "VCC" H 19400 14025 50  0000 C CNN
+F 2 "" H 19400 13875 50  0000 C CNN
+F 3 "" H 19400 13875 50  0000 C CNN
+	1    19400 13875
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	19400 13875 19400 13950
+Wire Wire Line
+	19400 13950 19575 13950
+Wire Wire Line
+	19575 13950 19575 13900
+$Comp
+L GNDREF #PWR?
+U 1 1 5A82A9BC
+P 19675 14150
+F 0 "#PWR?" H 19675 13900 50  0001 C CNN
+F 1 "GNDREF" H 19675 14000 50  0001 C CNN
+F 2 "" H 19675 14150 50  0000 C CNN
+F 3 "" H 19675 14150 50  0000 C CNN
+	1    19675 14150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	19675 13900 19675 14150
+Wire Wire Line
+	19775 13900 19775 15650
 Entry Wire Line
 	19175 14750 19275 14650
 Entry Wire Line
 	19075 14750 19175 14650
 Entry Wire Line
 	18975 14750 19075 14650
+Text Label 21450 15250 1    60   ~ 0
+~rs2en24-31
+Text Label 22550 15250 1    60   ~ 0
+~rs1en24-31
+Wire Wire Line
+	3425 15800 3425 15550
+Wire Wire Line
+	3425 15550 14275 15550
+Wire Wire Line
+	4975 15800 4975 15575
+Wire Wire Line
+	4975 15575 15950 15575
+Wire Wire Line
+	6375 15800 6375 15600
+Wire Wire Line
+	6375 15600 17050 15600
+Text Label 14275 15325 1    60   ~ 0
+~rden16-23
+Text Label 15950 15325 1    60   ~ 0
+~rs2en16-23
+Text Label 17050 15325 1    60   ~ 0
+~rs1en16-23
+Wire Wire Line
+	3625 15800 3625 15650
+Wire Wire Line
+	3625 15650 19775 15650
+Wire Wire Line
+	5175 15800 5175 15700
+Wire Wire Line
+	5175 15700 21450 15700
+Wire Wire Line
+	6575 15800 6575 15750
+Wire Wire Line
+	6575 15750 22550 15750
+Text Label 19775 15250 1    60   ~ 0
+~rden24-31
 Entry Wire Line
 	1075 29350 1175 29450
 Entry Wire Line
@@ -22653,4567 +23948,4 @@ Entry Wire Line
 	17250 29575 17350 29675
 Entry Wire Line
 	20075 29575 20175 29675
-Wire Wire Line
-	950  12225 3700 12225
-Wire Wire Line
-	3700 12225 6525 12225
-Wire Wire Line
-	6525 12225 9275 12225
-Wire Wire Line
-	9275 12225 12100 12225
-Wire Wire Line
-	12100 12225 14850 12225
-Wire Wire Line
-	14850 12225 17675 12225
-Wire Wire Line
-	17675 12225 20425 12225
-Wire Wire Line
-	20425 12225 23900 12225
-Wire Wire Line
-	23900 12225 26650 12225
-Wire Wire Line
-	26650 12225 29475 12225
-Wire Wire Line
-	29475 12225 32225 12225
-Wire Wire Line
-	32225 12225 35050 12225
-Wire Wire Line
-	35050 12225 37800 12225
-Wire Wire Line
-	37800 12225 40625 12225
-Wire Wire Line
-	40625 12225 43375 12225
-Entry Wire Line
-	3025 14750 3125 14650
-Entry Wire Line
-	2925 14750 3025 14650
-Wire Wire Line
-	3025 13900 3025 14650
-Wire Wire Line
-	3125 13900 3125 14650
-Text Label 3125 14200 1    60   ~ 0
-rdsel[4]
-Text Label 3025 14200 1    60   ~ 0
-rdsel[3]
-Text Label 4700 14325 1    60   ~ 0
-rs2sel[3]
-Text Label 4800 14325 1    60   ~ 0
-rs2sel[4]
-Entry Wire Line
-	4700 14450 4800 14350
-Entry Wire Line
-	4600 14450 4700 14350
-Wire Wire Line
-	4700 13900 4700 14350
-Wire Wire Line
-	4800 13900 4800 14350
-Text Label 5800 14325 1    60   ~ 0
-rs1sel[3]
-Text Label 5900 14325 1    60   ~ 0
-rs1sel[4]
-Wire Wire Line
-	5800 13900 5800 14525
-Wire Wire Line
-	5900 13900 5900 14525
-Entry Wire Line
-	5800 14625 5900 14525
-Entry Wire Line
-	5700 14625 5800 14525
-$Comp
-L register-motherboard-rescue:74LS138-RESCUE-register-motherboard U?
-U 1 1 5A7F79FD
-P 8275 13300
-F 0 "U?" H 8375 13800 50  0000 C CNN
-F 1 "74LVC138" H 8300 12800 50  0000 C CNN
-F 2 "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" H 8275 13300 50  0001 C CNN
-F 3 "" H 8275 13300 50  0000 C CNN
-	1    8275 13300
-	0    -1   -1   0   
-$EndComp
-Text Label 8425 14200 1    60   ~ 0
-rdsel[3]
-Wire Wire Line
-	8425 13900 8425 14650
-Text Label 8625 14200 1    60   ~ 0
-rdsel[4]
-Wire Wire Line
-	8625 13900 8625 14650
-Entry Wire Line
-	8325 14750 8425 14650
-Entry Wire Line
-	8525 14750 8625 14650
-Text Label 10100 14325 1    60   ~ 0
-rs2sel[3]
-Entry Wire Line
-	10000 14450 10100 14350
-Wire Wire Line
-	10100 13900 10100 14350
-Text Label 10300 14325 1    60   ~ 0
-rs2sel[4]
-Entry Wire Line
-	10200 14450 10300 14350
-Wire Wire Line
-	10300 13900 10300 14350
-Text Label 11200 14325 1    60   ~ 0
-rs1sel[3]
-Wire Wire Line
-	11200 13900 11200 14525
-Text Label 11400 14325 1    60   ~ 0
-rs1sel[4]
-Wire Wire Line
-	11400 13900 11400 14525
-Entry Wire Line
-	11100 14625 11200 14525
-Entry Wire Line
-	11300 14625 11400 14525
-Entry Wire Line
-	15150 14450 15250 14350
-Entry Wire Line
-	15250 14450 15350 14350
-Entry Wire Line
-	15350 14450 15450 14350
-Text Label 16350 14325 1    60   ~ 0
-rs1sel[0]
-Text Label 16450 14325 1    60   ~ 0
-rs1sel[1]
-Text Label 16550 14325 1    60   ~ 0
-rs1sel[2]
-Text Label 15250 14325 1    60   ~ 0
-rs2sel[0]
-Text Label 15350 14325 1    60   ~ 0
-rs2sel[1]
-Text Label 15450 14325 1    60   ~ 0
-rs2sel[2]
-Text Notes 17050 13350 2    60   ~ 0
-~RS1OE[16-23]
-Text Notes 15975 13350 2    60   ~ 0
-~RS2OE[16-23]
-$Comp
-L register-motherboard-rescue:74LS138-RESCUE-register-motherboard U?
-U 1 1 5BFB5E4E
-P 16700 13300
-F 0 "U?" H 16800 13800 50  0000 C CNN
-F 1 "74LVC138" H 16700 12800 50  0000 C CNN
-F 2 "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" H 16700 13300 50  0001 C CNN
-F 3 "" H 16700 13300 50  0000 C CNN
-	1    16700 13300
-	0    -1   -1   0   
-$EndComp
-$Comp
-L register-motherboard-rescue:74LS138-RESCUE-register-motherboard U?
-U 1 1 5BFB5E54
-P 15600 13300
-F 0 "U?" H 15700 13800 50  0000 C CNN
-F 1 "74LVC138" H 15625 12800 50  0000 C CNN
-F 2 "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" H 15600 13300 50  0001 C CNN
-F 3 "" H 15600 13300 50  0000 C CNN
-	1    15600 13300
-	0    -1   -1   0   
-$EndComp
-Text Notes 14250 13350 2    60   ~ 0
-~RDCLK[16-23]
-$Comp
-L power:GNDREF #PWR?
-U 1 1 5BFB5E5B
-P 15850 14150
-F 0 "#PWR?" H 15850 13900 50  0001 C CNN
-F 1 "GNDREF" H 15850 14000 50  0001 C CNN
-F 2 "" H 15850 14150 50  0000 C CNN
-F 3 "" H 15850 14150 50  0000 C CNN
-	1    15850 14150
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 5BFB5E61
-P 16950 14150
-F 0 "#PWR?" H 16950 13900 50  0001 C CNN
-F 1 "GNDREF" H 16950 14000 50  0001 C CNN
-F 2 "" H 16950 14150 50  0000 C CNN
-F 3 "" H 16950 14150 50  0000 C CNN
-	1    16950 14150
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	16350 13900 16350 14525
-Wire Wire Line
-	16450 13900 16450 14525
-Wire Wire Line
-	16550 13900 16550 14525
-Wire Wire Line
-	15250 13900 15250 14350
-Wire Wire Line
-	15350 13900 15350 14350
-Wire Wire Line
-	15450 13900 15450 14350
-Wire Wire Line
-	15850 13900 15850 14150
-Wire Wire Line
-	16950 13900 16950 14150
-Text Label 13575 14200 1    60   ~ 0
-rdsel[0]
-Text Label 13675 14200 1    60   ~ 0
-rdsel[1]
-Text Label 13775 14200 1    60   ~ 0
-rdsel[2]
-Wire Wire Line
-	13575 13900 13575 14650
-Wire Wire Line
-	13675 13900 13675 14650
-Wire Wire Line
-	13775 13900 13775 14650
-$Comp
-L power:GNDREF #PWR?
-U 1 1 5BFB5E75
-P 14175 14150
-F 0 "#PWR?" H 14175 13900 50  0001 C CNN
-F 1 "GNDREF" H 14175 14000 50  0001 C CNN
-F 2 "" H 14175 14150 50  0000 C CNN
-F 3 "" H 14175 14150 50  0000 C CNN
-	1    14175 14150
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	14175 13900 14175 14150
-$Comp
-L register-motherboard-rescue:74LS138-RESCUE-register-motherboard U?
-U 1 1 5BFB5E7C
-P 13925 13300
-F 0 "U?" H 14025 13800 50  0000 C CNN
-F 1 "74LVC138" H 13950 12800 50  0000 C CNN
-F 2 "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" H 13925 13300 50  0001 C CNN
-F 3 "" H 13925 13300 50  0000 C CNN
-	1    13925 13300
-	0    -1   -1   0   
-$EndComp
-Text Label 14075 14200 1    60   ~ 0
-rdsel[4]
-Wire Wire Line
-	14075 13900 14075 14650
-Text Label 14275 14200 1    60   ~ 0
-rdsel[3]
-Wire Wire Line
-	14275 13900 14275 14650
-Text Label 15750 14325 1    60   ~ 0
-rs2sel[4]
-Wire Wire Line
-	15750 13900 15750 14350
-Text Label 15950 14325 1    60   ~ 0
-rs2sel[3]
-Wire Wire Line
-	15950 13900 15950 14350
-Text Label 16850 14325 1    60   ~ 0
-rs1sel[4]
-Wire Wire Line
-	16850 13900 16850 14525
-Text Label 17050 14325 1    60   ~ 0
-rs1sel[3]
-Wire Wire Line
-	17050 13900 17050 14525
-Entry Wire Line
-	13975 14750 14075 14650
-Entry Wire Line
-	14175 14750 14275 14650
-Entry Wire Line
-	15650 14450 15750 14350
-Entry Wire Line
-	15850 14450 15950 14350
-Entry Wire Line
-	16750 14625 16850 14525
-Entry Wire Line
-	16950 14625 17050 14525
-Text Label 21850 14325 1    60   ~ 0
-rs1sel[0]
-Text Label 21950 14325 1    60   ~ 0
-rs1sel[1]
-Text Label 22050 14325 1    60   ~ 0
-rs1sel[2]
-Text Label 20750 14325 1    60   ~ 0
-rs2sel[0]
-Text Label 20850 14325 1    60   ~ 0
-rs2sel[1]
-Text Label 20950 14325 1    60   ~ 0
-rs2sel[2]
-Text Notes 22550 13350 2    60   ~ 0
-~RS1OE[24-31]
-Text Notes 21450 13350 2    60   ~ 0
-~RS2OE[24-31]
-$Comp
-L register-motherboard-rescue:74LS138-RESCUE-register-motherboard U?
-U 1 1 6911F3AE
-P 22200 13300
-F 0 "U?" H 22300 13800 50  0000 C CNN
-F 1 "74LVC138" H 22200 12800 50  0000 C CNN
-F 2 "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" H 22200 13300 50  0001 C CNN
-F 3 "" H 22200 13300 50  0000 C CNN
-	1    22200 13300
-	0    -1   -1   0   
-$EndComp
-$Comp
-L register-motherboard-rescue:74LS138-RESCUE-register-motherboard U?
-U 1 1 6911F3B4
-P 21100 13300
-F 0 "U?" H 21200 13800 50  0000 C CNN
-F 1 "74LVC138" H 21125 12800 50  0000 C CNN
-F 2 "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" H 21100 13300 50  0001 C CNN
-F 3 "" H 21100 13300 50  0000 C CNN
-	1    21100 13300
-	0    -1   -1   0   
-$EndComp
-Text Notes 19775 13350 2    60   ~ 0
-~RDCLK[24-31]
-$Comp
-L power:GNDREF #PWR?
-U 1 1 6911F3BB
-P 21350 14150
-F 0 "#PWR?" H 21350 13900 50  0001 C CNN
-F 1 "GNDREF" H 21350 14000 50  0001 C CNN
-F 2 "" H 21350 14150 50  0000 C CNN
-F 3 "" H 21350 14150 50  0000 C CNN
-	1    21350 14150
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 6911F3C1
-P 22450 14150
-F 0 "#PWR?" H 22450 13900 50  0001 C CNN
-F 1 "GNDREF" H 22450 14000 50  0001 C CNN
-F 2 "" H 22450 14150 50  0000 C CNN
-F 3 "" H 22450 14150 50  0000 C CNN
-	1    22450 14150
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	21850 13900 21850 14525
-Wire Wire Line
-	21950 13900 21950 14525
-Wire Wire Line
-	22050 13900 22050 14525
-Wire Wire Line
-	20750 13900 20750 14350
-Wire Wire Line
-	20850 13900 20850 14350
-Wire Wire Line
-	20950 13900 20950 14350
-Wire Wire Line
-	21350 13900 21350 14150
-Wire Wire Line
-	22450 13900 22450 14150
-Text Label 19075 14200 1    60   ~ 0
-rdsel[0]
-Text Label 19175 14200 1    60   ~ 0
-rdsel[1]
-Text Label 19275 14200 1    60   ~ 0
-rdsel[2]
-Wire Wire Line
-	19075 13900 19075 14650
-Wire Wire Line
-	19175 13900 19175 14650
-Wire Wire Line
-	19275 13900 19275 14650
-$Comp
-L power:GNDREF #PWR?
-U 1 1 6911F3D5
-P 19675 14150
-F 0 "#PWR?" H 19675 13900 50  0001 C CNN
-F 1 "GNDREF" H 19675 14000 50  0001 C CNN
-F 2 "" H 19675 14150 50  0000 C CNN
-F 3 "" H 19675 14150 50  0000 C CNN
-	1    19675 14150
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	19675 13900 19675 14150
-$Comp
-L register-motherboard-rescue:74LS138-RESCUE-register-motherboard U?
-U 1 1 6911F3DC
-P 19425 13300
-F 0 "U?" H 19525 13800 50  0000 C CNN
-F 1 "74LVC138" H 19450 12800 50  0000 C CNN
-F 2 "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" H 19425 13300 50  0001 C CNN
-F 3 "" H 19425 13300 50  0000 C CNN
-	1    19425 13300
-	0    -1   -1   0   
-$EndComp
-Text Label 19575 14200 1    60   ~ 0
-rdsel[4]
-Wire Wire Line
-	19575 13900 19575 14650
-Text Label 19775 14200 1    60   ~ 0
-~rdsel[3]
-Text Label 21250 14325 1    60   ~ 0
-rs2sel[4]
-Wire Wire Line
-	21250 13900 21250 14350
-Text Label 21450 14325 1    60   ~ 0
-~rs2sel[3]
-Text Label 22350 14325 1    60   ~ 0
-rs1sel[4]
-Wire Wire Line
-	22350 13900 22350 14525
-Text Label 22550 14325 1    60   ~ 0
-~rs1sel[3]
-Entry Wire Line
-	19475 14750 19575 14650
-Entry Wire Line
-	21150 14450 21250 14350
-Entry Wire Line
-	22250 14625 22350 14525
-$Comp
-L lmarv:74LVC04 U?
-U 1 1 7370503E
-P 19200 15875
-F 0 "U?" H 19350 16425 50  0000 C CNN
-F 1 "74LVC04" H 19400 15625 50  0000 C CNN
-F 2 "" H 19200 15875 50  0001 C CNN
-F 3 "" H 19200 15875 50  0001 C CNN
-	1    19200 15875
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	18800 15475 18575 15475
-Wire Wire Line
-	18575 15475 18575 14850
-Entry Wire Line
-	18575 14850 18475 14750
-Text Label 18575 15300 1    60   ~ 0
-rdsel[3]
-Wire Wire Line
-	19775 15475 19600 15475
-Wire Wire Line
-	19775 13900 19775 15475
-Entry Wire Line
-	18375 14550 18275 14450
-Text Label 18375 15350 1    60   ~ 0
-rs2sel[3]
-Wire Wire Line
-	18375 15575 18800 15575
-Wire Wire Line
-	18375 14550 18375 15575
-Wire Wire Line
-	21450 15575 19600 15575
-Wire Wire Line
-	21450 13900 21450 15575
-Entry Wire Line
-	18175 14725 18075 14625
-Text Label 18175 15175 1    60   ~ 0
-rs1sel[3]
-Wire Wire Line
-	18175 15675 18800 15675
-Wire Wire Line
-	18175 14725 18175 15675
-Wire Wire Line
-	22550 15675 19600 15675
-Wire Wire Line
-	22550 13900 22550 15675
-Text Label 13675 11875 1    50   ~ 0
-~RDCLKEN[17]
-Text Label 13775 11875 1    50   ~ 0
-~RDCLKEN[18]
-Wire Wire Line
-	13775 12700 13775 10675
-Wire Wire Line
-	13675 12700 13675 10675
-Text Label 13875 11875 1    50   ~ 0
-~RDCLKEN[19]
-Text Label 13975 11875 1    50   ~ 0
-~RDCLKEN[20]
-Wire Wire Line
-	13975 12700 13975 10675
-Wire Wire Line
-	13875 12700 13875 10675
-Text Label 14075 11875 1    50   ~ 0
-~RDCLKEN[21]
-Wire Wire Line
-	14075 12700 14075 10675
-Text Label 14175 11875 1    50   ~ 0
-~RDCLKEN[22]
-Text Label 14275 11875 1    50   ~ 0
-~RDCLKEN[23]
-Wire Wire Line
-	14275 12700 14275 10675
-Wire Wire Line
-	14175 12700 14175 10675
-Text Label 13575 11875 1    50   ~ 0
-~RDCLKEN[16]
-Wire Wire Line
-	13575 12700 13575 10675
-Text Label 15250 11875 1    50   ~ 0
-~RS2OE[16]
-Text Label 15350 11875 1    50   ~ 0
-~RS2OE[17]
-Wire Wire Line
-	15350 12700 15350 11100
-Wire Wire Line
-	15250 12700 15250 11100
-Text Label 15450 11875 1    50   ~ 0
-~RS2OE[18]
-Text Label 15550 11875 1    50   ~ 0
-~RS2OE[19]
-Wire Wire Line
-	15550 12700 15550 11100
-Wire Wire Line
-	15450 12700 15450 11100
-Text Label 15650 11875 1    50   ~ 0
-~RS2OE[20]
-Wire Wire Line
-	15650 12700 15650 11100
-Text Label 15750 11875 1    50   ~ 0
-~RS2OE[21]
-Text Label 15850 11875 1    50   ~ 0
-~RS2OE[22]
-Wire Wire Line
-	15850 12700 15850 11100
-Wire Wire Line
-	15750 12700 15750 11100
-Text Label 15950 11875 1    50   ~ 0
-~RS2OE[23]
-Wire Wire Line
-	15950 12700 15950 11100
-Text Label 16350 11675 1    50   ~ 0
-~RS1OE[16]
-Text Label 16450 11675 1    50   ~ 0
-~RS1OE[17]
-Wire Wire Line
-	16450 12700 16450 10900
-Wire Wire Line
-	16350 12700 16350 10900
-Text Label 16550 11675 1    50   ~ 0
-~RS1OE[18]
-Text Label 16650 11675 1    50   ~ 0
-~RS1OE[19]
-Wire Wire Line
-	16650 12700 16650 10900
-Wire Wire Line
-	16550 12700 16550 10900
-Text Label 16750 11675 1    50   ~ 0
-~RS1OE[20]
-Wire Wire Line
-	16750 12700 16750 10900
-Text Label 16850 11675 1    50   ~ 0
-~RS1OE[21]
-Text Label 16950 11675 1    50   ~ 0
-~RS1OE[22]
-Wire Wire Line
-	16950 12700 16950 10900
-Wire Wire Line
-	16850 12700 16850 10900
-Text Label 17050 11675 1    50   ~ 0
-~RS1OE[23]
-Wire Wire Line
-	17050 12700 17050 10900
-Entry Wire Line
-	15250 11000 15350 11100
-Entry Wire Line
-	15150 11000 15250 11100
-Entry Wire Line
-	15450 11000 15550 11100
-Entry Wire Line
-	15350 11000 15450 11100
-Entry Wire Line
-	15550 11000 15650 11100
-Entry Wire Line
-	15750 11000 15850 11100
-Entry Wire Line
-	15650 11000 15750 11100
-Entry Wire Line
-	15850 11000 15950 11100
-Entry Wire Line
-	16350 10800 16450 10900
-Entry Wire Line
-	16250 10800 16350 10900
-Entry Wire Line
-	16550 10800 16650 10900
-Entry Wire Line
-	16450 10800 16550 10900
-Entry Wire Line
-	16650 10800 16750 10900
-Entry Wire Line
-	16850 10800 16950 10900
-Entry Wire Line
-	16750 10800 16850 10900
-Entry Wire Line
-	16950 10800 17050 10900
-Entry Wire Line
-	13575 10575 13675 10675
-Entry Wire Line
-	13475 10575 13575 10675
-Entry Wire Line
-	13775 10575 13875 10675
-Entry Wire Line
-	13675 10575 13775 10675
-Entry Wire Line
-	13875 10575 13975 10675
-Entry Wire Line
-	14075 10575 14175 10675
-Entry Wire Line
-	13975 10575 14075 10675
-Entry Wire Line
-	14175 10575 14275 10675
-Text Label 19175 11875 1    50   ~ 0
-~RDCLKEN[25]
-Text Label 19275 11875 1    50   ~ 0
-~RDCLKEN[26]
-Wire Wire Line
-	19275 12700 19275 10675
-Wire Wire Line
-	19175 12700 19175 10675
-Text Label 19375 11875 1    50   ~ 0
-~RDCLKEN[27]
-Text Label 19475 11875 1    50   ~ 0
-~RDCLKEN[28]
-Wire Wire Line
-	19475 12700 19475 10675
-Wire Wire Line
-	19375 12700 19375 10675
-Text Label 19575 11875 1    50   ~ 0
-~RDCLKEN[29]
-Wire Wire Line
-	19575 12700 19575 10675
-Text Label 19675 11875 1    50   ~ 0
-~RDCLKEN[30]
-Text Label 19775 11875 1    50   ~ 0
-~RDCLKEN[31]
-Wire Wire Line
-	19775 12700 19775 10675
-Wire Wire Line
-	19675 12700 19675 10675
-Text Label 19075 11875 1    50   ~ 0
-~RDCLKEN[24]
-Wire Wire Line
-	19075 12700 19075 10675
-Text Label 20750 11875 1    50   ~ 0
-~RS2OE[24]
-Text Label 20850 11875 1    50   ~ 0
-~RS2OE[25]
-Wire Wire Line
-	20850 12700 20850 11100
-Wire Wire Line
-	20750 12700 20750 11100
-Text Label 20950 11875 1    50   ~ 0
-~RS2OE[26]
-Text Label 21050 11875 1    50   ~ 0
-~RS2OE[27]
-Wire Wire Line
-	21050 12700 21050 11100
-Wire Wire Line
-	20950 12700 20950 11100
-Text Label 21150 11875 1    50   ~ 0
-~RS2OE[28]
-Wire Wire Line
-	21150 12700 21150 11100
-Text Label 21250 11875 1    50   ~ 0
-~RS2OE[29]
-Text Label 21350 11875 1    50   ~ 0
-~RS2OE[30]
-Wire Wire Line
-	21350 12700 21350 11100
-Wire Wire Line
-	21250 12700 21250 11100
-Text Label 21450 11875 1    50   ~ 0
-~RS2OE[31]
-Wire Wire Line
-	21450 12700 21450 11100
-Text Label 21850 11675 1    50   ~ 0
-~RS1OE[24]
-Text Label 21950 11675 1    50   ~ 0
-~RS1OE[25]
-Wire Wire Line
-	21950 12700 21950 10900
-Wire Wire Line
-	21850 12700 21850 10900
-Text Label 22050 11675 1    50   ~ 0
-~RS1OE[26]
-Text Label 22150 11675 1    50   ~ 0
-~RS1OE[27]
-Wire Wire Line
-	22150 12700 22150 10900
-Wire Wire Line
-	22050 12700 22050 10900
-Text Label 22250 11675 1    50   ~ 0
-~RS1OE[28]
-Wire Wire Line
-	22250 12700 22250 10900
-Text Label 22350 11675 1    50   ~ 0
-~RS1OE[29]
-Text Label 22450 11675 1    50   ~ 0
-~RS1OE[30]
-Wire Wire Line
-	22450 12700 22450 10900
-Wire Wire Line
-	22350 12700 22350 10900
-Text Label 22550 11675 1    50   ~ 0
-~RS1OE[31]
-Wire Wire Line
-	22550 12700 22550 10900
-Entry Wire Line
-	20750 11000 20850 11100
-Entry Wire Line
-	20650 11000 20750 11100
-Entry Wire Line
-	20950 11000 21050 11100
-Entry Wire Line
-	20850 11000 20950 11100
-Entry Wire Line
-	21050 11000 21150 11100
-Entry Wire Line
-	21250 11000 21350 11100
-Entry Wire Line
-	21150 11000 21250 11100
-Entry Wire Line
-	21350 11000 21450 11100
-Entry Wire Line
-	21850 10800 21950 10900
-Entry Wire Line
-	21750 10800 21850 10900
-Entry Wire Line
-	22050 10800 22150 10900
-Entry Wire Line
-	21950 10800 22050 10900
-Entry Wire Line
-	22150 10800 22250 10900
-Entry Wire Line
-	22350 10800 22450 10900
-Entry Wire Line
-	22250 10800 22350 10900
-Entry Wire Line
-	22450 10800 22550 10900
-Entry Wire Line
-	19075 10575 19175 10675
-Entry Wire Line
-	18975 10575 19075 10675
-Entry Wire Line
-	19275 10575 19375 10675
-Entry Wire Line
-	19175 10575 19275 10675
-Entry Wire Line
-	19375 10575 19475 10675
-Entry Wire Line
-	19575 10575 19675 10675
-Entry Wire Line
-	19475 10575 19575 10675
-Entry Wire Line
-	19675 10575 19775 10675
-Wire Bus Line
-	9125 750  11950 750 
-Connection ~ 9125 750 
-Connection ~ 11950 750 
-Wire Bus Line
-	11425 925  14250 925 
-Connection ~ 11425 925 
-Connection ~ 14250 925 
-Wire Bus Line
-	32075 750  34900 750 
-Connection ~ 32075 750 
-Connection ~ 34900 750 
-Wire Bus Line
-	34375 925  37200 925 
-Connection ~ 34375 925 
-Connection ~ 37200 925 
-Wire Bus Line
-	9050 19625 11875 19625
-Connection ~ 9050 19625
-Connection ~ 11875 19625
-Wire Bus Line
-	11350 19800 14175 19800
-Connection ~ 11350 19800
-Connection ~ 14175 19800
-Wire Bus Line
-	32000 19625 34825 19625
-Connection ~ 32000 19625
-Connection ~ 34825 19625
-Wire Bus Line
-	34300 19800 37125 19800
-Connection ~ 34300 19800
-Connection ~ 37125 19800
-Wire Wire Line
-	875  31100 3625 31100
-Connection ~ 3625 31100
-Wire Wire Line
-	3625 31100 6450 31100
-Connection ~ 6450 31100
-Wire Wire Line
-	6450 31100 9200 31100
-Connection ~ 9200 31100
-Wire Wire Line
-	9200 31100 12025 31100
-Connection ~ 12025 31100
-Wire Wire Line
-	12025 31100 14775 31100
-Connection ~ 14775 31100
-Wire Wire Line
-	14775 31100 17600 31100
-Connection ~ 17600 31100
-Wire Wire Line
-	17600 31100 20350 31100
-Connection ~ 20350 31100
-Wire Wire Line
-	20350 31100 23825 31100
-Connection ~ 23825 31100
-Wire Wire Line
-	23825 31100 26575 31100
-Connection ~ 26575 31100
-Wire Wire Line
-	26575 31100 29400 31100
-Connection ~ 29400 31100
-Wire Wire Line
-	29400 31100 32150 31100
-Connection ~ 32150 31100
-Wire Wire Line
-	32150 31100 34975 31100
-Connection ~ 34975 31100
-Wire Wire Line
-	34975 31100 37725 31100
-Connection ~ 37725 31100
-Wire Wire Line
-	37725 31100 40550 31100
-Connection ~ 40550 31100
-Wire Wire Line
-	40550 31100 43300 31100
-Wire Wire Line
-	875  31100 550  31100
-Wire Wire Line
-	550  31100 550  12575
-Wire Wire Line
-	550  12575 950  12575
-Wire Wire Line
-	950  12575 950  12225
-Connection ~ 875  31100
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 7824E0EB
-P 1000 9325
-F 0 "U?" V 1021 9195 50  0000 R CNN
-F 1 "74LVC1G02" V 930 9195 50  0000 R CNN
-F 2 "" H 1000 9325 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 1000 9325 50  0001 C CNN
-	1    1000 9325
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	1150 9625 1050 9625
-Wire Wire Line
-	1050 8875 1000 8875
-Wire Wire Line
-	1000 8875 1000 9075
-Wire Wire Line
-	1050 4775 1050 8875
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 7ACB1E11
-P 3750 9325
-F 0 "U?" V 3771 9195 50  0000 R CNN
-F 1 "74LVC1G02" V 3680 9195 50  0000 R CNN
-F 2 "" H 3750 9325 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 3750 9325 50  0001 C CNN
-	1    3750 9325
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 7ACB1ED3
-P 6575 9325
-F 0 "U?" V 6596 9195 50  0000 R CNN
-F 1 "74LVC1G02" V 6505 9195 50  0000 R CNN
-F 2 "" H 6575 9325 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 6575 9325 50  0001 C CNN
-	1    6575 9325
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	3900 9625 3800 9625
-Wire Wire Line
-	6725 9625 6625 9625
-Wire Wire Line
-	3800 8425 3750 8425
-Wire Wire Line
-	3750 8425 3750 9075
-Wire Wire Line
-	6625 8425 6575 8425
-Wire Wire Line
-	6575 8425 6575 9075
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 5B1A7E34
-P 9325 9325
-F 0 "U?" V 9346 9195 50  0000 R CNN
-F 1 "74LVC1G02" V 9255 9195 50  0000 R CNN
-F 2 "" H 9325 9325 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 9325 9325 50  0001 C CNN
-	1    9325 9325
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	9325 8425 9325 9075
-Wire Wire Line
-	9475 9625 9375 9625
-Wire Wire Line
-	9375 8425 9325 8425
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 5F18C26E
-P 12150 9325
-F 0 "U?" V 12171 9195 50  0000 R CNN
-F 1 "74LVC1G02" V 12080 9195 50  0000 R CNN
-F 2 "" H 12150 9325 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 12150 9325 50  0001 C CNN
-	1    12150 9325
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	12150 8425 12150 9075
-Wire Wire Line
-	12300 9625 12200 9625
-Wire Wire Line
-	12200 8425 12150 8425
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 61C39718
-P 14900 9325
-F 0 "U?" V 14921 9195 50  0000 R CNN
-F 1 "74LVC1G02" V 14830 9195 50  0000 R CNN
-F 2 "" H 14900 9325 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 14900 9325 50  0001 C CNN
-	1    14900 9325
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	14900 8425 14900 9075
-Wire Wire Line
-	15050 9625 14950 9625
-Wire Wire Line
-	14950 8425 14900 8425
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 646F769E
-P 17725 9325
-F 0 "U?" V 17746 9195 50  0000 R CNN
-F 1 "74LVC1G02" V 17655 9195 50  0000 R CNN
-F 2 "" H 17725 9325 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 17725 9325 50  0001 C CNN
-	1    17725 9325
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	17725 8425 17725 9075
-Wire Wire Line
-	17875 9625 17775 9625
-Wire Wire Line
-	17775 8425 17725 8425
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 671C50E8
-P 20475 9325
-F 0 "U?" V 20496 9195 50  0000 R CNN
-F 1 "74LVC1G02" V 20405 9195 50  0000 R CNN
-F 2 "" H 20475 9325 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 20475 9325 50  0001 C CNN
-	1    20475 9325
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	20475 8425 20475 9075
-Wire Wire Line
-	20625 9625 20525 9625
-Wire Wire Line
-	20525 8425 20475 8425
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 69CA2B40
-P 23950 9325
-F 0 "U?" V 23971 9195 50  0000 R CNN
-F 1 "74LVC1G02" V 23880 9195 50  0000 R CNN
-F 2 "" H 23950 9325 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 23950 9325 50  0001 C CNN
-	1    23950 9325
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	23950 8425 23950 9075
-Wire Wire Line
-	24100 9625 24000 9625
-Wire Wire Line
-	24000 8425 23950 8425
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 6C78F56A
-P 26700 9325
-F 0 "U?" V 26721 9195 50  0000 R CNN
-F 1 "74LVC1G02" V 26630 9195 50  0000 R CNN
-F 2 "" H 26700 9325 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 26700 9325 50  0001 C CNN
-	1    26700 9325
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	26700 8425 26700 9075
-Wire Wire Line
-	26850 9625 26750 9625
-Wire Wire Line
-	26750 8425 26700 8425
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 6F28A6B7
-P 29525 9325
-F 0 "U?" V 29546 9195 50  0000 R CNN
-F 1 "74LVC1G02" V 29455 9195 50  0000 R CNN
-F 2 "" H 29525 9325 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 29525 9325 50  0001 C CNN
-	1    29525 9325
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	29525 8425 29525 9075
-Wire Wire Line
-	29675 9625 29575 9625
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 7080CC64
-P 32275 9325
-F 0 "U?" V 32296 9195 50  0000 R CNN
-F 1 "74LVC1G02" V 32205 9195 50  0000 R CNN
-F 2 "" H 32275 9325 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 32275 9325 50  0001 C CNN
-	1    32275 9325
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	32275 8425 32275 9075
-Wire Wire Line
-	32425 9625 32325 9625
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 71D9278D
-P 35100 9325
-F 0 "U?" V 35121 9195 50  0000 R CNN
-F 1 "74LVC1G02" V 35030 9195 50  0000 R CNN
-F 2 "" H 35100 9325 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 35100 9325 50  0001 C CNN
-	1    35100 9325
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	35100 8425 35100 9075
-Wire Wire Line
-	35250 9625 35150 9625
-Wire Wire Line
-	29575 8425 29525 8425
-Wire Wire Line
-	32325 8425 32275 8425
-Wire Wire Line
-	35150 8425 35100 8425
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 773CA84A
-P 37850 9325
-F 0 "U?" V 37871 9195 50  0000 R CNN
-F 1 "74LVC1G02" V 37780 9195 50  0000 R CNN
-F 2 "" H 37850 9325 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 37850 9325 50  0001 C CNN
-	1    37850 9325
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	37850 8425 37850 9075
-Wire Wire Line
-	38000 9625 37900 9625
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 7895FB87
-P 40675 9325
-F 0 "U?" V 40696 9195 50  0000 R CNN
-F 1 "74LVC1G02" V 40605 9195 50  0000 R CNN
-F 2 "" H 40675 9325 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 40675 9325 50  0001 C CNN
-	1    40675 9325
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	40675 8425 40675 9075
-Wire Wire Line
-	40825 9625 40725 9625
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 79EF7D82
-P 43425 9325
-F 0 "U?" V 43446 9195 50  0000 R CNN
-F 1 "74LVC1G02" V 43355 9195 50  0000 R CNN
-F 2 "" H 43425 9325 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 43425 9325 50  0001 C CNN
-	1    43425 9325
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	43425 8425 43425 9075
-Wire Wire Line
-	43575 9625 43475 9625
-Wire Wire Line
-	37900 8425 37850 8425
-Wire Wire Line
-	40725 8425 40675 8425
-Wire Wire Line
-	43475 8425 43425 8425
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 7F576C32
-P 925 28200
-F 0 "U?" V 946 28070 50  0000 R CNN
-F 1 "74LVC1G02" V 855 28070 50  0000 R CNN
-F 2 "" H 925 28200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 925 28200 50  0001 C CNN
-	1    925  28200
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	1075 28500 975  28500
-Wire Wire Line
-	925  27300 975  27300
-Wire Wire Line
-	925  27300 925  27950
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 5D0C386C
-P 3675 28200
-F 0 "U?" V 3696 28070 50  0000 R CNN
-F 1 "74LVC1G02" V 3605 28070 50  0000 R CNN
-F 2 "" H 3675 28200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 3675 28200 50  0001 C CNN
-	1    3675 28200
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	3825 28500 3725 28500
-Wire Wire Line
-	3675 27300 3675 27950
-Wire Wire Line
-	3725 27300 3675 27300
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 5FC2BD84
-P 6500 28200
-F 0 "U?" V 6521 28070 50  0000 R CNN
-F 1 "74LVC1G02" V 6430 28070 50  0000 R CNN
-F 2 "" H 6500 28200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 6500 28200 50  0001 C CNN
-	1    6500 28200
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	6650 28500 6550 28500
-Wire Wire Line
-	6500 27300 6500 27950
-Wire Wire Line
-	6550 27300 6500 27300
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 627A8066
-P 9250 28200
-F 0 "U?" V 9271 28070 50  0000 R CNN
-F 1 "74LVC1G02" V 9180 28070 50  0000 R CNN
-F 2 "" H 9250 28200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 9250 28200 50  0001 C CNN
-	1    9250 28200
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	9400 28500 9300 28500
-Wire Wire Line
-	9250 27300 9250 27950
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 63D6C95E
-P 12075 28200
-F 0 "U?" V 12096 28070 50  0000 R CNN
-F 1 "74LVC1G02" V 12005 28070 50  0000 R CNN
-F 2 "" H 12075 28200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 12075 28200 50  0001 C CNN
-	1    12075 28200
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	12225 28500 12125 28500
-Wire Wire Line
-	12075 27300 12075 27950
-Wire Wire Line
-	9300 27300 9250 27300
-Wire Wire Line
-	12125 27300 12075 27300
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 67ED53C2
-P 14825 28200
-F 0 "U?" V 14846 28070 50  0000 R CNN
-F 1 "74LVC1G02" V 14755 28070 50  0000 R CNN
-F 2 "" H 14825 28200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 14825 28200 50  0001 C CNN
-	1    14825 28200
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	14975 28500 14875 28500
-Wire Wire Line
-	14825 27300 14825 27950
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 694AB35D
-P 17650 28200
-F 0 "U?" V 17671 28070 50  0000 R CNN
-F 1 "74LVC1G02" V 17580 28070 50  0000 R CNN
-F 2 "" H 17650 28200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 17650 28200 50  0001 C CNN
-	1    17650 28200
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	17800 28500 17700 28500
-Wire Wire Line
-	17650 27300 17650 27950
-Wire Wire Line
-	14875 27300 14825 27300
-Wire Wire Line
-	17700 27300 17650 27300
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 6D6465E2
-P 20400 28200
-F 0 "U?" V 20421 28070 50  0000 R CNN
-F 1 "74LVC1G02" V 20330 28070 50  0000 R CNN
-F 2 "" H 20400 28200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 20400 28200 50  0001 C CNN
-	1    20400 28200
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	20550 28500 20450 28500
-Wire Wire Line
-	20400 27300 20400 27950
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 6EC2C787
-P 23875 28200
-F 0 "U?" V 23896 28070 50  0000 R CNN
-F 1 "74LVC1G02" V 23805 28070 50  0000 R CNN
-F 2 "" H 23875 28200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 23875 28200 50  0001 C CNN
-	1    23875 28200
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	24025 28500 23925 28500
-Wire Wire Line
-	23875 27300 23875 27950
-Wire Wire Line
-	20400 27300 20450 27300
-Wire Wire Line
-	23875 27300 23925 27300
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 72DF6653
-P 26625 28200
-F 0 "U?" V 26646 28070 50  0000 R CNN
-F 1 "74LVC1G02" V 26555 28070 50  0000 R CNN
-F 2 "" H 26625 28200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 26625 28200 50  0001 C CNN
-	1    26625 28200
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	26775 28500 26675 28500
-Wire Wire Line
-	26625 27300 26625 27950
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 743EB5C7
-P 29450 28200
-F 0 "U?" V 29471 28070 50  0000 R CNN
-F 1 "74LVC1G02" V 29380 28070 50  0000 R CNN
-F 2 "" H 29450 28200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 29450 28200 50  0001 C CNN
-	1    29450 28200
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	29600 28500 29500 28500
-Wire Wire Line
-	29450 27300 29450 27950
-Wire Wire Line
-	26675 27300 26625 27300
-Wire Wire Line
-	29500 27300 29450 27300
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 785DFE0A
-P 32200 28200
-F 0 "U?" V 32221 28070 50  0000 R CNN
-F 1 "74LVC1G02" V 32130 28070 50  0000 R CNN
-F 2 "" H 32200 28200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 32200 28200 50  0001 C CNN
-	1    32200 28200
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	32350 28500 32250 28500
-Wire Wire Line
-	32200 27300 32200 27950
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 79BE27EB
-P 35025 28200
-F 0 "U?" V 35046 28070 50  0000 R CNN
-F 1 "74LVC1G02" V 34955 28070 50  0000 R CNN
-F 2 "" H 35025 28200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 35025 28200 50  0001 C CNN
-	1    35025 28200
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	35175 28500 35075 28500
-Wire Wire Line
-	35025 27300 35025 27950
-Wire Wire Line
-	32250 27300 32200 27300
-Wire Wire Line
-	35075 27300 35025 27300
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 7DDFE3FF
-P 37775 28200
-F 0 "U?" V 37796 28070 50  0000 R CNN
-F 1 "74LVC1G02" V 37705 28070 50  0000 R CNN
-F 2 "" H 37775 28200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 37775 28200 50  0001 C CNN
-	1    37775 28200
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	37925 28500 37825 28500
-Wire Wire Line
-	37775 27300 37775 27950
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 7F40D50B
-P 40600 28200
-F 0 "U?" V 40621 28070 50  0000 R CNN
-F 1 "74LVC1G02" V 40530 28070 50  0000 R CNN
-F 2 "" H 40600 28200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 40600 28200 50  0001 C CNN
-	1    40600 28200
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	40750 28500 40650 28500
-Wire Wire Line
-	40600 27300 40600 27950
-Wire Wire Line
-	37825 27300 37775 27300
-Wire Wire Line
-	40650 27300 40600 27300
-$Comp
-L Logic_74xgxx:74LVC1G02 U?
-U 1 1 5E6437F0
-P 43350 28200
-F 0 "U?" V 43371 28070 50  0000 R CNN
-F 1 "74LVC1G02" V 43280 28070 50  0000 R CNN
-F 2 "" H 43350 28200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 43350 28200 50  0001 C CNN
-	1    43350 28200
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	43500 28500 43400 28500
-Wire Wire Line
-	43350 27300 43350 27950
-Wire Wire Line
-	43400 27300 43350 27300
-Entry Wire Line
-	28925 29775 29025 29875
-Entry Wire Line
-	29050 29575 29150 29675
-Entry Wire Line
-	31750 29775 31850 29875
-Entry Wire Line
-	31875 29575 31975 29675
-Entry Wire Line
-	34500 29775 34600 29875
-Entry Wire Line
-	34625 29575 34725 29675
-Entry Wire Line
-	37325 29775 37425 29875
-Entry Wire Line
-	37450 29575 37550 29675
-Entry Wire Line
-	40075 29775 40175 29875
-Entry Wire Line
-	40200 29575 40300 29675
-Entry Wire Line
-	42900 29775 43000 29875
-Entry Wire Line
-	43025 29575 43125 29675
-Entry Wire Line
-	45650 29775 45750 29875
-Entry Wire Line
-	45775 29575 45875 29675
-Entry Wire Line
-	43500 29350 43600 29450
-Entry Wire Line
-	40750 29350 40850 29450
-Entry Wire Line
-	37925 29350 38025 29450
-Entry Wire Line
-	35175 29350 35275 29450
-Entry Wire Line
-	32350 29350 32450 29450
-Entry Wire Line
-	29600 29350 29700 29450
-Entry Wire Line
-	26175 29775 26275 29875
-Entry Wire Line
-	26300 29575 26400 29675
-Entry Wire Line
-	22700 29775 22800 29875
-Entry Wire Line
-	22825 29575 22925 29675
-Entry Wire Line
-	26775 29350 26875 29450
-Entry Wire Line
-	24025 29350 24125 29450
-Wire Bus Line
-	45925 29450 45925 11225
-Wire Bus Line
-	45925 11225 45300 11225
-Wire Bus Line
-	45300 11225 45300 10575
-Wire Bus Line
-	46025 11000 46025 29875
-Wire Bus Line
-	46125 10800 46125 29675
-$Comp
-L Device:R R?
-U 1 1 5BF74695
-P 43650 30650
-F 0 "R?" V 43443 30650 50  0000 C CNN
-F 1 "100R" V 43534 30650 50  0000 C CNN
-F 2 "" V 43580 30650 50  0001 C CNN
-F 3 "~" H 43650 30650 50  0001 C CNN
-	1    43650 30650
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 5BF747F5
-P 43950 30650
-F 0 "C?" V 43698 30650 50  0000 C CNN
-F 1 "160p" V 43789 30650 50  0000 C CNN
-F 2 "" H 43988 30500 50  0001 C CNN
-F 3 "~" H 43950 30650 50  0001 C CNN
-	1    43950 30650
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	43500 30650 43300 30650
-Connection ~ 43300 30650
-Wire Wire Line
-	43300 30650 43300 28500
-$Comp
-L power:GNDREF #PWR?
-U 1 1 5D5AA7C9
-P 44100 30650
-F 0 "#PWR?" H 44100 30400 50  0001 C CNN
-F 1 "GNDREF" H 44100 30500 50  0001 C CNN
-F 2 "" H 44100 30650 50  0000 C CNN
-F 3 "" H 44100 30650 50  0000 C CNN
-	1    44100 30650
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 5D5AB58C
-P 43175 13950
-F 0 "RN?" V 43400 13900 50  0000 L CNN
-F 1 "CAT16-101J4" V 42875 13850 20  0000 L CNN
-F 2 "" V 43450 13950 50  0001 C CNN
-F 3 "~" H 43175 13950 50  0001 C CNN
-	1    43175 13950
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 60218794
-P 43125 14350
-F 0 "CN?" V 43400 14300 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 42875 14200 20  0000 L CNN
-F 2 "" H 43125 14200 50  0001 C CNN
-F 3 "" H 43125 14200 50  0001 C CNN
-	1    43125 14350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 6184F42D
-P 42975 14550
-F 0 "#PWR?" H 42975 14300 50  0001 C CNN
-F 1 "GNDREF" H 42975 14400 50  0001 C CNN
-F 2 "" H 42975 14550 50  0000 C CNN
-F 3 "" H 42975 14550 50  0000 C CNN
-	1    42975 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 6184F8A6
-P 43075 14550
-F 0 "#PWR?" H 43075 14300 50  0001 C CNN
-F 1 "GNDREF" H 43075 14400 50  0001 C CNN
-F 2 "" H 43075 14550 50  0000 C CNN
-F 3 "" H 43075 14550 50  0000 C CNN
-	1    43075 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 6184F953
-P 43175 14550
-F 0 "#PWR?" H 43175 14300 50  0001 C CNN
-F 1 "GNDREF" H 43175 14400 50  0001 C CNN
-F 2 "" H 43175 14550 50  0000 C CNN
-F 3 "" H 43175 14550 50  0000 C CNN
-	1    43175 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 6184FA00
-P 43275 14550
-F 0 "#PWR?" H 43275 14300 50  0001 C CNN
-F 1 "GNDREF" H 43275 14400 50  0001 C CNN
-F 2 "" H 43275 14550 50  0000 C CNN
-F 3 "" H 43275 14550 50  0000 C CNN
-	1    43275 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 618505AD
-P 43775 13950
-F 0 "RN?" V 44000 13900 50  0000 L CNN
-F 1 "CAT16-101J4" V 43475 13850 20  0000 L CNN
-F 2 "" V 44050 13950 50  0001 C CNN
-F 3 "~" H 43775 13950 50  0001 C CNN
-	1    43775 13950
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 618505B3
-P 43725 14350
-F 0 "CN?" V 44000 14300 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 43475 14200 20  0000 L CNN
-F 2 "" H 43725 14200 50  0001 C CNN
-F 3 "" H 43725 14200 50  0001 C CNN
-	1    43725 14350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 618505B9
-P 43575 14550
-F 0 "#PWR?" H 43575 14300 50  0001 C CNN
-F 1 "GNDREF" H 43575 14400 50  0001 C CNN
-F 2 "" H 43575 14550 50  0000 C CNN
-F 3 "" H 43575 14550 50  0000 C CNN
-	1    43575 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 618505BF
-P 43675 14550
-F 0 "#PWR?" H 43675 14300 50  0001 C CNN
-F 1 "GNDREF" H 43675 14400 50  0001 C CNN
-F 2 "" H 43675 14550 50  0000 C CNN
-F 3 "" H 43675 14550 50  0000 C CNN
-	1    43675 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 618505C5
-P 43775 14550
-F 0 "#PWR?" H 43775 14300 50  0001 C CNN
-F 1 "GNDREF" H 43775 14400 50  0001 C CNN
-F 2 "" H 43775 14550 50  0000 C CNN
-F 3 "" H 43775 14550 50  0000 C CNN
-	1    43775 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 618505CB
-P 43875 14550
-F 0 "#PWR?" H 43875 14300 50  0001 C CNN
-F 1 "GNDREF" H 43875 14400 50  0001 C CNN
-F 2 "" H 43875 14550 50  0000 C CNN
-F 3 "" H 43875 14550 50  0000 C CNN
-	1    43875 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 62E866F2
-P 44375 13950
-F 0 "RN?" V 44600 13900 50  0000 L CNN
-F 1 "CAT16-101J4" V 44075 13850 20  0000 L CNN
-F 2 "" V 44650 13950 50  0001 C CNN
-F 3 "~" H 44375 13950 50  0001 C CNN
-	1    44375 13950
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 62E866F8
-P 44325 14350
-F 0 "CN?" V 44600 14300 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 44075 14200 20  0000 L CNN
-F 2 "" H 44325 14200 50  0001 C CNN
-F 3 "" H 44325 14200 50  0001 C CNN
-	1    44325 14350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 62E866FE
-P 44175 14550
-F 0 "#PWR?" H 44175 14300 50  0001 C CNN
-F 1 "GNDREF" H 44175 14400 50  0001 C CNN
-F 2 "" H 44175 14550 50  0000 C CNN
-F 3 "" H 44175 14550 50  0000 C CNN
-	1    44175 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 62E86704
-P 44275 14550
-F 0 "#PWR?" H 44275 14300 50  0001 C CNN
-F 1 "GNDREF" H 44275 14400 50  0001 C CNN
-F 2 "" H 44275 14550 50  0000 C CNN
-F 3 "" H 44275 14550 50  0000 C CNN
-	1    44275 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 62E8670A
-P 44375 14550
-F 0 "#PWR?" H 44375 14300 50  0001 C CNN
-F 1 "GNDREF" H 44375 14400 50  0001 C CNN
-F 2 "" H 44375 14550 50  0000 C CNN
-F 3 "" H 44375 14550 50  0000 C CNN
-	1    44375 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 62E86710
-P 44475 14550
-F 0 "#PWR?" H 44475 14300 50  0001 C CNN
-F 1 "GNDREF" H 44475 14400 50  0001 C CNN
-F 2 "" H 44475 14550 50  0000 C CNN
-F 3 "" H 44475 14550 50  0000 C CNN
-	1    44475 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 62E86716
-P 44975 13950
-F 0 "RN?" V 45200 13900 50  0000 L CNN
-F 1 "CAT16-101J4" V 44675 13850 20  0000 L CNN
-F 2 "" V 45250 13950 50  0001 C CNN
-F 3 "~" H 44975 13950 50  0001 C CNN
-	1    44975 13950
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 62E8671C
-P 44925 14350
-F 0 "CN?" V 45200 14300 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 44675 14200 20  0000 L CNN
-F 2 "" H 44925 14200 50  0001 C CNN
-F 3 "" H 44925 14200 50  0001 C CNN
-	1    44925 14350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 62E86722
-P 44775 14550
-F 0 "#PWR?" H 44775 14300 50  0001 C CNN
-F 1 "GNDREF" H 44775 14400 50  0001 C CNN
-F 2 "" H 44775 14550 50  0000 C CNN
-F 3 "" H 44775 14550 50  0000 C CNN
-	1    44775 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 62E86728
-P 44875 14550
-F 0 "#PWR?" H 44875 14300 50  0001 C CNN
-F 1 "GNDREF" H 44875 14400 50  0001 C CNN
-F 2 "" H 44875 14550 50  0000 C CNN
-F 3 "" H 44875 14550 50  0000 C CNN
-	1    44875 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 62E8672E
-P 44975 14550
-F 0 "#PWR?" H 44975 14300 50  0001 C CNN
-F 1 "GNDREF" H 44975 14400 50  0001 C CNN
-F 2 "" H 44975 14550 50  0000 C CNN
-F 3 "" H 44975 14550 50  0000 C CNN
-	1    44975 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 62E86734
-P 45075 14550
-F 0 "#PWR?" H 45075 14300 50  0001 C CNN
-F 1 "GNDREF" H 45075 14400 50  0001 C CNN
-F 2 "" H 45075 14550 50  0000 C CNN
-F 3 "" H 45075 14550 50  0000 C CNN
-	1    45075 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 644BC897
-P 40775 13950
-F 0 "RN?" V 41000 13900 50  0000 L CNN
-F 1 "CAT16-101J4" V 40475 13850 20  0000 L CNN
-F 2 "" V 41050 13950 50  0001 C CNN
-F 3 "~" H 40775 13950 50  0001 C CNN
-	1    40775 13950
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 644BC89D
-P 40725 14350
-F 0 "CN?" V 41000 14300 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 40475 14200 20  0000 L CNN
-F 2 "" H 40725 14200 50  0001 C CNN
-F 3 "" H 40725 14200 50  0001 C CNN
-	1    40725 14350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 644BC8A3
-P 40575 14550
-F 0 "#PWR?" H 40575 14300 50  0001 C CNN
-F 1 "GNDREF" H 40575 14400 50  0001 C CNN
-F 2 "" H 40575 14550 50  0000 C CNN
-F 3 "" H 40575 14550 50  0000 C CNN
-	1    40575 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 644BC8A9
-P 40675 14550
-F 0 "#PWR?" H 40675 14300 50  0001 C CNN
-F 1 "GNDREF" H 40675 14400 50  0001 C CNN
-F 2 "" H 40675 14550 50  0000 C CNN
-F 3 "" H 40675 14550 50  0000 C CNN
-	1    40675 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 644BC8AF
-P 40775 14550
-F 0 "#PWR?" H 40775 14300 50  0001 C CNN
-F 1 "GNDREF" H 40775 14400 50  0001 C CNN
-F 2 "" H 40775 14550 50  0000 C CNN
-F 3 "" H 40775 14550 50  0000 C CNN
-	1    40775 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 644BC8B5
-P 40875 14550
-F 0 "#PWR?" H 40875 14300 50  0001 C CNN
-F 1 "GNDREF" H 40875 14400 50  0001 C CNN
-F 2 "" H 40875 14550 50  0000 C CNN
-F 3 "" H 40875 14550 50  0000 C CNN
-	1    40875 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 644BC8BB
-P 41375 13950
-F 0 "RN?" V 41600 13900 50  0000 L CNN
-F 1 "CAT16-101J4" V 41075 13850 20  0000 L CNN
-F 2 "" V 41650 13950 50  0001 C CNN
-F 3 "~" H 41375 13950 50  0001 C CNN
-	1    41375 13950
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 644BC8C1
-P 41325 14350
-F 0 "CN?" V 41600 14300 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 41075 14200 20  0000 L CNN
-F 2 "" H 41325 14200 50  0001 C CNN
-F 3 "" H 41325 14200 50  0001 C CNN
-	1    41325 14350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 644BC8C7
-P 41175 14550
-F 0 "#PWR?" H 41175 14300 50  0001 C CNN
-F 1 "GNDREF" H 41175 14400 50  0001 C CNN
-F 2 "" H 41175 14550 50  0000 C CNN
-F 3 "" H 41175 14550 50  0000 C CNN
-	1    41175 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 644BC8CD
-P 41275 14550
-F 0 "#PWR?" H 41275 14300 50  0001 C CNN
-F 1 "GNDREF" H 41275 14400 50  0001 C CNN
-F 2 "" H 41275 14550 50  0000 C CNN
-F 3 "" H 41275 14550 50  0000 C CNN
-	1    41275 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 644BC8D3
-P 41375 14550
-F 0 "#PWR?" H 41375 14300 50  0001 C CNN
-F 1 "GNDREF" H 41375 14400 50  0001 C CNN
-F 2 "" H 41375 14550 50  0000 C CNN
-F 3 "" H 41375 14550 50  0000 C CNN
-	1    41375 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 644BC8D9
-P 41475 14550
-F 0 "#PWR?" H 41475 14300 50  0001 C CNN
-F 1 "GNDREF" H 41475 14400 50  0001 C CNN
-F 2 "" H 41475 14550 50  0000 C CNN
-F 3 "" H 41475 14550 50  0000 C CNN
-	1    41475 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 644BC8DF
-P 41975 13950
-F 0 "RN?" V 42200 13900 50  0000 L CNN
-F 1 "CAT16-101J4" V 41675 13850 20  0000 L CNN
-F 2 "" V 42250 13950 50  0001 C CNN
-F 3 "~" H 41975 13950 50  0001 C CNN
-	1    41975 13950
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 644BC8E5
-P 41925 14350
-F 0 "CN?" V 42200 14300 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 41675 14200 20  0000 L CNN
-F 2 "" H 41925 14200 50  0001 C CNN
-F 3 "" H 41925 14200 50  0001 C CNN
-	1    41925 14350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 644BC8EB
-P 41775 14550
-F 0 "#PWR?" H 41775 14300 50  0001 C CNN
-F 1 "GNDREF" H 41775 14400 50  0001 C CNN
-F 2 "" H 41775 14550 50  0000 C CNN
-F 3 "" H 41775 14550 50  0000 C CNN
-	1    41775 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 644BC8F1
-P 41875 14550
-F 0 "#PWR?" H 41875 14300 50  0001 C CNN
-F 1 "GNDREF" H 41875 14400 50  0001 C CNN
-F 2 "" H 41875 14550 50  0000 C CNN
-F 3 "" H 41875 14550 50  0000 C CNN
-	1    41875 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 644BC8F7
-P 41975 14550
-F 0 "#PWR?" H 41975 14300 50  0001 C CNN
-F 1 "GNDREF" H 41975 14400 50  0001 C CNN
-F 2 "" H 41975 14550 50  0000 C CNN
-F 3 "" H 41975 14550 50  0000 C CNN
-	1    41975 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 644BC8FD
-P 42075 14550
-F 0 "#PWR?" H 42075 14300 50  0001 C CNN
-F 1 "GNDREF" H 42075 14400 50  0001 C CNN
-F 2 "" H 42075 14550 50  0000 C CNN
-F 3 "" H 42075 14550 50  0000 C CNN
-	1    42075 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 644BC903
-P 42575 13950
-F 0 "RN?" V 42800 13900 50  0000 L CNN
-F 1 "CAT16-101J4" V 42275 13850 20  0000 L CNN
-F 2 "" V 42850 13950 50  0001 C CNN
-F 3 "~" H 42575 13950 50  0001 C CNN
-	1    42575 13950
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 644BC909
-P 42525 14350
-F 0 "CN?" V 42800 14300 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 42275 14200 20  0000 L CNN
-F 2 "" H 42525 14200 50  0001 C CNN
-F 3 "" H 42525 14200 50  0001 C CNN
-	1    42525 14350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 644BC90F
-P 42375 14550
-F 0 "#PWR?" H 42375 14300 50  0001 C CNN
-F 1 "GNDREF" H 42375 14400 50  0001 C CNN
-F 2 "" H 42375 14550 50  0000 C CNN
-F 3 "" H 42375 14550 50  0000 C CNN
-	1    42375 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 644BC915
-P 42475 14550
-F 0 "#PWR?" H 42475 14300 50  0001 C CNN
-F 1 "GNDREF" H 42475 14400 50  0001 C CNN
-F 2 "" H 42475 14550 50  0000 C CNN
-F 3 "" H 42475 14550 50  0000 C CNN
-	1    42475 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 644BC91B
-P 42575 14550
-F 0 "#PWR?" H 42575 14300 50  0001 C CNN
-F 1 "GNDREF" H 42575 14400 50  0001 C CNN
-F 2 "" H 42575 14550 50  0000 C CNN
-F 3 "" H 42575 14550 50  0000 C CNN
-	1    42575 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 644BC921
-P 42675 14550
-F 0 "#PWR?" H 42675 14300 50  0001 C CNN
-F 1 "GNDREF" H 42675 14400 50  0001 C CNN
-F 2 "" H 42675 14550 50  0000 C CNN
-F 3 "" H 42675 14550 50  0000 C CNN
-	1    42675 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 67128F5C
-P 38375 13950
-F 0 "RN?" V 38600 13900 50  0000 L CNN
-F 1 "CAT16-101J4" V 38075 13850 20  0000 L CNN
-F 2 "" V 38650 13950 50  0001 C CNN
-F 3 "~" H 38375 13950 50  0001 C CNN
-	1    38375 13950
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 67128F62
-P 38325 14350
-F 0 "CN?" V 38600 14300 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 38075 14200 20  0000 L CNN
-F 2 "" H 38325 14200 50  0001 C CNN
-F 3 "" H 38325 14200 50  0001 C CNN
-	1    38325 14350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67128F68
-P 38175 14550
-F 0 "#PWR?" H 38175 14300 50  0001 C CNN
-F 1 "GNDREF" H 38175 14400 50  0001 C CNN
-F 2 "" H 38175 14550 50  0000 C CNN
-F 3 "" H 38175 14550 50  0000 C CNN
-	1    38175 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67128F6E
-P 38275 14550
-F 0 "#PWR?" H 38275 14300 50  0001 C CNN
-F 1 "GNDREF" H 38275 14400 50  0001 C CNN
-F 2 "" H 38275 14550 50  0000 C CNN
-F 3 "" H 38275 14550 50  0000 C CNN
-	1    38275 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67128F74
-P 38375 14550
-F 0 "#PWR?" H 38375 14300 50  0001 C CNN
-F 1 "GNDREF" H 38375 14400 50  0001 C CNN
-F 2 "" H 38375 14550 50  0000 C CNN
-F 3 "" H 38375 14550 50  0000 C CNN
-	1    38375 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67128F7A
-P 38475 14550
-F 0 "#PWR?" H 38475 14300 50  0001 C CNN
-F 1 "GNDREF" H 38475 14400 50  0001 C CNN
-F 2 "" H 38475 14550 50  0000 C CNN
-F 3 "" H 38475 14550 50  0000 C CNN
-	1    38475 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 67128F80
-P 38975 13950
-F 0 "RN?" V 39200 13900 50  0000 L CNN
-F 1 "CAT16-101J4" V 38675 13850 20  0000 L CNN
-F 2 "" V 39250 13950 50  0001 C CNN
-F 3 "~" H 38975 13950 50  0001 C CNN
-	1    38975 13950
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 67128F86
-P 38925 14350
-F 0 "CN?" V 39200 14300 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 38675 14200 20  0000 L CNN
-F 2 "" H 38925 14200 50  0001 C CNN
-F 3 "" H 38925 14200 50  0001 C CNN
-	1    38925 14350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67128F8C
-P 38775 14550
-F 0 "#PWR?" H 38775 14300 50  0001 C CNN
-F 1 "GNDREF" H 38775 14400 50  0001 C CNN
-F 2 "" H 38775 14550 50  0000 C CNN
-F 3 "" H 38775 14550 50  0000 C CNN
-	1    38775 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67128F92
-P 38875 14550
-F 0 "#PWR?" H 38875 14300 50  0001 C CNN
-F 1 "GNDREF" H 38875 14400 50  0001 C CNN
-F 2 "" H 38875 14550 50  0000 C CNN
-F 3 "" H 38875 14550 50  0000 C CNN
-	1    38875 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67128F98
-P 38975 14550
-F 0 "#PWR?" H 38975 14300 50  0001 C CNN
-F 1 "GNDREF" H 38975 14400 50  0001 C CNN
-F 2 "" H 38975 14550 50  0000 C CNN
-F 3 "" H 38975 14550 50  0000 C CNN
-	1    38975 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67128F9E
-P 39075 14550
-F 0 "#PWR?" H 39075 14300 50  0001 C CNN
-F 1 "GNDREF" H 39075 14400 50  0001 C CNN
-F 2 "" H 39075 14550 50  0000 C CNN
-F 3 "" H 39075 14550 50  0000 C CNN
-	1    39075 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 67128FA4
-P 39575 13950
-F 0 "RN?" V 39800 13900 50  0000 L CNN
-F 1 "CAT16-101J4" V 39275 13850 20  0000 L CNN
-F 2 "" V 39850 13950 50  0001 C CNN
-F 3 "~" H 39575 13950 50  0001 C CNN
-	1    39575 13950
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 67128FAA
-P 39525 14350
-F 0 "CN?" V 39800 14300 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 39275 14200 20  0000 L CNN
-F 2 "" H 39525 14200 50  0001 C CNN
-F 3 "" H 39525 14200 50  0001 C CNN
-	1    39525 14350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67128FB0
-P 39375 14550
-F 0 "#PWR?" H 39375 14300 50  0001 C CNN
-F 1 "GNDREF" H 39375 14400 50  0001 C CNN
-F 2 "" H 39375 14550 50  0000 C CNN
-F 3 "" H 39375 14550 50  0000 C CNN
-	1    39375 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67128FB6
-P 39475 14550
-F 0 "#PWR?" H 39475 14300 50  0001 C CNN
-F 1 "GNDREF" H 39475 14400 50  0001 C CNN
-F 2 "" H 39475 14550 50  0000 C CNN
-F 3 "" H 39475 14550 50  0000 C CNN
-	1    39475 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67128FBC
-P 39575 14550
-F 0 "#PWR?" H 39575 14300 50  0001 C CNN
-F 1 "GNDREF" H 39575 14400 50  0001 C CNN
-F 2 "" H 39575 14550 50  0000 C CNN
-F 3 "" H 39575 14550 50  0000 C CNN
-	1    39575 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67128FC2
-P 39675 14550
-F 0 "#PWR?" H 39675 14300 50  0001 C CNN
-F 1 "GNDREF" H 39675 14400 50  0001 C CNN
-F 2 "" H 39675 14550 50  0000 C CNN
-F 3 "" H 39675 14550 50  0000 C CNN
-	1    39675 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 67128FC8
-P 40175 13950
-F 0 "RN?" V 40400 13900 50  0000 L CNN
-F 1 "CAT16-101J4" V 39875 13850 20  0000 L CNN
-F 2 "" V 40450 13950 50  0001 C CNN
-F 3 "~" H 40175 13950 50  0001 C CNN
-	1    40175 13950
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 67128FCE
-P 40125 14350
-F 0 "CN?" V 40400 14300 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 39875 14200 20  0000 L CNN
-F 2 "" H 40125 14200 50  0001 C CNN
-F 3 "" H 40125 14200 50  0001 C CNN
-	1    40125 14350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67128FD4
-P 39975 14550
-F 0 "#PWR?" H 39975 14300 50  0001 C CNN
-F 1 "GNDREF" H 39975 14400 50  0001 C CNN
-F 2 "" H 39975 14550 50  0000 C CNN
-F 3 "" H 39975 14550 50  0000 C CNN
-	1    39975 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67128FDA
-P 40075 14550
-F 0 "#PWR?" H 40075 14300 50  0001 C CNN
-F 1 "GNDREF" H 40075 14400 50  0001 C CNN
-F 2 "" H 40075 14550 50  0000 C CNN
-F 3 "" H 40075 14550 50  0000 C CNN
-	1    40075 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67128FE0
-P 40175 14550
-F 0 "#PWR?" H 40175 14300 50  0001 C CNN
-F 1 "GNDREF" H 40175 14400 50  0001 C CNN
-F 2 "" H 40175 14550 50  0000 C CNN
-F 3 "" H 40175 14550 50  0000 C CNN
-	1    40175 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67128FE6
-P 40275 14550
-F 0 "#PWR?" H 40275 14300 50  0001 C CNN
-F 1 "GNDREF" H 40275 14400 50  0001 C CNN
-F 2 "" H 40275 14550 50  0000 C CNN
-F 3 "" H 40275 14550 50  0000 C CNN
-	1    40275 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 67128FEC
-P 45575 13950
-F 0 "RN?" V 45800 13900 50  0000 L CNN
-F 1 "CAT16-101J4" V 45275 13850 20  0000 L CNN
-F 2 "" V 45850 13950 50  0001 C CNN
-F 3 "~" H 45575 13950 50  0001 C CNN
-	1    45575 13950
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 67128FF2
-P 45525 14350
-F 0 "CN?" V 45800 14300 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 45275 14200 20  0000 L CNN
-F 2 "" H 45525 14200 50  0001 C CNN
-F 3 "" H 45525 14200 50  0001 C CNN
-	1    45525 14350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67128FF8
-P 45375 14550
-F 0 "#PWR?" H 45375 14300 50  0001 C CNN
-F 1 "GNDREF" H 45375 14400 50  0001 C CNN
-F 2 "" H 45375 14550 50  0000 C CNN
-F 3 "" H 45375 14550 50  0000 C CNN
-	1    45375 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67128FFE
-P 45475 14550
-F 0 "#PWR?" H 45475 14300 50  0001 C CNN
-F 1 "GNDREF" H 45475 14400 50  0001 C CNN
-F 2 "" H 45475 14550 50  0000 C CNN
-F 3 "" H 45475 14550 50  0000 C CNN
-	1    45475 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67129004
-P 45575 14550
-F 0 "#PWR?" H 45575 14300 50  0001 C CNN
-F 1 "GNDREF" H 45575 14400 50  0001 C CNN
-F 2 "" H 45575 14550 50  0000 C CNN
-F 3 "" H 45575 14550 50  0000 C CNN
-	1    45575 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 6712900A
-P 45675 14550
-F 0 "#PWR?" H 45675 14300 50  0001 C CNN
-F 1 "GNDREF" H 45675 14400 50  0001 C CNN
-F 2 "" H 45675 14550 50  0000 C CNN
-F 3 "" H 45675 14550 50  0000 C CNN
-	1    45675 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 67129010
-P 36575 13950
-F 0 "RN?" V 36800 13900 50  0000 L CNN
-F 1 "CAT16-101J4" V 36275 13850 20  0000 L CNN
-F 2 "" V 36850 13950 50  0001 C CNN
-F 3 "~" H 36575 13950 50  0001 C CNN
-	1    36575 13950
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 67129016
-P 36525 14350
-F 0 "CN?" V 36800 14300 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 36275 14200 20  0000 L CNN
-F 2 "" H 36525 14200 50  0001 C CNN
-F 3 "" H 36525 14200 50  0001 C CNN
-	1    36525 14350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 6712901C
-P 36375 14550
-F 0 "#PWR?" H 36375 14300 50  0001 C CNN
-F 1 "GNDREF" H 36375 14400 50  0001 C CNN
-F 2 "" H 36375 14550 50  0000 C CNN
-F 3 "" H 36375 14550 50  0000 C CNN
-	1    36375 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67129022
-P 36475 14550
-F 0 "#PWR?" H 36475 14300 50  0001 C CNN
-F 1 "GNDREF" H 36475 14400 50  0001 C CNN
-F 2 "" H 36475 14550 50  0000 C CNN
-F 3 "" H 36475 14550 50  0000 C CNN
-	1    36475 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67129028
-P 36575 14550
-F 0 "#PWR?" H 36575 14300 50  0001 C CNN
-F 1 "GNDREF" H 36575 14400 50  0001 C CNN
-F 2 "" H 36575 14550 50  0000 C CNN
-F 3 "" H 36575 14550 50  0000 C CNN
-	1    36575 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 6712902E
-P 36675 14550
-F 0 "#PWR?" H 36675 14300 50  0001 C CNN
-F 1 "GNDREF" H 36675 14400 50  0001 C CNN
-F 2 "" H 36675 14550 50  0000 C CNN
-F 3 "" H 36675 14550 50  0000 C CNN
-	1    36675 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 67129034
-P 37175 13950
-F 0 "RN?" V 37400 13900 50  0000 L CNN
-F 1 "CAT16-101J4" V 36875 13850 20  0000 L CNN
-F 2 "" V 37450 13950 50  0001 C CNN
-F 3 "~" H 37175 13950 50  0001 C CNN
-	1    37175 13950
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 6712903A
-P 37125 14350
-F 0 "CN?" V 37400 14300 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 36875 14200 20  0000 L CNN
-F 2 "" H 37125 14200 50  0001 C CNN
-F 3 "" H 37125 14200 50  0001 C CNN
-	1    37125 14350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67129040
-P 36975 14550
-F 0 "#PWR?" H 36975 14300 50  0001 C CNN
-F 1 "GNDREF" H 36975 14400 50  0001 C CNN
-F 2 "" H 36975 14550 50  0000 C CNN
-F 3 "" H 36975 14550 50  0000 C CNN
-	1    36975 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67129046
-P 37075 14550
-F 0 "#PWR?" H 37075 14300 50  0001 C CNN
-F 1 "GNDREF" H 37075 14400 50  0001 C CNN
-F 2 "" H 37075 14550 50  0000 C CNN
-F 3 "" H 37075 14550 50  0000 C CNN
-	1    37075 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 6712904C
-P 37175 14550
-F 0 "#PWR?" H 37175 14300 50  0001 C CNN
-F 1 "GNDREF" H 37175 14400 50  0001 C CNN
-F 2 "" H 37175 14550 50  0000 C CNN
-F 3 "" H 37175 14550 50  0000 C CNN
-	1    37175 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67129052
-P 37275 14550
-F 0 "#PWR?" H 37275 14300 50  0001 C CNN
-F 1 "GNDREF" H 37275 14400 50  0001 C CNN
-F 2 "" H 37275 14550 50  0000 C CNN
-F 3 "" H 37275 14550 50  0000 C CNN
-	1    37275 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 67129058
-P 37775 13950
-F 0 "RN?" V 38000 13900 50  0000 L CNN
-F 1 "CAT16-101J4" V 37475 13850 20  0000 L CNN
-F 2 "" V 38050 13950 50  0001 C CNN
-F 3 "~" H 37775 13950 50  0001 C CNN
-	1    37775 13950
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 6712905E
-P 37725 14350
-F 0 "CN?" V 38000 14300 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 37475 14200 20  0000 L CNN
-F 2 "" H 37725 14200 50  0001 C CNN
-F 3 "" H 37725 14200 50  0001 C CNN
-	1    37725 14350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67129064
-P 37575 14550
-F 0 "#PWR?" H 37575 14300 50  0001 C CNN
-F 1 "GNDREF" H 37575 14400 50  0001 C CNN
-F 2 "" H 37575 14550 50  0000 C CNN
-F 3 "" H 37575 14550 50  0000 C CNN
-	1    37575 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 6712906A
-P 37675 14550
-F 0 "#PWR?" H 37675 14300 50  0001 C CNN
-F 1 "GNDREF" H 37675 14400 50  0001 C CNN
-F 2 "" H 37675 14550 50  0000 C CNN
-F 3 "" H 37675 14550 50  0000 C CNN
-	1    37675 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67129070
-P 37775 14550
-F 0 "#PWR?" H 37775 14300 50  0001 C CNN
-F 1 "GNDREF" H 37775 14400 50  0001 C CNN
-F 2 "" H 37775 14550 50  0000 C CNN
-F 3 "" H 37775 14550 50  0000 C CNN
-	1    37775 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 67129076
-P 37875 14550
-F 0 "#PWR?" H 37875 14300 50  0001 C CNN
-F 1 "GNDREF" H 37875 14400 50  0001 C CNN
-F 2 "" H 37875 14550 50  0000 C CNN
-F 3 "" H 37875 14550 50  0000 C CNN
-	1    37875 14550
-	1    0    0    -1  
-$EndComp
-Text Label 40875 13675 1    60   ~ 0
-rs1[31]
-Text Label 40775 13675 1    60   ~ 0
-rs1[30]
-Text Label 40675 13675 1    60   ~ 0
-rs1[29]
-Text Label 40575 13675 1    60   ~ 0
-rs1[28]
-Text Label 40275 13675 1    60   ~ 0
-rs1[27]
-Text Label 40175 13675 1    60   ~ 0
-rs1[26]
-Text Label 40075 13675 1    60   ~ 0
-rs1[25]
-Text Label 39975 13675 1    60   ~ 0
-rs1[24]
-Text Label 39675 13675 1    60   ~ 0
-rs1[23]
-Text Label 39575 13675 1    60   ~ 0
-rs1[22]
-Text Label 39475 13675 1    60   ~ 0
-rs1[21]
-Text Label 39375 13675 1    60   ~ 0
-rs1[20]
-Text Label 39075 13675 1    60   ~ 0
-rs1[19]
-Text Label 38975 13675 1    60   ~ 0
-rs1[18]
-Text Label 38875 13675 1    60   ~ 0
-rs1[17]
-Text Label 38775 13675 1    60   ~ 0
-rs1[16]
-Text Label 38475 13675 1    60   ~ 0
-rs1[15]
-Text Label 38375 13675 1    60   ~ 0
-rs1[14]
-Text Label 38275 13675 1    60   ~ 0
-rs1[13]
-Text Label 38175 13675 1    60   ~ 0
-rs1[12]
-Text Label 37875 13675 1    60   ~ 0
-rs1[11]
-Text Label 37775 13675 1    60   ~ 0
-rs1[10]
-Text Label 37675 13675 1    60   ~ 0
-rs1[9]
-Text Label 37575 13675 1    60   ~ 0
-rs1[8]
-Text Label 37275 13675 1    60   ~ 0
-rs1[7]
-Text Label 37175 13675 1    60   ~ 0
-rs1[6]
-Text Label 37075 13675 1    60   ~ 0
-rs1[5]
-Text Label 36975 13675 1    60   ~ 0
-rs1[4]
-Text Label 36675 13675 1    60   ~ 0
-rs1[3]
-Text Label 36575 13675 1    60   ~ 0
-rs1[2]
-Text Label 36475 13675 1    60   ~ 0
-rs1[1]
-Text Label 36375 13675 1    60   ~ 0
-rs1[0]
-Entry Wire Line
-	40875 13300 40975 13200
-Entry Wire Line
-	40775 13300 40875 13200
-Entry Wire Line
-	40675 13300 40775 13200
-Entry Wire Line
-	40575 13300 40675 13200
-Entry Wire Line
-	40275 13300 40375 13200
-Entry Wire Line
-	40175 13300 40275 13200
-Entry Wire Line
-	40075 13300 40175 13200
-Entry Wire Line
-	39975 13300 40075 13200
-Entry Wire Line
-	39675 13300 39775 13200
-Entry Wire Line
-	39575 13300 39675 13200
-Entry Wire Line
-	39475 13300 39575 13200
-Entry Wire Line
-	39375 13300 39475 13200
-Entry Wire Line
-	39075 13300 39175 13200
-Entry Wire Line
-	38975 13300 39075 13200
-Entry Wire Line
-	38875 13300 38975 13200
-Entry Wire Line
-	38775 13300 38875 13200
-Entry Wire Line
-	38475 13300 38575 13200
-Entry Wire Line
-	38375 13300 38475 13200
-Entry Wire Line
-	38275 13300 38375 13200
-Entry Wire Line
-	38175 13300 38275 13200
-Entry Wire Line
-	37875 13300 37975 13200
-Entry Wire Line
-	37775 13300 37875 13200
-Entry Wire Line
-	37675 13300 37775 13200
-Entry Wire Line
-	37575 13300 37675 13200
-Entry Wire Line
-	37275 13300 37375 13200
-Entry Wire Line
-	37175 13300 37275 13200
-Entry Wire Line
-	37075 13300 37175 13200
-Entry Wire Line
-	36975 13300 37075 13200
-Entry Wire Line
-	36675 13300 36775 13200
-Entry Wire Line
-	36575 13300 36675 13200
-Entry Wire Line
-	36475 13300 36575 13200
-Entry Wire Line
-	36375 13300 36475 13200
-Wire Wire Line
-	40875 13750 40875 13300
-Wire Wire Line
-	40775 13750 40775 13300
-Wire Wire Line
-	40675 13750 40675 13300
-Wire Wire Line
-	40575 13750 40575 13300
-Wire Wire Line
-	40275 13750 40275 13300
-Wire Wire Line
-	40175 13750 40175 13300
-Wire Wire Line
-	40075 13750 40075 13300
-Wire Wire Line
-	39975 13750 39975 13300
-Wire Wire Line
-	39675 13750 39675 13300
-Wire Wire Line
-	39575 13750 39575 13300
-Wire Wire Line
-	39475 13750 39475 13300
-Wire Wire Line
-	39375 13750 39375 13300
-Wire Wire Line
-	39075 13750 39075 13300
-Wire Wire Line
-	38975 13750 38975 13300
-Wire Wire Line
-	38875 13750 38875 13300
-Wire Wire Line
-	38775 13750 38775 13300
-Wire Wire Line
-	38475 13750 38475 13300
-Wire Wire Line
-	38375 13750 38375 13300
-Wire Wire Line
-	38275 13750 38275 13300
-Wire Wire Line
-	38175 13750 38175 13300
-Wire Wire Line
-	37875 13750 37875 13300
-Wire Wire Line
-	37775 13750 37775 13300
-Wire Wire Line
-	37675 13750 37675 13300
-Wire Wire Line
-	37575 13750 37575 13300
-Wire Wire Line
-	37275 13750 37275 13300
-Wire Wire Line
-	37175 13750 37175 13300
-Wire Wire Line
-	37075 13750 37075 13300
-Wire Wire Line
-	36975 13750 36975 13300
-Wire Wire Line
-	36675 13750 36675 13300
-Wire Wire Line
-	36575 13750 36575 13300
-Wire Wire Line
-	36475 13750 36475 13300
-Wire Wire Line
-	36375 13750 36375 13300
-Text Label 45675 13675 1    60   ~ 0
-rs1[31]
-Text Label 45575 13675 1    60   ~ 0
-rs1[30]
-Text Label 45475 13675 1    60   ~ 0
-rs1[29]
-Text Label 45375 13675 1    60   ~ 0
-rs1[28]
-Text Label 45075 13675 1    60   ~ 0
-rs1[27]
-Text Label 44975 13675 1    60   ~ 0
-rs1[26]
-Text Label 44875 13675 1    60   ~ 0
-rs1[25]
-Text Label 44775 13675 1    60   ~ 0
-rs1[24]
-Text Label 44475 13675 1    60   ~ 0
-rs1[23]
-Text Label 44375 13675 1    60   ~ 0
-rs1[22]
-Text Label 44275 13675 1    60   ~ 0
-rs1[21]
-Text Label 44175 13675 1    60   ~ 0
-rs1[20]
-Text Label 43875 13675 1    60   ~ 0
-rs1[19]
-Text Label 43775 13675 1    60   ~ 0
-rs1[18]
-Text Label 43675 13675 1    60   ~ 0
-rs1[17]
-Text Label 43575 13675 1    60   ~ 0
-rs1[16]
-Text Label 43275 13675 1    60   ~ 0
-rs1[15]
-Text Label 43175 13675 1    60   ~ 0
-rs1[14]
-Text Label 43075 13675 1    60   ~ 0
-rs1[13]
-Text Label 42975 13675 1    60   ~ 0
-rs1[12]
-Text Label 42675 13675 1    60   ~ 0
-rs1[11]
-Text Label 42575 13675 1    60   ~ 0
-rs1[10]
-Text Label 42475 13675 1    60   ~ 0
-rs1[9]
-Text Label 42375 13675 1    60   ~ 0
-rs1[8]
-Text Label 42075 13675 1    60   ~ 0
-rs1[7]
-Text Label 41975 13675 1    60   ~ 0
-rs1[6]
-Text Label 41875 13675 1    60   ~ 0
-rs1[5]
-Text Label 41775 13675 1    60   ~ 0
-rs1[4]
-Text Label 41475 13675 1    60   ~ 0
-rs1[3]
-Text Label 41375 13675 1    60   ~ 0
-rs1[2]
-Text Label 41275 13675 1    60   ~ 0
-rs1[1]
-Text Label 41175 13675 1    60   ~ 0
-rs1[0]
-Entry Wire Line
-	45675 13300 45775 13200
-Entry Wire Line
-	45575 13300 45675 13200
-Entry Wire Line
-	45475 13300 45575 13200
-Entry Wire Line
-	45375 13300 45475 13200
-Entry Wire Line
-	45075 13300 45175 13200
-Entry Wire Line
-	44975 13300 45075 13200
-Entry Wire Line
-	44875 13300 44975 13200
-Entry Wire Line
-	44775 13300 44875 13200
-Entry Wire Line
-	44475 13300 44575 13200
-Entry Wire Line
-	44375 13300 44475 13200
-Entry Wire Line
-	44275 13300 44375 13200
-Entry Wire Line
-	44175 13300 44275 13200
-Entry Wire Line
-	43875 13300 43975 13200
-Entry Wire Line
-	43775 13300 43875 13200
-Entry Wire Line
-	43675 13300 43775 13200
-Entry Wire Line
-	43575 13300 43675 13200
-Entry Wire Line
-	43275 13300 43375 13200
-Entry Wire Line
-	43175 13300 43275 13200
-Entry Wire Line
-	43075 13300 43175 13200
-Entry Wire Line
-	42975 13300 43075 13200
-Entry Wire Line
-	42675 13300 42775 13200
-Entry Wire Line
-	42575 13300 42675 13200
-Entry Wire Line
-	42475 13300 42575 13200
-Entry Wire Line
-	42375 13300 42475 13200
-Entry Wire Line
-	42075 13300 42175 13200
-Entry Wire Line
-	41975 13300 42075 13200
-Entry Wire Line
-	41875 13300 41975 13200
-Entry Wire Line
-	41775 13300 41875 13200
-Entry Wire Line
-	41475 13300 41575 13200
-Entry Wire Line
-	41375 13300 41475 13200
-Entry Wire Line
-	41275 13300 41375 13200
-Entry Wire Line
-	41175 13300 41275 13200
-Wire Wire Line
-	45675 13750 45675 13300
-Wire Wire Line
-	45575 13750 45575 13300
-Wire Wire Line
-	45475 13750 45475 13300
-Wire Wire Line
-	45375 13750 45375 13300
-Wire Wire Line
-	45075 13750 45075 13300
-Wire Wire Line
-	44975 13750 44975 13300
-Wire Wire Line
-	44875 13750 44875 13300
-Wire Wire Line
-	44775 13750 44775 13300
-Wire Wire Line
-	44475 13750 44475 13300
-Wire Wire Line
-	44375 13750 44375 13300
-Wire Wire Line
-	44275 13750 44275 13300
-Wire Wire Line
-	44175 13750 44175 13300
-Wire Wire Line
-	43875 13750 43875 13300
-Wire Wire Line
-	43775 13750 43775 13300
-Wire Wire Line
-	43675 13750 43675 13300
-Wire Wire Line
-	43575 13750 43575 13300
-Wire Wire Line
-	43275 13750 43275 13300
-Wire Wire Line
-	43175 13750 43175 13300
-Wire Wire Line
-	43075 13750 43075 13300
-Wire Wire Line
-	42975 13750 42975 13300
-Wire Wire Line
-	42675 13750 42675 13300
-Wire Wire Line
-	42575 13750 42575 13300
-Wire Wire Line
-	42475 13750 42475 13300
-Wire Wire Line
-	42375 13750 42375 13300
-Wire Wire Line
-	42075 13750 42075 13300
-Wire Wire Line
-	41975 13750 41975 13300
-Wire Wire Line
-	41875 13750 41875 13300
-Wire Wire Line
-	41775 13750 41775 13300
-Wire Wire Line
-	41475 13750 41475 13300
-Wire Wire Line
-	41375 13750 41375 13300
-Wire Wire Line
-	41275 13750 41275 13300
-Wire Wire Line
-	41175 13750 41175 13300
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 68F20D3F
-P 43175 15725
-F 0 "RN?" V 43400 15675 50  0000 L CNN
-F 1 "CAT16-101J4" V 42875 15625 20  0000 L CNN
-F 2 "" V 43450 15725 50  0001 C CNN
-F 3 "~" H 43175 15725 50  0001 C CNN
-	1    43175 15725
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 68F20D45
-P 43125 16125
-F 0 "CN?" V 43400 16075 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 42875 15975 20  0000 L CNN
-F 2 "" H 43125 15975 50  0001 C CNN
-F 3 "" H 43125 15975 50  0001 C CNN
-	1    43125 16125
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20D4B
-P 42975 16325
-F 0 "#PWR?" H 42975 16075 50  0001 C CNN
-F 1 "GNDREF" H 42975 16175 50  0001 C CNN
-F 2 "" H 42975 16325 50  0000 C CNN
-F 3 "" H 42975 16325 50  0000 C CNN
-	1    42975 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20D51
-P 43075 16325
-F 0 "#PWR?" H 43075 16075 50  0001 C CNN
-F 1 "GNDREF" H 43075 16175 50  0001 C CNN
-F 2 "" H 43075 16325 50  0000 C CNN
-F 3 "" H 43075 16325 50  0000 C CNN
-	1    43075 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20D57
-P 43175 16325
-F 0 "#PWR?" H 43175 16075 50  0001 C CNN
-F 1 "GNDREF" H 43175 16175 50  0001 C CNN
-F 2 "" H 43175 16325 50  0000 C CNN
-F 3 "" H 43175 16325 50  0000 C CNN
-	1    43175 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20D5D
-P 43275 16325
-F 0 "#PWR?" H 43275 16075 50  0001 C CNN
-F 1 "GNDREF" H 43275 16175 50  0001 C CNN
-F 2 "" H 43275 16325 50  0000 C CNN
-F 3 "" H 43275 16325 50  0000 C CNN
-	1    43275 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 68F20D63
-P 43775 15725
-F 0 "RN?" V 44000 15675 50  0000 L CNN
-F 1 "CAT16-101J4" V 43475 15625 20  0000 L CNN
-F 2 "" V 44050 15725 50  0001 C CNN
-F 3 "~" H 43775 15725 50  0001 C CNN
-	1    43775 15725
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 68F20D69
-P 43725 16125
-F 0 "CN?" V 44000 16075 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 43475 15975 20  0000 L CNN
-F 2 "" H 43725 15975 50  0001 C CNN
-F 3 "" H 43725 15975 50  0001 C CNN
-	1    43725 16125
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20D6F
-P 43575 16325
-F 0 "#PWR?" H 43575 16075 50  0001 C CNN
-F 1 "GNDREF" H 43575 16175 50  0001 C CNN
-F 2 "" H 43575 16325 50  0000 C CNN
-F 3 "" H 43575 16325 50  0000 C CNN
-	1    43575 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20D75
-P 43675 16325
-F 0 "#PWR?" H 43675 16075 50  0001 C CNN
-F 1 "GNDREF" H 43675 16175 50  0001 C CNN
-F 2 "" H 43675 16325 50  0000 C CNN
-F 3 "" H 43675 16325 50  0000 C CNN
-	1    43675 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20D7B
-P 43775 16325
-F 0 "#PWR?" H 43775 16075 50  0001 C CNN
-F 1 "GNDREF" H 43775 16175 50  0001 C CNN
-F 2 "" H 43775 16325 50  0000 C CNN
-F 3 "" H 43775 16325 50  0000 C CNN
-	1    43775 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20D81
-P 43875 16325
-F 0 "#PWR?" H 43875 16075 50  0001 C CNN
-F 1 "GNDREF" H 43875 16175 50  0001 C CNN
-F 2 "" H 43875 16325 50  0000 C CNN
-F 3 "" H 43875 16325 50  0000 C CNN
-	1    43875 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 68F20D87
-P 44375 15725
-F 0 "RN?" V 44600 15675 50  0000 L CNN
-F 1 "CAT16-101J4" V 44075 15625 20  0000 L CNN
-F 2 "" V 44650 15725 50  0001 C CNN
-F 3 "~" H 44375 15725 50  0001 C CNN
-	1    44375 15725
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 68F20D8D
-P 44325 16125
-F 0 "CN?" V 44600 16075 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 44075 15975 20  0000 L CNN
-F 2 "" H 44325 15975 50  0001 C CNN
-F 3 "" H 44325 15975 50  0001 C CNN
-	1    44325 16125
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20D93
-P 44175 16325
-F 0 "#PWR?" H 44175 16075 50  0001 C CNN
-F 1 "GNDREF" H 44175 16175 50  0001 C CNN
-F 2 "" H 44175 16325 50  0000 C CNN
-F 3 "" H 44175 16325 50  0000 C CNN
-	1    44175 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20D99
-P 44275 16325
-F 0 "#PWR?" H 44275 16075 50  0001 C CNN
-F 1 "GNDREF" H 44275 16175 50  0001 C CNN
-F 2 "" H 44275 16325 50  0000 C CNN
-F 3 "" H 44275 16325 50  0000 C CNN
-	1    44275 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20D9F
-P 44375 16325
-F 0 "#PWR?" H 44375 16075 50  0001 C CNN
-F 1 "GNDREF" H 44375 16175 50  0001 C CNN
-F 2 "" H 44375 16325 50  0000 C CNN
-F 3 "" H 44375 16325 50  0000 C CNN
-	1    44375 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20DA5
-P 44475 16325
-F 0 "#PWR?" H 44475 16075 50  0001 C CNN
-F 1 "GNDREF" H 44475 16175 50  0001 C CNN
-F 2 "" H 44475 16325 50  0000 C CNN
-F 3 "" H 44475 16325 50  0000 C CNN
-	1    44475 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 68F20DAB
-P 44975 15725
-F 0 "RN?" V 45200 15675 50  0000 L CNN
-F 1 "CAT16-101J4" V 44675 15625 20  0000 L CNN
-F 2 "" V 45250 15725 50  0001 C CNN
-F 3 "~" H 44975 15725 50  0001 C CNN
-	1    44975 15725
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 68F20DB1
-P 44925 16125
-F 0 "CN?" V 45200 16075 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 44675 15975 20  0000 L CNN
-F 2 "" H 44925 15975 50  0001 C CNN
-F 3 "" H 44925 15975 50  0001 C CNN
-	1    44925 16125
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20DB7
-P 44775 16325
-F 0 "#PWR?" H 44775 16075 50  0001 C CNN
-F 1 "GNDREF" H 44775 16175 50  0001 C CNN
-F 2 "" H 44775 16325 50  0000 C CNN
-F 3 "" H 44775 16325 50  0000 C CNN
-	1    44775 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20DBD
-P 44875 16325
-F 0 "#PWR?" H 44875 16075 50  0001 C CNN
-F 1 "GNDREF" H 44875 16175 50  0001 C CNN
-F 2 "" H 44875 16325 50  0000 C CNN
-F 3 "" H 44875 16325 50  0000 C CNN
-	1    44875 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20DC3
-P 44975 16325
-F 0 "#PWR?" H 44975 16075 50  0001 C CNN
-F 1 "GNDREF" H 44975 16175 50  0001 C CNN
-F 2 "" H 44975 16325 50  0000 C CNN
-F 3 "" H 44975 16325 50  0000 C CNN
-	1    44975 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20DC9
-P 45075 16325
-F 0 "#PWR?" H 45075 16075 50  0001 C CNN
-F 1 "GNDREF" H 45075 16175 50  0001 C CNN
-F 2 "" H 45075 16325 50  0000 C CNN
-F 3 "" H 45075 16325 50  0000 C CNN
-	1    45075 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 68F20DCF
-P 40775 15725
-F 0 "RN?" V 41000 15675 50  0000 L CNN
-F 1 "CAT16-101J4" V 40475 15625 20  0000 L CNN
-F 2 "" V 41050 15725 50  0001 C CNN
-F 3 "~" H 40775 15725 50  0001 C CNN
-	1    40775 15725
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 68F20DD5
-P 40725 16125
-F 0 "CN?" V 41000 16075 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 40475 15975 20  0000 L CNN
-F 2 "" H 40725 15975 50  0001 C CNN
-F 3 "" H 40725 15975 50  0001 C CNN
-	1    40725 16125
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20DDB
-P 40575 16325
-F 0 "#PWR?" H 40575 16075 50  0001 C CNN
-F 1 "GNDREF" H 40575 16175 50  0001 C CNN
-F 2 "" H 40575 16325 50  0000 C CNN
-F 3 "" H 40575 16325 50  0000 C CNN
-	1    40575 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20DE1
-P 40675 16325
-F 0 "#PWR?" H 40675 16075 50  0001 C CNN
-F 1 "GNDREF" H 40675 16175 50  0001 C CNN
-F 2 "" H 40675 16325 50  0000 C CNN
-F 3 "" H 40675 16325 50  0000 C CNN
-	1    40675 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20DE7
-P 40775 16325
-F 0 "#PWR?" H 40775 16075 50  0001 C CNN
-F 1 "GNDREF" H 40775 16175 50  0001 C CNN
-F 2 "" H 40775 16325 50  0000 C CNN
-F 3 "" H 40775 16325 50  0000 C CNN
-	1    40775 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20DED
-P 40875 16325
-F 0 "#PWR?" H 40875 16075 50  0001 C CNN
-F 1 "GNDREF" H 40875 16175 50  0001 C CNN
-F 2 "" H 40875 16325 50  0000 C CNN
-F 3 "" H 40875 16325 50  0000 C CNN
-	1    40875 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 68F20DF3
-P 41375 15725
-F 0 "RN?" V 41600 15675 50  0000 L CNN
-F 1 "CAT16-101J4" V 41075 15625 20  0000 L CNN
-F 2 "" V 41650 15725 50  0001 C CNN
-F 3 "~" H 41375 15725 50  0001 C CNN
-	1    41375 15725
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 68F20DF9
-P 41325 16125
-F 0 "CN?" V 41600 16075 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 41075 15975 20  0000 L CNN
-F 2 "" H 41325 15975 50  0001 C CNN
-F 3 "" H 41325 15975 50  0001 C CNN
-	1    41325 16125
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20DFF
-P 41175 16325
-F 0 "#PWR?" H 41175 16075 50  0001 C CNN
-F 1 "GNDREF" H 41175 16175 50  0001 C CNN
-F 2 "" H 41175 16325 50  0000 C CNN
-F 3 "" H 41175 16325 50  0000 C CNN
-	1    41175 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20E05
-P 41275 16325
-F 0 "#PWR?" H 41275 16075 50  0001 C CNN
-F 1 "GNDREF" H 41275 16175 50  0001 C CNN
-F 2 "" H 41275 16325 50  0000 C CNN
-F 3 "" H 41275 16325 50  0000 C CNN
-	1    41275 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20E0B
-P 41375 16325
-F 0 "#PWR?" H 41375 16075 50  0001 C CNN
-F 1 "GNDREF" H 41375 16175 50  0001 C CNN
-F 2 "" H 41375 16325 50  0000 C CNN
-F 3 "" H 41375 16325 50  0000 C CNN
-	1    41375 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20E11
-P 41475 16325
-F 0 "#PWR?" H 41475 16075 50  0001 C CNN
-F 1 "GNDREF" H 41475 16175 50  0001 C CNN
-F 2 "" H 41475 16325 50  0000 C CNN
-F 3 "" H 41475 16325 50  0000 C CNN
-	1    41475 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 68F20E17
-P 41975 15725
-F 0 "RN?" V 42200 15675 50  0000 L CNN
-F 1 "CAT16-101J4" V 41675 15625 20  0000 L CNN
-F 2 "" V 42250 15725 50  0001 C CNN
-F 3 "~" H 41975 15725 50  0001 C CNN
-	1    41975 15725
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 68F20E1D
-P 41925 16125
-F 0 "CN?" V 42200 16075 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 41675 15975 20  0000 L CNN
-F 2 "" H 41925 15975 50  0001 C CNN
-F 3 "" H 41925 15975 50  0001 C CNN
-	1    41925 16125
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20E23
-P 41775 16325
-F 0 "#PWR?" H 41775 16075 50  0001 C CNN
-F 1 "GNDREF" H 41775 16175 50  0001 C CNN
-F 2 "" H 41775 16325 50  0000 C CNN
-F 3 "" H 41775 16325 50  0000 C CNN
-	1    41775 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20E29
-P 41875 16325
-F 0 "#PWR?" H 41875 16075 50  0001 C CNN
-F 1 "GNDREF" H 41875 16175 50  0001 C CNN
-F 2 "" H 41875 16325 50  0000 C CNN
-F 3 "" H 41875 16325 50  0000 C CNN
-	1    41875 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20E2F
-P 41975 16325
-F 0 "#PWR?" H 41975 16075 50  0001 C CNN
-F 1 "GNDREF" H 41975 16175 50  0001 C CNN
-F 2 "" H 41975 16325 50  0000 C CNN
-F 3 "" H 41975 16325 50  0000 C CNN
-	1    41975 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20E35
-P 42075 16325
-F 0 "#PWR?" H 42075 16075 50  0001 C CNN
-F 1 "GNDREF" H 42075 16175 50  0001 C CNN
-F 2 "" H 42075 16325 50  0000 C CNN
-F 3 "" H 42075 16325 50  0000 C CNN
-	1    42075 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 68F20E3B
-P 42575 15725
-F 0 "RN?" V 42800 15675 50  0000 L CNN
-F 1 "CAT16-101J4" V 42275 15625 20  0000 L CNN
-F 2 "" V 42850 15725 50  0001 C CNN
-F 3 "~" H 42575 15725 50  0001 C CNN
-	1    42575 15725
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 68F20E41
-P 42525 16125
-F 0 "CN?" V 42800 16075 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 42275 15975 20  0000 L CNN
-F 2 "" H 42525 15975 50  0001 C CNN
-F 3 "" H 42525 15975 50  0001 C CNN
-	1    42525 16125
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20E47
-P 42375 16325
-F 0 "#PWR?" H 42375 16075 50  0001 C CNN
-F 1 "GNDREF" H 42375 16175 50  0001 C CNN
-F 2 "" H 42375 16325 50  0000 C CNN
-F 3 "" H 42375 16325 50  0000 C CNN
-	1    42375 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20E4D
-P 42475 16325
-F 0 "#PWR?" H 42475 16075 50  0001 C CNN
-F 1 "GNDREF" H 42475 16175 50  0001 C CNN
-F 2 "" H 42475 16325 50  0000 C CNN
-F 3 "" H 42475 16325 50  0000 C CNN
-	1    42475 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20E53
-P 42575 16325
-F 0 "#PWR?" H 42575 16075 50  0001 C CNN
-F 1 "GNDREF" H 42575 16175 50  0001 C CNN
-F 2 "" H 42575 16325 50  0000 C CNN
-F 3 "" H 42575 16325 50  0000 C CNN
-	1    42575 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20E59
-P 42675 16325
-F 0 "#PWR?" H 42675 16075 50  0001 C CNN
-F 1 "GNDREF" H 42675 16175 50  0001 C CNN
-F 2 "" H 42675 16325 50  0000 C CNN
-F 3 "" H 42675 16325 50  0000 C CNN
-	1    42675 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 68F20E5F
-P 38375 15725
-F 0 "RN?" V 38600 15675 50  0000 L CNN
-F 1 "CAT16-101J4" V 38075 15625 20  0000 L CNN
-F 2 "" V 38650 15725 50  0001 C CNN
-F 3 "~" H 38375 15725 50  0001 C CNN
-	1    38375 15725
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 68F20E65
-P 38325 16125
-F 0 "CN?" V 38600 16075 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 38075 15975 20  0000 L CNN
-F 2 "" H 38325 15975 50  0001 C CNN
-F 3 "" H 38325 15975 50  0001 C CNN
-	1    38325 16125
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20E6B
-P 38175 16325
-F 0 "#PWR?" H 38175 16075 50  0001 C CNN
-F 1 "GNDREF" H 38175 16175 50  0001 C CNN
-F 2 "" H 38175 16325 50  0000 C CNN
-F 3 "" H 38175 16325 50  0000 C CNN
-	1    38175 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20E71
-P 38275 16325
-F 0 "#PWR?" H 38275 16075 50  0001 C CNN
-F 1 "GNDREF" H 38275 16175 50  0001 C CNN
-F 2 "" H 38275 16325 50  0000 C CNN
-F 3 "" H 38275 16325 50  0000 C CNN
-	1    38275 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20E77
-P 38375 16325
-F 0 "#PWR?" H 38375 16075 50  0001 C CNN
-F 1 "GNDREF" H 38375 16175 50  0001 C CNN
-F 2 "" H 38375 16325 50  0000 C CNN
-F 3 "" H 38375 16325 50  0000 C CNN
-	1    38375 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20E7D
-P 38475 16325
-F 0 "#PWR?" H 38475 16075 50  0001 C CNN
-F 1 "GNDREF" H 38475 16175 50  0001 C CNN
-F 2 "" H 38475 16325 50  0000 C CNN
-F 3 "" H 38475 16325 50  0000 C CNN
-	1    38475 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 68F20E83
-P 38975 15725
-F 0 "RN?" V 39200 15675 50  0000 L CNN
-F 1 "CAT16-101J4" V 38675 15625 20  0000 L CNN
-F 2 "" V 39250 15725 50  0001 C CNN
-F 3 "~" H 38975 15725 50  0001 C CNN
-	1    38975 15725
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 68F20E89
-P 38925 16125
-F 0 "CN?" V 39200 16075 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 38675 15975 20  0000 L CNN
-F 2 "" H 38925 15975 50  0001 C CNN
-F 3 "" H 38925 15975 50  0001 C CNN
-	1    38925 16125
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20E8F
-P 38775 16325
-F 0 "#PWR?" H 38775 16075 50  0001 C CNN
-F 1 "GNDREF" H 38775 16175 50  0001 C CNN
-F 2 "" H 38775 16325 50  0000 C CNN
-F 3 "" H 38775 16325 50  0000 C CNN
-	1    38775 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20E95
-P 38875 16325
-F 0 "#PWR?" H 38875 16075 50  0001 C CNN
-F 1 "GNDREF" H 38875 16175 50  0001 C CNN
-F 2 "" H 38875 16325 50  0000 C CNN
-F 3 "" H 38875 16325 50  0000 C CNN
-	1    38875 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20E9B
-P 38975 16325
-F 0 "#PWR?" H 38975 16075 50  0001 C CNN
-F 1 "GNDREF" H 38975 16175 50  0001 C CNN
-F 2 "" H 38975 16325 50  0000 C CNN
-F 3 "" H 38975 16325 50  0000 C CNN
-	1    38975 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20EA1
-P 39075 16325
-F 0 "#PWR?" H 39075 16075 50  0001 C CNN
-F 1 "GNDREF" H 39075 16175 50  0001 C CNN
-F 2 "" H 39075 16325 50  0000 C CNN
-F 3 "" H 39075 16325 50  0000 C CNN
-	1    39075 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 68F20EA7
-P 39575 15725
-F 0 "RN?" V 39800 15675 50  0000 L CNN
-F 1 "CAT16-101J4" V 39275 15625 20  0000 L CNN
-F 2 "" V 39850 15725 50  0001 C CNN
-F 3 "~" H 39575 15725 50  0001 C CNN
-	1    39575 15725
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 68F20EAD
-P 39525 16125
-F 0 "CN?" V 39800 16075 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 39275 15975 20  0000 L CNN
-F 2 "" H 39525 15975 50  0001 C CNN
-F 3 "" H 39525 15975 50  0001 C CNN
-	1    39525 16125
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20EB3
-P 39375 16325
-F 0 "#PWR?" H 39375 16075 50  0001 C CNN
-F 1 "GNDREF" H 39375 16175 50  0001 C CNN
-F 2 "" H 39375 16325 50  0000 C CNN
-F 3 "" H 39375 16325 50  0000 C CNN
-	1    39375 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20EB9
-P 39475 16325
-F 0 "#PWR?" H 39475 16075 50  0001 C CNN
-F 1 "GNDREF" H 39475 16175 50  0001 C CNN
-F 2 "" H 39475 16325 50  0000 C CNN
-F 3 "" H 39475 16325 50  0000 C CNN
-	1    39475 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20EBF
-P 39575 16325
-F 0 "#PWR?" H 39575 16075 50  0001 C CNN
-F 1 "GNDREF" H 39575 16175 50  0001 C CNN
-F 2 "" H 39575 16325 50  0000 C CNN
-F 3 "" H 39575 16325 50  0000 C CNN
-	1    39575 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20EC5
-P 39675 16325
-F 0 "#PWR?" H 39675 16075 50  0001 C CNN
-F 1 "GNDREF" H 39675 16175 50  0001 C CNN
-F 2 "" H 39675 16325 50  0000 C CNN
-F 3 "" H 39675 16325 50  0000 C CNN
-	1    39675 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 68F20ECB
-P 40175 15725
-F 0 "RN?" V 40400 15675 50  0000 L CNN
-F 1 "CAT16-101J4" V 39875 15625 20  0000 L CNN
-F 2 "" V 40450 15725 50  0001 C CNN
-F 3 "~" H 40175 15725 50  0001 C CNN
-	1    40175 15725
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 68F20ED1
-P 40125 16125
-F 0 "CN?" V 40400 16075 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 39875 15975 20  0000 L CNN
-F 2 "" H 40125 15975 50  0001 C CNN
-F 3 "" H 40125 15975 50  0001 C CNN
-	1    40125 16125
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20ED7
-P 39975 16325
-F 0 "#PWR?" H 39975 16075 50  0001 C CNN
-F 1 "GNDREF" H 39975 16175 50  0001 C CNN
-F 2 "" H 39975 16325 50  0000 C CNN
-F 3 "" H 39975 16325 50  0000 C CNN
-	1    39975 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20EDD
-P 40075 16325
-F 0 "#PWR?" H 40075 16075 50  0001 C CNN
-F 1 "GNDREF" H 40075 16175 50  0001 C CNN
-F 2 "" H 40075 16325 50  0000 C CNN
-F 3 "" H 40075 16325 50  0000 C CNN
-	1    40075 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20EE3
-P 40175 16325
-F 0 "#PWR?" H 40175 16075 50  0001 C CNN
-F 1 "GNDREF" H 40175 16175 50  0001 C CNN
-F 2 "" H 40175 16325 50  0000 C CNN
-F 3 "" H 40175 16325 50  0000 C CNN
-	1    40175 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20EE9
-P 40275 16325
-F 0 "#PWR?" H 40275 16075 50  0001 C CNN
-F 1 "GNDREF" H 40275 16175 50  0001 C CNN
-F 2 "" H 40275 16325 50  0000 C CNN
-F 3 "" H 40275 16325 50  0000 C CNN
-	1    40275 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 68F20EEF
-P 45575 15725
-F 0 "RN?" V 45800 15675 50  0000 L CNN
-F 1 "CAT16-101J4" V 45275 15625 20  0000 L CNN
-F 2 "" V 45850 15725 50  0001 C CNN
-F 3 "~" H 45575 15725 50  0001 C CNN
-	1    45575 15725
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 68F20EF5
-P 45525 16125
-F 0 "CN?" V 45800 16075 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 45275 15975 20  0000 L CNN
-F 2 "" H 45525 15975 50  0001 C CNN
-F 3 "" H 45525 15975 50  0001 C CNN
-	1    45525 16125
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20EFB
-P 45375 16325
-F 0 "#PWR?" H 45375 16075 50  0001 C CNN
-F 1 "GNDREF" H 45375 16175 50  0001 C CNN
-F 2 "" H 45375 16325 50  0000 C CNN
-F 3 "" H 45375 16325 50  0000 C CNN
-	1    45375 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20F01
-P 45475 16325
-F 0 "#PWR?" H 45475 16075 50  0001 C CNN
-F 1 "GNDREF" H 45475 16175 50  0001 C CNN
-F 2 "" H 45475 16325 50  0000 C CNN
-F 3 "" H 45475 16325 50  0000 C CNN
-	1    45475 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20F07
-P 45575 16325
-F 0 "#PWR?" H 45575 16075 50  0001 C CNN
-F 1 "GNDREF" H 45575 16175 50  0001 C CNN
-F 2 "" H 45575 16325 50  0000 C CNN
-F 3 "" H 45575 16325 50  0000 C CNN
-	1    45575 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20F0D
-P 45675 16325
-F 0 "#PWR?" H 45675 16075 50  0001 C CNN
-F 1 "GNDREF" H 45675 16175 50  0001 C CNN
-F 2 "" H 45675 16325 50  0000 C CNN
-F 3 "" H 45675 16325 50  0000 C CNN
-	1    45675 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 68F20F13
-P 36575 15725
-F 0 "RN?" V 36800 15675 50  0000 L CNN
-F 1 "CAT16-101J4" V 36275 15625 20  0000 L CNN
-F 2 "" V 36850 15725 50  0001 C CNN
-F 3 "~" H 36575 15725 50  0001 C CNN
-	1    36575 15725
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 68F20F19
-P 36525 16125
-F 0 "CN?" V 36800 16075 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 36275 15975 20  0000 L CNN
-F 2 "" H 36525 15975 50  0001 C CNN
-F 3 "" H 36525 15975 50  0001 C CNN
-	1    36525 16125
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20F1F
-P 36375 16325
-F 0 "#PWR?" H 36375 16075 50  0001 C CNN
-F 1 "GNDREF" H 36375 16175 50  0001 C CNN
-F 2 "" H 36375 16325 50  0000 C CNN
-F 3 "" H 36375 16325 50  0000 C CNN
-	1    36375 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20F25
-P 36475 16325
-F 0 "#PWR?" H 36475 16075 50  0001 C CNN
-F 1 "GNDREF" H 36475 16175 50  0001 C CNN
-F 2 "" H 36475 16325 50  0000 C CNN
-F 3 "" H 36475 16325 50  0000 C CNN
-	1    36475 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20F2B
-P 36575 16325
-F 0 "#PWR?" H 36575 16075 50  0001 C CNN
-F 1 "GNDREF" H 36575 16175 50  0001 C CNN
-F 2 "" H 36575 16325 50  0000 C CNN
-F 3 "" H 36575 16325 50  0000 C CNN
-	1    36575 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20F31
-P 36675 16325
-F 0 "#PWR?" H 36675 16075 50  0001 C CNN
-F 1 "GNDREF" H 36675 16175 50  0001 C CNN
-F 2 "" H 36675 16325 50  0000 C CNN
-F 3 "" H 36675 16325 50  0000 C CNN
-	1    36675 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 68F20F37
-P 37175 15725
-F 0 "RN?" V 37400 15675 50  0000 L CNN
-F 1 "CAT16-101J4" V 36875 15625 20  0000 L CNN
-F 2 "" V 37450 15725 50  0001 C CNN
-F 3 "~" H 37175 15725 50  0001 C CNN
-	1    37175 15725
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 68F20F3D
-P 37125 16125
-F 0 "CN?" V 37400 16075 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 36875 15975 20  0000 L CNN
-F 2 "" H 37125 15975 50  0001 C CNN
-F 3 "" H 37125 15975 50  0001 C CNN
-	1    37125 16125
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20F43
-P 36975 16325
-F 0 "#PWR?" H 36975 16075 50  0001 C CNN
-F 1 "GNDREF" H 36975 16175 50  0001 C CNN
-F 2 "" H 36975 16325 50  0000 C CNN
-F 3 "" H 36975 16325 50  0000 C CNN
-	1    36975 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20F49
-P 37075 16325
-F 0 "#PWR?" H 37075 16075 50  0001 C CNN
-F 1 "GNDREF" H 37075 16175 50  0001 C CNN
-F 2 "" H 37075 16325 50  0000 C CNN
-F 3 "" H 37075 16325 50  0000 C CNN
-	1    37075 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20F4F
-P 37175 16325
-F 0 "#PWR?" H 37175 16075 50  0001 C CNN
-F 1 "GNDREF" H 37175 16175 50  0001 C CNN
-F 2 "" H 37175 16325 50  0000 C CNN
-F 3 "" H 37175 16325 50  0000 C CNN
-	1    37175 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20F55
-P 37275 16325
-F 0 "#PWR?" H 37275 16075 50  0001 C CNN
-F 1 "GNDREF" H 37275 16175 50  0001 C CNN
-F 2 "" H 37275 16325 50  0000 C CNN
-F 3 "" H 37275 16325 50  0000 C CNN
-	1    37275 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Pack04 RN?
-U 1 1 68F20F5B
-P 37775 15725
-F 0 "RN?" V 38000 15675 50  0000 L CNN
-F 1 "CAT16-101J4" V 37475 15625 20  0000 L CNN
-F 2 "" V 38050 15725 50  0001 C CNN
-F 3 "~" H 37775 15725 50  0001 C CNN
-	1    37775 15725
-	1    0    0    -1  
-$EndComp
-$Comp
-L lmarv:CKCA43C0G1H CN?
-U 1 1 68F20F61
-P 37725 16125
-F 0 "CN?" V 38000 16075 50  0000 L CNN
-F 1 "CKCA43C0G1H151K" V 37475 15975 20  0000 L CNN
-F 2 "" H 37725 15975 50  0001 C CNN
-F 3 "" H 37725 15975 50  0001 C CNN
-	1    37725 16125
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20F67
-P 37575 16325
-F 0 "#PWR?" H 37575 16075 50  0001 C CNN
-F 1 "GNDREF" H 37575 16175 50  0001 C CNN
-F 2 "" H 37575 16325 50  0000 C CNN
-F 3 "" H 37575 16325 50  0000 C CNN
-	1    37575 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20F6D
-P 37675 16325
-F 0 "#PWR?" H 37675 16075 50  0001 C CNN
-F 1 "GNDREF" H 37675 16175 50  0001 C CNN
-F 2 "" H 37675 16325 50  0000 C CNN
-F 3 "" H 37675 16325 50  0000 C CNN
-	1    37675 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20F73
-P 37775 16325
-F 0 "#PWR?" H 37775 16075 50  0001 C CNN
-F 1 "GNDREF" H 37775 16175 50  0001 C CNN
-F 2 "" H 37775 16325 50  0000 C CNN
-F 3 "" H 37775 16325 50  0000 C CNN
-	1    37775 16325
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 68F20F79
-P 37875 16325
-F 0 "#PWR?" H 37875 16075 50  0001 C CNN
-F 1 "GNDREF" H 37875 16175 50  0001 C CNN
-F 2 "" H 37875 16325 50  0000 C CNN
-F 3 "" H 37875 16325 50  0000 C CNN
-	1    37875 16325
-	1    0    0    -1  
-$EndComp
-Text Label 40875 15450 1    60   ~ 0
-rs2[31]
-Text Label 40775 15450 1    60   ~ 0
-rs2[30]
-Text Label 40675 15450 1    60   ~ 0
-rs2[29]
-Text Label 40575 15450 1    60   ~ 0
-rs2[28]
-Text Label 40275 15450 1    60   ~ 0
-rs2[27]
-Text Label 40175 15450 1    60   ~ 0
-rs2[26]
-Text Label 40075 15450 1    60   ~ 0
-rs2[25]
-Text Label 39975 15450 1    60   ~ 0
-rs2[24]
-Text Label 39675 15450 1    60   ~ 0
-rs2[23]
-Text Label 39575 15450 1    60   ~ 0
-rs2[22]
-Text Label 39475 15450 1    60   ~ 0
-rs2[21]
-Text Label 39375 15450 1    60   ~ 0
-rs2[20]
-Text Label 39075 15450 1    60   ~ 0
-rs2[19]
-Text Label 38975 15450 1    60   ~ 0
-rs2[18]
-Text Label 38875 15450 1    60   ~ 0
-rs2[17]
-Text Label 38775 15450 1    60   ~ 0
-rs2[16]
-Text Label 38475 15450 1    60   ~ 0
-rs2[15]
-Text Label 38375 15450 1    60   ~ 0
-rs2[14]
-Text Label 38275 15450 1    60   ~ 0
-rs2[13]
-Text Label 38175 15450 1    60   ~ 0
-rs2[12]
-Text Label 37875 15450 1    60   ~ 0
-rs2[11]
-Text Label 37775 15450 1    60   ~ 0
-rs2[10]
-Text Label 37675 15450 1    60   ~ 0
-rs2[9]
-Text Label 37575 15450 1    60   ~ 0
-rs2[8]
-Text Label 37275 15450 1    60   ~ 0
-rs2[7]
-Text Label 37175 15450 1    60   ~ 0
-rs2[6]
-Text Label 37075 15450 1    60   ~ 0
-rs2[5]
-Text Label 36975 15450 1    60   ~ 0
-rs2[4]
-Text Label 36675 15450 1    60   ~ 0
-rs2[3]
-Text Label 36575 15450 1    60   ~ 0
-rs2[2]
-Text Label 36475 15450 1    60   ~ 0
-rs2[1]
-Text Label 36375 15450 1    60   ~ 0
-rs2[0]
-Entry Wire Line
-	40875 15075 40975 14975
-Entry Wire Line
-	40775 15075 40875 14975
-Entry Wire Line
-	40675 15075 40775 14975
-Entry Wire Line
-	40575 15075 40675 14975
-Entry Wire Line
-	40275 15075 40375 14975
-Entry Wire Line
-	40175 15075 40275 14975
-Entry Wire Line
-	40075 15075 40175 14975
-Entry Wire Line
-	39975 15075 40075 14975
-Entry Wire Line
-	39675 15075 39775 14975
-Entry Wire Line
-	39575 15075 39675 14975
-Entry Wire Line
-	39475 15075 39575 14975
-Entry Wire Line
-	39375 15075 39475 14975
-Entry Wire Line
-	39075 15075 39175 14975
-Entry Wire Line
-	38975 15075 39075 14975
-Entry Wire Line
-	38875 15075 38975 14975
-Entry Wire Line
-	38775 15075 38875 14975
-Entry Wire Line
-	38475 15075 38575 14975
-Entry Wire Line
-	38375 15075 38475 14975
-Entry Wire Line
-	38275 15075 38375 14975
-Entry Wire Line
-	38175 15075 38275 14975
-Entry Wire Line
-	37875 15075 37975 14975
-Entry Wire Line
-	37775 15075 37875 14975
-Entry Wire Line
-	37675 15075 37775 14975
-Entry Wire Line
-	37575 15075 37675 14975
-Entry Wire Line
-	37275 15075 37375 14975
-Entry Wire Line
-	37175 15075 37275 14975
-Entry Wire Line
-	37075 15075 37175 14975
-Entry Wire Line
-	36975 15075 37075 14975
-Entry Wire Line
-	36675 15075 36775 14975
-Entry Wire Line
-	36575 15075 36675 14975
-Entry Wire Line
-	36475 15075 36575 14975
-Entry Wire Line
-	36375 15075 36475 14975
-Wire Wire Line
-	40775 15525 40775 15075
-Wire Wire Line
-	40675 15525 40675 15075
-Wire Wire Line
-	40575 15525 40575 15075
-Wire Wire Line
-	40275 15525 40275 15075
-Wire Wire Line
-	40175 15525 40175 15075
-Wire Wire Line
-	40075 15525 40075 15075
-Wire Wire Line
-	39975 15525 39975 15075
-Wire Wire Line
-	39675 15525 39675 15075
-Wire Wire Line
-	39575 15525 39575 15075
-Wire Wire Line
-	39475 15525 39475 15075
-Wire Wire Line
-	39375 15525 39375 15075
-Wire Wire Line
-	39075 15525 39075 15075
-Wire Wire Line
-	38975 15525 38975 15075
-Wire Wire Line
-	38875 15525 38875 15075
-Wire Wire Line
-	38775 15525 38775 15075
-Wire Wire Line
-	38475 15525 38475 15075
-Wire Wire Line
-	38375 15525 38375 15075
-Wire Wire Line
-	38275 15525 38275 15075
-Wire Wire Line
-	38175 15525 38175 15075
-Wire Wire Line
-	37875 15525 37875 15075
-Wire Wire Line
-	37775 15525 37775 15075
-Wire Wire Line
-	37675 15525 37675 15075
-Wire Wire Line
-	37575 15525 37575 15075
-Wire Wire Line
-	37275 15525 37275 15075
-Wire Wire Line
-	37175 15525 37175 15075
-Wire Wire Line
-	37075 15525 37075 15075
-Wire Wire Line
-	36975 15525 36975 15075
-Wire Wire Line
-	36675 15525 36675 15075
-Wire Wire Line
-	36575 15525 36575 15075
-Wire Wire Line
-	36475 15525 36475 15075
-Wire Wire Line
-	40875 15525 40875 15075
-Wire Wire Line
-	36375 15075 36375 15525
-Text Label 45675 15450 1    60   ~ 0
-rs2[31]
-Text Label 45575 15450 1    60   ~ 0
-rs2[30]
-Text Label 45475 15450 1    60   ~ 0
-rs2[29]
-Text Label 45375 15450 1    60   ~ 0
-rs2[28]
-Text Label 45075 15450 1    60   ~ 0
-rs2[27]
-Text Label 44975 15450 1    60   ~ 0
-rs2[26]
-Text Label 44875 15450 1    60   ~ 0
-rs2[25]
-Text Label 44775 15450 1    60   ~ 0
-rs2[24]
-Text Label 44475 15450 1    60   ~ 0
-rs2[23]
-Text Label 44375 15450 1    60   ~ 0
-rs2[22]
-Text Label 44275 15450 1    60   ~ 0
-rs2[21]
-Text Label 44175 15450 1    60   ~ 0
-rs2[20]
-Text Label 43875 15450 1    60   ~ 0
-rs2[19]
-Text Label 43775 15450 1    60   ~ 0
-rs2[18]
-Text Label 43675 15450 1    60   ~ 0
-rs2[17]
-Text Label 43575 15450 1    60   ~ 0
-rs2[16]
-Text Label 43275 15450 1    60   ~ 0
-rs2[15]
-Text Label 43175 15450 1    60   ~ 0
-rs2[14]
-Text Label 43075 15450 1    60   ~ 0
-rs2[13]
-Text Label 42975 15450 1    60   ~ 0
-rs2[12]
-Text Label 42675 15450 1    60   ~ 0
-rs2[11]
-Text Label 42575 15450 1    60   ~ 0
-rs2[10]
-Text Label 42475 15450 1    60   ~ 0
-rs2[9]
-Text Label 42375 15450 1    60   ~ 0
-rs2[8]
-Text Label 42075 15450 1    60   ~ 0
-rs2[7]
-Text Label 41975 15450 1    60   ~ 0
-rs2[6]
-Text Label 41875 15450 1    60   ~ 0
-rs2[5]
-Text Label 41775 15450 1    60   ~ 0
-rs2[4]
-Text Label 41475 15450 1    60   ~ 0
-rs2[3]
-Text Label 41375 15450 1    60   ~ 0
-rs2[2]
-Text Label 41275 15450 1    60   ~ 0
-rs2[1]
-Text Label 41175 15450 1    60   ~ 0
-rs2[0]
-Entry Wire Line
-	45675 15075 45775 14975
-Entry Wire Line
-	45575 15075 45675 14975
-Entry Wire Line
-	45475 15075 45575 14975
-Entry Wire Line
-	45375 15075 45475 14975
-Entry Wire Line
-	45075 15075 45175 14975
-Entry Wire Line
-	44975 15075 45075 14975
-Entry Wire Line
-	44875 15075 44975 14975
-Entry Wire Line
-	44775 15075 44875 14975
-Entry Wire Line
-	44475 15075 44575 14975
-Entry Wire Line
-	44375 15075 44475 14975
-Entry Wire Line
-	44275 15075 44375 14975
-Entry Wire Line
-	44175 15075 44275 14975
-Entry Wire Line
-	43875 15075 43975 14975
-Entry Wire Line
-	43775 15075 43875 14975
-Entry Wire Line
-	43675 15075 43775 14975
-Entry Wire Line
-	43575 15075 43675 14975
-Entry Wire Line
-	43275 15075 43375 14975
-Entry Wire Line
-	43175 15075 43275 14975
-Entry Wire Line
-	43075 15075 43175 14975
-Entry Wire Line
-	42975 15075 43075 14975
-Entry Wire Line
-	42675 15075 42775 14975
-Entry Wire Line
-	42575 15075 42675 14975
-Entry Wire Line
-	42475 15075 42575 14975
-Entry Wire Line
-	42375 15075 42475 14975
-Entry Wire Line
-	42075 15075 42175 14975
-Entry Wire Line
-	41975 15075 42075 14975
-Entry Wire Line
-	41875 15075 41975 14975
-Entry Wire Line
-	41775 15075 41875 14975
-Entry Wire Line
-	41475 15075 41575 14975
-Entry Wire Line
-	41375 15075 41475 14975
-Entry Wire Line
-	41275 15075 41375 14975
-Entry Wire Line
-	41175 15075 41275 14975
-Wire Wire Line
-	45075 15525 45075 15075
-Wire Wire Line
-	44975 15525 44975 15075
-Wire Wire Line
-	44875 15525 44875 15075
-Wire Wire Line
-	44775 15525 44775 15075
-Wire Wire Line
-	44475 15525 44475 15075
-Wire Wire Line
-	44375 15525 44375 15075
-Wire Wire Line
-	44275 15525 44275 15075
-Wire Wire Line
-	44175 15525 44175 15075
-Wire Wire Line
-	43875 15525 43875 15075
-Wire Wire Line
-	43775 15525 43775 15075
-Wire Wire Line
-	43675 15525 43675 15075
-Wire Wire Line
-	43575 15525 43575 15075
-Wire Wire Line
-	43275 15525 43275 15075
-Wire Wire Line
-	43175 15525 43175 15075
-Wire Wire Line
-	43075 15525 43075 15075
-Wire Wire Line
-	42975 15525 42975 15075
-Wire Wire Line
-	42675 15525 42675 15075
-Wire Wire Line
-	42575 15525 42575 15075
-Wire Wire Line
-	42475 15525 42475 15075
-Wire Wire Line
-	42375 15525 42375 15075
-Wire Wire Line
-	42075 15525 42075 15075
-Wire Wire Line
-	41975 15525 41975 15075
-Wire Wire Line
-	41875 15525 41875 15075
-Wire Wire Line
-	41775 15525 41775 15075
-Wire Wire Line
-	41475 15525 41475 15075
-Wire Wire Line
-	41375 15525 41375 15075
-Wire Wire Line
-	41275 15525 41275 15075
-Wire Wire Line
-	41175 15075 41175 15525
-Wire Wire Line
-	45375 15075 45375 15525
-Wire Wire Line
-	45475 15075 45475 15525
-Wire Wire Line
-	45575 15075 45575 15525
-Wire Wire Line
-	45675 15075 45675 15525
-Wire Bus Line
-	3225 29875 46025 29875
-Wire Bus Line
-	3350 29675 46125 29675
-Wire Bus Line
-	1075 29450 45925 29450
-Wire Bus Line
-	3475 14450 21400 14450
-Wire Bus Line
-	2050 14750 19725 14750
-Wire Bus Line
-	3250 14625 22500 14625
-Wire Bus Line
-	3100 925  3100 4675
-Wire Bus Line
-	800  750  800  4675
-Wire Bus Line
-	3100 5475 3100 9750
-Wire Bus Line
-	5850 925  5850 4675
-Wire Bus Line
-	3550 750  3550 4675
-Wire Bus Line
-	5850 5475 5850 9750
-Wire Bus Line
-	8675 925  8675 4675
-Wire Bus Line
-	6375 750  6375 4675
-Wire Bus Line
-	8675 5475 8675 9750
-Wire Bus Line
-	11425 925  11425 4675
-Wire Bus Line
-	9125 750  9125 4675
-Wire Bus Line
-	11425 5475 11425 9750
-Wire Bus Line
-	14250 925  14250 4675
-Wire Bus Line
-	11950 750  11950 4675
-Wire Bus Line
-	14250 5475 14250 9750
-Wire Bus Line
-	17000 925  17000 4675
-Wire Bus Line
-	14700 750  14700 4675
-Wire Bus Line
-	17000 5475 17000 9750
-Wire Bus Line
-	19825 925  19825 4675
-Wire Bus Line
-	17525 750  17525 4675
-Wire Bus Line
-	19825 5475 19825 9750
-Wire Bus Line
-	22575 925  22575 4675
-Wire Bus Line
-	20275 750  20275 4675
-Wire Bus Line
-	22575 5475 22575 9750
-Wire Bus Line
-	26050 925  26050 4675
-Wire Bus Line
-	23750 750  23750 4675
-Wire Bus Line
-	26050 5475 26050 9750
-Wire Bus Line
-	28800 925  28800 4675
-Wire Bus Line
-	26500 750  26500 4675
-Wire Bus Line
-	28800 5475 28800 9750
-Wire Bus Line
-	31625 925  31625 4675
-Wire Bus Line
-	29325 750  29325 4675
-Wire Bus Line
-	31625 5475 31625 9750
-Wire Bus Line
-	34375 925  34375 4675
-Wire Bus Line
-	32075 750  32075 4675
-Wire Bus Line
-	34375 5475 34375 9750
-Wire Bus Line
-	37200 925  37200 4675
-Wire Bus Line
-	34900 750  34900 4675
-Wire Bus Line
-	37200 5475 37200 9750
-Wire Bus Line
-	39950 925  39950 4675
-Wire Bus Line
-	37650 750  37650 4675
-Wire Bus Line
-	39950 5475 39950 9750
-Wire Bus Line
-	42775 925  42775 4675
-Wire Bus Line
-	40475 750  40475 4675
-Wire Bus Line
-	42775 5475 42775 9750
-Wire Bus Line
-	45525 925  45525 4675
-Wire Bus Line
-	43225 750  43225 4675
-Wire Bus Line
-	45525 5475 45525 9750
-Wire Bus Line
-	3025 19800 3025 23550
-Wire Bus Line
-	725  19625 725  23550
-Wire Bus Line
-	3025 24350 3025 28625
-Wire Bus Line
-	5775 19800 5775 23550
-Wire Bus Line
-	3475 19625 3475 23550
-Wire Bus Line
-	5775 24350 5775 28625
-Wire Bus Line
-	8600 19800 8600 23550
-Wire Bus Line
-	6300 19625 6300 23550
-Wire Bus Line
-	8600 24350 8600 28625
-Wire Bus Line
-	11350 19800 11350 23550
-Wire Bus Line
-	9050 19625 9050 23550
-Wire Bus Line
-	11350 24350 11350 28625
-Wire Bus Line
-	14175 19800 14175 23550
-Wire Bus Line
-	11875 19625 11875 23550
-Wire Bus Line
-	14175 24350 14175 28625
-Wire Bus Line
-	16925 19800 16925 23550
-Wire Bus Line
-	14625 19625 14625 23550
-Wire Bus Line
-	16925 24350 16925 28625
-Wire Bus Line
-	19750 19800 19750 23550
-Wire Bus Line
-	17450 19625 17450 23550
-Wire Bus Line
-	19750 24350 19750 28625
-Wire Bus Line
-	22500 19800 22500 23550
-Wire Bus Line
-	20200 19625 20200 23550
-Wire Bus Line
-	22500 24350 22500 28625
-Wire Bus Line
-	25975 19800 25975 23550
-Wire Bus Line
-	23675 19625 23675 23550
-Wire Bus Line
-	25975 24350 25975 28625
-Wire Bus Line
-	28725 19800 28725 23550
-Wire Bus Line
-	26425 19625 26425 23550
-Wire Bus Line
-	28725 24350 28725 28625
-Wire Bus Line
-	31550 19800 31550 23550
-Wire Bus Line
-	29250 19625 29250 23550
-Wire Bus Line
-	31550 24350 31550 28625
-Wire Bus Line
-	34300 19800 34300 23550
-Wire Bus Line
-	32000 19625 32000 23550
-Wire Bus Line
-	34300 24350 34300 28625
-Wire Bus Line
-	37125 19800 37125 23550
-Wire Bus Line
-	34825 19625 34825 23550
-Wire Bus Line
-	37125 24350 37125 28625
-Wire Bus Line
-	39875 19800 39875 23550
-Wire Bus Line
-	37575 19625 37575 23550
-Wire Bus Line
-	39875 24350 39875 28625
-Wire Bus Line
-	42700 19800 42700 23550
-Wire Bus Line
-	40400 19625 40400 23550
-Wire Bus Line
-	42700 24350 42700 28625
-Wire Bus Line
-	45450 19800 45450 23550
-Wire Bus Line
-	43150 19625 43150 23550
-Wire Bus Line
-	45450 24350 45450 28625
-Wire Bus Line
-	650  10575 45300 10575
-Wire Bus Line
-	650  10800 46125 10800
-Wire Bus Line
-	650  11000 46025 11000
 $EndSCHEMATC

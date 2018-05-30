@@ -1,11 +1,26 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP 74LVC04
+D Hex inverter
+K inverter
+$ENDCMP
+#
 $CMP 74LVTH162541
 D 3.3v 16-bit buffer/driver with 3-state outputs
 $ENDCMP
 #
 $CMP 74LVTH16374
 D 3.3v 16-bit edge triggered D-type flip-flops with 3-state outputs
+$ENDCMP
+#
+$CMP CKCA43C0G1H
+D capacitor network
+K capacitor network pack
+$ENDCMP
+#
+$CMP IDT70V24_TQ100
+D IDT 4kx16 dual-port Static RAM
+K RAM memory
 $ENDCMP
 #
 $CMP dual-pcie-cardedge

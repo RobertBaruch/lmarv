@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name register-motherboard-rescue)(type Legacy)(uri ${KIPRJMOD}/register-motherboard-rescue.lib)(options "")(descr ""))
+  (lib (name lmarv)(type Legacy)(uri "F:/KiCad Projects/lmarv/lmarv.lib")(options "")(descr ""))
+)
