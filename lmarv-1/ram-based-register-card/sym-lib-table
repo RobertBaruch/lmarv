@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name ram-based-register-card-rescue)(type Legacy)(uri ${KIPRJMOD}/ram-based-register-card-rescue.lib)(options "")(descr ""))
+)

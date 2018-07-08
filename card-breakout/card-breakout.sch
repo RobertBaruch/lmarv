@@ -1,35 +1,6 @@
-EESchema Schematic File Version 2
-LIBS:power
-LIBS:device
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
-LIBS:74xx
-LIBS:cmos4000
-LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
-LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:display
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
-LIBS:atmel
-LIBS:contrib
-LIBS:valves
-LIBS:lmarv
-EELAYER 25 0
+EESchema Schematic File Version 4
+LIBS:card-breakout-cache
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -44,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L dual-pcie-cardedge P5
+L lmarv1:dual-pcie-cardedge P5
 U 1 1 5A71167D
 P 5950 3800
 F 0 "P5" H 5600 7750 60  0000 C CNN
@@ -55,7 +26,7 @@ F 3 "" H 5950 3800 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L CONN_02X01 P6
+L card-breakout-rescue:CONN_02X01 P6
 U 1 1 5A7119A6
 P 10325 5125
 F 0 "P6" H 10325 5225 50  0000 C CNN
@@ -66,7 +37,7 @@ F 3 "" H 10325 3925 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L CONN_02X01 P9
+L card-breakout-rescue:CONN_02X01 P9
 U 1 1 5A711A53
 P 1575 5550
 F 0 "P9" H 1575 5650 50  0000 C CNN
@@ -141,7 +112,7 @@ Wire Wire Line
 Wire Wire Line
 	9750 4400 9750 5300
 $Comp
-L CONN_01X32 P8
+L card-breakout-rescue:CONN_01X32 P8
 U 1 1 5A711E6D
 P 8200 5500
 F 0 "P8" V 8325 6175 50  0000 C CNN
@@ -152,7 +123,7 @@ F 3 "" H 8200 5500 50  0000 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L CONN_01X32 P7
+L card-breakout-rescue:CONN_01X32 P7
 U 1 1 5A711F7E
 P 4200 5500
 F 0 "P7" H 4200 7150 50  0000 C CNN
@@ -291,7 +262,7 @@ Wire Wire Line
 Wire Wire Line
 	9750 3200 9750 2300
 $Comp
-L CONN_01X32 P4
+L card-breakout-rescue:CONN_01X32 P4
 U 1 1 5A712206
 P 8200 2100
 F 0 "P4" H 8200 3750 50  0000 C CNN
@@ -366,7 +337,7 @@ Wire Wire Line
 Wire Wire Line
 	5750 3200 5750 2300
 $Comp
-L CONN_01X32 P3
+L card-breakout-rescue:CONN_01X32 P3
 U 1 1 5A712340
 P 4200 2100
 F 0 "P3" H 4200 3750 50  0000 C CNN
@@ -377,7 +348,7 @@ F 3 "" H 4200 2100 50  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L CONN_01X05 P11
+L card-breakout-rescue:CONN_01X05 P11
 U 1 1 5A7123C1
 P 6350 5825
 F 0 "P11" H 6350 6125 50  0000 C CNN
@@ -398,7 +369,7 @@ Wire Wire Line
 Wire Wire Line
 	6150 4400 6150 5625
 $Comp
-L CONN_01X05 P10
+L card-breakout-rescue:CONN_01X05 P10
 U 1 1 5A7126C6
 P 2350 5825
 F 0 "P10" H 2350 6125 50  0000 C CNN
@@ -419,7 +390,7 @@ Wire Wire Line
 Wire Wire Line
 	2150 4400 2150 5625
 $Comp
-L CONN_01X05 P1
+L card-breakout-rescue:CONN_01X05 P1
 U 1 1 5A712893
 P 2350 1775
 F 0 "P1" H 2350 2075 50  0000 C CNN
@@ -442,14 +413,14 @@ Wire Wire Line
 Wire Wire Line
 	1575 5300 1575 3800
 Wire Wire Line
-	1575 3800 1850 3800
+	1575 3800 1825 3800
 Wire Wire Line
 	1575 5800 1825 5800
 Wire Wire Line
 	1825 5800 1825 3800
 Connection ~ 1825 3800
 Wire Wire Line
-	10050 3800 10325 3800
+	10050 3800 10100 3800
 Wire Wire Line
 	10325 3800 10325 4875
 Wire Wire Line
@@ -458,7 +429,7 @@ Wire Wire Line
 	10100 5375 10100 3800
 Connection ~ 10100 3800
 $Comp
-L CONN_01X05 P2
+L card-breakout-rescue:CONN_01X05 P2
 U 1 1 5A7135FB
 P 6350 1775
 F 0 "P2" H 6350 2075 50  0000 C CNN
@@ -778,4 +749,8 @@ Text Label 1825 4775 1    60   ~ 0
 GND
 Text Label 10325 4550 1    60   ~ 0
 VDD
+Wire Wire Line
+	1825 3800 1850 3800
+Wire Wire Line
+	10100 3800 10325 3800
 $EndSCHEMATC

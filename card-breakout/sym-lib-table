@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name card-breakout-rescue)(type Legacy)(uri ${KIPRJMOD}/card-breakout-rescue.lib)(options "")(descr ""))
+  (lib (name 74xx)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/74xx.lib)(options "")(descr ""))
+  (lib (name lmarv1)(type Legacy)(uri "F:/KiCad Projects/lmarv/lmarv.lib")(options "")(descr ""))
+)

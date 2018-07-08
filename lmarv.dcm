@@ -1,5 +1,15 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP 1588ABEG
+D 8x8 Red/green LED matrix
+K led
+$ENDCMP
+#
+$CMP 74HC590
+D Octal binary counter
+K counter
+$ENDCMP
+#
 $CMP 74LVC04
 D Hex inverter
 K inverter
@@ -13,14 +23,38 @@ $CMP 74LVTH16374
 D 3.3v 16-bit edge triggered D-type flip-flops with 3-state outputs
 $ENDCMP
 #
+$CMP AT28BV256B-20JU
+D 32k x 8 EEPROM (PLCC32)
+K rom, eeprom
+$ENDCMP
+#
+$CMP AT28BV64B-20JU
+D 8k x 8 Parallel EEPROM (PLCC32)
+K rom, eeprom
+$ENDCMP
+#
 $CMP CKCA43C0G1H
 D capacitor network
 K capacitor network pack
 $ENDCMP
 #
+$CMP HT1632C
+D 32x8/24x16 LED driver
+K led
+$ENDCMP
+#
 $CMP IDT70V24_TQ100
 D IDT 4kx16 dual-port Static RAM
 K RAM memory
+$ENDCMP
+#
+$CMP IS61LV256AL
+D 32k x 8 SRAM
+K memory, SRAM
+$ENDCMP
+#
+$CMP RPACK8
+D RPACK8
 $ENDCMP
 #
 $CMP dual-pcie-cardedge
