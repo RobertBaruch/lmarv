@@ -10,9 +10,19 @@ D Octal binary counter
 K counter
 $ENDCMP
 #
+$CMP 74HC597
+D Parallel in serial out shift register
+K shift register
+$ENDCMP
+#
 $CMP 74LVC04
 D Hex inverter
 K inverter
+$ENDCMP
+#
+$CMP 74LVC595
+D serial in parallel out shift register
+K shift register
 $ENDCMP
 #
 $CMP 74LVTH162541
@@ -55,6 +65,11 @@ $ENDCMP
 #
 $CMP RPACK8
 D RPACK8
+$ENDCMP
+#
+$CMP TinyFPGA_BX
+D TinyFPGA BX
+K fpga
 $ENDCMP
 #
 $CMP dual-pcie-cardedge
