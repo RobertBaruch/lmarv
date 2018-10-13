@@ -6,6 +6,12 @@ K led
 $ENDCMP
 #
 $CMP 74HC590
+D 8-bit binary counter with output register, 3-state
+K counter
+F https://assets.nexperia.com/documents/data-sheet/74HC590.pdf
+$ENDCMP
+#
+$CMP 74HC590_0
 D Octal binary counter
 K counter
 $ENDCMP
@@ -73,6 +79,10 @@ K fpga
 $ENDCMP
 #
 $CMP dual-pcie-cardedge
+D Dual 98-pin PCI Express card edge
+$ENDCMP
+#
+$CMP dual-pcie-cardedge_split
 D Dual 98-pin PCI Express card edge
 $ENDCMP
 #

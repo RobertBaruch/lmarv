@@ -1,65 +1,126 @@
 import binascii
 
-# A[3:0] = X (rs1)
-# A[7:4] = Y (rs2/imm)
-# A[8] = Cin
-# A[11:9] = F
+# X = the value on the rs1 bus
+# Y = the value on the rs2 bus
+# Z = F(X, Y) = the value on the rd bus
 
-# F:
-# 000: ADD
-# 001: SUB (X - Y)
-# 010: SLT (X < Y signed)
-# 011: SLTU (X < Y unsigned)
-# 100: XOR
-# 110: OR
-# 111: AND
+# F (corresponds to bit 5 of funct7 and all bits of funct3)
+# 0000: ADD (X + Y)
+# 1000: SUB (X - Y)
+# 0010: SLT (X < Y signed ? 1 : 0)
+# 0011: SLTU (X < Y unsigned ? 1 : 0)
+# 0100: XOR (X ^ Y)
+# 0110: OR (X | Y)
+# 0111: AND (X & Y)
+# all others reserved
 
-# D[3:0] = Z
-# D[4] = Cout
-# D[5] = propagate
-# D[6] = generate
-# D[7] = lessthan
+F_ADD  = 0b0000
+F_SUB  = 0b1000
+F_SLT  = 0b0010
+F_SLTU = 0b0011
+F_XOR  = 0b0100
+F_OR   = 0b0110
+F_AND  = 0b0111
 
-F_ADD  = 0b000
-F_SUB  = 0b001
-F_SLT  = 0b010
-F_SLTU = 0b011
-F_XOR  = 0b100
-F_RSVD = 0b101
-F_OR   = 0b110
-F_AND  = 0b111
+def bin_to_int(b):
+  '''Converts a list of binary integers, where b[i] is bit i, to an integer.
+  '''
+  n = 0
+  for i in range(len(b)):
+    n = (n << 1) | b[len(b) - 1 - i]
+  return n
 
 class Alu(object):
   def __init__(self):
-    self.data = bytearray(8 * 2 * 16 * 16)
+    self.propagage_generate_rom = bytearray(2**13)
+    self.carry_lookahead_rom = bytearray(2**15)
+    self.bitslice_rom = bytearray(2**13)
 
-    addr = 0
-    for f in range(8):
-      for cin in range(2):
-        for y in range(16):
-          for x in range(16):
+    for f in range(16):
+      for y in range(16):
+        for x in range(16):
+            cin = 0
             z, cout, propagate, generate, lessthan = self.compute(x, y, cin, f)
-            data = ((z & 0b1111) |
-              (cout << 4) |
-              (propagate << 5) |
-              (generate << 6) |
-              (lessthan << 7))
-            self.data[addr] = data
-            addr += 1
+            pg_rom_data = generate | (propagate << 1)
+            pg_rom_addr = x | (y << 4) | (f << 8)
+            self.propagage_generate_rom[pg_rom_addr] = pg_rom_data
 
-  def lookup(self, x, y, cin, f):
-    addr = x | (y << 4) | (cin << 8) | (f << 9)
-    data = self.data[addr]
-    z = data & 0b1111
-    cout = (data &        0b10000) >> 4
-    propagate = (data &  0b100000) >> 5
-    generate = (data &  0b1000000) >> 6
-    lessthan = (data & 0b10000000) >> 7
-    return (z, cout, propagate, generate, lessthan)
+    for f in range(16):
+      for y in range(16):
+        for x in range(16):
+          for cin in range(2):
+              z, cout, propagate, generate, lessthan = self.compute(x, y, cin, f)
+              bitslice_rom_data = z | (lessthan << 4)
+              bitslice_rom_addr = x | (y << 4) | (f << 8) | (cin << 12)
+              self.bitslice_rom[bitslice_rom_addr] = bitslice_rom_data
+
+    self.bits = [0] * 2**7
+    for n in range(2**7):
+      self.bits[n] = tuple((n & (1 << i)) >> i for i in range(7))
+
+    c = [0] * 8
+    for c[0] in range(2):
+      for gn in range(2**7):
+        g = self.bits[gn]
+        for pn in range(2**7):
+          p = self.bits[pn]
+          for i in range(7):
+            c[i + 1] = (c[i] & p[i]) | g[i]
+          carry_lookahead_rom_data = bin_to_int([c[1], c[2], c[3], c[4], c[5], c[6], c[7]])
+          carry_lookahead_rom_addr = bin_to_int([c[0], g[0], p[0], g[1], p[1], g[2], p[2], g[3], p[3], g[4], p[4], g[5], p[5], g[6], p[6]])
+          self.carry_lookahead_rom[carry_lookahead_rom_addr] = carry_lookahead_rom_data
+
+  def evaluate(self, x, y, f):
+    rdb = 0
+
+    c = [0] * 8
+
+    # set cin according to F
+    c[0] = 0
+    if f == F_SUB or f == F_SLT or f == F_SLTU:
+      c[0] = 1
+
+    # propagate/generate
+    g = [0] * 7
+    p = [0] * 7
+    for i in range(7):
+      rs1b = (x & (0b1111 << (i * 4))) >> (i * 4)
+      rs2b = (y & (0b1111 << (i * 4))) >> (i * 4)
+      pg_rom_addr = rs1b | (rs2b << 4) | (f << 8)
+      pg_rom_data = self.propagage_generate_rom[pg_rom_addr]
+      data = self.bits[pg_rom_data]
+      g[i] = data[0]
+      p[i] = data[1]
+
+    # carry lookahead
+    carry_lookahead_rom_addr = bin_to_int([c[0], g[0], p[0], g[1], p[1], g[2], p[2], g[3], p[3], g[4], p[4], g[5], p[5], g[6], p[6]])
+    carry_lookahead_rom_data = self.carry_lookahead_rom[carry_lookahead_rom_addr]
+    data = self.bits[carry_lookahead_rom_data]
+    for i in range(7):
+      c[i + 1] = data[i]
+
+    # bitslice
+    for i in range(8):
+      rs1b = (x & (0b1111 << (i * 4))) >> (i * 4)
+      rs2b = (y & (0b1111 << (i * 4))) >> (i * 4)
+      bitslice_rom_addr = rs1b | (rs2b << 4) | (f << 8) | (c[i] << 12)
+      bitslice_rom_data = self.bitslice_rom[bitslice_rom_addr]
+      data = self.bits[bitslice_rom_data]
+      rdb |= (bitslice_rom_data & 0b1111) << (i * 4)
+      lt = data[4]
+
+    # final less-than fixup
+    if (rdb & 0b1) | lt == 0b1:
+      rdb |= 0b1
+    return rdb    
 
   def write(self, fname):
-    with open("alu.bin", "wb") as f:
-      f.write(self.data)
+    with open("alu_pg_rom.bin", "wb") as f:
+      f.write(self.propagage_generate_rom)
+    with open("alu_bitslice_rom.bin", "wb") as f:
+      f.write(self.bitslice_rom)
+    with open("alu_clu_rom.bin", "wb") as f:
+      f.write(self.carry_lookahead_rom)
 
   def compute(self, x, y, cin, f):
     cout = 0
@@ -139,59 +200,12 @@ class Alu(object):
 
 
 def main():
-  alu1 = Alu()
-  alu2 = Alu()
-
-  cin = 0
-  for x in range(256):
-    for y in range(256):
-      zlow, cout1, p, g, l1 = alu1.compute(x & 0xF, y & 0xF, cin, F_ADD)
-      assert cout1 == g | (p & cin)
-      zhi, cout2, p2, g2, l2 = alu2.compute(x >> 4, y >> 4, cout1, F_ADD)
-      assert cout2 == g2 | (p2 & cout1)
-      assert x + y == zlow | (zhi << 4) | (cout2 << 8), (
-        "ADD error: x={:02X} y={:02X} x+y={:03X} cout2={:01b} z={:01X}{:01X}".format(
-          x, y, x+y, cout2, zhi, zlow))
-
-  cin = 1
-  for x in range(256):
-    for y in range(256):
-      zlow, cout1, p, g, l1 = alu1.compute(x & 0xF, y & 0xF, cin, F_SUB)
-      assert cout1 == g | (p & cin)
-      zhi, cout2, p2, g2, l2 = alu2.compute(x >> 4, y >> 4, cout1, F_SUB)
-      assert cout2 == g2 | (p2 & cout1)
-      assert (x - y) & 0xFF == zlow | (zhi << 4), (
-        "SUB error: x={:02X} y={:02X} x-y={:03X} cout2={:01b} z={:01X}{:01X}".format(
-          x, y, x-y, cout2, zhi, zlow))
-
-  for x in range(256):
-    for y in range(256):
-      zlow, cout1, p, g, l1 = alu1.compute(x & 0xF, y & 0xF, cin, F_SLTU)
-      assert cout1 == g | (p & cin)
-      zhi, cout2, p2, g2, l2 = alu2.compute(x >> 4, y >> 4, cout1, F_SLTU)
-      assert cout2 == g2 | (p2 & cout1)
-      assert int(x < y) == l2, (
-        "SLTU error: x={:02X} y={:02X} x<y={:01b}, l2={:01b}".format(
-          x, y, int(x<y), l2))
-
-  for x in range(-0x80, 0x7F):
-    for y in range(-0x80, 0x7F):
-      zlow, cout1, p, g, l1 = alu1.compute(x & 0xF, y & 0xF, cin, F_SLT)
-      assert cout1 == g | (p & cin)
-      zhi, cout2, p2, g2, l2 = alu2.compute((x & 0xFF) >> 4, (y & 0xFF) >> 4, cout1, F_SLT)
-      assert cout2 == g2 | (p2 & cout1)
-      assert int(x < y) == l2, (
-        "SLT error: x={:02X} y={:02X} x<y={:01b}, l2={:01b}".format(
-          x, y, int(x<y), l2))
-
-  for f in range(8):
-    for cin in range(2):
-      for y in range(16):
-        for x in range(16):
-          assert alu1.compute(x, y, cin, f) == alu1.lookup(x, y, cin, f), (
-            "data error: x={:04b} y={:04b} cin={:01b} f={:01b}".format(
-              x, y, cin, f))
-  alu1.write("alu.bin")
+  alu = Alu()
+  rd = alu.evaluate(0, 1, F_SUB)
+  srd = rd
+  if (srd >> 31) == 1:
+    srd = -((2**32 - rd) & (2**32 - 1))
+  print("0b{0:032b} = 0x{0:08x}, unsigned {0:d}, signed {1:d}".format(rd, srd))
 
 
 if __name__ == "__main__":
