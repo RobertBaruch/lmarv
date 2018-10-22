@@ -26,6 +26,18 @@ D Hex inverter
 K inverter
 $ENDCMP
 #
+$CMP 74LVC541
+D Octal buffer/line driver (A0-A7)
+K buffer
+F https://assets.nexperia.com/documents/data-sheet/74LVC541A.pdf
+$ENDCMP
+#
+$CMP 74LVC541_a
+D Octal buffer/line driver (A7-A0)
+K buffer
+F https://assets.nexperia.com/documents/data-sheet/74LVC541A.pdf
+$ENDCMP
+#
 $CMP 74LVC595
 D serial in parallel out shift register
 K shift register
