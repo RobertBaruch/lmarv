@@ -37,6 +37,7 @@ import functools
 # 0111: AND (X & Y)
 # all others reserved
 
+# TODO: move to alu_interface.py
 F_ADD = 0b0000
 F_SUB = 0b1000
 F_SLT = 0b0010
@@ -47,6 +48,7 @@ F_OR = 0b0110
 F_AND = 0b0111
 
 
+# TODO: move to utils
 def bin_to_int(b):
     '''Converts a list of binary integers, where b[i] is bit i, to an integer.
     '''
