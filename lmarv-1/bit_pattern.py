@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import itertools
 
 # Yield all zeroes and all ones.
@@ -33,7 +35,7 @@ def bit_by_bit_not():
     yield i ^ 0xFFFFFFFF
 
 # Combine all of them.
-def BitPattern():
+def bit_pattern():
   return itertools.chain(
     all_zeroes_and_all_ones(),
     bit_by_bit(),
@@ -43,8 +45,8 @@ def BitPattern():
 
 def main():
   # Dump all patterns.
-  for i in BitPattern():
-    print '0x%08x' % i
+  for i in bit_pattern():
+    print('0x{:08x}'.format(i))
 
 if __name__ == "__main__":
     main()
