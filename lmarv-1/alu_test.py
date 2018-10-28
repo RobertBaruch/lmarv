@@ -24,7 +24,7 @@ class TestAlu(unittest.TestCase):
 
   def runner(self, gen):
     for s0, s1, fn in gen:
-      print('[{0:d}] {1:08x}    {2:08x}'.format(fn, s0, s1))
+      # print('[{0:d}] {1:08x}    {2:08x}'.format(fn, s0, s1))
       res0 = self.alu0_.evaluate(s0, s1, fn)
       res1 = self.alu1_.evaluate(s0, s1, fn)
       self.assertEqual(res0, res1,
@@ -33,6 +33,27 @@ class TestAlu(unittest.TestCase):
               fn=fn, s0=s0, s0b=utils.to_bin(s0), s1=s1, s1b=utils.to_bin(s1),
               res0=res0, res0b=utils.to_bin(res0), res1=res1, res1b=utils.to_bin(res1))
       )
+
+  def test_add(self):
+    self.runner(generator(alu.F_ADD))
+
+  def test_sub(self):
+    self.runner(generator(alu.F_SUB))
+
+  def test_slt(self):
+    self.runner(generator(alu.F_SLT))
+
+  def test_SLTU(self):
+    self.runner(generator(alu.F_SLTU))
+
+  def test_xor(self):
+    self.runner(generator(alu.F_XOR))
+
+  def test_OR(self):
+    self.runner(generator(alu.F_OR))
+
+  def test_and(self):
+    self.runner(generator(alu.F_AND))
 
   def test_add(self):
     self.runner(generator(alu.F_ADD))
