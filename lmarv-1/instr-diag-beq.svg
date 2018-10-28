@@ -503,7 +503,7 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="467.35987"
+     inkscape:cx="299.16947"
      inkscape:cy="510.00704"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -512,7 +512,7 @@
      inkscape:guide-bbox="true"
      inkscape:window-width="1920"
      inkscape:window-height="1057"
-     inkscape:window-x="3832"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:snap-global="false"
@@ -546,7 +546,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1136,7 +1136,7 @@
    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:semi-condensed;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold Semi-Condensed'"
    id="flowSpan4893-4">Assembly:</flowSpan> BEQ<flowSpan
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
-   id="flowSpan4897-1"> rs1, rs2, off</flowSpan></flowPara></flowRoot>    <g
+   id="flowSpan4897-1"> rs1, rs2, int13e</flowSpan></flowPara></flowRoot>    <g
        style="stroke-width:0.84620118"
        transform="matrix(1.434512,0,0,1.768451,-43.964525,130.93865)"
        id="g1154-4-2-9-9">
@@ -1766,7 +1766,7 @@
            y="192.07143"
            style="line-height:100%" /></flowRegion><flowPara
          id="flowPara8951-3"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.40000057px;line-height:100%;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono'">(pc) + off    if (rs1) = (rs2)</flowPara></flowRoot>    <flowRoot
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.40000057px;line-height:100%;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono'">(pc) + sext(imm)  if (rs1) = (rs2)</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot8945-0-0"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;line-height:100%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1780,7 +1780,7 @@
            y="192.07143"
            style="line-height:100%" /></flowRegion><flowPara
          id="flowPara8951-3-1"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.40000057px;line-height:100%;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono'">(pc) + 4      otherwise</flowPara></flowRoot>    <rect
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.40000057px;line-height:100%;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono'">(pc) + 4          otherwise</flowPara></flowRoot>    <rect
        style="opacity:1;vector-effect:none;fill:#b4a7d6;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.40075305;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3557"
        width="2.6959152"
@@ -2007,7 +2007,7 @@
          id="tspan9290"
          x="130.77975"
          y="237.72308"
-         style="stroke-width:0.26458332px"></tspan></text>
+         style="stroke-width:0.26458332px" /></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot9302"
@@ -2020,5 +2020,5 @@
            x="-211.12189"
            y="771.13696"
            style="font-size:14.66666667px;" /></flowRegion><flowPara
-         id="flowPara9308"></flowPara></flowRoot>  </g>
+         id="flowPara9308" /></flowRoot>  </g>
 </svg>

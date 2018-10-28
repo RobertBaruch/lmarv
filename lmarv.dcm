@@ -66,6 +66,12 @@ D capacitor network
 K capacitor network pack
 $ENDCMP
 #
+$CMP FT232H_BREAKOUT
+D FT232H, breakout, Adafruit
+K GPIO I2C SPI USB
+F https://learn.adafruit.com/adafruit-ft232h-breakout/downloads
+$ENDCMP
+#
 $CMP HT1632C
 D 32x8/24x16 LED driver
 K led
@@ -81,8 +87,20 @@ D 32k x 8 SRAM
 K memory, SRAM
 $ENDCMP
 #
+$CMP PCA9698DDG
+D GPIO expander, I2C, 40-bit, TSSOP-56
+K gpio expander
+F https://www.nxp.com/docs/en/data-sheet/PCA9698.pdf
+$ENDCMP
+#
 $CMP RPACK8
 D RPACK8
+$ENDCMP
+#
+$CMP RPM3.3-3.0
+D DC-DC converter, 3A, 3v3
+K converter DC
+F https://www.recom-power.com/pdf/Innoline/RPM-3.0.pdf
 $ENDCMP
 #
 $CMP TinyFPGA_BX

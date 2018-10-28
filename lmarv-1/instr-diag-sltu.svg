@@ -15,7 +15,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   sodipodi:docname="instr-diag-add.svg">
+   sodipodi:docname="instr-diag-sltu.svg">
   <defs
      id="defs2">
     <marker
@@ -210,8 +210,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="457.80504"
-     inkscape:cy="524.85082"
+     inkscape:cx="373.70984"
+     inkscape:cy="605.66302"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -601,7 +601,7 @@
          y="145.3746"
          x="134.01187"
          id="tspan1017-2-4-7-8-1-8-0-6-2"
-         sodipodi:role="line">0110011</tspan></text>
+         sodipodi:role="line">0010011</tspan></text>
     <text
        id="text1019-3-5-9-8-7-5-6-4-8-9"
        y="142.244"
@@ -623,7 +623,7 @@
          y="145.3746"
          x="107.88359"
          id="tspan1017-2-4-7-8-1-8-0-6-2-8-2"
-         sodipodi:role="line">000</tspan></text>
+         sodipodi:role="line">011</tspan></text>
     <text
        id="text1019-3-5-9-8-7-5-6-4-8-9-5"
        y="142.25702"
@@ -663,7 +663,7 @@
          y="109.7002"
          x="46.233421"
          id="tspan1017-2-4-7-8-1-8-0-6-2-8-2-3-6"
-         sodipodi:role="line">ADD</tspan></text>
+         sodipodi:role="line">SLTU</tspan></text>
     <text
        id="text1019-3-5-9-8-7-5-6-4-8-9-6-1-5-6"
        y="145.40617"
@@ -707,18 +707,18 @@
          id="tspan4809"
          x="30.098162"
          y="37.391853"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.70564413px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.35660276px">ADD</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.70564413px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.35660276px">SLTU</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.70564413px;line-height:100%;font-family:'Franklin Gothic Medium';-inkscape-font-specification:'Franklin Gothic Medium, ';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.35660276px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="90.354927"
+       x="119.88821"
        y="37.337872"
        id="text4811-4"><tspan
          sodipodi:role="line"
          id="tspan4809-9"
-         x="90.354927"
+         x="119.88821"
          y="37.337872"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.70564413px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.35660276px">Add (register/register)</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.70564413px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.35660276px">Set if less than, unsigned (register/register)</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot4833"
@@ -760,7 +760,7 @@
    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:semi-condensed;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold Semi-Condensed'"
    id="flowSpan4893">Function:</flowSpan> <flowSpan
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
-   id="flowSpan4897">(rd) ← (rs1) + (rs2)</flowSpan></flowPara></flowRoot>    <flowRoot
+   id="flowSpan4897">(rd) ← (rs1) &lt; (rs2) ? 1 : 0</flowSpan></flowPara></flowRoot>    <flowRoot
        transform="matrix(0.35660277,0,0,0.35660277,-24.61642,31.632816)"
        xml:space="preserve"
        id="flowRoot4851-4"
@@ -844,7 +844,7 @@
            x="152.85715"
            y="92.519684" /></flowRegion><flowPara
          id="flowPara4859-3-5-9"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono'">ADD x30, x1, x3</flowPara></flowRoot>    <flowRoot
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono'">SLTU x30, x1, x3</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot4851-26"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;line-height:100%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -859,7 +859,7 @@
    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:semi-condensed;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold Semi-Condensed'"
    id="flowSpan4893-4">Assembly:</flowSpan> <flowSpan
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
-   id="flowSpan4897-1">ADD rd, rs1, rs2</flowSpan></flowPara></flowRoot>    <g
+   id="flowSpan4897-1">SLTU rd, rs1, rs2</flowSpan></flowPara></flowRoot>    <g
        style="stroke-width:0.84620118"
        transform="matrix(1.434512,0,0,1.768451,-43.964525,105.80227)"
        id="g1154-4-2-9-9">
@@ -881,7 +881,7 @@
          id="tspan1017-2-4-7-8-1-8-0-6-8"
          x="79.025391"
          y="171.7066"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.85282207px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.35660276px">0908AAF7</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.85282207px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.35660276px">F908AAF7</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.85282207px;line-height:100%;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.35660276px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -959,7 +959,7 @@
              id="tspan1017-2-4-7-8-1-8-0-6-8-5-6"
              x="101.27208"
              y="126.03999"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11666656px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.26458332px">00208F33</tspan></text>
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11666656px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.26458332px">0020BF13</tspan></text>
       </g>
       <g
          id="g5679-8-4"
@@ -1120,7 +1120,7 @@
          id="tspan1017-2-4-7-8-1-8-0-6-8-6"
          x="151.59337"
          y="171.7066"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.85282207px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.35660276px">0908AAF7</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.85282207px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.35660276px">F908AAF7</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.85282207px;line-height:100%;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.35660276px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1154,7 +1154,7 @@
          id="tspan1017-2-4-7-8-1-8-0-6-8-5-0"
          x="151.59335"
          y="181.61865"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.85282207px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.35660276px">097D89F8</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.85282207px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.35660276px">00000000</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.85282207px;line-height:100%;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.35660276px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1194,7 +1194,7 @@
              id="tspan1017-2-4-7-8-1-8-0-6-8-5-6-5"
              x="101.27208"
              y="126.03999"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11666656px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.26458332px">00208F33</tspan></text>
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11666656px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.26458332px">0020BF13</tspan></text>
       </g>
       <g
          id="g5679-8-4-1"
@@ -1330,30 +1330,6 @@
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:semi-condensed;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold Semi-Condensed'"
            id="flowSpan4893-8-7-6">Notes:</flowSpan></flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
-       id="flowRoot6525"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;line-height:100%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="matrix(0.35660277,0,0,0.35660277,-61.700733,8.1350663)"><flowRegion
-         id="flowRegion6527"><rect
-           id="rect6529"
-           width="356.07141"
-           height="91.071411"
-           x="271.78571"
-           y="581.09113" /></flowRegion><flowPara
-         id="flowPara6531"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:justify;writing-mode:lr-tb;text-anchor:start">There is no separate <flowSpan
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono'"
-   id="flowSpan6659">SUBI</flowSpan> instruction. However, <flowSpan
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono'"
-   id="flowSpan6655">SUBI</flowSpan> is a psuedo-instruction encoded as <flowSpan
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono'"
-   id="flowSpan6657">ADDI</flowSpan> where the immediate value is negated. Thus, the following two instructions are encoded the same way:</flowPara><flowPara
-         id="flowPara6533"
-         style="font-size:10.66666698px" /><flowPara
-         id="flowPara6535"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono'">SUBI x30, x1, 0x001</flowPara><flowPara
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono'"
-         id="flowPara6581">ADDI x30, x1, 0xFFF</flowPara></flowRoot>    <flowRoot
-       xml:space="preserve"
        id="flowRoot4843-4"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;line-height:100%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        transform="matrix(0.35660277,0,0,0.35660277,45.355122,17.050137)"><flowRegion
@@ -1379,13 +1355,13 @@
            x="271.78571"
            y="581.09113" /></flowRegion><flowPara
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:justify;writing-mode:lr-tb;text-anchor:start"
-         id="flowPara6581-7">Adds the contents of register <flowSpan
+         id="flowPara6581-7">Sets the contents of register <flowSpan
    style="font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono Oblique'"
-   id="flowSpan6661">rs1</flowSpan> to the contents of register <flowSpan
-   style="-inkscape-font-specification:'DejaVu Sans Oblique';font-family:'DejaVu Sans';font-weight:normal;font-style:oblique;font-stretch:normal;font-variant:normal"
-   id="flowSpan14416">rs2</flowSpan>. The result is placed in register <flowSpan
-   style="font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono Oblique'"
-   id="flowSpan6663">rd</flowSpan>.</flowPara></flowRoot>    <rect
+   id="flowSpan6661">rd</flowSpan> to 1 if the contents of register <flowSpan
+   style="font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Oblique'"
+   id="flowSpan2029">rs1</flowSpan> is less than contents of register <flowSpan
+   style="font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Oblique'"
+   id="flowSpan14416">rs2</flowSpan> in an unsigned comparison, otherwise 0.</flowPara></flowRoot>    <rect
        y="140.2827"
        x="77.888145"
        height="2.6745207"
