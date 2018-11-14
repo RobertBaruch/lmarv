@@ -13,7 +13,7 @@
   (layers
     (0 F.Cu signal)
     (1 In1.Cu power)
-    (2 In2.Cu power hide)
+    (2 In2.Cu power)
     (31 B.Cu signal)
     (32 B.Adhes user)
     (33 F.Adhes user)
@@ -64,7 +64,7 @@
     (visible_elements 7FFFFFFF)
     (pcbplotparams
       (layerselection 0x010f0_ffffffff)
-      (usegerberextensions true)
+      (usegerberextensions false)
       (usegerberattributes false)
       (usegerberadvancedattributes false)
       (creategerberjobfile false)
@@ -17518,7 +17518,7 @@
   (segment (start 79.025 109.95) (end 79.025 110.853) (width 0.178) (layer F.Cu) (net 440))
   (segment (start 84.992795 112.668857) (end 85.014983 112.691045) (width 0.178) (layer F.Cu) (net 440))
 
-  (zone (net 303) (net_name GNDREF) (layer In1.Cu) (tstamp 0) (hatch edge 0.508)
+  (zone (net 303) (net_name GNDREF) (layer In1.Cu) (tstamp 5BD910DC) (hatch edge 0.508)
     (connect_pads (clearance 0.2))
     (min_thickness 0.254)
     (fill yes (arc_segments 16) (thermal_gap 0.508) (thermal_bridge_width 0.508))
@@ -20761,7 +20761,7 @@
       )
     )
   )
-  (zone (net 1) (net_name VCC) (layer In2.Cu) (tstamp 0) (hatch edge 0.508)
+  (zone (net 1) (net_name VCC) (layer In2.Cu) (tstamp 5BD910D9) (hatch edge 0.508)
     (connect_pads (clearance 0.2))
     (min_thickness 0.254)
     (fill yes (arc_segments 16) (thermal_gap 0.508) (thermal_bridge_width 0.508))

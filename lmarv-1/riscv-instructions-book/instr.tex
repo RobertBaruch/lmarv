@@ -1,0 +1,1213 @@
+\documentclass[11pt,twoside,letterpaper,titlepage]{report}
+\usepackage{array}
+\usepackage{dejavu}
+\usepackage{graphicx}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in, marginparwidth=0.1pt]{geometry}
+\usepackage{longtable}
+\usepackage{verbatim}
+
+\author{Robert Baruch \\ robert.c.baruch@gmail.com}
+\title{RISC-V}
+
+%
+% Command to convert svg files to png:
+% inkscape -D -z --file=instr-and-example.svg -d600 -e instr-and-example.png
+%
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5\baselineskip}
+
+% Set up a command to reset parindent and parskip. This must be called
+% immediately after beginning a minipage environment, because minipage
+% sets these to zero. There is supposed to be a \@minipagerestore hook,
+% but for some reason defining that throws errors.
+\newcommand{\minipagerestore}{
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{0.5\baselineskip}
+}
+
+\renewcommand*{\rmdefault}{\sfdefault}
+\raggedbottom
+
+%
+% Arguments:
+%  1: Mnemonic, lower case
+%  2: Brief description
+%  3: Instruction format
+%  4: Opcode type
+%  5: Assembly
+%  6: Function
+%  7: Long description
+%  8: Example assembly
+%  9: Notes
+
+\newenvironment{instrheader}[5]
+{% begin code
+\hbox to \textwidth{{\huge\textbf{#1}} \hfil {\Large #2}}
+\rule{\textwidth}{0.4pt}
+
+\par
+\begin{minipage}{0.5\textwidth}
+\textbf{Instruction Format:} #3
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+\textbf{Opcode Type:} #4
+\end{minipage}
+\vspace*{0.5\baselineskip}
+
+\par
+\textbf{Assembly:} \texttt{#5}
+\vspace*{0.5\baselineskip}
+\ignorespacesafterend
+}
+{% end code
+}
+
+\newenvironment{instrfunction}
+{% begin code
+\par
+\textbf{Function:} %
+}
+{% end code
+\vspace*{0.5\baselineskip}
+\ignorespacesafterend
+}
+
+\newenvironment{instrdesc}
+{% begin code
+\par
+\textbf{Description:}
+\vspace*{0.2\baselineskip}
+\par
+\hfill\begin{minipage}{\dimexpr\textwidth-1em}\minipagerestore
+}
+{% end code
+\end{minipage}
+\vspace*{\baselineskip}
+\ignorespacesafterend
+}
+
+\newcommand{\instrdatapathimg}[1]{
+\par
+\textbf{Data Path:}
+\begin{center}
+\includegraphics{instr-#1-datapath.png}
+\end{center}
+}
+
+\newenvironment{instrexample}
+{% begin code
+\par
+\textbf{Example:} %
+}
+{% end code
+}
+
+\newenvironment{instrexamplenotes}
+{% begin code
+\vspace*{0.3\baselineskip}
+\par
+\hfill\begin{minipage}{\dimexpr\textwidth-1em}\minipagerestore
+}
+{% end code
+\end{minipage}
+}
+
+\newcommand{\instrexampleimg}[1]{
+\par
+\begin{center}
+\includegraphics{instr-#1-example.png}
+\end{center}    
+\vspace*{0.5\baselineskip}
+}
+
+\newenvironment{instrnotes}
+{% begin code
+\par
+\textbf{Notes:}
+\vspace*{0.3\baselineskip}
+\par
+\hfill\begin{minipage}{\dimexpr\textwidth-1em}\minipagerestore
+}
+{% end code
+\end{minipage}
+}
+
+
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\chapter{Harts and the FENCE instruction}
+
+A hart is a hardware thread. This is in contrast to a software thread. A hart is an independent
+core with its own set of registers and its own program counter. However, all cores share the
+entire memory space.
+
+\par
+Each hart executes its own instructions one by one, in order. However, because of caches
+and other accelerator magic, some other hart may not see the loads and stores from this
+hart in the same order! For example, imagine that hart 1 executes instructions in this order:
+
+\par
+Store 0 to location A
+Store 1 to location B
+Read location A
+Read location B
+Add them.
+Store the result to location C.
+
+\par
+In any sane universe, 2 should be written to location C, and as far as hart 1 is concerned,
+that is exactly what happens.
+
+\par
+Next, imagine that some hart is monitoring location C by reading it over and over. When it
+sees that location C changes, it immediate reads A and B, adds them, and compares the result
+with C. Maybe hart 2 is testing that hart 1 is actually adding A and B properly.
+
+\par
+However, now imagine that hart 1 is actually accessing a fast memory cache. All the instructions
+are reading and writing that cache. Eventually, the cache gets flushed to main memory. However,
+the order that the cache writes to memory is not specified! It could write location C first,
+then B, then A. The cache doesn't care about the order of operations, it just cares about
+the view of memory according to hart 1 and the changes it made. So hart 2 might 
+actually see 2 in C but 5 in B and 42 in A because the cache hasn't gotten around to 
+writing locations A and B yet. The addition doesn't compare, and hart 2 thinks hart 1 is
+malfunctioning.
+
+\par
+This is the essence of the \textit{relaxed memory model}. If two harts access different areas
+of memory, no problem exists. But when they access the same areas of memory, things can go
+a bit wonky.
+
+\par
+The \texttt{FENCE} instruction forces an ordering on the cache. For example, a \texttt{FENCE}
+instruction might dictate that previous writes must occur before subsequent writes. This means
+that a cache would be forced to write everything before the FENCE before writing anything after
+the FENCE. Thus, the cache could only end up writing in either of these two orders: A, B, C, or
+B, A, C. That is, the FENCE instruction declares that every other hart is guaranteed to see C
+written only after A and B are written.
+
+\par
+So with such a \texttt{FENCE}, hart 2 will not see inconsistent values.
+
+\par
+The \texttt{FENCE.I} instruction has to do with instruction caches and pipelines. If a
+hart were to write to memory which is actually code, it is possible that a cache or pipeline could
+still contain the old value at that address, meaning that the instruction to execute at that
+address is incorrect. Executing a \texttt{FENCE.I} instruction guarantees that the hart's
+caches and pipelines are updated with respect to instructions to execute.
+
+\chapter{The Instructions}
+
+\section{Abbreviations}
+
+\begin{center}\begin{longtable}{ll}
+XLEN & The processor's integer register width \\
+imm & The unsigned immediate value in the instruction \\
+int12 & 12-bit signed integer \\
+uint12 & 12-bit unsigned integer \\
+int13e & 13-bit even signed integer \\
+uint20 & 20-bit unsigned integer \\
+int21e & 21-bit even signed integer \\
+uintN & $\log_2$(XLEN)-bit unsigned integer \\
+pc & The program counter \\
+rd & The destination register \\
+rs1 & Source register 1 \\
+rs2 & Source register 2 \\
+sext($x$) & $x$, sign-extended to XLEN bits \\
+zext($x$) & $x$, zero-extended to XLEN bits \\
+(r) & The contents of a register, as a signed XLEN-bit integer\\
+(r)\textsubscript{u} & The contents of a register, as an unsigned XLEN-bit integer\\
+$X$\textsubscript{b} & The lowest 8 bits of $X$\\
+$X$\textsubscript{h} & The lowest 16 bits of $X$\\
+$X$\textsubscript{w} & The lowest 32 bits of $X$\\
+$X$\textsubscript{d} & The lowest 64 bits of $X$\\
+$X$\textsubscript{n} & The lowest $\log_2$(XLEN) bits of $X$\\
+{[}$a${]}\textsubscript{b} & The 8-bit integer stored in memory at address $a$\\
+{[}$a${]}\textsubscript{h} & The 16-bit integer stored in memory at address $a$\\
+{[}$a${]}\textsubscript{w} & The 32-bit integer stored in memory at address $a$\\
+{[}$a${]}\textsubscript{d} & The 64-bit integer stored in memory at address $a$\\
+$\leftarrow$ & Receives the value of \\
+$\overline{1}$ & All ones, except the least significant bit is zero\\
+$+$ & Addition \\
+$-$ & Subtraction \\
+$<<$ & Binary shift left \\
+$>>$ & Binary signed shift right \\
+$>>$\textsubscript{u} & Binary unsigned shift right \\
+$\land$ & Logical bitwise and \\
+$\lor$ & Logical bitwise or \\
+$\oplus$ & Logical bitwise exclusive or (xor)
+
+\end{longtable}\end{center}
+
+\newpage
+
+\begin{instrheader}{ADD}{Add (register/register)}{R}{OP}{ADD rd, rs1, rs2}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ (rs1) $+$ (rs2)}
+\end{instrfunction}
+\begin{instrdesc}
+    Adds the contents of register \texttt{rs1} to the contents of register \texttt{rs2}.
+    The result is placed in register \texttt{rd}.
+\end{instrdesc}
+\instrdatapathimg{add}
+\begin{instrexample}
+    \texttt{ADD x30, x1, x3}
+\end{instrexample}
+\instrexampleimg{add}
+\begin{instrnotes}
+    Overflows of the \texttt{ADD} instruction for signed arithmetic can be checked using \texttt{SLTI} and \texttt{SLT}:
+
+    \par
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        ADD & x1, x2, x3\\
+        SLTI & x4, x3, 0\\
+        SLT & x5, x1, x2\\
+        BNE & x4, x5, overflow
+    \end{tabular}
+\end{instrnotes}
+\newpage
+
+\begin{instrheader}{ADDI}{Add (register/immediate)}{I}{OP-IMM}{ADDI rd, rs1, int12}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ (rs1) $+$ sext(imm)}
+\end{instrfunction}
+\begin{instrdesc}
+    Adds the sign-extended immediate value to the contents of register \texttt{rs1}.
+    The result is placed in register \texttt{rd}.
+\end{instrdesc}
+\instrdatapathimg{addi}
+\begin{instrexample}
+    \texttt{ADDI x30, x1, -1}
+\end{instrexample}
+\instrexampleimg{addi}
+\begin{instrnotes}
+    There is no separate \texttt{SUBI} instruction. However, \texttt{SUBI} is a psuedo-instruction
+    encoded as \texttt{ADDI}
+    where the immediate value is negated. Thus, the following two instructions are encoded the
+    same way:
+    
+    \par
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        SUBI & x30, x1, 1\\
+        ADDI & x30, x1, -1
+    \end{tabular}
+\end{instrnotes}
+\newpage
+
+\begin{instrheader}{AND}{Bitwise and (register/register)}{R}{OP}{AND rd, rs1, rs2}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ (rs1) $\land$ (rs2)}
+\end{instrfunction}
+\begin{instrdesc}
+    Performs a bitwise AND between the contents of register \texttt{rs1} and the contents
+    of register \texttt{rs2}. The result is placed in register \texttt{rd}.
+\end{instrdesc}
+\instrdatapathimg{and}
+\begin{instrexample}
+    \texttt{AND x30, x1, x3}
+\end{instrexample}
+\instrexampleimg{and}
+\newpage
+
+\begin{instrheader}{ANDI}{Bitwise and (register/immediate)}{I}{OP-IMM}{ANDI rd, rs1, int12}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ (rs1) $\land$ sext(imm)}
+\end{instrfunction}
+\begin{instrdesc}
+    Performs a bitwise AND between the sign-extended immediate value and the
+    contents of register \texttt{rs1}. The result is placed in register \texttt{rd}.
+\end{instrdesc}
+\instrdatapathimg{andi}
+\begin{instrexample}
+    \texttt{ANDI x30, x1, -1}
+\end{instrexample}
+\instrexampleimg{andi}
+\newpage
+
+\begin{instrheader}{AUIPC}{Add upper immediate to PC}{U}{AUIPC}{AUIPC rd, uint20}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ (pc) $+$ sext(imm $<<$ 12)}
+\end{instrfunction}
+\begin{instrdesc}
+    Constructs a 32-bit integer whose upper 20 bits are the immediate value, filling
+    the lower 12 bits with zeros. The result is then sign-extended to XLEN bits, added
+    to the program counter, and the result placed in the destination register.
+\end{instrdesc}
+\instrdatapathimg{auipc}
+\begin{instrexample}
+    \texttt{AUIPC x30, 0xAB00F}
+\end{instrexample}
+\instrexampleimg{auipc}
+\begin{instrnotes}
+    The \texttt{AUIPC} instruction is used to construct pc-relative offsets outside
+    the 12-bit range.
+\end{instrnotes}
+\newpage
+
+\begin{instrheader}{BEQ}{Branch if equal}{B}{BRANCH}{BEQ rs1, rs2, int13e}
+\end{instrheader}
+\begin{instrfunction}
+    \[
+    \texttt{(pc)} \leftarrow \left\{
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        (pc) + sext(imm) & if (rs1) = (rs2)\\
+        (pc) + 4 & otherwise
+    \end{tabular} \right.
+    \]
+\end{instrfunction}
+\begin{instrdesc}
+    Compares the contents of register \texttt{rs1} to the contents of register \texttt{rs2}. If they
+    are equal, the signed offset is added to the current program counter, otherwise
+    the program counter is set to the address of the next instruction.
+\end{instrdesc}
+\instrdatapathimg{beq}
+\begin{instrexample}
+    \texttt{BEQ x1, x30, -8}
+\end{instrexample}
+\instrexampleimg{beq}
+\begin{instrnotes}
+    Offsets are limited to even addresses in the range [-4096, 4094]. Branches to addresses
+    outside this range can be accomplished using the complementary branch followed by an
+    unconditional jump:
+    
+    \par
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        BNE & x1, x30, 8\\
+        J & far\_addr
+    \end{tabular}
+    
+    \par
+    A misaligned instruction fetch exception will be generated if the address of the branch
+    taken is not aligned on a 32-bit boundary, except in processors that support extensions with
+    16-bit aligned instructions, such as the compressed instruction set extension C.
+\end{instrnotes}
+\newpage
+
+\begin{instrheader}{BGE}{Branch if greater than or equal (signed)}{B}{BRANCH}{BGE rs1, rs2, int13e}
+\end{instrheader}
+\begin{instrfunction}
+    \[
+    \texttt{(pc)} \leftarrow \left\{
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        (pc) + sext(imm) & if (rs1) $\geq$ (rs2)\\
+        (pc) + 4 & otherwise
+    \end{tabular} \right.
+    \]
+\end{instrfunction}
+\begin{instrdesc}
+    If the signed contents of register \texttt{rs1} is greater than or equal to the signed contents of
+    register \texttt{rs2}, the signed offset is added to the current program counter, otherwise
+    the program counter is set to the address of the next instruction.
+\end{instrdesc}
+\instrdatapathimg{bge}
+\begin{instrexample}
+    \texttt{BGE x1, x30, -8}
+\end{instrexample}
+\instrexampleimg{bge}
+\begin{instrnotes}
+    Offsets are limited to even addresses in the range [-4096, 4094]. Branches to addresses
+    outside this range can be accomplished using the complementary branch followed by an
+    unconditional jump:
+     
+    \par
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        BLT & x1, x30, 8\\
+        J & far\_addr
+    \end{tabular}
+    
+    \par
+    A misaligned instruction fetch exception will be generated if the address of the branch
+    taken is not aligned on a 32-bit boundary, except in processors that support extensions with
+    16-bit aligned instructions, such as the compressed instruction set extension C.
+\end{instrnotes}
+\newpage
+
+\begin{instrheader}{BGEU}{Branch if greater than of equal (unsigned)}{B}{BRANCH}{BGEU rs1, rs2, int13e}
+\end{instrheader}
+\begin{instrfunction}
+    \[
+    \texttt{(pc)} \leftarrow \left\{
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        (pc) + sext(imm) & if (rs1)\textsubscript{u} $\geq$ (rs2)\textsubscript{u}\\
+        (pc) + 4 & otherwise
+    \end{tabular} \right.
+    \]
+\end{instrfunction}
+\begin{instrdesc}
+    If the unsigned contents of register \texttt{rs1} is greater than or equal to the unsigned contents of
+    register \texttt{rs2}, the signed offset is added to the current program counter, otherwise
+    the program counter is set to the address of the next instruction.
+\end{instrdesc}
+\instrdatapathimg{bgeu}
+\begin{instrexample}
+    \texttt{BGEU x1, x30, -8}
+\end{instrexample}
+\instrexampleimg{bgeu}
+\begin{instrnotes}
+    Offsets are limited to even addresses in the range [-4096, 4094]. Branches to addresses
+    outside this range can be accomplished using the complementary branch followed by an
+    unconditional jump:
+     
+    \par
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        BLTU & x1, x30, 8\\
+        J & far\_addr
+    \end{tabular}
+    
+    \par
+    A misaligned instruction fetch exception will be generated if the address of the branch
+    taken is not aligned on a 32-bit boundary, except in processors that support extensions with
+    16-bit aligned instructions, such as the compressed instruction set extension C.
+\end{instrnotes}
+\newpage
+
+\begin{instrheader}{BLT}{Branch if less than (signed)}{B}{BRANCH}{BLT rs1, rs2, int13e}
+\end{instrheader}
+\begin{instrfunction}
+    \[
+    \texttt{(pc)} \leftarrow \left\{
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        (pc) + sext(imm) & if (rs1) < (rs2)\\
+        (pc) + 4 & otherwise
+    \end{tabular} \right.
+    \]
+\end{instrfunction}
+\begin{instrdesc}
+    If the signed contents of register \texttt{rs1} is less than the signed contents of
+    register \texttt{rs2}, the signed offset is added to the current program counter, otherwise
+    the program counter is set to the address of the next instruction.
+\end{instrdesc}
+\instrdatapathimg{blt}
+\begin{instrexample}
+    \texttt{BLT x1, x30, -8}
+\end{instrexample}
+\instrexampleimg{blt}
+\begin{instrnotes}
+    Offsets are limited to even addresses in the range [-4096, 4094]. Branches to addresses
+    outside this range can be accomplished using the complementary branch followed by an
+    unconditional jump:
+     
+    \par
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        BGE & x1, x30, 8\\
+        J & far\_addr
+    \end{tabular}
+    
+    \par
+    A misaligned instruction fetch exception will be generated if the address of the branch
+    taken is not aligned on a 32-bit boundary, except in processors that support extensions with
+    16-bit aligned instructions, such as the compressed instruction set extension C.
+\end{instrnotes}
+\newpage
+
+\begin{instrheader}{BLTU}{Branch if less than (unsigned)}{B}{BRANCH}{BLTU rs1, rs2, int13e}
+\end{instrheader}
+\begin{instrfunction}
+    \[
+    \texttt{(pc)} \leftarrow \left\{
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        (pc) + sext(imm) & if (rs1)\textsubscript{u} < (rs2)\textsubscript{u}\\
+        (pc) + 4 & otherwise
+    \end{tabular} \right.
+    \]
+\end{instrfunction}
+\begin{instrdesc}
+    If the unsigned contents of register \texttt{rs1} is less than the unsigned contents of
+    register \texttt{rs2}, the signed offset is added to the current program counter, otherwise
+    the program counter is set to the address of the next instruction.
+\end{instrdesc}
+\instrdatapathimg{bltu}
+\begin{instrexample}
+    \texttt{BLTU x1, x30, -8}
+\end{instrexample}
+\instrexampleimg{bltu}
+\begin{instrnotes}
+    Offsets are limited to even addresses in the range [-4096, 4094]. Branches to addresses
+    outside this range can be accomplished using the complementary branch followed by an
+    unconditional jump:
+     
+    \par
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        BGEU & x1, x30, 8\\
+        J & far\_addr
+    \end{tabular}
+    
+    \par
+    A misaligned instruction fetch exception will be generated if the address of the branch
+    taken is not aligned on a 32-bit boundary, except in processors that support extensions with
+    16-bit aligned instructions, such as the compressed instruction set extension C.
+\end{instrnotes}
+\newpage
+
+\begin{instrheader}{BNE}{Branch if not equal}{B}{BRANCH}{BNE rs1, rs2, int13e}
+\end{instrheader}
+\begin{instrfunction}
+    \[
+    \texttt{(pc)} \leftarrow \left\{
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        (pc) + sext(imm) & if (rs1) $\neq$ (rs2)\\
+        (pc) + 4 & otherwise
+    \end{tabular} \right.
+    \]
+\end{instrfunction}
+\begin{instrdesc}
+    Compares the contents of register \texttt{rs1} to the contents of register \texttt{rs2}. If they
+    are not equal, the signed offset is added to the current program counter, otherwise
+    the program counter is set to the address of the next instruction.
+\end{instrdesc}
+\instrdatapathimg{bne}
+\begin{instrexample}
+    \texttt{BNE x1, x30, -8}
+\end{instrexample}
+\instrexampleimg{bne}
+\begin{instrnotes}
+    Offsets are limited to even addresses in the range [-4096, 4094]. Branches to addresses
+    outside this range can be accomplished using the complementary branch followed by an
+    unconditional jump:
+    
+    \par
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        BEQ & x1, x30, 8\\
+        J &   far\_addr
+    \end{tabular}
+    
+    \par
+    A misaligned instruction fetch exception will be generated if the address of the branch
+    taken is not aligned on a 32-bit boundary, except in processors that support extensions with
+    16-bit aligned instructions, such as the compressed instruction set extension C.
+\end{instrnotes}
+\newpage
+
+\begin{instrheader}{CSRRW}{Atomic read/write CSR}{I}{SYSTEM}{CSRRW rd, rs1, csr}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ zext(csr[imm]) $\leftarrow$ (rs1)}
+\end{instrfunction}
+\begin{instrdesc}
+    Stores the zero-extended old value of the Control and Status Register
+    in the destination register, and stores the contents of \texttt{rs1} in the CSR.
+\end{instrdesc}
+\instrdatapathimg{csrrw}
+\begin{instrexample}
+    \texttt{CSSRW x1, x30, 0xF00}
+\end{instrexample}
+\begin{instrexamplenotes}
+    In this example, CSR \texttt{0xF00} is a 16-bit register.
+\end{instrexamplenotes}
+\instrexampleimg{csrrw}
+\begin{instrnotes}
+    If \texttt{rd} and \texttt{rs1} are the same, this instruction is effectively a swap.
+
+    \par
+    If \texttt{rd} is \texttt{x0}, then the CSR is not read, and so no side-effect of
+    reading the CSR occurs.
+    
+    \par
+    Processor implementations may trap SYSTEM opcodes in a software handler, handle them
+    in hardware, or a mix of both.
+\end{instrnotes}
+\newpage
+
+\begin{instrheader}{JAL}{Jump and link}{J}{JAL}{JAL rd, int21e}
+\end{instrheader}
+\begin{instrfunction}
+    \[
+    \begin{tabular}{>{\ttfamily}l}
+        (rd) $\leftarrow$ (pc) $+$ 4\\
+        (pc) $\leftarrow$ (pc) $+$ sext(imm)
+    \end{tabular}
+    \]
+\end{instrfunction}
+\begin{instrdesc}
+    The address of the next instruction is written to \texttt{rd}, and the signed offset
+    is added to the current program counter.
+\end{instrdesc}
+\instrdatapathimg{jal}
+\begin{instrexample}
+    \texttt{JAL x1, 12}
+\end{instrexample}
+\instrexampleimg{jal}
+\begin{instrnotes}
+    Offsets are limited to even addresses in the range [-1048576, 1048574]. Jumps to relative
+    addresses outside this range can be accomplished using an extra register and the \texttt{AUIPC}
+    and \texttt{JALR} instructions. For example, jumping to \texttt{pc+0x76543210} can be
+    implemented as follows:
+
+    \par
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        AUIPC & x30, 0x76543000\\
+        JALR &  x1, 0x20C(x30)
+    \end{tabular}
+    
+    \par
+    A misaligned instruction fetch exception will be generated if the target address is not
+    aligned on a 32-bit boundary, except in processors that support extensions with 16-bit
+    aligned instructions, such as the compressed instruction set extension C.
+\end{instrnotes}
+\newpage
+
+\begin{instrheader}{JALR}{Jump and link register}{I}{JALR}{JALR rd, int12(rs1)}
+\end{instrheader}
+\begin{instrfunction}
+    \[
+    \begin{tabular}{>{\ttfamily}l}
+        (rd) $\leftarrow$ (pc) $+$ 4\\
+        (pc) $\leftarrow$ (pc) $+$ ((rs1) $+$ sext(imm)) $\land$ $\overline{1}$
+    \end{tabular}
+    \]
+\end{instrfunction}
+\begin{instrdesc}
+    The address of the next instruction is written to \texttt{rd}. The signed offset is
+    added to the contents of \texttt{rs1}, and the result's least significant bit is set
+    to zero. Then the result is loaded into the program counter.
+\end{instrdesc}
+\instrdatapathimg{jalr}
+\begin{instrexample}
+    \texttt{JALR x1, 9(x30)}
+\end{instrexample}
+\instrexampleimg{jalr}
+\begin{instrnotes}
+    Offsets are limited to even addresses in the range [-2048, 2046]. Jumps to relative
+    indirect addresses outside this range can be accomplished using an extra register.
+    For example, jumping to \texttt{0x76543210(x30)} can be implemented as follows:
+
+    \par
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        LUI &  x29, 0x76543\\
+        ADD &  x29, x29, x30\\
+        JALR & x1, 0x210(x29)
+    \end{tabular}
+    
+    \par
+    A misaligned instruction fetch exception will be generated if the target address is not
+    aligned on a 32-bit boundary, except in processors that support extensions with 16-bit
+    aligned instructions, such as the compressed instruction set extension C.
+\end{instrnotes}
+\newpage
+
+\begin{instrheader}{LB}{Load byte}{I}{LOAD}{LB rd, int12(rs1)}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ sext([(rs1) $+$ sext(imm)]\textsubscript{b})}
+\end{instrfunction}
+\begin{instrdesc}
+    Adds the signed offset to the contents of register \texttt{rs1}, treating it as a memory
+    address. Retrieves a byte from memory at that address, and
+    sign-extends it. The result is placed in the destination register.
+\end{instrdesc}
+\instrdatapathimg{lb}
+\begin{instrexample}
+    \texttt{LB x30, -4(x1)}
+\end{instrexample}
+\instrexampleimg{lb}
+\begin{instrexamplenotes}
+    In this example, the little-endian layout in memory at address \texttt{0908AAF0} is 
+    \texttt{76 3A C1 C5}. The address to access is \texttt{0908AAF2}, which contains the
+    byte \texttt{C1}. When sign-extended to 32 bits, this is \texttt{FFFFFFC1}.
+\end{instrexamplenotes}
+\newpage
+
+\begin{instrheader}{LBU}{Load byte unsigned}{I}{LOAD}{LBU rd, int12(rs1)}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ zext([(rs1) $+$ sext(imm)]\textsubscript{h})}
+\end{instrfunction}
+\begin{instrdesc}
+    Adds the signed offset to the contents of register \texttt{rs1}, treating it as a memory
+    address. Retrieves a byte from memory at that address, and
+    zero-extends it. The result is placed in the destination register.
+\end{instrdesc}
+\instrdatapathimg{lbu}
+\begin{instrexample}
+    \texttt{LBU x30, -4(x1)}
+\end{instrexample}
+\instrexampleimg{lbu}
+\begin{instrexamplenotes}
+    In this example, the little-endian layout in memory at address \texttt{0908AAF0} is 
+    \texttt{76 3A C1 C5}. The address to access is \texttt{0908AAF2}, which contains the
+    byte \texttt{C1}. When zero-extended to 32 bits, this is \texttt{000000C1}.
+\end{instrexamplenotes}
+\newpage
+
+\begin{instrheader}{LH}{Load half word}{I}{LOAD}{LH rd, int12(rs1)}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ sext([(rs1) $+$ sext(imm)]\textsubscript{h})}
+\end{instrfunction}
+\begin{instrdesc}
+    Adds the signed offset to the contents of register \texttt{rs1}, treating it as a memory
+    address. Retrieves a little-endian 16-bit value from memory at that address, and
+    sign-extends it. The result is placed in the destination register.
+\end{instrdesc}
+\instrdatapathimg{lh}
+\begin{instrexample}
+    \texttt{LH x30, -4(x1)}
+\end{instrexample}
+\instrexampleimg{lh}
+\begin{instrexamplenotes}
+    In this example, the little-endian layout in memory at address \texttt{0908AAF0} is 
+    \texttt{76 3A C1 C5}. The address to access is \texttt{0908AAF2}, which contains the
+    bytes \texttt{C1 C5}. The corresponding little-endian value is \texttt{C5C1}. When
+    sign-extended to 32 bits, this is \texttt{FFFFC5C1}.
+\end{instrexamplenotes}
+\newpage
+
+\begin{instrheader}{LHU}{Load half word unsigned}{I}{LOAD}{LHU rd, int12(rs1)}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ zext([(rs1) $+$ sext(imm)]\textsubscript{h})}
+\end{instrfunction}
+\begin{instrdesc}
+    Adds the signed offset to the contents of register \texttt{rs1}, treating it as a memory
+    address. Retrieves a little-endian 16-bit value from memory at that address, and
+    zero-extends it. The result is placed in the destination register.
+\end{instrdesc}
+\instrdatapathimg{lhu}
+\begin{instrexample}
+    \texttt{LHU x30, -4(x1)}
+\end{instrexample}
+\instrexampleimg{lhu}
+\begin{instrexamplenotes}
+    In this example, the little-endian layout in memory at address \texttt{0908AAF0} is 
+    \texttt{76 3A C1 C5}. The address to access is \texttt{0908AAF2}, which contains the
+    bytes \texttt{C1 C5}. The corresponding little-endian value is \texttt{C5C1}. When
+    zero-extended to 32 bits, this is \texttt{0000C5C1}.
+\end{instrexamplenotes}
+\newpage
+
+\begin{instrheader}{LUI}{Load upper immediate}{U}{LUI}{LUI rd, uint20}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ sext(imm $<<$ 12)}
+\end{instrfunction}
+\begin{instrdesc}
+    Constructs a 32-bit integer whose upper 20 bits are the immediate value, filling
+    the lower 12 bits with zeros. The result is then sign-extended to XLEN bits and placed in the
+    destination register.
+\end{instrdesc}
+\instrdatapathimg{lui}
+\begin{instrexample}
+    \texttt{LUI x30, 0xAB00F}
+\end{instrexample}
+\instrexampleimg{lui}
+\begin{instrnotes}
+    The \texttt{LUI} instruction is used to construct constants outside the 12-bit range.
+\end{instrnotes}
+\newpage
+
+\begin{instrheader}{LW}{Load word}{I}{LOAD}{LW rd, int12(rs1)}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ sext([(rs1) $+$ sext(imm)]\textsubscript{w})}
+\end{instrfunction}
+\begin{instrdesc}
+    Adds the signed offset to the contents of register \texttt{rs1}, treating it as a memory
+    address. Retrieves a little-endian 32-bit value from memory at that address, and
+    sign-extends it. The result is placed in the destination register.
+\end{instrdesc}
+\instrdatapathimg{lw}
+\begin{instrexample}
+    \texttt{LW x30, -4(x1)}
+\end{instrexample}
+\instrexampleimg{lw}
+\begin{instrexamplenotes}
+    In this example, the little-endian layout in memory at address \texttt{0908AAF0} is 
+    \texttt{76 3A C1 C5 04 03 02 01}. The address to access is \texttt{0908AAF2}, which contains the
+    bytes \texttt{C1 C5 04 03}. The corresponding little-endian value is \texttt{0304C5C1}.
+\end{instrexamplenotes}
+\newpage
+
+\begin{instrheader}{NOP}{No operation}{I}{LOAD}{\textit{(pseudo-instruction)} NOP}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(pc) $\leftarrow$ (pc) $+$ 4}
+\end{instrfunction}
+\begin{instrdesc}
+    Does not change any user-visible state, except for advancing the program counter.
+\end{instrdesc}
+\begin{instrnotes}
+    While there are many instructions that can do nothing, the standard \texttt{NOP} is
+    implemented as an \texttt{ADDI} instruction:
+
+    \par
+    \texttt{ADDI x0, x0, 0}
+\end{instrnotes}
+\newpage
+
+\begin{instrheader}{OR}{Bitwise or (register/register)}{R}{OP}{OR rd, rs1, rs2}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ (rs1) $\lor$ (rs2)}
+\end{instrfunction}
+\begin{instrdesc}
+    Performs a bitwise OR between the contents of register \texttt{rs1} and the contents
+    of register \texttt{rs2}. The result is placed in register \texttt{rd}.
+\end{instrdesc}
+\instrdatapathimg{or}
+\begin{instrexample}
+    \texttt{OR x30, x1, x3}
+\end{instrexample}
+\instrexampleimg{or}
+\newpage
+
+\begin{instrheader}{ORI}{Bitwise or (register/immediate)}{I}{OP-IMM}{OR rd, rs1, int12}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ (rs1) $\lor$ sext(imm)}
+\end{instrfunction}
+\begin{instrdesc}
+    Performs a bitwise OR between the contents of register \texttt{rs1} and the sign-extended
+    immediate value. The result is placed in register \texttt{rd}.
+\end{instrdesc}
+\instrdatapathimg{ori}
+\begin{instrexample}
+    \texttt{ORI x30, x1, -1}
+\end{instrexample}
+\instrexampleimg{ori}
+\newpage
+
+\begin{instrheader}{SB}{Store byte}{S}{STORE}{SB int12(rs1), rs2}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{[(rs1) $+$ sext(imm)]\textsubscript{b} $\leftarrow$ (rs2)\textsubscript{b}}
+\end{instrfunction}
+\begin{instrdesc}
+    Adds the signed offset to the contents of register \texttt{rs1}, treating it as
+    a memory address. Stores the bottom 8 bits of \texttt{rs2} into memory at that address.
+\end{instrdesc}
+\instrdatapathimg{sb}
+\begin{instrexample}
+    \texttt{SB -4(x1), x30}
+\end{instrexample}
+\instrexampleimg{sb}
+\begin{instrexamplenotes}
+    In this example, the bytes in memory starting at address \texttt{0908AAF0} are 
+    \texttt{76 3A C1 C5}. The address to access is \texttt{0908AAF2}, which contains the 
+    byte \texttt{C1}. The value of the lower 8 bits in \texttt{x30} is \texttt{B8}. This
+    is stored in memory, replacing \texttt{C1}, so that now the bytes in memory starting
+    at address \texttt{0908AAF0} are \texttt{76 3A B8 C5}. 
+\end{instrexamplenotes}
+\newpage
+
+\begin{instrheader}{SH}{Store half word}{S}{STORE}{SH int12(rs1), rs2}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{[(rs1) $+$ sext(imm)]\textsubscript{h} $\leftarrow$ (rs2)\textsubscript{h}}
+\end{instrfunction}
+\begin{instrdesc}
+    Adds the signed offset to the contents of register \texttt{rs1}, treating it as
+    a memory address. Stores the bottom 16 bits of \texttt{rs2} into memory at that address.
+\end{instrdesc}
+\instrdatapathimg{sh}
+\begin{instrexample}
+    \texttt{SH -4(x1), x30}
+\end{instrexample}
+\instrexampleimg{sh}
+\begin{instrexamplenotes}
+    In this example, the bytes in memory starting at address \texttt{0908AAF0} are 
+    \texttt{76 3A C1 C5}. The address to access is \texttt{0908AAF2}, which contains the 
+    bytes \texttt{C1 C5}. The value of the lower 8 bits in \texttt{x30} is \texttt{09B8}. This
+    is stored in memory as the little-endina bytes \texttt{B8 09}, replacing \texttt{C1 C5}, so 
+    that now the bytes in memory starting at address \texttt{0908AAF0} are \texttt{76 3A B8 C5}. 
+\end{instrexamplenotes}
+\newpage
+
+\begin{instrheader}{SLL}{Shift left logical (register/register)}{R}{OP}{SLL rd, rs1, rs2}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ (rs1) $<<$ (rs2)\textsubscript{n}}
+\end{instrfunction}
+\begin{instrdesc}
+    Shifts the contents of register \texttt{rs1} left by the lowest $\log_2$(XLEN) bits of the 
+    contents of register \texttt{rs2}, shifting in zeroes. The result is stored in the destination register.
+\end{instrdesc}
+\instrdatapathimg{sll}
+\begin{instrexample}
+    \texttt{SLL x30, x1, x3}
+\end{instrexample}
+\instrexampleimg{sll}
+\newpage
+
+\begin{instrheader}{SLLI}{Shift left logical (register/immediate)}{I}{OP-IMM}{SLLI rd, rs1, uint12}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ (rs1) $<<$ imm\textsubscript{n}}
+\end{instrfunction}
+\begin{instrdesc}
+    Shifts the contents of register \texttt{rs1} left by the lowest $\log_2$(XLEN) bits of
+    the immediate number, shifting in zeroes. The result is stored in the destination register.
+\end{instrdesc}
+\instrdatapathimg{slli}
+\begin{instrexample}
+    \texttt{SLLI x30, x1, 4}
+\end{instrexample}
+\instrexampleimg{slli}
+\newpage
+
+\begin{instrheader}{SLT}{Set if less than (register/register)}{R}{OP}{SLT rd, rs1, rs2}
+\end{instrheader}
+\begin{instrfunction}
+    \[
+    \texttt{(rd)} \leftarrow \left\{
+    \begin{tabular}{>{\ttfamily}l>{\ttfamily}l}
+        1 & if (rs1) < (rs2)\\
+        0 & otherwise
+    \end{tabular} \right.
+    \]
+\end{instrfunction}
+\begin{instrdesc}
+    Sets the destination register to \texttt{1} if the contents of register \texttt{rs1} is
+    less than the contents of register \texttt{rs2} in a signed comparison, otherwise
+    \texttt{0}.
+\end{instrdesc}
+\instrdatapathimg{slt}
+\begin{instrexample}
+    \texttt{SLT x30, x1, x3}
+\end{instrexample}
+\instrexampleimg{slt}
+\newpage
+
+\begin{instrheader}{SLTI}{Set if less than (register/immediate)}{I}{OP-IMM}{SLTI rd, rs1, int12}
+\end{instrheader}
+\begin{instrfunction}
+    \[
+    \texttt{(rd)} \leftarrow \left\{
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        1 & if (rs1) < sext(imm)\\
+        0 & otherwise
+    \end{tabular} \right.
+    \]
+\end{instrfunction}
+\begin{instrdesc}
+    Sets the destination register to \texttt{1} if the contents of register \texttt{rs1} is
+    less than the sign-extended immediate value in a signed comparison, otherwise
+    \texttt{0}.
+\end{instrdesc}
+\instrdatapathimg{slti}
+\begin{instrexample}
+    \texttt{SLTI x30, x1, -1}
+\end{instrexample}
+\instrexampleimg{slti}
+\begin{instrnotes}
+    Overflows of the \texttt{ADD} instruction for signed arithmetic can be checked using \texttt{SLTI} and \texttt{SLT}:
+
+    \par
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        ADD & x1, x2, x3\\
+        SLTI & x4, x3, 0\\
+        SLT & x5, x1, x2\\
+        BNE & x4, x5, overflow
+    \end{tabular}
+\end{instrnotes}
+\newpage
+
+\begin{instrheader}{SLTIU}{Set if less than, unsigned (register/immediate)}{I}{OP-IMM}{SLTIU rd, rs1, uint12}
+\end{instrheader}
+\begin{instrfunction}
+    \[
+    \texttt{(rd)} \leftarrow \left\{
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        1 & if (rs1)\textsubscript{u} < zext(imm)\\
+        0 & otherwise
+    \end{tabular} \right.
+    \]
+\end{instrfunction}
+\begin{instrdesc}
+    Sets the destination register to \texttt{1} if the contents of register \texttt{rs1} is
+    less than the zero-extended immediate value in an unsigned comparison, otherwise
+    \texttt{0}.
+\end{instrdesc}
+\instrdatapathimg{sltiu}
+\begin{instrexample}
+    \texttt{SLTIU x30, x1, 0xFFF}
+\end{instrexample}
+\instrexampleimg{sltiu}
+\newpage
+
+\begin{instrheader}{SLTU}{Set if less than, unsigned (register/register)}{R}{OP}{SLTU rd, rs1, rs2}
+\end{instrheader}
+\begin{instrfunction}
+    \[
+    \texttt{(rd)} \leftarrow \left\{
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        1 & if (rs1)\textsubscript{u} < (rs2)\textsubscript{u}\\
+        0 & otherwise
+    \end{tabular} \right.
+    \]
+\end{instrfunction}
+\begin{instrdesc}
+    Sets the destination register to \texttt{1} if the contents of register \texttt{rs1} is
+    less than the contents of register \texttt{rs2} in an unsigned comparison, otherwise
+    \texttt{0}.
+\end{instrdesc}
+\instrdatapathimg{sltu}
+\begin{instrexample}
+    \texttt{SLTU x30, x1, x3}
+\end{instrexample}
+\instrexampleimg{sltu}
+\newpage
+
+\begin{instrheader}{SRA}{Shift right arithmetic (register/register)}{R}{OP}{SRA rd, rs1, rs2}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ (rs1) $>>$ (rs2)\textsubscript{n}}
+\end{instrfunction}
+\begin{instrdesc}
+    Shifts the contents of register \texttt{rs1} right by the lowest $\log_2$(XLEN) bits of
+    the contents of register \texttt{rs2}, shifting in the most significant bit of register
+    \texttt{rs1}. The result is stored in the destination register.
+\end{instrdesc}
+\instrdatapathimg{sra}
+\begin{instrexample}
+    \texttt{SRA x30, x1, x3}
+\end{instrexample}
+\instrexampleimg{sra}
+\newpage
+
+\begin{instrheader}{SRAI}{Shift right arithmetic (register/immediate)}{I}{OP-IMM}{SRAI rd, rs1, uintN}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ (rs1) $>>$ (imm)\textsubscript{n}}
+\end{instrfunction}
+\begin{instrdesc}
+    Shifts the contents of register \texttt{rs1} right by the lowest $\log_2$(XLEN) bits of
+    the immediate value, shifting in the most significant bit of register
+    \texttt{rs1}. The result is stored in the destination register.
+\end{instrdesc}
+\instrdatapathimg{srai}
+\begin{instrexample}
+    \texttt{SRAI x30, x1, 4}
+\end{instrexample}
+\instrexampleimg{srai}
+\newpage
+
+\begin{instrheader}{SRL}{Shift right logical (register/register)}{R}{OP}{SRL rd, rs1, rs2}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ (rs1) $>>>$ (rs2)\textsubscript{n}}
+\end{instrfunction}
+\begin{instrdesc}
+    Shifts the contents of register \texttt{rs1} right by the lowest $\log_2$(XLEN) bits of
+    the contents of register \texttt{rs2}, shifting in zeroes. The result is stored in the
+    destination register.
+\end{instrdesc}
+\instrdatapathimg{srl}
+\begin{instrexample}
+    \texttt{SRL x30, x1, x3}
+\end{instrexample}
+\instrexampleimg{srl}
+\newpage
+
+\begin{instrheader}{SRLI}{Shift right logical (register/immediate)}{I}{OP-IMM}{SRLI rd, rs1, uintN}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ (rs1) $>>>$ (imm)\textsubscript{n}}
+\end{instrfunction}
+\begin{instrdesc}
+    Shifts the contents of register \texttt{rs1} right by the lowest $\log_2$(XLEN) bits of
+    the immediate value, shifting in zeroes. The result is stored in the
+    destination register.
+\end{instrdesc}
+\instrdatapathimg{srli}
+\begin{instrexample}
+    \texttt{SRLI x30, x1, 4}
+\end{instrexample}
+\instrexampleimg{srli}
+\newpage
+
+\begin{instrheader}{SUB}{Subtract (register/register)}{R}{OP}{SUB rd, rs1, rs2}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ (rs1) $-$ (rs2)}
+\end{instrfunction}
+\begin{instrdesc}
+    Subtracts contents of register \texttt{rs2} from
+    the contents of register \texttt{rs1}. The result is stored in the
+    destination register.
+\end{instrdesc}
+\instrdatapathimg{sub}
+\begin{instrexample}
+    \texttt{SUB x30, x1, x3}
+\end{instrexample}
+\instrexampleimg{sub}
+\begin{instrnotes}
+    There is no separate \texttt{SUBI} instruction. However, \texttt{SUBI} is a psuedo-instruction
+    encoded as \texttt{ADDI}
+    where the immediate value is negated. Thus, the following two instructions are encoded the
+    same way:
+    
+    \par
+    \begin{tabular}{>{\ttfamily}l >{\ttfamily}l}
+        SUBI & x30, x1, 1\\
+        ADDI & x30, x1, -1
+    \end{tabular}
+\end{instrnotes}
+\newpage
+
+\begin{instrheader}{SW}{Store word}{S}{STORE}{SW int12(rs1), rs2}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{[(rs1) $+$ sext(imm)]\textsubscript{w} $\leftarrow$ (rs2)\textsubscript{w}}
+\end{instrfunction}
+\begin{instrdesc}
+    Adds the signed offset to the contents of register \texttt{rs1}, treating it as
+    a memory address. Stores the bottom 32 bits of \texttt{rs2} into memory at that address.
+\end{instrdesc}
+\instrdatapathimg{sw}
+\begin{instrexample}
+    \texttt{SW -4(x1), x30}
+\end{instrexample}
+\instrexampleimg{sw}
+\begin{instrexamplenotes}
+    In this example, the bytes in memory starting at address \texttt{0908AAF0} are 
+    \texttt{76 3A C1 C5 04 03 02 01}. The address to access is \texttt{0908AAF2}, which contains the 
+    bytes \texttt{C1 C5 04 03}. The contents of \texttt{x30} is \texttt{3F0109B8}. This
+    is stored in memory as the little-endian bytes \texttt{B8 09 01 3F}, replacing \texttt{C1 C5 04 03}, so 
+    that now the bytes in memory starting at address \texttt{0908AAF0} are \texttt{76 3A B8 09 01 3F 02 01}. 
+\end{instrexamplenotes}
+\newpage
+
+\begin{instrheader}{XOR}{Bitwise exclusive or (register/register)}{R}{OP}{XOR rd, rs1, rs2}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ (rs1) $\oplus$ (rs2)}
+\end{instrfunction}
+\begin{instrdesc}
+    Performs a bitwise XOR between the contents of register \texttt{rs1} and the contents
+    of register \texttt{rs2}. The result is placed in register \texttt{rd}.
+\end{instrdesc}
+\instrdatapathimg{xor}
+\begin{instrexample}
+    \texttt{XOR x30, x1, x3}
+\end{instrexample}
+\instrexampleimg{xor}
+\newpage
+
+\begin{instrheader}{XORI}{Bitwise exclusive or (register/immediate)}{I}{OP-IMM}{XOR rd, rs1, int12}
+\end{instrheader}
+\begin{instrfunction}
+    \texttt{(rd) $\leftarrow$ (rs1) $\oplus$ sext(imm)}
+\end{instrfunction}
+\begin{instrdesc}
+    Performs a bitwise XOR between the contents of register \texttt{rs1} and the sign-extended
+    immediate value. The result is placed in register \texttt{rd}.
+\end{instrdesc}
+\instrdatapathimg{xori}
+\begin{instrexample}
+    \texttt{XORI x30, x1, -1}
+\end{instrexample}
+\instrexampleimg{xori}
+\newpage
+
+\end{document}

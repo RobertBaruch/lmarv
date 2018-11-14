@@ -1,0 +1,671 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.10.26)  8 NOV 2018 08:12
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**"f:/KiCad Projects/lmarv/lmarv-1/instr.tex"
+(f:/KiCad Projects/lmarv/lmarv-1/instr.tex
+LaTeX2e <2018-04-01> patch level 5
+(f:/texlive/2018/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
+(f:/texlive/2018/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@chapter=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\c@figure=\count87
+\c@table=\count88
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (f:/texlive/2018/texmf-dist/tex/latex/tools/array.sty
+Package: array 2018/04/30 v2.4h Tabular extension package (FMi)
+\col@sep=\dimen103
+\ar@mcellbox=\box26
+\extrarowheight=\dimen104
+\NC@list=\toks14
+\extratabsurround=\skip43
+\backup@length=\skip44
+\ar@cellbox=\box27
+) (f:/texlive/2018/texmf-dist/tex/latex/dejavu/dejavu.sty
+Package: dejavu 2011/07/27 Style file for DejaVu
+ (f:/texlive/2018/texmf-dist/tex/latex/dejavu/DejaVuSansMono.sty
+Package: DejaVuSansMono 2011/06/01 Style file for DejaVuSansMono.
+ (f:/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)) (f:/texlive/2018/texmf-dist/tex/latex/dejavu/DejaVuSans.sty
+Package: DejaVuSans 2011/06/01 Style file for DejaVuSans.
+) (f:/texlive/2018/texmf-dist/tex/latex/dejavu/DejaVuSerif.sty
+Package: DejaVuSerif 2011/06/01 Style file for DejaVuSerif.
+)) (f:/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+ (f:/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+ (f:/texlive/2018/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (f:/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+ (f:/texlive/2018/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen105
+\Gin@req@width=\dimen106
+) (f:/texlive/2018/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2018/04/16 v5.8 Page Geometry
+ (f:/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+) (f:/texlive/2018/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+) (f:/texlive/2018/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count89
+\Gm@cntv=\count90
+\c@Gm@tempcnt=\count91
+\Gm@bindingoffset=\dimen107
+\Gm@wd@mp=\dimen108
+\Gm@odd@mp=\dimen109
+\Gm@even@mp=\dimen110
+\Gm@layoutwidth=\dimen111
+\Gm@layoutheight=\dimen112
+\Gm@layouthoffset=\dimen113
+\Gm@layoutvoffset=\dimen114
+\Gm@dimlist=\toks16
+) (f:/texlive/2018/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip45
+\LTright=\skip46
+\LTpre=\skip47
+\LTpost=\skip48
+\LTchunksize=\count92
+\LTcapwidth=\dimen115
+\LT@head=\box28
+\LT@firsthead=\box29
+\LT@foot=\box30
+\LT@lastfoot=\box31
+\LT@cols=\count93
+\LT@rows=\count94
+\c@LT@tables=\count95
+\c@LT@chunks=\count96
+\LT@p@ftn=\toks17
+) (f:/texlive/2018/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks18
+\verbatim@line=\toks19
+\verbatim@in@stream=\read1
+) (./instr.aux)
+\openout1 = `instr.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Try loading font information for OT1+DejaVuSans-TLF on input line 138.
+ (f:/texlive/2018/texmf-dist/tex/latex/dejavu/OT1DejaVuSans-TLF.fd
+File: OT1DejaVuSans-TLF.fd 2011/10/30 Font definitions for OT1/DejaVuSans-TLF.
+) (f:/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count97
+\scratchdimen=\dimen116
+\scratchbox=\box32
+\nofMPsegments=\count98
+\nofMParguments=\count99
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count100
+\MPscratchDim=\dimen117
+\MPnumerator=\count101
+\makeMPintoPDFobject=\count102
+\everyMPtoPDFconversion=\toks21
+) (f:/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+ (f:/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+) (f:/texlive/2018/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+ (f:/texlive/2018/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+ (f:/texlive/2018/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+))) (f:/texlive/2018/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+ (f:/texlive/2018/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+ (f:/texlive/2018/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+ (f:/texlive/2018/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+))) (f:/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 438.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+ (f:/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=0.1pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 141.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 141.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 141.
+[1
+
+{f:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Chapter 1.
+LaTeX Font Info:    Font shape `OT1/DejaVuSans-TLF/bx/n' in size <20.74> not available
+(Font)              Font shape `OT1/DejaVuSans-TLF/b/n' tried instead on input line 144.
+LaTeX Font Info:    Font shape `OT1/DejaVuSans-TLF/bx/n' in size <24.88> not available
+(Font)              Font shape `OT1/DejaVuSans-TLF/b/n' tried instead on input line 144.
+LaTeX Font Info:    Try loading font information for OT1+DejaVuSansMono-TLF on input line 188.
+(f:/texlive/2018/texmf-dist/tex/latex/dejavu/OT1DejaVuSansMono-TLF.fd
+File: OT1DejaVuSansMono-TLF.fd 2011/06/01 Font definitions for OT1/DejaVuSansMono-TLF.
+) [2
+
+] [3]
+Chapter 2.
+LaTeX Font Info:    Font shape `OT1/DejaVuSans-TLF/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/DejaVuSans-TLF/b/n' tried instead on input line 207.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 217.
+[4
+
+] [5]
+LaTeX Font Info:    Font shape `OT1/DejaVuSans-TLF/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/DejaVuSans-TLF/b/n' tried instead on input line 250.
+<instr-add-datapath.png, id=26, 310.2792pt x 138.7584pt>
+File: instr-add-datapath.png Graphic file (type png)
+<use instr-add-datapath.png>
+Package pdftex.def Info: instr-add-datapath.png  used on input line 259.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-add-example.png, id=28, 369.66106pt x 90.0966pt>
+File: instr-add-example.png Graphic file (type png)
+<use instr-add-example.png>
+Package pdftex.def Info: instr-add-example.png  used on input line 263.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [6 <./instr-add-datapath.png> <./instr-add-example.png>]
+<instr-addi-datapath.png, id=34, 310.2792pt x 138.7584pt>
+File: instr-addi-datapath.png Graphic file (type png)
+<use instr-addi-datapath.png>
+Package pdftex.def Info: instr-addi-datapath.png  used on input line 286.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-addi-example.png, id=35, 369.66106pt x 90.0966pt>
+File: instr-addi-example.png Graphic file (type png)
+<use instr-addi-example.png>
+Package pdftex.def Info: instr-addi-example.png  used on input line 290.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [7 <./instr-addi-datapath.png> <./instr-addi-example.png>]
+<instr-and-datapath.png, id=42, 310.2792pt x 138.7584pt>
+File: instr-and-datapath.png Graphic file (type png)
+<use instr-and-datapath.png>
+Package pdftex.def Info: instr-and-datapath.png  used on input line 314.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-and-example.png, id=43, 369.66106pt x 90.0966pt>
+File: instr-and-example.png Graphic file (type png)
+<use instr-and-example.png>
+Package pdftex.def Info: instr-and-example.png  used on input line 318.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [8 <./instr-and-datapath.png> <./instr-and-example.png>]
+<instr-andi-datapath.png, id=49, 310.2792pt x 138.7584pt>
+File: instr-andi-datapath.png Graphic file (type png)
+<use instr-andi-datapath.png>
+Package pdftex.def Info: instr-andi-datapath.png  used on input line 330.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-andi-example.png, id=50, 369.66106pt x 90.0966pt>
+File: instr-andi-example.png Graphic file (type png)
+<use instr-andi-example.png>
+Package pdftex.def Info: instr-andi-example.png  used on input line 334.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [9 <./instr-andi-datapath.png> <./instr-andi-example.png>]
+<instr-auipc-datapath.png, id=56, 310.2792pt x 138.7584pt>
+File: instr-auipc-datapath.png Graphic file (type png)
+<use instr-auipc-datapath.png>
+Package pdftex.def Info: instr-auipc-datapath.png  used on input line 347.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-auipc-example.png, id=57, 369.66106pt x 90.0966pt>
+File: instr-auipc-example.png Graphic file (type png)
+<use instr-auipc-example.png>
+Package pdftex.def Info: instr-auipc-example.png  used on input line 351.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [10 <./instr-auipc-datapath.png> <./instr-auipc-example.png>]
+<instr-beq-datapath.png, id=63, 310.2792pt x 143.3355pt>
+File: instr-beq-datapath.png Graphic file (type png)
+<use instr-beq-datapath.png>
+Package pdftex.def Info: instr-beq-datapath.png  used on input line 374.
+(pdftex.def)             Requested size: 310.27844pt x 143.33513pt.
+<instr-beq-example.png, id=64, 369.66106pt x 89.8557pt>
+File: instr-beq-example.png Graphic file (type png)
+<use instr-beq-example.png>
+Package pdftex.def Info: instr-beq-example.png  used on input line 378.
+(pdftex.def)             Requested size: 369.66016pt x 89.85547pt.
+ [11 <./instr-beq-datapath.png> <./instr-beq-example.png>] [12]
+<instr-bge-datapath.png, id=74, 310.2792pt x 143.3355pt>
+File: instr-bge-datapath.png Graphic file (type png)
+<use instr-bge-datapath.png>
+Package pdftex.def Info: instr-bge-datapath.png  used on input line 413.
+(pdftex.def)             Requested size: 310.27844pt x 143.33513pt.
+<instr-bge-example.png, id=75, 369.66106pt x 89.8557pt>
+File: instr-bge-example.png Graphic file (type png)
+<use instr-bge-example.png>
+Package pdftex.def Info: instr-bge-example.png  used on input line 417.
+(pdftex.def)             Requested size: 369.66016pt x 89.85547pt.
+ [13 <./instr-bge-datapath.png> <./instr-bge-example.png>] [14]
+<instr-bgeu-datapath.png, id=85, 310.2792pt x 143.3355pt>
+File: instr-bgeu-datapath.png Graphic file (type png)
+<use instr-bgeu-datapath.png>
+Package pdftex.def Info: instr-bgeu-datapath.png  used on input line 452.
+(pdftex.def)             Requested size: 310.27844pt x 143.33513pt.
+<instr-bgeu-example.png, id=86, 369.66106pt x 89.8557pt>
+File: instr-bgeu-example.png Graphic file (type png)
+<use instr-bgeu-example.png>
+Package pdftex.def Info: instr-bgeu-example.png  used on input line 456.
+(pdftex.def)             Requested size: 369.66016pt x 89.85547pt.
+ [15 <./instr-bgeu-datapath.png> <./instr-bgeu-example.png>] [16]
+<instr-blt-datapath.png, id=95, 310.2792pt x 143.3355pt>
+File: instr-blt-datapath.png Graphic file (type png)
+<use instr-blt-datapath.png>
+Package pdftex.def Info: instr-blt-datapath.png  used on input line 491.
+(pdftex.def)             Requested size: 310.27844pt x 143.33513pt.
+<instr-blt-example.png, id=96, 369.66106pt x 89.8557pt>
+File: instr-blt-example.png Graphic file (type png)
+<use instr-blt-example.png>
+Package pdftex.def Info: instr-blt-example.png  used on input line 495.
+(pdftex.def)             Requested size: 369.66016pt x 89.85547pt.
+ [17 <./instr-blt-datapath.png> <./instr-blt-example.png>] [18]
+<instr-bltu-datapath.png, id=105, 310.2792pt x 143.3355pt>
+File: instr-bltu-datapath.png Graphic file (type png)
+<use instr-bltu-datapath.png>
+Package pdftex.def Info: instr-bltu-datapath.png  used on input line 530.
+(pdftex.def)             Requested size: 310.27844pt x 143.33513pt.
+<instr-bltu-example.png, id=106, 369.66106pt x 89.8557pt>
+File: instr-bltu-example.png Graphic file (type png)
+<use instr-bltu-example.png>
+Package pdftex.def Info: instr-bltu-example.png  used on input line 534.
+(pdftex.def)             Requested size: 369.66016pt x 89.85547pt.
+ [19 <./instr-bltu-datapath.png> <./instr-bltu-example.png>] [20]
+<instr-bne-datapath.png, id=116, 310.2792pt x 143.3355pt>
+File: instr-bne-datapath.png Graphic file (type png)
+<use instr-bne-datapath.png>
+Package pdftex.def Info: instr-bne-datapath.png  used on input line 569.
+(pdftex.def)             Requested size: 310.27844pt x 143.33513pt.
+<instr-bne-example.png, id=117, 369.66106pt x 89.8557pt>
+File: instr-bne-example.png Graphic file (type png)
+<use instr-bne-example.png>
+Package pdftex.def Info: instr-bne-example.png  used on input line 573.
+(pdftex.def)             Requested size: 369.66016pt x 89.85547pt.
+ [21 <./instr-bne-datapath.png> <./instr-bne-example.png>] [22]
+<instr-csrrw-datapath.png, id=126, 309.43605pt x 140.08334pt>
+File: instr-csrrw-datapath.png Graphic file (type png)
+<use instr-csrrw-datapath.png>
+Package pdftex.def Info: instr-csrrw-datapath.png  used on input line 601.
+(pdftex.def)             Requested size: 309.43529pt x 140.083pt.
+<instr-csrrw-example.png, id=127, 375.92445pt x 136.1085pt>
+File: instr-csrrw-example.png Graphic file (type png)
+<use instr-csrrw-example.png>
+Package pdftex.def Info: instr-csrrw-example.png  used on input line 608.
+(pdftex.def)             Requested size: 375.92352pt x 136.10815pt.
+ [23 <./instr-csrrw-datapath.png> <./instr-csrrw-example.png>] [24]
+<instr-jal-datapath.png, id=136, 310.2792pt x 144.2991pt>
+File: instr-jal-datapath.png Graphic file (type png)
+<use instr-jal-datapath.png>
+Package pdftex.def Info: instr-jal-datapath.png  used on input line 636.
+(pdftex.def)             Requested size: 310.27844pt x 144.29874pt.
+<instr-jal-example.png, id=137, 387.1263pt x 89.8557pt>
+File: instr-jal-example.png Graphic file (type png)
+<use instr-jal-example.png>
+Package pdftex.def Info: instr-jal-example.png  used on input line 640.
+(pdftex.def)             Requested size: 387.12535pt x 89.85547pt.
+ [25 <./instr-jal-datapath.png> <./instr-jal-example.png>] [26]
+<instr-jalr-datapath.png, id=147, 309.43605pt x 138.7584pt>
+File: instr-jalr-datapath.png Graphic file (type png)
+<use instr-jalr-datapath.png>
+Package pdftex.def Info: instr-jalr-datapath.png  used on input line 675.
+(pdftex.def)             Requested size: 309.43529pt x 138.75806pt.
+<instr-jalr-example.png, id=148, 387.1263pt x 89.8557pt>
+File: instr-jalr-example.png Graphic file (type png)
+<use instr-jalr-example.png>
+Package pdftex.def Info: instr-jalr-example.png  used on input line 679.
+(pdftex.def)             Requested size: 387.12535pt x 89.85547pt.
+ [27 <./instr-jalr-datapath.png> <./instr-jalr-example.png>] [28]
+<instr-lb-datapath.png, id=157, 310.2792pt x 141.04695pt>
+File: instr-lb-datapath.png Graphic file (type png)
+<use instr-lb-datapath.png>
+Package pdftex.def Info: instr-lb-datapath.png  used on input line 709.
+(pdftex.def)             Requested size: 310.27844pt x 141.0466pt.
+<instr-lb-example.png, id=158, 388.8126pt x 89.8557pt>
+File: instr-lb-example.png Graphic file (type png)
+<use instr-lb-example.png>
+Package pdftex.def Info: instr-lb-example.png  used on input line 713.
+(pdftex.def)             Requested size: 388.81165pt x 89.85547pt.
+ [29 <./instr-lb-datapath.png> <./instr-lb-example.png>]
+<instr-lbu-datapath.png, id=164, 310.2792pt x 141.04695pt>
+File: instr-lbu-datapath.png Graphic file (type png)
+<use instr-lbu-datapath.png>
+Package pdftex.def Info: instr-lbu-datapath.png  used on input line 731.
+(pdftex.def)             Requested size: 310.27844pt x 141.0466pt.
+<instr-lbu-example.png, id=165, 388.8126pt x 89.8557pt>
+File: instr-lbu-example.png Graphic file (type png)
+<use instr-lbu-example.png>
+Package pdftex.def Info: instr-lbu-example.png  used on input line 735.
+(pdftex.def)             Requested size: 388.81165pt x 89.85547pt.
+ [30 <./instr-lbu-datapath.png> <./instr-lbu-example.png>]
+<instr-lh-datapath.png, id=171, 310.2792pt x 141.04695pt>
+File: instr-lh-datapath.png Graphic file (type png)
+<use instr-lh-datapath.png>
+Package pdftex.def Info: instr-lh-datapath.png  used on input line 753.
+(pdftex.def)             Requested size: 310.27844pt x 141.0466pt.
+<instr-lh-example.png, id=172, 388.8126pt x 89.8557pt>
+File: instr-lh-example.png Graphic file (type png)
+<use instr-lh-example.png>
+Package pdftex.def Info: instr-lh-example.png  used on input line 757.
+(pdftex.def)             Requested size: 388.81165pt x 89.85547pt.
+ [31 <./instr-lh-datapath.png> <./instr-lh-example.png>]
+<instr-lhu-datapath.png, id=179, 310.2792pt x 141.04695pt>
+File: instr-lhu-datapath.png Graphic file (type png)
+<use instr-lhu-datapath.png>
+Package pdftex.def Info: instr-lhu-datapath.png  used on input line 776.
+(pdftex.def)             Requested size: 310.27844pt x 141.0466pt.
+<instr-lhu-example.png, id=180, 388.8126pt x 89.8557pt>
+File: instr-lhu-example.png Graphic file (type png)
+<use instr-lhu-example.png>
+Package pdftex.def Info: instr-lhu-example.png  used on input line 780.
+(pdftex.def)             Requested size: 388.81165pt x 89.85547pt.
+ [32 <./instr-lhu-datapath.png> <./instr-lhu-example.png>]
+<instr-lui-datapath.png, id=186, 310.2792pt x 138.7584pt>
+File: instr-lui-datapath.png Graphic file (type png)
+<use instr-lui-datapath.png>
+Package pdftex.def Info: instr-lui-datapath.png  used on input line 799.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-lui-example.png, id=187, 369.66106pt x 90.0966pt>
+File: instr-lui-example.png Graphic file (type png)
+<use instr-lui-example.png>
+Package pdftex.def Info: instr-lui-example.png  used on input line 803.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [33 <./instr-lui-datapath.png> <./instr-lui-example.png>]
+<instr-lw-datapath.png, id=193, 310.2792pt x 141.04695pt>
+File: instr-lw-datapath.png Graphic file (type png)
+<use instr-lw-datapath.png>
+Package pdftex.def Info: instr-lw-datapath.png  used on input line 819.
+(pdftex.def)             Requested size: 310.27844pt x 141.0466pt.
+<instr-lw-example.png, id=194, 388.8126pt x 104.3097pt>
+File: instr-lw-example.png Graphic file (type png)
+<use instr-lw-example.png>
+Package pdftex.def Info: instr-lw-example.png  used on input line 823.
+(pdftex.def)             Requested size: 388.81165pt x 104.30943pt.
+ [34 <./instr-lw-datapath.png> <./instr-lw-example.png>] [35]
+<instr-or-datapath.png, id=204, 310.2792pt x 138.7584pt>
+File: instr-or-datapath.png Graphic file (type png)
+<use instr-or-datapath.png>
+Package pdftex.def Info: instr-or-datapath.png  used on input line 857.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-or-example.png, id=205, 369.66106pt x 90.0966pt>
+File: instr-or-example.png Graphic file (type png)
+<use instr-or-example.png>
+Package pdftex.def Info: instr-or-example.png  used on input line 861.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [36 <./instr-or-datapath.png> <./instr-or-example.png>]
+<instr-ori-datapath.png, id=211, 310.2792pt x 138.7584pt>
+File: instr-ori-datapath.png Graphic file (type png)
+<use instr-ori-datapath.png>
+Package pdftex.def Info: instr-ori-datapath.png  used on input line 873.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-ori-example.png, id=212, 369.66106pt x 90.0966pt>
+File: instr-ori-example.png Graphic file (type png)
+<use instr-ori-example.png>
+Package pdftex.def Info: instr-ori-example.png  used on input line 877.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [37 <./instr-ori-datapath.png> <./instr-ori-example.png>]
+<instr-sb-datapath.png, id=219, 310.2792pt x 141.04695pt>
+File: instr-sb-datapath.png Graphic file (type png)
+<use instr-sb-datapath.png>
+Package pdftex.def Info: instr-sb-datapath.png  used on input line 889.
+(pdftex.def)             Requested size: 310.27844pt x 141.0466pt.
+<instr-sb-example.png, id=220, 388.8126pt x 89.8557pt>
+File: instr-sb-example.png Graphic file (type png)
+<use instr-sb-example.png>
+Package pdftex.def Info: instr-sb-example.png  used on input line 893.
+(pdftex.def)             Requested size: 388.81165pt x 89.85547pt.
+ [38 <./instr-sb-datapath.png> <./instr-sb-example.png>]
+<instr-sh-datapath.png, id=226, 310.2792pt x 141.04695pt>
+File: instr-sh-datapath.png Graphic file (type png)
+<use instr-sh-datapath.png>
+Package pdftex.def Info: instr-sh-datapath.png  used on input line 912.
+(pdftex.def)             Requested size: 310.27844pt x 141.0466pt.
+<instr-sh-example.png, id=227, 388.8126pt x 89.8557pt>
+File: instr-sh-example.png Graphic file (type png)
+<use instr-sh-example.png>
+Package pdftex.def Info: instr-sh-example.png  used on input line 916.
+(pdftex.def)             Requested size: 388.81165pt x 89.85547pt.
+ [39 <./instr-sh-datapath.png> <./instr-sh-example.png>]
+<instr-sll-datapath.png, id=233, 310.2792pt x 138.7584pt>
+File: instr-sll-datapath.png Graphic file (type png)
+<use instr-sll-datapath.png>
+Package pdftex.def Info: instr-sll-datapath.png  used on input line 935.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-sll-example.png, id=234, 369.66106pt x 90.0966pt>
+File: instr-sll-example.png Graphic file (type png)
+<use instr-sll-example.png>
+Package pdftex.def Info: instr-sll-example.png  used on input line 939.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [40 <./instr-sll-datapath.png> <./instr-sll-example.png>]
+<instr-slli-datapath.png, id=240, 310.2792pt x 138.7584pt>
+File: instr-slli-datapath.png Graphic file (type png)
+<use instr-slli-datapath.png>
+Package pdftex.def Info: instr-slli-datapath.png  used on input line 951.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-slli-example.png, id=241, 369.66106pt x 90.0966pt>
+File: instr-slli-example.png Graphic file (type png)
+<use instr-slli-example.png>
+Package pdftex.def Info: instr-slli-example.png  used on input line 955.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [41 <./instr-slli-datapath.png> <./instr-slli-example.png>]
+<instr-slt-datapath.png, id=247, 310.2792pt x 138.7584pt>
+File: instr-slt-datapath.png Graphic file (type png)
+<use instr-slt-datapath.png>
+Package pdftex.def Info: instr-slt-datapath.png  used on input line 974.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-slt-example.png, id=248, 369.66106pt x 90.0966pt>
+File: instr-slt-example.png Graphic file (type png)
+<use instr-slt-example.png>
+Package pdftex.def Info: instr-slt-example.png  used on input line 978.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [42 <./instr-slt-datapath.png> <./instr-slt-example.png>]
+<instr-slti-datapath.png, id=254, 310.2792pt x 138.7584pt>
+File: instr-slti-datapath.png Graphic file (type png)
+<use instr-slti-datapath.png>
+Package pdftex.def Info: instr-slti-datapath.png  used on input line 997.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-slti-example.png, id=255, 369.66106pt x 90.0966pt>
+File: instr-slti-example.png Graphic file (type png)
+<use instr-slti-example.png>
+Package pdftex.def Info: instr-slti-example.png  used on input line 1001.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [43 <./instr-slti-datapath.png> <./instr-slti-example.png>]
+<instr-sltiu-datapath.png, id=262, 310.2792pt x 138.7584pt>
+File: instr-sltiu-datapath.png Graphic file (type png)
+<use instr-sltiu-datapath.png>
+Package pdftex.def Info: instr-sltiu-datapath.png  used on input line 1031.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-sltiu-example.png, id=263, 369.66106pt x 90.0966pt>
+File: instr-sltiu-example.png Graphic file (type png)
+<use instr-sltiu-example.png>
+Package pdftex.def Info: instr-sltiu-example.png  used on input line 1035.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [44 <./instr-sltiu-datapath.png> <./instr-sltiu-example.png>]
+<instr-sltu-datapath.png, id=269, 310.2792pt x 138.7584pt>
+File: instr-sltu-datapath.png Graphic file (type png)
+<use instr-sltu-datapath.png>
+Package pdftex.def Info: instr-sltu-datapath.png  used on input line 1054.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-sltu-example.png, id=270, 369.66106pt x 90.0966pt>
+File: instr-sltu-example.png Graphic file (type png)
+<use instr-sltu-example.png>
+Package pdftex.def Info: instr-sltu-example.png  used on input line 1058.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [45 <./instr-sltu-datapath.png> <./instr-sltu-example.png>]
+<instr-sra-datapath.png, id=276, 310.2792pt x 138.7584pt>
+File: instr-sra-datapath.png Graphic file (type png)
+<use instr-sra-datapath.png>
+Package pdftex.def Info: instr-sra-datapath.png  used on input line 1071.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-sra-example.png, id=277, 369.66106pt x 90.0966pt>
+File: instr-sra-example.png Graphic file (type png)
+<use instr-sra-example.png>
+Package pdftex.def Info: instr-sra-example.png  used on input line 1075.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [46 <./instr-sra-datapath.png> <./instr-sra-example.png>]
+<instr-srai-datapath.png, id=283, 310.2792pt x 138.7584pt>
+File: instr-srai-datapath.png Graphic file (type png)
+<use instr-srai-datapath.png>
+Package pdftex.def Info: instr-srai-datapath.png  used on input line 1088.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-srai-example.png, id=284, 369.66106pt x 90.0966pt>
+File: instr-srai-example.png Graphic file (type png)
+<use instr-srai-example.png>
+Package pdftex.def Info: instr-srai-example.png  used on input line 1092.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [47 <./instr-srai-datapath.png> <./instr-srai-example.png>]
+<instr-srl-datapath.png, id=290, 310.2792pt x 138.7584pt>
+File: instr-srl-datapath.png Graphic file (type png)
+<use instr-srl-datapath.png>
+Package pdftex.def Info: instr-srl-datapath.png  used on input line 1105.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-srl-example.png, id=291, 369.66106pt x 90.0966pt>
+File: instr-srl-example.png Graphic file (type png)
+<use instr-srl-example.png>
+Package pdftex.def Info: instr-srl-example.png  used on input line 1109.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [48 <./instr-srl-datapath.png> <./instr-srl-example.png>]
+<instr-srli-datapath.png, id=297, 310.2792pt x 138.7584pt>
+File: instr-srli-datapath.png Graphic file (type png)
+<use instr-srli-datapath.png>
+Package pdftex.def Info: instr-srli-datapath.png  used on input line 1122.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-srli-example.png, id=298, 369.66106pt x 90.0966pt>
+File: instr-srli-example.png Graphic file (type png)
+<use instr-srli-example.png>
+Package pdftex.def Info: instr-srli-example.png  used on input line 1126.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [49 <./instr-srli-datapath.png> <./instr-srli-example.png>]
+<instr-sub-datapath.png, id=305, 310.2792pt x 138.7584pt>
+File: instr-sub-datapath.png Graphic file (type png)
+<use instr-sub-datapath.png>
+Package pdftex.def Info: instr-sub-datapath.png  used on input line 1139.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-sub-example.png, id=306, 369.66106pt x 90.0966pt>
+File: instr-sub-example.png Graphic file (type png)
+<use instr-sub-example.png>
+Package pdftex.def Info: instr-sub-example.png  used on input line 1143.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [50 <./instr-sub-datapath.png> <./instr-sub-example.png>]
+<instr-sw-datapath.png, id=313, 310.2792pt x 141.04695pt>
+File: instr-sw-datapath.png Graphic file (type png)
+<use instr-sw-datapath.png>
+Package pdftex.def Info: instr-sw-datapath.png  used on input line 1167.
+(pdftex.def)             Requested size: 310.27844pt x 141.0466pt.
+<instr-sw-example.png, id=314, 388.8126pt x 104.3097pt>
+File: instr-sw-example.png Graphic file (type png)
+<use instr-sw-example.png>
+Package pdftex.def Info: instr-sw-example.png  used on input line 1171.
+(pdftex.def)             Requested size: 388.81165pt x 104.30943pt.
+ [51 <./instr-sw-datapath.png> <./instr-sw-example.png>]
+<instr-xor-datapath.png, id=320, 310.2792pt x 138.7584pt>
+File: instr-xor-datapath.png Graphic file (type png)
+<use instr-xor-datapath.png>
+Package pdftex.def Info: instr-xor-datapath.png  used on input line 1190.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-xor-example.png, id=321, 369.66106pt x 90.0966pt>
+File: instr-xor-example.png Graphic file (type png)
+<use instr-xor-example.png>
+Package pdftex.def Info: instr-xor-example.png  used on input line 1194.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [52 <./instr-xor-datapath.png> <./instr-xor-example.png>]
+<instr-xori-datapath.png, id=327, 310.2792pt x 138.7584pt>
+File: instr-xori-datapath.png Graphic file (type png)
+<use instr-xori-datapath.png>
+Package pdftex.def Info: instr-xori-datapath.png  used on input line 1206.
+(pdftex.def)             Requested size: 310.27844pt x 138.75806pt.
+<instr-xori-example.png, id=328, 369.66106pt x 90.0966pt>
+File: instr-xori-example.png Graphic file (type png)
+<use instr-xori-example.png>
+Package pdftex.def Info: instr-xori-example.png  used on input line 1210.
+(pdftex.def)             Requested size: 369.66016pt x 90.09637pt.
+ [53 <./instr-xori-datapath.png> <./instr-xori-example.png>] (./instr.aux) ) 
+Here is how much of TeX's memory you used:
+ 2624 strings out of 492639
+ 43214 string characters out of 6133102
+ 105292 words of memory out of 5000000
+ 6403 multiletter control sequences out of 15000+600000
+ 13760 words of font info for 40 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 41i,11n,25p,306b,256s stack positions out of 5000i,500n,10000p,200000b,80000s
+{f:/texlive/2018/texmf-dist/fonts/enc/dvips/dejavu/dejavumono_ot1.enc}{f:/texlive/2018/texmf-dist/fonts/enc/dvips/dejavu/dejavusans_ot1.enc}<f:/texlive/2018/texmf-dist/fonts/type1/public/dejavu/DejaVuSans-Bold.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/dejavu/DejaVuSans-Oblique.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/dejavu/DejaVuSans.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/dejavu/DejaVuSansMono-Oblique.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/dejavu/DejaVuSansMono.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on instr.pdf (53 pages, 6079471 bytes).
+PDF statistics:
+ 371 PDF objects out of 1000 (max. 8388607)
+ 152 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 381 words of extra memory for PDF output out of 10000 (max. 10000000)
+

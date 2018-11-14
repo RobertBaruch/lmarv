@@ -1,0 +1,94 @@
+%% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'instr-and-datapath.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{309.10307275bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.44721849)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{instr-and-datapath.pdf}}%
+    \put(0.20109537,0.28908387){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}ALU\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{instr-and-datapath.pdf}}%
+    \put(0.51935444,0.4026086){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}x0\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{instr-and-datapath.pdf}}%
+    \put(0.51935442,0.37614811){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}x1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{instr-and-datapath.pdf}}%
+    \put(0.51935442,0.34968767){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}x2\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{instr-and-datapath.pdf}}%
+    \put(0.51935442,0.32322725){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}x3\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{instr-and-datapath.pdf}}%
+    \put(0.51935442,0.26308731){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}x28\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{instr-and-datapath.pdf}}%
+    \put(0.51935442,0.23662689){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}x29\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{instr-and-datapath.pdf}}%
+    \put(0.51935442,0.21016641){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}x30\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{instr-and-datapath.pdf}}%
+    \put(0.51935442,0.18370601){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}x31\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{instr-and-datapath.pdf}}%
+    \put(0.51559588,0.43427378){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}REGISTER FILE\end{tabular}}}}%
+    \put(0.91322471,0.00258891){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}0110011\end{tabular}}}}%
+    \put(0.76883554,0.03129824){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}rd\end{tabular}}}}%
+    \put(0.67361382,0.00258891){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}111\end{tabular}}}}%
+    \put(0.57790676,0.03117888){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}rs1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{instr-and-datapath.pdf}}%
+    \put(0.10824787,0.32974277){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}AND\end{tabular}}}}%
+    \put(0.57841765,0.00229939){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}(00001)\end{tabular}}}}%
+    \put(0.768827,0.00229939){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}(11110)\end{tabular}}}}%
+    \put(0.10843755,0.03097094){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}INSTRUCTION ENCODING\end{tabular}}}}%
+    \put(0.31378876,0.03154508){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}funct7\end{tabular}}}}%
+    \put(0.91346301,0.03220961){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}opcode\end{tabular}}}}%
+    \put(0.67413346,0.03051882){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}funct3\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{instr-and-datapath.pdf}}%
+    \put(0.45858667,0.03067204){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}rs2\end{tabular}}}}%
+    \put(0.45849725,0.00229939){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}(00010)\end{tabular}}}}%
+    \put(0.31385263,0.00229939){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\smash{\begin{tabular}[t]{l}0000000\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{instr-and-datapath.pdf}}%
+  \end{picture}%
+\endgroup%
