@@ -33,12 +33,18 @@ class TesterV2(object):
   REG_IOC3 = 0x1b
   REG_IOC4 = 0x1c
 
-  def __init__(self):
+  def __init__(self, serial_no=None):
+    """Constructor.
+
+    Args:
+      serial_no: str. The serial number of the FTDI adapter.
+    """
+
     # Temporarily disable FTDI serial drivers.
     FT232H.use_FT232H()
 
     # Find the first FT232H device.
-    self.ft232h_ = FT232H.FT232H()
+    self.ft232h_ = FT232H.FT232H(serial=serial_no)
 
     # GPIO pin assignment.
     self.ft232h_.setup(self.OUTPUT_ENABLE_PIN, GPIO.OUT)  # Make pin C0 a digital output.
