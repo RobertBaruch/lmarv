@@ -14,7 +14,7 @@ import Adafruit_GPIO.FT232H as FT232H
 
 class TesterV2(object):
   OUTPUT_ENABLE_PIN = 8  # Pin C0. Low-active.
-  RESET_PIN = 9           # Pin C1. Low-active.
+  RESET_PIN = 9          # Pin C1. Low-active.
 
   # PCA9698 registers
   REG_IP0 = 0x00
@@ -47,18 +47,19 @@ class TesterV2(object):
     self.ft232h_ = FT232H.FT232H(serial=serial_no)
 
     # GPIO pin assignment.
-    self.ft232h_.setup(self.OUTPUT_ENABLE_PIN, GPIO.OUT)  # Make pin C0 a digital output.
+    self.ft232h_.setup(self.OUTPUT_ENABLE_PIN, GPIO.OUT)
+    self.ft232h_.setup(self.RESET_PIN, GPIO.OUT)
+
+    self.Reset()
 
     # Create I2C devices for PCA9698.
     self.i2c0_ = FT232H.I2CDevice(self.ft232h_, 0x20)
     self.i2c1_ = FT232H.I2CDevice(self.ft232h_, 0x21)
     self.i2c2_ = FT232H.I2CDevice(self.ft232h_, 0x22)
-    self.i2c3_ = FT232H.I2CDevice(self.ft232h_, 0x23)
+    self.i2c3_ = FT232H.I2CDevice(self.ft232h_, 0x26)
     self.i2c_ = [self.i2c0_, self.i2c1_, self.i2c2_, self.i2c3_]
 
     self.booted = False
-
-    self.Reset()
 
     # Set output pins
     self.i2c0_.write8(self.REG_IOC0, 0x00)  # rs1[7:0]

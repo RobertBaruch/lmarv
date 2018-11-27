@@ -27,7 +27,7 @@ class Output(tester_v2.TesterV2):
 
     self.OutputEnable(False)
 
-    for reg in [self.REG_IOC0, self.REG_IOC1, self.REG_IOC2, self.REG_IOC3, self.REG_IOC4]:
+    for reg in [self.REG_OP0, self.REG_OP1, self.REG_OP2, self.REG_OP3, self.REG_OP4]:
       self.i2c0_.write8(reg, (pattern >> 24) & 0xff)
       self.i2c1_.write8(reg, (pattern >> 16) & 0xff)
       self.i2c2_.write8(reg, (pattern >>  8) & 0xff)
@@ -56,27 +56,27 @@ class Input(tester_v2.TesterV2):
 class TestPassthru(unittest.TestCase):
 
   def setUp(self):
-    self.out_ = Output(serial_no='B01234567')
-    self.in_ = Input(serial_no='B9876543')
+    self.out_ = Output(serial_no='FT2DG827')
+    self.in_ = Input(serial_no='FT2EX3HT')
 
   def test_equal(self):
     for pattern in generator():
-      # print('{1:08x}'.format(pattern))
+      print('Testing [{0:08x}] ...'.format(pattern))
       self.out_.output(pattern)
       expected = [
-          pattern,  # All IO0s
-          pattern,  # All IO1s
+          pattern,                # All IO0s
+          pattern,                # All IO1s
           pattern & ~0x00c00000,  # All IO2s except bit 7:6 of i2c1
-          pattern,  # All IO3s
+          pattern,                # All IO3s
           pattern & ~0xc0d0c0e0,  # All IO4s except bit7:6 of i2c0, bit 7,6,4 of i2c1,
                                   #                 bit 7:6 of i2c2, bit 7:5 of i2c3.
       ]
 
       actual = self.in_.input()
 
-      for i in len(expected):
+      for i in range(len(expected)):
         self.assertEqual(expected[i], actual[i],
-                         ('\n[{i}] expected:[0x{exp:08x}]({expb})' +
+                         ('\n[IO{i}] expected:[0x{exp:08x}]({expb})' +
                           ' actual:[0x{act:08x}]({actb})').format(i=i,
                              exp=expected[i], expb=utils.to_bin(expected[i]),
                              act=actual[i], actb=utils.to_bin(actual[i])))
