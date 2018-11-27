@@ -8,6 +8,7 @@
 *~
 _autosave-*
 *.tmp
+*.sw*
 
 # Netlist files (exported from Eeschema)
 *.net
@@ -19,3 +20,6 @@ _autosave-*
 # Exported BOM files
 *.xml
 *.csv
+
+# Compiled Python file
+*.pyc
