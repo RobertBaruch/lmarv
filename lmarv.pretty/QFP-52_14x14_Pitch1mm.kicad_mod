@@ -1,4 +1,4 @@
-(module QFP-52_14x14_Pitch1mm (layer F.Cu) (tedit 5B3FE0C4)
+(module QFP-52_14x14_Pitch1mm (layer F.Cu) (tedit 5C0DAF43)
   (attr smd)
   (fp_text reference REF** (at 0 -9.75) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
@@ -76,4 +76,9 @@
   (pad 50 smd oval (at -4 -7.75) (size 0.5 2) (layers F.Cu F.Paste F.Mask))
   (pad 51 smd oval (at -5 -7.75) (size 0.5 2) (layers F.Cu F.Paste F.Mask))
   (pad 52 smd oval (at -6 -7.75) (size 0.5 2) (layers F.Cu F.Paste F.Mask))
+  (model "F:/KiCad Projects/lmarv/3dshapes/qfp52_P1mm_14x14mm_v3_cp.wrl"
+    (at (xyz 0 0 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 0))
+  )
 )

@@ -1,0 +1,160 @@
+EESchema Schematic File Version 4
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L lmarv:CKCA43C0G1H CN1
+U 1 1 5BF0FE71
+P 4625 1700
+F 0 "CN1" H 4863 1746 50  0000 L CNN
+F 1 "CKCA43C0G1H" H 4863 1655 50  0000 L CNN
+F 2 "lmarv:RN_1206_4" H 4625 1550 50  0001 C CNN
+F 3 "" H 4625 1550 50  0001 C CNN
+	1    4625 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L lmarv:CKCA43C0G1H CN2
+U 1 1 5BF0FEAC
+P 4625 2300
+F 0 "CN2" H 4863 2346 50  0000 L CNN
+F 1 "CKCA43C0G1H" H 4863 2255 50  0000 L CNN
+F 2 "lmarv:RN_1206_4" H 4625 2150 50  0001 C CNN
+F 3 "" H 4625 2150 50  0001 C CNN
+	1    4625 2300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4475 1900 4475 2100
+Wire Wire Line
+	4575 1900 4575 2100
+Wire Wire Line
+	4675 1900 4675 2100
+Wire Wire Line
+	4775 1900 4775 2100
+$Comp
+L lmarv:CKCA43C0G1H CN3
+U 1 1 5BF0FFB2
+P 5725 1700
+F 0 "CN3" H 5963 1746 50  0000 L CNN
+F 1 "CKCA43C0G1H" H 5963 1655 50  0000 L CNN
+F 2 "lmarv:RN_1206_4" H 5725 1550 50  0001 C CNN
+F 3 "" H 5725 1550 50  0001 C CNN
+	1    5725 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L lmarv:CKCA43C0G1H CN4
+U 1 1 5BF0FFB8
+P 5725 2300
+F 0 "CN4" H 5963 2346 50  0000 L CNN
+F 1 "CKCA43C0G1H" H 5963 2255 50  0000 L CNN
+F 2 "lmarv:RN_1206_4" H 5725 2150 50  0001 C CNN
+F 3 "" H 5725 2150 50  0001 C CNN
+	1    5725 2300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5575 1900 5575 2100
+Wire Wire Line
+	5675 1900 5675 2100
+Wire Wire Line
+	5775 1900 5775 2100
+Wire Wire Line
+	5875 1900 5875 2100
+$Comp
+L power:GND #PWR?
+U 1 1 5BF10039
+P 5225 2625
+F 0 "#PWR?" H 5225 2375 50  0001 C CNN
+F 1 "GND" H 5230 2452 50  0000 C CNN
+F 2 "" H 5225 2625 50  0001 C CNN
+F 3 "" H 5225 2625 50  0001 C CNN
+	1    5225 2625
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4475 2500 4475 2625
+Wire Wire Line
+	4475 2625 4575 2625
+Wire Wire Line
+	5875 2625 5875 2500
+Connection ~ 5225 2625
+Wire Wire Line
+	5225 2625 5575 2625
+Wire Wire Line
+	5775 2625 5775 2500
+Connection ~ 5775 2625
+Wire Wire Line
+	5775 2625 5875 2625
+Wire Wire Line
+	5675 2625 5675 2500
+Wire Wire Line
+	5575 2625 5575 2500
+Connection ~ 5575 2625
+Wire Wire Line
+	5575 2625 5675 2625
+Connection ~ 5675 2625
+Wire Wire Line
+	5675 2625 5775 2625
+Wire Wire Line
+	4775 2625 4775 2500
+Wire Wire Line
+	4675 2625 4675 2500
+Wire Wire Line
+	4575 2625 4575 2500
+Connection ~ 4575 2625
+Wire Wire Line
+	4575 2625 4675 2625
+Connection ~ 4675 2625
+Wire Wire Line
+	4675 2625 4775 2625
+Connection ~ 4775 2625
+Wire Wire Line
+	4775 2625 5225 2625
+$Comp
+L power:GND #PWR?
+U 1 1 5BF1056F
+P 5200 1500
+F 0 "#PWR?" H 5200 1250 50  0001 C CNN
+F 1 "GND" H 5205 1327 50  0000 C CNN
+F 2 "" H 5200 1500 50  0001 C CNN
+F 3 "" H 5200 1500 50  0001 C CNN
+	1    5200 1500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4475 1500 4575 1500
+Connection ~ 4575 1500
+Wire Wire Line
+	4575 1500 4675 1500
+Connection ~ 4675 1500
+Wire Wire Line
+	4675 1500 4775 1500
+Connection ~ 4775 1500
+Wire Wire Line
+	4775 1500 5200 1500
+Connection ~ 5200 1500
+Wire Wire Line
+	5200 1500 5575 1500
+Connection ~ 5575 1500
+Wire Wire Line
+	5575 1500 5675 1500
+Connection ~ 5675 1500
+Wire Wire Line
+	5675 1500 5775 1500
+Connection ~ 5775 1500
+Wire Wire Line
+	5775 1500 5875 1500
+$EndSCHEMATC

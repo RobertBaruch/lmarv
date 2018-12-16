@@ -51,6 +51,12 @@ $CMP 74LVTH16374
 D 3.3v 16-bit edge triggered D-type flip-flops with 3-state outputs
 $ENDCMP
 #
+$CMP APTD2012LSURCK
+D LED, Red, SMD, 0805 (2012 metric)
+K LED
+F http://www.kingbrightusa.com/images/catalog/SPEC/APTD2012LSURCK.pdf
+$ENDCMP
+#
 $CMP AT28BV256B-20JU
 D 32k x 8 EEPROM (PLCC32)
 K rom, eeprom

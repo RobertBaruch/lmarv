@@ -1,0 +1,743 @@
+EESchema Schematic File Version 4
+LIBS:lights_n_jumpers-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 4 20
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L lmarv:RPACK8 RN?
+U 1 1 5C0F98A0
+P 3400 3500
+AR Path="/5C0F98A0" Ref="RN?"  Part="1" 
+AR Path="/5C0F9722/5C0F98A0" Ref="RN2"  Part="1" 
+AR Path="/5C1044B3/5C0F98A0" Ref="RN5"  Part="1" 
+AR Path="/5C106191/5C0F98A0" Ref="RN2"  Part="1" 
+AR Path="/5C119AA6/5C0F98A0" Ref="RN8"  Part="1" 
+AR Path="/5C11FCB0/5C0F98A0" Ref="RN11"  Part="1" 
+AR Path="/5C1238D9/5C0F98A0" Ref="RN14"  Part="1" 
+AR Path="/5C12390D/5C0F98A0" Ref="RN17"  Part="1" 
+AR Path="/5C17BBEC/5C0F98A0" Ref="RN20"  Part="1" 
+AR Path="/5C17BC10/5C0F98A0" Ref="RN23"  Part="1" 
+AR Path="/5C0C0A25/5C0F98A0" Ref="RN26"  Part="1" 
+AR Path="/5C0C0A49/5C0F98A0" Ref="RN29"  Part="1" 
+AR Path="/5C12922D/5C0F98A0" Ref="RN32"  Part="1" 
+AR Path="/5C129249/5C0F98A0" Ref="RN35"  Part="1" 
+AR Path="/5C4F7225/5C0F98A0" Ref="RN38"  Part="1" 
+AR Path="/5C4F7231/5C0F98A0" Ref="RN?"  Part="1" 
+AR Path="/5C51774E/5C0F98A0" Ref="RN?"  Part="1" 
+AR Path="/5C5DB646/5C0F98A0" Ref="RN41"  Part="1" 
+AR Path="/5C5FC82B/5C0F98A0" Ref="RN44"  Part="1" 
+AR Path="/5CA0031A/5C0F98A0" Ref="RN47"  Part="1" 
+AR Path="/5CBA9B54/5C0F98A0" Ref="RN?"  Part="1" 
+AR Path="/5CCAA71E/5C0F98A0" Ref="RN?"  Part="1" 
+AR Path="/5CCD845D/5C0F98A0" Ref="RN50"  Part="1" 
+AR Path="/5CDC05E4/5C0F98A0" Ref="RN53"  Part="1" 
+AR Path="/5CE4FBE3/5C0F98A0" Ref="RN56"  Part="1" 
+F 0 "RN23" H 2970 3504 50  0000 R CNN
+F 1 "100k" H 2970 3595 50  0000 R CNN
+F 2 "lmarv:CAY17" H 3450 3150 50  0001 C CNN
+F 3 "https://www.bourns.com/docs/Product-Datasheets/CAY17.pdf" H 3450 3150 50  0001 C CNN
+F 4 "Bourns" H 3400 3500 50  0001 C CNN "MFG"
+F 5 "CAY17-104J" H 3400 3500 50  0001 C CNN "MFG P/N"
+	1    3400 3500
+	-1   0    0    1   
+$EndComp
+$Comp
+L lmarv:APTD2012LSURCK D?
+U 1 1 5C0F98A9
+P 4925 1750
+AR Path="/5C0F98A9" Ref="D?"  Part="1" 
+AR Path="/5C0F9722/5C0F98A9" Ref="D7"  Part="1" 
+AR Path="/5C1044B3/5C0F98A9" Ref="D9"  Part="1" 
+AR Path="/5C106191/5C0F98A9" Ref="D1"  Part="1" 
+AR Path="/5C119AA6/5C0F98A9" Ref="D17"  Part="1" 
+AR Path="/5C11FCB0/5C0F98A9" Ref="D25"  Part="1" 
+AR Path="/5C1238D9/5C0F98A9" Ref="D33"  Part="1" 
+AR Path="/5C12390D/5C0F98A9" Ref="D41"  Part="1" 
+AR Path="/5C17BBEC/5C0F98A9" Ref="D49"  Part="1" 
+AR Path="/5C17BC10/5C0F98A9" Ref="D57"  Part="1" 
+AR Path="/5C0C0A25/5C0F98A9" Ref="D65"  Part="1" 
+AR Path="/5C0C0A49/5C0F98A9" Ref="D73"  Part="1" 
+AR Path="/5C12922D/5C0F98A9" Ref="D81"  Part="1" 
+AR Path="/5C129249/5C0F98A9" Ref="D89"  Part="1" 
+AR Path="/5C4F7225/5C0F98A9" Ref="D97"  Part="1" 
+AR Path="/5C4F7231/5C0F98A9" Ref="D?"  Part="1" 
+AR Path="/5C51774E/5C0F98A9" Ref="D?"  Part="1" 
+AR Path="/5C5DB646/5C0F98A9" Ref="D105"  Part="1" 
+AR Path="/5C5FC82B/5C0F98A9" Ref="D113"  Part="1" 
+AR Path="/5CA0031A/5C0F98A9" Ref="D121"  Part="1" 
+AR Path="/5CBA9B54/5C0F98A9" Ref="D?"  Part="1" 
+AR Path="/5CCAA71E/5C0F98A9" Ref="D?"  Part="1" 
+AR Path="/5CCD845D/5C0F98A9" Ref="D129"  Part="1" 
+AR Path="/5CDC05E4/5C0F98A9" Ref="D137"  Part="1" 
+AR Path="/5CE4FBE3/5C0F98A9" Ref="D145"  Part="1" 
+F 0 "D57" H 4700 1825 50  0000 C CNN
+F 1 "APTD2012LSURCK" H 4925 1616 50  0001 C CNN
+F 2 "lmarv:D_0805_Wide" H 4925 1750 50  0001 C CNN
+F 3 "http://www.kingbrightusa.com/images/catalog/SPEC/APTD2012LSURCK.pdf" H 4925 1750 50  0001 C CNN
+F 4 "Kingbright" H 4925 1750 50  0001 C CNN "MFG"
+F 5 "APTD2012LSURCK" H 4925 1750 50  0001 C CNN "MFG P/N"
+	1    4925 1750
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3750 2375 3750 2500
+Wire Wire Line
+	3650 2375 3650 2600
+Wire Wire Line
+	3550 2375 3550 2700
+Wire Wire Line
+	3450 2375 3450 2800
+Wire Wire Line
+	3350 2375 3350 2900
+Wire Wire Line
+	3250 2375 3250 3000
+Wire Wire Line
+	3150 2375 3150 3100
+Wire Wire Line
+	3050 2375 3050 3200
+Connection ~ 3750 2500
+Connection ~ 3650 2600
+Connection ~ 3550 2700
+Connection ~ 3450 2800
+Connection ~ 3350 2900
+Connection ~ 3250 3000
+Connection ~ 3150 3100
+Connection ~ 3050 3200
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5C0F98C0
+P 3750 1400
+AR Path="/5C0F98C0" Ref="#PWR?"  Part="1" 
+AR Path="/5C0F9722/5C0F98C0" Ref="#PWR01"  Part="1" 
+AR Path="/5C1044B3/5C0F98C0" Ref="#PWR0105"  Part="1" 
+AR Path="/5C106191/5C0F98C0" Ref="#PWR01"  Part="1" 
+AR Path="/5C119AA6/5C0F98C0" Ref="#PWR06"  Part="1" 
+AR Path="/5C11FCB0/5C0F98C0" Ref="#PWR019"  Part="1" 
+AR Path="/5C1238D9/5C0F98C0" Ref="#PWR022"  Part="1" 
+AR Path="/5C12390D/5C0F98C0" Ref="#PWR025"  Part="1" 
+AR Path="/5C17BBEC/5C0F98C0" Ref="#PWR028"  Part="1" 
+AR Path="/5C17BC10/5C0F98C0" Ref="#PWR031"  Part="1" 
+AR Path="/5C0C0A25/5C0F98C0" Ref="#PWR060"  Part="1" 
+AR Path="/5C0C0A49/5C0F98C0" Ref="#PWR063"  Part="1" 
+AR Path="/5C12922D/5C0F98C0" Ref="#PWR066"  Part="1" 
+AR Path="/5C129249/5C0F98C0" Ref="#PWR069"  Part="1" 
+AR Path="/5C4F7225/5C0F98C0" Ref="#PWR072"  Part="1" 
+AR Path="/5C4F7231/5C0F98C0" Ref="#PWR?"  Part="1" 
+AR Path="/5C51774E/5C0F98C0" Ref="#PWR?"  Part="1" 
+AR Path="/5C5DB646/5C0F98C0" Ref="#PWR075"  Part="1" 
+AR Path="/5C5FC82B/5C0F98C0" Ref="#PWR078"  Part="1" 
+AR Path="/5CA0031A/5C0F98C0" Ref="#PWR081"  Part="1" 
+AR Path="/5CBA9B54/5C0F98C0" Ref="#PWR?"  Part="1" 
+AR Path="/5CCAA71E/5C0F98C0" Ref="#PWR?"  Part="1" 
+AR Path="/5CCD845D/5C0F98C0" Ref="#PWR084"  Part="1" 
+AR Path="/5CDC05E4/5C0F98C0" Ref="#PWR087"  Part="1" 
+AR Path="/5CE4FBE3/5C0F98C0" Ref="#PWR090"  Part="1" 
+F 0 "#PWR090" H 3750 1250 50  0001 C CNN
+F 1 "+3.3V" H 3765 1573 50  0000 C CNN
+F 2 "" H 3750 1400 50  0001 C CNN
+F 3 "" H 3750 1400 50  0001 C CNN
+	1    3750 1400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2300 3200 3050 3200
+Wire Wire Line
+	2300 3100 3150 3100
+Wire Wire Line
+	2300 3000 3250 3000
+Wire Wire Line
+	2300 2900 3350 2900
+Wire Wire Line
+	2300 2800 3450 2800
+Wire Wire Line
+	2300 2700 3550 2700
+Wire Wire Line
+	2300 2600 3650 2600
+Wire Wire Line
+	2300 2500 3750 2500
+$Comp
+L lmarv:APTD2012LSURCK D?
+U 1 1 5C0F98D0
+P 4925 1975
+AR Path="/5C0F98D0" Ref="D?"  Part="1" 
+AR Path="/5C0F9722/5C0F98D0" Ref="D6"  Part="1" 
+AR Path="/5C1044B3/5C0F98D0" Ref="D10"  Part="1" 
+AR Path="/5C106191/5C0F98D0" Ref="D2"  Part="1" 
+AR Path="/5C119AA6/5C0F98D0" Ref="D18"  Part="1" 
+AR Path="/5C11FCB0/5C0F98D0" Ref="D26"  Part="1" 
+AR Path="/5C1238D9/5C0F98D0" Ref="D34"  Part="1" 
+AR Path="/5C12390D/5C0F98D0" Ref="D42"  Part="1" 
+AR Path="/5C17BBEC/5C0F98D0" Ref="D50"  Part="1" 
+AR Path="/5C17BC10/5C0F98D0" Ref="D58"  Part="1" 
+AR Path="/5C0C0A25/5C0F98D0" Ref="D66"  Part="1" 
+AR Path="/5C0C0A49/5C0F98D0" Ref="D74"  Part="1" 
+AR Path="/5C12922D/5C0F98D0" Ref="D82"  Part="1" 
+AR Path="/5C129249/5C0F98D0" Ref="D90"  Part="1" 
+AR Path="/5C4F7225/5C0F98D0" Ref="D98"  Part="1" 
+AR Path="/5C4F7231/5C0F98D0" Ref="D?"  Part="1" 
+AR Path="/5C51774E/5C0F98D0" Ref="D?"  Part="1" 
+AR Path="/5C5DB646/5C0F98D0" Ref="D106"  Part="1" 
+AR Path="/5C5FC82B/5C0F98D0" Ref="D114"  Part="1" 
+AR Path="/5CA0031A/5C0F98D0" Ref="D122"  Part="1" 
+AR Path="/5CBA9B54/5C0F98D0" Ref="D?"  Part="1" 
+AR Path="/5CCAA71E/5C0F98D0" Ref="D?"  Part="1" 
+AR Path="/5CCD845D/5C0F98D0" Ref="D130"  Part="1" 
+AR Path="/5CDC05E4/5C0F98D0" Ref="D138"  Part="1" 
+AR Path="/5CE4FBE3/5C0F98D0" Ref="D146"  Part="1" 
+F 0 "D58" H 4700 2050 50  0000 C CNN
+F 1 "APTD2012LSURCK" H 4925 1841 50  0001 C CNN
+F 2 "lmarv:D_0805_Wide" H 4925 1975 50  0001 C CNN
+F 3 "http://www.kingbrightusa.com/images/catalog/SPEC/APTD2012LSURCK.pdf" H 4925 1975 50  0001 C CNN
+F 4 "Kingbright" H 4925 1975 50  0001 C CNN "MFG"
+F 5 "APTD2012LSURCK" H 4925 1975 50  0001 C CNN "MFG P/N"
+	1    4925 1975
+	-1   0    0    1   
+$EndComp
+$Comp
+L lmarv:APTD2012LSURCK D?
+U 1 1 5C0F98D9
+P 4925 2200
+AR Path="/5C0F98D9" Ref="D?"  Part="1" 
+AR Path="/5C0F9722/5C0F98D9" Ref="D5"  Part="1" 
+AR Path="/5C1044B3/5C0F98D9" Ref="D11"  Part="1" 
+AR Path="/5C106191/5C0F98D9" Ref="D3"  Part="1" 
+AR Path="/5C119AA6/5C0F98D9" Ref="D19"  Part="1" 
+AR Path="/5C11FCB0/5C0F98D9" Ref="D27"  Part="1" 
+AR Path="/5C1238D9/5C0F98D9" Ref="D35"  Part="1" 
+AR Path="/5C12390D/5C0F98D9" Ref="D43"  Part="1" 
+AR Path="/5C17BBEC/5C0F98D9" Ref="D51"  Part="1" 
+AR Path="/5C17BC10/5C0F98D9" Ref="D59"  Part="1" 
+AR Path="/5C0C0A25/5C0F98D9" Ref="D67"  Part="1" 
+AR Path="/5C0C0A49/5C0F98D9" Ref="D75"  Part="1" 
+AR Path="/5C12922D/5C0F98D9" Ref="D83"  Part="1" 
+AR Path="/5C129249/5C0F98D9" Ref="D91"  Part="1" 
+AR Path="/5C4F7225/5C0F98D9" Ref="D99"  Part="1" 
+AR Path="/5C4F7231/5C0F98D9" Ref="D?"  Part="1" 
+AR Path="/5C51774E/5C0F98D9" Ref="D?"  Part="1" 
+AR Path="/5C5DB646/5C0F98D9" Ref="D107"  Part="1" 
+AR Path="/5C5FC82B/5C0F98D9" Ref="D115"  Part="1" 
+AR Path="/5CA0031A/5C0F98D9" Ref="D123"  Part="1" 
+AR Path="/5CBA9B54/5C0F98D9" Ref="D?"  Part="1" 
+AR Path="/5CCAA71E/5C0F98D9" Ref="D?"  Part="1" 
+AR Path="/5CCD845D/5C0F98D9" Ref="D131"  Part="1" 
+AR Path="/5CDC05E4/5C0F98D9" Ref="D139"  Part="1" 
+AR Path="/5CE4FBE3/5C0F98D9" Ref="D147"  Part="1" 
+F 0 "D59" H 4700 2275 50  0000 C CNN
+F 1 "APTD2012LSURCK" H 4925 2066 50  0001 C CNN
+F 2 "lmarv:D_0805_Wide" H 4925 2200 50  0001 C CNN
+F 3 "http://www.kingbrightusa.com/images/catalog/SPEC/APTD2012LSURCK.pdf" H 4925 2200 50  0001 C CNN
+F 4 "Kingbright" H 4925 2200 50  0001 C CNN "MFG"
+F 5 "APTD2012LSURCK" H 4925 2200 50  0001 C CNN "MFG P/N"
+	1    4925 2200
+	-1   0    0    1   
+$EndComp
+$Comp
+L lmarv:APTD2012LSURCK D?
+U 1 1 5C0F98E2
+P 4925 2425
+AR Path="/5C0F98E2" Ref="D?"  Part="1" 
+AR Path="/5C0F9722/5C0F98E2" Ref="D4"  Part="1" 
+AR Path="/5C1044B3/5C0F98E2" Ref="D12"  Part="1" 
+AR Path="/5C106191/5C0F98E2" Ref="D4"  Part="1" 
+AR Path="/5C119AA6/5C0F98E2" Ref="D20"  Part="1" 
+AR Path="/5C11FCB0/5C0F98E2" Ref="D28"  Part="1" 
+AR Path="/5C1238D9/5C0F98E2" Ref="D36"  Part="1" 
+AR Path="/5C12390D/5C0F98E2" Ref="D44"  Part="1" 
+AR Path="/5C17BBEC/5C0F98E2" Ref="D52"  Part="1" 
+AR Path="/5C17BC10/5C0F98E2" Ref="D60"  Part="1" 
+AR Path="/5C0C0A25/5C0F98E2" Ref="D68"  Part="1" 
+AR Path="/5C0C0A49/5C0F98E2" Ref="D76"  Part="1" 
+AR Path="/5C12922D/5C0F98E2" Ref="D84"  Part="1" 
+AR Path="/5C129249/5C0F98E2" Ref="D92"  Part="1" 
+AR Path="/5C4F7225/5C0F98E2" Ref="D100"  Part="1" 
+AR Path="/5C4F7231/5C0F98E2" Ref="D?"  Part="1" 
+AR Path="/5C51774E/5C0F98E2" Ref="D?"  Part="1" 
+AR Path="/5C5DB646/5C0F98E2" Ref="D108"  Part="1" 
+AR Path="/5C5FC82B/5C0F98E2" Ref="D116"  Part="1" 
+AR Path="/5CA0031A/5C0F98E2" Ref="D124"  Part="1" 
+AR Path="/5CBA9B54/5C0F98E2" Ref="D?"  Part="1" 
+AR Path="/5CCAA71E/5C0F98E2" Ref="D?"  Part="1" 
+AR Path="/5CCD845D/5C0F98E2" Ref="D132"  Part="1" 
+AR Path="/5CDC05E4/5C0F98E2" Ref="D140"  Part="1" 
+AR Path="/5CE4FBE3/5C0F98E2" Ref="D148"  Part="1" 
+F 0 "D60" H 4700 2500 50  0000 C CNN
+F 1 "APTD2012LSURCK" H 4925 2291 50  0001 C CNN
+F 2 "lmarv:D_0805_Wide" H 4925 2425 50  0001 C CNN
+F 3 "http://www.kingbrightusa.com/images/catalog/SPEC/APTD2012LSURCK.pdf" H 4925 2425 50  0001 C CNN
+F 4 "Kingbright" H 4925 2425 50  0001 C CNN "MFG"
+F 5 "APTD2012LSURCK" H 4925 2425 50  0001 C CNN "MFG P/N"
+	1    4925 2425
+	-1   0    0    1   
+$EndComp
+$Comp
+L lmarv:APTD2012LSURCK D?
+U 1 1 5C0F98EB
+P 4925 2650
+AR Path="/5C0F98EB" Ref="D?"  Part="1" 
+AR Path="/5C0F9722/5C0F98EB" Ref="D3"  Part="1" 
+AR Path="/5C1044B3/5C0F98EB" Ref="D13"  Part="1" 
+AR Path="/5C106191/5C0F98EB" Ref="D5"  Part="1" 
+AR Path="/5C119AA6/5C0F98EB" Ref="D21"  Part="1" 
+AR Path="/5C11FCB0/5C0F98EB" Ref="D29"  Part="1" 
+AR Path="/5C1238D9/5C0F98EB" Ref="D37"  Part="1" 
+AR Path="/5C12390D/5C0F98EB" Ref="D45"  Part="1" 
+AR Path="/5C17BBEC/5C0F98EB" Ref="D53"  Part="1" 
+AR Path="/5C17BC10/5C0F98EB" Ref="D61"  Part="1" 
+AR Path="/5C0C0A25/5C0F98EB" Ref="D69"  Part="1" 
+AR Path="/5C0C0A49/5C0F98EB" Ref="D77"  Part="1" 
+AR Path="/5C12922D/5C0F98EB" Ref="D85"  Part="1" 
+AR Path="/5C129249/5C0F98EB" Ref="D93"  Part="1" 
+AR Path="/5C4F7225/5C0F98EB" Ref="D101"  Part="1" 
+AR Path="/5C4F7231/5C0F98EB" Ref="D?"  Part="1" 
+AR Path="/5C51774E/5C0F98EB" Ref="D?"  Part="1" 
+AR Path="/5C5DB646/5C0F98EB" Ref="D109"  Part="1" 
+AR Path="/5C5FC82B/5C0F98EB" Ref="D117"  Part="1" 
+AR Path="/5CA0031A/5C0F98EB" Ref="D125"  Part="1" 
+AR Path="/5CBA9B54/5C0F98EB" Ref="D?"  Part="1" 
+AR Path="/5CCAA71E/5C0F98EB" Ref="D?"  Part="1" 
+AR Path="/5CCD845D/5C0F98EB" Ref="D133"  Part="1" 
+AR Path="/5CDC05E4/5C0F98EB" Ref="D141"  Part="1" 
+AR Path="/5CE4FBE3/5C0F98EB" Ref="D149"  Part="1" 
+F 0 "D61" H 4700 2725 50  0000 C CNN
+F 1 "APTD2012LSURCK" H 4925 2516 50  0001 C CNN
+F 2 "lmarv:D_0805_Wide" H 4925 2650 50  0001 C CNN
+F 3 "http://www.kingbrightusa.com/images/catalog/SPEC/APTD2012LSURCK.pdf" H 4925 2650 50  0001 C CNN
+F 4 "Kingbright" H 4925 2650 50  0001 C CNN "MFG"
+F 5 "APTD2012LSURCK" H 4925 2650 50  0001 C CNN "MFG P/N"
+	1    4925 2650
+	-1   0    0    1   
+$EndComp
+$Comp
+L lmarv:APTD2012LSURCK D?
+U 1 1 5C0F98F4
+P 4925 2875
+AR Path="/5C0F98F4" Ref="D?"  Part="1" 
+AR Path="/5C0F9722/5C0F98F4" Ref="D2"  Part="1" 
+AR Path="/5C1044B3/5C0F98F4" Ref="D14"  Part="1" 
+AR Path="/5C106191/5C0F98F4" Ref="D6"  Part="1" 
+AR Path="/5C119AA6/5C0F98F4" Ref="D22"  Part="1" 
+AR Path="/5C11FCB0/5C0F98F4" Ref="D30"  Part="1" 
+AR Path="/5C1238D9/5C0F98F4" Ref="D38"  Part="1" 
+AR Path="/5C12390D/5C0F98F4" Ref="D46"  Part="1" 
+AR Path="/5C17BBEC/5C0F98F4" Ref="D54"  Part="1" 
+AR Path="/5C17BC10/5C0F98F4" Ref="D62"  Part="1" 
+AR Path="/5C0C0A25/5C0F98F4" Ref="D70"  Part="1" 
+AR Path="/5C0C0A49/5C0F98F4" Ref="D78"  Part="1" 
+AR Path="/5C12922D/5C0F98F4" Ref="D86"  Part="1" 
+AR Path="/5C129249/5C0F98F4" Ref="D94"  Part="1" 
+AR Path="/5C4F7225/5C0F98F4" Ref="D102"  Part="1" 
+AR Path="/5C4F7231/5C0F98F4" Ref="D?"  Part="1" 
+AR Path="/5C51774E/5C0F98F4" Ref="D?"  Part="1" 
+AR Path="/5C5DB646/5C0F98F4" Ref="D110"  Part="1" 
+AR Path="/5C5FC82B/5C0F98F4" Ref="D118"  Part="1" 
+AR Path="/5CA0031A/5C0F98F4" Ref="D126"  Part="1" 
+AR Path="/5CBA9B54/5C0F98F4" Ref="D?"  Part="1" 
+AR Path="/5CCAA71E/5C0F98F4" Ref="D?"  Part="1" 
+AR Path="/5CCD845D/5C0F98F4" Ref="D134"  Part="1" 
+AR Path="/5CDC05E4/5C0F98F4" Ref="D142"  Part="1" 
+AR Path="/5CE4FBE3/5C0F98F4" Ref="D150"  Part="1" 
+F 0 "D62" H 4700 2950 50  0000 C CNN
+F 1 "APTD2012LSURCK" H 4925 2741 50  0001 C CNN
+F 2 "lmarv:D_0805_Wide" H 4925 2875 50  0001 C CNN
+F 3 "http://www.kingbrightusa.com/images/catalog/SPEC/APTD2012LSURCK.pdf" H 4925 2875 50  0001 C CNN
+F 4 "Kingbright" H 4925 2875 50  0001 C CNN "MFG"
+F 5 "APTD2012LSURCK" H 4925 2875 50  0001 C CNN "MFG P/N"
+	1    4925 2875
+	-1   0    0    1   
+$EndComp
+$Comp
+L lmarv:APTD2012LSURCK D?
+U 1 1 5C0F98FD
+P 4925 3100
+AR Path="/5C0F98FD" Ref="D?"  Part="1" 
+AR Path="/5C0F9722/5C0F98FD" Ref="D1"  Part="1" 
+AR Path="/5C1044B3/5C0F98FD" Ref="D15"  Part="1" 
+AR Path="/5C106191/5C0F98FD" Ref="D7"  Part="1" 
+AR Path="/5C119AA6/5C0F98FD" Ref="D23"  Part="1" 
+AR Path="/5C11FCB0/5C0F98FD" Ref="D31"  Part="1" 
+AR Path="/5C1238D9/5C0F98FD" Ref="D39"  Part="1" 
+AR Path="/5C12390D/5C0F98FD" Ref="D47"  Part="1" 
+AR Path="/5C17BBEC/5C0F98FD" Ref="D55"  Part="1" 
+AR Path="/5C17BC10/5C0F98FD" Ref="D63"  Part="1" 
+AR Path="/5C0C0A25/5C0F98FD" Ref="D71"  Part="1" 
+AR Path="/5C0C0A49/5C0F98FD" Ref="D79"  Part="1" 
+AR Path="/5C12922D/5C0F98FD" Ref="D87"  Part="1" 
+AR Path="/5C129249/5C0F98FD" Ref="D95"  Part="1" 
+AR Path="/5C4F7225/5C0F98FD" Ref="D103"  Part="1" 
+AR Path="/5C4F7231/5C0F98FD" Ref="D?"  Part="1" 
+AR Path="/5C51774E/5C0F98FD" Ref="D?"  Part="1" 
+AR Path="/5C5DB646/5C0F98FD" Ref="D111"  Part="1" 
+AR Path="/5C5FC82B/5C0F98FD" Ref="D119"  Part="1" 
+AR Path="/5CA0031A/5C0F98FD" Ref="D127"  Part="1" 
+AR Path="/5CBA9B54/5C0F98FD" Ref="D?"  Part="1" 
+AR Path="/5CCAA71E/5C0F98FD" Ref="D?"  Part="1" 
+AR Path="/5CCD845D/5C0F98FD" Ref="D135"  Part="1" 
+AR Path="/5CDC05E4/5C0F98FD" Ref="D143"  Part="1" 
+AR Path="/5CE4FBE3/5C0F98FD" Ref="D151"  Part="1" 
+F 0 "D63" H 4700 3175 50  0000 C CNN
+F 1 "APTD2012LSURCK" H 4925 2966 50  0001 C CNN
+F 2 "lmarv:D_0805_Wide" H 4925 3100 50  0001 C CNN
+F 3 "http://www.kingbrightusa.com/images/catalog/SPEC/APTD2012LSURCK.pdf" H 4925 3100 50  0001 C CNN
+F 4 "Kingbright" H 4925 3100 50  0001 C CNN "MFG"
+F 5 "APTD2012LSURCK" H 4925 3100 50  0001 C CNN "MFG P/N"
+	1    4925 3100
+	-1   0    0    1   
+$EndComp
+$Comp
+L lmarv:APTD2012LSURCK D?
+U 1 1 5C0F9906
+P 4925 3325
+AR Path="/5C0F9906" Ref="D?"  Part="1" 
+AR Path="/5C0F9722/5C0F9906" Ref="D0"  Part="1" 
+AR Path="/5C1044B3/5C0F9906" Ref="D16"  Part="1" 
+AR Path="/5C106191/5C0F9906" Ref="D8"  Part="1" 
+AR Path="/5C119AA6/5C0F9906" Ref="D24"  Part="1" 
+AR Path="/5C11FCB0/5C0F9906" Ref="D32"  Part="1" 
+AR Path="/5C1238D9/5C0F9906" Ref="D40"  Part="1" 
+AR Path="/5C12390D/5C0F9906" Ref="D48"  Part="1" 
+AR Path="/5C17BBEC/5C0F9906" Ref="D56"  Part="1" 
+AR Path="/5C17BC10/5C0F9906" Ref="D64"  Part="1" 
+AR Path="/5C0C0A25/5C0F9906" Ref="D72"  Part="1" 
+AR Path="/5C0C0A49/5C0F9906" Ref="D80"  Part="1" 
+AR Path="/5C12922D/5C0F9906" Ref="D88"  Part="1" 
+AR Path="/5C129249/5C0F9906" Ref="D96"  Part="1" 
+AR Path="/5C4F7225/5C0F9906" Ref="D104"  Part="1" 
+AR Path="/5C4F7231/5C0F9906" Ref="D?"  Part="1" 
+AR Path="/5C51774E/5C0F9906" Ref="D?"  Part="1" 
+AR Path="/5C5DB646/5C0F9906" Ref="D112"  Part="1" 
+AR Path="/5C5FC82B/5C0F9906" Ref="D120"  Part="1" 
+AR Path="/5CA0031A/5C0F9906" Ref="D128"  Part="1" 
+AR Path="/5CBA9B54/5C0F9906" Ref="D?"  Part="1" 
+AR Path="/5CCAA71E/5C0F9906" Ref="D?"  Part="1" 
+AR Path="/5CCD845D/5C0F9906" Ref="D136"  Part="1" 
+AR Path="/5CDC05E4/5C0F9906" Ref="D144"  Part="1" 
+AR Path="/5CE4FBE3/5C0F9906" Ref="D152"  Part="1" 
+F 0 "D64" H 4700 3400 50  0000 C CNN
+F 1 "APTD2012LSURCK" H 4925 3191 50  0001 C CNN
+F 2 "lmarv:D_0805_Wide" H 4925 3325 50  0001 C CNN
+F 3 "http://www.kingbrightusa.com/images/catalog/SPEC/APTD2012LSURCK.pdf" H 4925 3325 50  0001 C CNN
+F 4 "Kingbright" H 4925 3325 50  0001 C CNN "MFG"
+F 5 "APTD2012LSURCK" H 4925 3325 50  0001 C CNN "MFG P/N"
+	1    4925 3325
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4775 3325 4775 3200
+Wire Wire Line
+	4775 3000 4775 2875
+Wire Wire Line
+	4700 2900 4700 2650
+Wire Wire Line
+	4700 2650 4775 2650
+Wire Wire Line
+	4625 2800 4625 2425
+Wire Wire Line
+	4625 2425 4775 2425
+Wire Wire Line
+	4550 2700 4550 2200
+Wire Wire Line
+	4550 2200 4775 2200
+Wire Wire Line
+	4475 2600 4475 1975
+Wire Wire Line
+	4475 1975 4775 1975
+Wire Wire Line
+	4400 2500 4400 1750
+Wire Wire Line
+	4400 1750 4775 1750
+$Comp
+L Connector_Generic:Conn_02x08_Odd_Even J?
+U 1 1 5C0F9919
+P 3350 2075
+AR Path="/5C0F9919" Ref="J?"  Part="1" 
+AR Path="/5C0F9722/5C0F9919" Ref="J1"  Part="1" 
+AR Path="/5C1044B3/5C0F9919" Ref="J2"  Part="1" 
+AR Path="/5C106191/5C0F9919" Ref="J1"  Part="1" 
+AR Path="/5C119AA6/5C0F9919" Ref="J3"  Part="1" 
+AR Path="/5C11FCB0/5C0F9919" Ref="J4"  Part="1" 
+AR Path="/5C1238D9/5C0F9919" Ref="J5"  Part="1" 
+AR Path="/5C12390D/5C0F9919" Ref="J6"  Part="1" 
+AR Path="/5C17BBEC/5C0F9919" Ref="J7"  Part="1" 
+AR Path="/5C17BC10/5C0F9919" Ref="J8"  Part="1" 
+AR Path="/5C0C0A25/5C0F9919" Ref="J10"  Part="1" 
+AR Path="/5C0C0A49/5C0F9919" Ref="J11"  Part="1" 
+AR Path="/5C12922D/5C0F9919" Ref="J12"  Part="1" 
+AR Path="/5C129249/5C0F9919" Ref="J13"  Part="1" 
+AR Path="/5C4F7225/5C0F9919" Ref="J14"  Part="1" 
+AR Path="/5C4F7231/5C0F9919" Ref="J?"  Part="1" 
+AR Path="/5C51774E/5C0F9919" Ref="J?"  Part="1" 
+AR Path="/5C5DB646/5C0F9919" Ref="J15"  Part="1" 
+AR Path="/5C5FC82B/5C0F9919" Ref="J16"  Part="1" 
+AR Path="/5CA0031A/5C0F9919" Ref="J17"  Part="1" 
+AR Path="/5CBA9B54/5C0F9919" Ref="J?"  Part="1" 
+AR Path="/5CCAA71E/5C0F9919" Ref="J?"  Part="1" 
+AR Path="/5CCD845D/5C0F9919" Ref="J18"  Part="1" 
+AR Path="/5CDC05E4/5C0F9919" Ref="J19"  Part="1" 
+AR Path="/5CE4FBE3/5C0F9919" Ref="J20"  Part="1" 
+F 0 "J8" V 3400 1587 50  0000 R CNN
+F 1 "Conn_02x08_Odd_Even" V 3445 2455 50  0001 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x08_P2.54mm_Vertical" H 3350 2075 50  0001 C CNN
+F 3 "~" H 3350 2075 50  0001 C CNN
+	1    3350 2075
+	0    -1   1    0   
+$EndComp
+$Comp
+L lmarv:RPACK8 RN?
+U 1 1 5C0F9922
+P 5700 3700
+AR Path="/5C0F9922" Ref="RN?"  Part="1" 
+AR Path="/5C0F9722/5C0F9922" Ref="RN3"  Part="1" 
+AR Path="/5C1044B3/5C0F9922" Ref="RN6"  Part="1" 
+AR Path="/5C106191/5C0F9922" Ref="RN3"  Part="1" 
+AR Path="/5C119AA6/5C0F9922" Ref="RN9"  Part="1" 
+AR Path="/5C11FCB0/5C0F9922" Ref="RN12"  Part="1" 
+AR Path="/5C1238D9/5C0F9922" Ref="RN15"  Part="1" 
+AR Path="/5C12390D/5C0F9922" Ref="RN18"  Part="1" 
+AR Path="/5C17BBEC/5C0F9922" Ref="RN21"  Part="1" 
+AR Path="/5C17BC10/5C0F9922" Ref="RN24"  Part="1" 
+AR Path="/5C0C0A25/5C0F9922" Ref="RN27"  Part="1" 
+AR Path="/5C0C0A49/5C0F9922" Ref="RN30"  Part="1" 
+AR Path="/5C12922D/5C0F9922" Ref="RN33"  Part="1" 
+AR Path="/5C129249/5C0F9922" Ref="RN36"  Part="1" 
+AR Path="/5C4F7225/5C0F9922" Ref="RN39"  Part="1" 
+AR Path="/5C4F7231/5C0F9922" Ref="RN?"  Part="1" 
+AR Path="/5C51774E/5C0F9922" Ref="RN?"  Part="1" 
+AR Path="/5C5DB646/5C0F9922" Ref="RN42"  Part="1" 
+AR Path="/5C5FC82B/5C0F9922" Ref="RN45"  Part="1" 
+AR Path="/5CA0031A/5C0F9922" Ref="RN48"  Part="1" 
+AR Path="/5CBA9B54/5C0F9922" Ref="RN?"  Part="1" 
+AR Path="/5CCAA71E/5C0F9922" Ref="RN?"  Part="1" 
+AR Path="/5CCD845D/5C0F9922" Ref="RN51"  Part="1" 
+AR Path="/5CDC05E4/5C0F9922" Ref="RN54"  Part="1" 
+AR Path="/5CE4FBE3/5C0F9922" Ref="RN57"  Part="1" 
+F 0 "RN24" H 5270 3704 50  0000 R CNN
+F 1 "1k" H 5270 3795 50  0000 R CNN
+F 2 "lmarv:CAY17" H 5750 3350 50  0001 C CNN
+F 3 "https://www.bourns.com/docs/Product-Datasheets/CAY17.pdf" H 5750 3350 50  0001 C CNN
+F 4 "Bourns" H 5700 3700 50  0001 C CNN "MFG"
+F 5 "CAY17-102J" H 5700 3700 50  0001 C CNN "MFG P/N"
+	1    5700 3700
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	3750 2500 4400 2500
+Wire Wire Line
+	3650 2600 4475 2600
+Wire Wire Line
+	3550 2700 4550 2700
+Wire Wire Line
+	3450 2800 4625 2800
+Wire Wire Line
+	3350 2900 4700 2900
+Wire Wire Line
+	3250 3000 4775 3000
+Wire Wire Line
+	3150 3100 4775 3100
+Wire Wire Line
+	3050 3200 4775 3200
+$Comp
+L power:GNDREF #PWR?
+U 1 1 5C0F9937
+P 5350 4025
+AR Path="/5C0F9937" Ref="#PWR?"  Part="1" 
+AR Path="/5C0F9722/5C0F9937" Ref="#PWR03"  Part="1" 
+AR Path="/5C1044B3/5C0F9937" Ref="#PWR0106"  Part="1" 
+AR Path="/5C106191/5C0F9937" Ref="#PWR03"  Part="1" 
+AR Path="/5C119AA6/5C0F9937" Ref="#PWR08"  Part="1" 
+AR Path="/5C11FCB0/5C0F9937" Ref="#PWR021"  Part="1" 
+AR Path="/5C1238D9/5C0F9937" Ref="#PWR024"  Part="1" 
+AR Path="/5C12390D/5C0F9937" Ref="#PWR027"  Part="1" 
+AR Path="/5C17BBEC/5C0F9937" Ref="#PWR030"  Part="1" 
+AR Path="/5C17BC10/5C0F9937" Ref="#PWR033"  Part="1" 
+AR Path="/5C0C0A25/5C0F9937" Ref="#PWR062"  Part="1" 
+AR Path="/5C0C0A49/5C0F9937" Ref="#PWR065"  Part="1" 
+AR Path="/5C12922D/5C0F9937" Ref="#PWR068"  Part="1" 
+AR Path="/5C129249/5C0F9937" Ref="#PWR071"  Part="1" 
+AR Path="/5C4F7225/5C0F9937" Ref="#PWR074"  Part="1" 
+AR Path="/5C4F7231/5C0F9937" Ref="#PWR?"  Part="1" 
+AR Path="/5C51774E/5C0F9937" Ref="#PWR?"  Part="1" 
+AR Path="/5C5DB646/5C0F9937" Ref="#PWR077"  Part="1" 
+AR Path="/5C5FC82B/5C0F9937" Ref="#PWR080"  Part="1" 
+AR Path="/5CA0031A/5C0F9937" Ref="#PWR083"  Part="1" 
+AR Path="/5CBA9B54/5C0F9937" Ref="#PWR?"  Part="1" 
+AR Path="/5CCAA71E/5C0F9937" Ref="#PWR?"  Part="1" 
+AR Path="/5CCD845D/5C0F9937" Ref="#PWR086"  Part="1" 
+AR Path="/5CDC05E4/5C0F9937" Ref="#PWR089"  Part="1" 
+AR Path="/5CE4FBE3/5C0F9937" Ref="#PWR092"  Part="1" 
+F 0 "#PWR092" H 5350 3775 50  0001 C CNN
+F 1 "GNDREF" H 5355 3852 50  0001 C CNN
+F 2 "" H 5350 4025 50  0001 C CNN
+F 3 "" H 5350 4025 50  0001 C CNN
+	1    5350 4025
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5350 3950 5350 4025
+Wire Wire Line
+	3050 3200 3050 3350
+Wire Wire Line
+	3150 3100 3150 3350
+Wire Wire Line
+	3250 3000 3250 3350
+Wire Wire Line
+	3350 2900 3350 3350
+Wire Wire Line
+	3450 2800 3450 3350
+Wire Wire Line
+	3550 2700 3550 3350
+Wire Wire Line
+	3650 2600 3650 3350
+Wire Wire Line
+	3750 2500 3750 3350
+$Comp
+L lmarv:RPACK8 RN?
+U 1 1 5C0F9952
+P 3400 1725
+AR Path="/5C0F9952" Ref="RN?"  Part="1" 
+AR Path="/5C0F9722/5C0F9952" Ref="RN1"  Part="1" 
+AR Path="/5C1044B3/5C0F9952" Ref="RN4"  Part="1" 
+AR Path="/5C106191/5C0F9952" Ref="RN1"  Part="1" 
+AR Path="/5C119AA6/5C0F9952" Ref="RN7"  Part="1" 
+AR Path="/5C11FCB0/5C0F9952" Ref="RN10"  Part="1" 
+AR Path="/5C1238D9/5C0F9952" Ref="RN13"  Part="1" 
+AR Path="/5C12390D/5C0F9952" Ref="RN16"  Part="1" 
+AR Path="/5C17BBEC/5C0F9952" Ref="RN19"  Part="1" 
+AR Path="/5C17BC10/5C0F9952" Ref="RN22"  Part="1" 
+AR Path="/5C0C0A25/5C0F9952" Ref="RN25"  Part="1" 
+AR Path="/5C0C0A49/5C0F9952" Ref="RN28"  Part="1" 
+AR Path="/5C12922D/5C0F9952" Ref="RN31"  Part="1" 
+AR Path="/5C129249/5C0F9952" Ref="RN34"  Part="1" 
+AR Path="/5C4F7225/5C0F9952" Ref="RN37"  Part="1" 
+AR Path="/5C4F7231/5C0F9952" Ref="RN?"  Part="1" 
+AR Path="/5C51774E/5C0F9952" Ref="RN?"  Part="1" 
+AR Path="/5C5DB646/5C0F9952" Ref="RN40"  Part="1" 
+AR Path="/5C5FC82B/5C0F9952" Ref="RN43"  Part="1" 
+AR Path="/5CA0031A/5C0F9952" Ref="RN46"  Part="1" 
+AR Path="/5CBA9B54/5C0F9952" Ref="RN?"  Part="1" 
+AR Path="/5CCAA71E/5C0F9952" Ref="RN?"  Part="1" 
+AR Path="/5CCD845D/5C0F9952" Ref="RN49"  Part="1" 
+AR Path="/5CDC05E4/5C0F9952" Ref="RN52"  Part="1" 
+AR Path="/5CE4FBE3/5C0F9952" Ref="RN55"  Part="1" 
+F 0 "RN22" H 2970 1821 50  0000 R CNN
+F 1 "10k" H 2970 1730 50  0000 R CNN
+F 2 "lmarv:CAY17" H 3450 1375 50  0001 C CNN
+F 3 "https://www.bourns.com/docs/Product-Datasheets/CAY17.pdf" H 3450 1375 50  0001 C CNN
+F 4 "Bourns" H 3400 1725 50  0001 C CNN "MFG"
+F 5 "CAY17-103J" H 3400 1725 50  0001 C CNN "MFG P/N"
+	1    3400 1725
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	3750 1400 3750 1450
+Text HLabel 2300 2500 0    50   UnSpc ~ 0
+D0
+Text HLabel 2300 2600 0    50   UnSpc ~ 0
+D1
+Text HLabel 2300 2700 0    50   UnSpc ~ 0
+D2
+Text HLabel 2300 2800 0    50   UnSpc ~ 0
+D3
+Text HLabel 2300 2900 0    50   UnSpc ~ 0
+D4
+Text HLabel 2300 3000 0    50   UnSpc ~ 0
+D5
+Text HLabel 2300 3100 0    50   UnSpc ~ 0
+D6
+Text HLabel 2300 3200 0    50   UnSpc ~ 0
+D7
+Wire Wire Line
+	3750 1450 2325 1450
+Connection ~ 3750 1450
+Wire Wire Line
+	3750 1450 3750 1475
+Text HLabel 2325 1450 0    50   UnSpc ~ 0
+3v3
+$Comp
+L power:GNDREF #PWR?
+U 1 1 5C0FF0B0
+P 3750 3850
+AR Path="/5C0FF0B0" Ref="#PWR?"  Part="1" 
+AR Path="/5C0F9722/5C0FF0B0" Ref="#PWR02"  Part="1" 
+AR Path="/5C1044B3/5C0FF0B0" Ref="#PWR0107"  Part="1" 
+AR Path="/5C106191/5C0FF0B0" Ref="#PWR02"  Part="1" 
+AR Path="/5C119AA6/5C0FF0B0" Ref="#PWR07"  Part="1" 
+AR Path="/5C11FCB0/5C0FF0B0" Ref="#PWR020"  Part="1" 
+AR Path="/5C1238D9/5C0FF0B0" Ref="#PWR023"  Part="1" 
+AR Path="/5C12390D/5C0FF0B0" Ref="#PWR026"  Part="1" 
+AR Path="/5C17BBEC/5C0FF0B0" Ref="#PWR029"  Part="1" 
+AR Path="/5C17BC10/5C0FF0B0" Ref="#PWR032"  Part="1" 
+AR Path="/5C0C0A25/5C0FF0B0" Ref="#PWR061"  Part="1" 
+AR Path="/5C0C0A49/5C0FF0B0" Ref="#PWR064"  Part="1" 
+AR Path="/5C12922D/5C0FF0B0" Ref="#PWR067"  Part="1" 
+AR Path="/5C129249/5C0FF0B0" Ref="#PWR070"  Part="1" 
+AR Path="/5C4F7225/5C0FF0B0" Ref="#PWR073"  Part="1" 
+AR Path="/5C4F7231/5C0FF0B0" Ref="#PWR?"  Part="1" 
+AR Path="/5C51774E/5C0FF0B0" Ref="#PWR?"  Part="1" 
+AR Path="/5C5DB646/5C0FF0B0" Ref="#PWR076"  Part="1" 
+AR Path="/5C5FC82B/5C0FF0B0" Ref="#PWR079"  Part="1" 
+AR Path="/5CA0031A/5C0FF0B0" Ref="#PWR082"  Part="1" 
+AR Path="/5CBA9B54/5C0FF0B0" Ref="#PWR?"  Part="1" 
+AR Path="/5CCAA71E/5C0FF0B0" Ref="#PWR?"  Part="1" 
+AR Path="/5CCD845D/5C0FF0B0" Ref="#PWR085"  Part="1" 
+AR Path="/5CDC05E4/5C0FF0B0" Ref="#PWR088"  Part="1" 
+AR Path="/5CE4FBE3/5C0FF0B0" Ref="#PWR091"  Part="1" 
+F 0 "#PWR091" H 3750 3600 50  0001 C CNN
+F 1 "GNDREF" H 3755 3677 50  0001 C CNN
+F 2 "" H 3750 3850 50  0001 C CNN
+F 3 "" H 3750 3850 50  0001 C CNN
+	1    3750 3850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3750 3750 3750 3800
+Wire Wire Line
+	3750 3800 2325 3800
+Text HLabel 2325 3800 0    50   UnSpc ~ 0
+GND
+Wire Wire Line
+	3750 3800 3750 3850
+Connection ~ 3750 3800
+Wire Wire Line
+	5750 3325 5750 3550
+Wire Wire Line
+	5075 3325 5750 3325
+Wire Wire Line
+	5850 3100 5850 3550
+Wire Wire Line
+	5075 3100 5850 3100
+Wire Wire Line
+	5950 2875 5950 3550
+Wire Wire Line
+	5075 2875 5950 2875
+Wire Wire Line
+	6050 2650 6050 3550
+Wire Wire Line
+	5075 2650 6050 2650
+Wire Wire Line
+	5075 2425 5350 2425
+Wire Wire Line
+	5350 2425 5350 3550
+Wire Wire Line
+	5075 2200 5450 2200
+Wire Wire Line
+	5450 2200 5450 3550
+Wire Wire Line
+	5075 1975 5550 1975
+Wire Wire Line
+	5550 1975 5550 3550
+Wire Wire Line
+	5075 1750 5650 1750
+Wire Wire Line
+	5650 1750 5650 3550
+$EndSCHEMATC
