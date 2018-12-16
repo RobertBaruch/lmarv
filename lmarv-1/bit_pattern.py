@@ -37,8 +37,8 @@ def bit_by_bit_not():
 # Combine all of them.
 def bit_pattern():
   return itertools.chain(
-    all_zeroes_and_all_ones(),
     bit_by_bit(),
+    all_zeroes_and_all_ones(),
     bit_by_bit_not(),
   )
 

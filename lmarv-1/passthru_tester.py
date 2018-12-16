@@ -6,6 +6,7 @@ import unittest
 import alu
 import bit_pattern
 import tester_v2
+import time
 import utils
 
 
@@ -72,6 +73,7 @@ class TestPassthru(unittest.TestCase):
                                   #                 bit 7:6 of i2c2, bit 7:5 of i2c3.
       ]
 
+      time.sleep(0.01)
       actual = self.in_.input()
 
       for i in range(len(expected)):
