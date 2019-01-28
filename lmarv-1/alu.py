@@ -81,6 +81,7 @@ class Alu(object):
                     pg_rom_data = generate | (propagate << 1) | (c0 << 2)
                     pg_rom_addr = x | (y << 4) | (f << 8)
                     self.propagage_generate_rom[pg_rom_addr] = pg_rom_data
+                    self.propagage_generate_rom[pg_rom_addr | (1 << 12)] = pg_rom_data
 
         for f in range(16):
             for y in range(16):
@@ -88,9 +89,10 @@ class Alu(object):
                     for cin in range(2):
                         z, _, _, _, compare = self.compute_(x, y, cin, f)
                         bitslice_rom_data = z | (compare << 4)
-                        bitslice_rom_addr = x | (
-                            y << 4) | (f << 8) | (cin << 12)
-                        self.bitslice_rom[bitslice_rom_addr] = bitslice_rom_data
+                        bitslice_rom_addr = x | (y << 4) | (f << 8) | (
+                            cin << 12)
+                        self.bitslice_rom[
+                            bitslice_rom_addr] = bitslice_rom_data
 
         self.bits = [0] * 2**7
         for n in range(2**7):
@@ -106,11 +108,15 @@ class Alu(object):
                         c[i + 1] = (c[i] & p[i]) | g[i]
                     carry_lookahead_rom_data = bin_to_int(
                         [c[1], c[2], c[3], c[4], c[5], c[6], c[7]])
-                    carry_lookahead_rom_addr = bin_to_int(
-                        [c[0], g[0], p[0], g[1], p[1], g[2], p[2], g[3], p[3], g[4], p[4], g[5], p[5], g[6], p[6]])
-                    self.carry_lookahead_rom[carry_lookahead_rom_addr] = carry_lookahead_rom_data
+                    carry_lookahead_rom_addr = bin_to_int([
+                        c[0], g[0], p[0], g[1], p[1], g[2], p[2], g[3], p[3],
+                        g[4], p[4], g[5], p[5], g[6], p[6]
+                    ])
+                    self.carry_lookahead_rom[
+                        carry_lookahead_rom_addr] = carry_lookahead_rom_data
 
-    def boot_signals(self, n_alu_oe, nBOOT_ALU_EN, nBOOT_RST, BOOT_CLK, nBOOT_WR):
+    def boot_signals(self, n_alu_oe, nBOOT_ALU_EN, nBOOT_RST, BOOT_CLK,
+                     nBOOT_WR):
         if n_alu_oe == 0:
             return
         if nBOOT_RST == 0:
@@ -127,8 +133,8 @@ class Alu(object):
                 self.boot_written[self.boot_counter] = True
             return
         if nBOOT_RST == 1:
-            self.booted = functools.reduce(
-                lambda x, y: x and y, self.boot_written, True)
+            self.booted = functools.reduce(lambda x, y: x and y,
+                                           self.boot_written, True)
 
     def evaluate(self, x, y, f):
         if not self.booted:
@@ -156,9 +162,12 @@ class Alu(object):
             p[i] = data[1]
 
         # carry lookahead
-        carry_lookahead_rom_addr = bin_to_int(
-            [c[0], g[0], p[0], g[1], p[1], g[2], p[2], g[3], p[3], g[4], p[4], g[5], p[5], g[6], p[6]])
-        carry_lookahead_rom_data = self.carry_lookahead_rom[carry_lookahead_rom_addr]
+        carry_lookahead_rom_addr = bin_to_int([
+            c[0], g[0], p[0], g[1], p[1], g[2], p[2], g[3], p[3], g[4], p[4],
+            g[5], p[5], g[6], p[6]
+        ])
+        carry_lookahead_rom_data = self.carry_lookahead_rom[
+            carry_lookahead_rom_addr]
         data = self.bits[carry_lookahead_rom_data]
         for i in range(7):
             c[i + 1] = data[i]
@@ -179,7 +188,7 @@ class Alu(object):
             rdb |= 0b1
         return rdb
 
-    def write(self, fname):
+    def write(self):
         with open("alu_pg_rom.bin", "wb") as f:
             f.write(self.propagage_generate_rom)
         with open("alu_bitslice_rom.bin", "wb") as f:
@@ -274,11 +283,13 @@ def main():
     alu = Alu()
     alu.copy_roms_()
     alu.booted = True
-    rd = alu.evaluate(0xFFFFFFFF, 0xFFFFFFFF, F_SEQ)
+    alu.write()
+    rd = alu.evaluate(0x00000000, 0xFFFFFFFF, F_XOR)
     srd = rd
     if (srd >> 31) == 1:
         srd = -((2**32 - rd) & (2**32 - 1))
-    print("0b{0:032b} = 0x{0:08x}, unsigned {0:d}, signed {1:d}".format(rd, srd))
+    print("0b{0:032b} = 0x{0:08x}, unsigned {0:d}, signed {1:d}".format(
+        rd, srd))
 
 
 if __name__ == "__main__":
